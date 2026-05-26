@@ -433,3 +433,208 @@ footer {
   }
 
 }
+/* --- ABOUT PAGE --- */
+.about-hero {
+  padding-top: calc(var(--nav-height) + var(--space-24));
+  padding-bottom: var(--space-16);
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.about-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.03em;
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-6);
+  max-width: 560px;
+}
+
+.about-lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-loose);
+  max-width: 520px;
+}
+
+.about-image-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--color-border);
+}
+
+.about-image-placeholder p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.about-bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.about-side-block {
+  margin-bottom: var(--space-8);
+}
+
+.about-side-value {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.about-side-sub {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.about-side-link {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.about-side-link:hover {
+  color: var(--color-text-primary);
+}
+
+/* Experience */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-8);
+  padding: var(--space-8) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.experience-company {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.experience-period {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.experience-role {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.experience-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-loose);
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-12);
+}
+
+.skill-group-label {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.skill-group-items {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-loose);
+}
+
+/* CTA */
+.about-cta {
+  text-align: center;
+  padding: var(--space-32) 0;
+}
+
+.about-cta-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-6);
+}
+
+.about-cta-link {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 2px;
+  transition: color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+
+.about-cta-link:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+/* About mobile */
+@media (max-width: 768px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-image {
+    order: -1;
+  }
+
+  .about-image-placeholder {
+    aspect-ratio: 1 / 1;
+  }
+
+  .about-bio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-bio-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .about-title {
+    font-size: var(--text-2xl);
+  }
+}
