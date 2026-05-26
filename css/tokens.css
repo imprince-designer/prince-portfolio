@@ -1,0 +1,81 @@
+/* ============================================
+   PRINCE PORTFOLIO — DESIGN TOKENS
+   Your entire design system in one file.
+   Change a value here = changes everywhere.
+============================================ */
+
+:root {
+
+  /* --- COLORS: Light Mode --- */
+  --color-bg:           #F9F8F6;
+  --color-bg-secondary: #F0EEE9;
+  --color-surface:      #FFFFFF;
+  --color-border:       #E4E2DC;
+  --color-text-primary: #141413;
+  --color-text-secondary: #6B6A66;
+  --color-text-muted:   #A8A7A3;
+  --color-accent:       #C8B89A;
+  --color-accent-hover: #B5A389;
+
+  /* --- TYPOGRAPHY --- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-xs:   0.75rem;    /* 12px — labels, tags */
+  --text-sm:   0.875rem;   /* 14px — captions, meta */
+  --text-base: 1rem;       /* 16px — body */
+  --text-lg:   1.125rem;   /* 18px — lead text */
+  --text-xl:   1.5rem;     /* 24px — small headings */
+  --text-2xl:  2rem;       /* 32px — section headings */
+  --text-3xl:  3rem;       /* 48px — hero */
+  --text-4xl:  4.5rem;     /* 72px — display */
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+
+  --leading-tight:  1.1;
+  --leading-normal: 1.6;
+  --leading-loose:  1.8;
+
+  /* --- SPACING --- */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-24: 6rem;      /* 96px */
+  --space-32: 8rem;      /* 128px */
+
+  /* --- LAYOUT --- */
+  --max-width: 1100px;
+  --nav-height: 72px;
+
+  /* --- TRANSITIONS --- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:   150ms;
+  --duration-normal: 300ms;
+  --duration-slow:   600ms;
+
+  /* --- RADIUS --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+}
+
+/* --- COLORS: Dark Mode --- */
+[data-theme="dark"] {
+
+  --color-bg:           #111110;
+  --color-bg-secondary: #1A1A18;
+  --color-surface:      #222220;
+  --color-border:       #2C2C2A;
+  --color-text-primary: #F0EEE9;
+  --color-text-secondary: #908F8B;
+  --color-text-muted:   #5A5A57;
+  --color-accent:       #C8B89A;
+  --color-accent-hover: #D4C4A8;
+
+}
