@@ -22,7 +22,7 @@
   font-family: var(--font-display);
   font-size: var(--text-3xl);
   font-weight: var(--weight-medium);
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
   max-width: 780px;
   margin-bottom: var(--space-8);
@@ -36,12 +36,13 @@
 }
 
 .tag {
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
   border: 1px solid var(--color-border);
   border-radius: 100px;
   padding: var(--space-1) var(--space-4);
-  letter-spacing: 0.02em;
+  letter-spacing: var(--tracking-label);
 }
 
 /* --- COVER IMAGE --- */
@@ -98,15 +99,17 @@
 .cs-stat-block {}
 
 .cs-stat-label {
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wide);
   margin-bottom: var(--space-1);
 }
 
 .cs-stat-value {
-  font-size: var(--text-sm);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
   color: var(--color-text-primary);
   font-weight: var(--weight-medium);
 }
@@ -116,23 +119,26 @@
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: var(--weight-medium);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
   margin-bottom: var(--space-6);
   color: var(--color-text-primary);
 }
 
 .cs-text {
+  font-family: var(--font-sans);
   font-size: var(--text-base);
   color: var(--color-text-secondary);
-  line-height: var(--leading-loose);
+  line-height: var(--leading-body);
   margin-bottom: var(--space-6);
   max-width: 640px;
 }
 
 .cs-label-sm {
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wide);
   color: var(--color-text-muted);
   margin-bottom: var(--space-3);
 }
@@ -186,12 +192,158 @@
   font-size: var(--text-xl);
   font-weight: var(--weight-medium);
   color: var(--color-text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-heading);
 }
 
 .cs-next-arrow {
   font-size: var(--text-xl);
   color: var(--color-text-muted);
+}
+
+/* --- STATS GRID --- */
+.cs-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin: var(--space-10) 0;
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cs-stat-number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: var(--space-3);
+}
+
+.cs-stat-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* --- KEY LEARNINGS LIST --- */
+.cs-learnings {
+  list-style: none;
+  counter-reset: learning-counter;
+  margin-top: var(--space-6);
+}
+
+.cs-learnings li {
+  counter-increment: learning-counter;
+  display: flex;
+  gap: var(--space-6);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-loose);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cs-learnings li::before {
+  content: counter(learning-counter, decimal-leading-zero);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.06em;
+  min-width: 28px;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+/* --- IMAGE PLACEHOLDERS --- */
+.img-placeholder {
+  width: 100%;
+  background: var(--color-bg-secondary);
+  border: 1.5px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+}
+
+.img-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-8);
+}
+
+.img-placeholder-label {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--weight-medium);
+  text-align: center;
+}
+
+.img-placeholder-dim {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* Remove margin when placeholder sits inside a grid cell */
+.cs-image-grid .img-placeholder {
+  margin-bottom: 0;
+}
+
+/* --- SECTION NAVIGATOR --- */
+.cs-section-nav {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cs-section-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.cs-section-nav-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: background var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.cs-section-nav-label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.cs-section-nav-item.active .cs-section-nav-dot {
+  background: var(--color-text-primary);
+  transform: scale(1.6);
+}
+
+.cs-section-nav-item.active .cs-section-nav-label {
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+  .cs-section-nav {
+    display: none;
+  }
 }
 
 /* --- SECTION IMAGES --- */
@@ -227,6 +379,11 @@
 /* ============================================
    MOBILE RESPONSIVE
 ============================================ */
+@media (max-width: 1024px) {
+  .cs-hero { padding-top: calc(var(--nav-height) + var(--space-16)); }
+  .cs-section { padding: var(--space-16) 0; }
+}
+
 @media (max-width: 768px) {
 
   .cs-title {
@@ -247,6 +404,9 @@
     border-bottom: 1px solid var(--color-border);
   }
 
+  .cs-hero { padding-top: calc(var(--nav-height) + var(--space-12)); }
+  .cs-section { padding: var(--space-12) 0; }
+
   .cs-two-col {
     grid-template-columns: 1fr;
     gap: var(--space-6);
@@ -261,13 +421,17 @@
     grid-template-columns: 1fr;
   }
 
+  .cs-stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
 }
 
 @media (max-width: 480px) {
 
-  .cs-hero {
-    padding-top: calc(var(--nav-height) + var(--space-12));
-  }
+  .cs-hero { padding-top: calc(var(--nav-height) + var(--space-8)); }
+  .cs-section { padding: var(--space-8) 0; }
 
   .cs-cover-img {
     aspect-ratio: 4 / 3;

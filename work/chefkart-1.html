@@ -11,8 +11,11 @@
 </head>
 <body>
 
+  <!-- CURSOR -->
   <div class="cursor" id="cursor"></div>
 
+
+  <!-- ===================== NAV ===================== -->
   <nav id="nav">
     <div class="nav-inner">
       <div class="nav-left">
@@ -36,7 +39,47 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+
+  <!-- ===================== SECTION NAVIGATOR ===================== -->
+  <!-- Fixed left sidebar — hidden on mobile via CSS (max-width: 768px) -->
+  <!-- Active state driven by IntersectionObserver at bottom of file -->
+  <nav class="cs-section-nav" aria-label="Section navigation">
+    <a class="cs-section-nav-item" href="#overview">
+      <span class="cs-section-nav-dot"></span>
+      <span class="cs-section-nav-label">Overview</span>
+    </a>
+    <a class="cs-section-nav-item" href="#problem">
+      <span class="cs-section-nav-dot"></span>
+      <span class="cs-section-nav-label">Problem</span>
+    </a>
+    <a class="cs-section-nav-item" href="#research">
+      <span class="cs-section-nav-dot"></span>
+      <span class="cs-section-nav-label">Research</span>
+    </a>
+    <a class="cs-section-nav-item" href="#brainstorming">
+      <span class="cs-section-nav-dot"></span>
+      <span class="cs-section-nav-label">Brainstorming</span>
+    </a>
+    <a class="cs-section-nav-item" href="#exploration">
+      <span class="cs-section-nav-dot"></span>
+      <span class="cs-section-nav-label">Exploration</span>
+    </a>
+    <a class="cs-section-nav-item" href="#final">
+      <span class="cs-section-nav-dot"></span>
+      <span class="cs-section-nav-label">Final Design</span>
+    </a>
+    <a class="cs-section-nav-item" href="#impact">
+      <span class="cs-section-nav-dot"></span>
+      <span class="cs-section-nav-label">Impact</span>
+    </a>
+    <a class="cs-section-nav-item" href="#learnings">
+      <span class="cs-section-nav-dot"></span>
+      <span class="cs-section-nav-label">Learnings</span>
+    </a>
+  </nav>
+
+
+  <!-- ===================== HERO ===================== -->
   <section class="cs-hero">
     <div class="container">
       <div class="cs-meta reveal">
@@ -44,9 +87,9 @@
         <span>·</span>
         <span>Consumer</span>
         <span>·</span>
-        <span>2021–2024</span>
+        <span>2023–2024</span>
       </div>
-      <h1 class="cs-title reveal">Customer App: Home Page Revamp for Business Pivot</h1>
+      <h1 class="cs-title reveal">Customer App — Home Page Revamp for Business Pivot</h1>
       <div class="cs-tags reveal">
         <span class="tag">UX Research</span>
         <span class="tag">Home Page Redesign</span>
@@ -56,18 +99,25 @@
     </div>
   </section>
 
-  <!-- COVER -->
+
+  <!-- ===================== COVER IMAGE — 21:9 hero shot ===================== -->
   <div class="cs-cover reveal">
     <div class="container">
-      <div class="cs-cover-img">
-        <img src="../images/chefkart-1/image.png" alt="ChefKart Customer App — Home Page Revamp" />
+      <div class="img-placeholder" style="aspect-ratio: 21/9">
+        <div class="img-placeholder-inner">
+          <span class="img-placeholder-label">Cover Image — Hero shot of the redesigned ChefKart app</span>
+          <span class="img-placeholder-dim">2100 × 900px</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- OVERVIEW -->
-  <section class="cs-section">
+
+  <!-- ===================== SECTION: OVERVIEW ===================== -->
+  <section class="cs-section" id="overview">
     <div class="container cs-grid">
+
+      <!-- Sidebar: project metadata -->
       <div class="cs-sidebar reveal">
         <div class="cs-stat-block">
           <p class="cs-stat-label">Role</p>
@@ -86,149 +136,242 @@
           <p class="cs-stat-value">Usability Testing · Chat Analysis</p>
         </div>
       </div>
+
+      <!-- Body: overview text -->
       <div class="cs-body">
         <p class="section-label">Overview</p>
         <h2 class="cs-heading reveal">When your product pivots, your homepage needs to pivot with it</h2>
-        <p class="cs-text reveal">ChefKart connects customers with professional home cooks — bringing restaurant-quality meals into your kitchen. In 2022, the company pivoted from a subscription-first model to on-demand services, unlocking far more flexibility for users.</p>
-        <p class="cs-text reveal">But by 2024, the homepage still spoke the language of subscriptions. New users landed on a page designed for a product that no longer existed. The result: confusion, drop-off, and cancellations that didn't need to happen.</p>
-        <p class="cs-text reveal">My job was to close the gap between what ChefKart had become and what users experienced when they first arrived.</p>
+        <p class="cs-text reveal">ChefKart connects customers with professional home cooks. In 2022 the company pivoted from subscription-first to on-demand services. But by 2024 the homepage still spoke the language of subscriptions. New users landed on a page designed for a product that no longer existed — causing confusion, drop-off and cancellations.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION: INTRODUCTION ===================== -->
+  <!-- Narrative bridge between overview and problem — no nav item -->
+  <section class="cs-section cs-section--alt">
+    <div class="container">
+      <p class="section-label">Introduction</p>
+      <h2 class="cs-heading reveal">My journey in the design team</h2>
+      <p class="cs-text reveal">In 2022, ChefKart pivoted to introduce new on-demand services but the existing app wasn't built to support these offerings. By 2024, users were struggling to understand the services, leading to confusion, drop-offs, and last-minute cancellations. I worked on design solutions to clarify services and streamline the booking process, using user feedback and research to guide the improvements.</p>
+
+      <!-- Overview image: app context or team photo -->
+      <div class="img-placeholder reveal" style="aspect-ratio: 16/9">
+        <div class="img-placeholder-inner">
+          <span class="img-placeholder-label">Overview — App context or team photo</span>
+          <span class="img-placeholder-dim">1600 × 900px recommended</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- RESEARCH -->
-  <section class="cs-section cs-section--alt">
+
+  <!-- ===================== SECTION: PROBLEM ===================== -->
+  <section class="cs-section" id="problem">
+    <div class="container">
+      <p class="section-label">Problem Breakdown</p>
+      <h2 class="cs-heading reveal">The numbers behind the confusion</h2>
+
+      <!-- 3-column stat grid -->
+      <div class="cs-stats-grid reveal">
+        <div>
+          <p class="cs-stat-number">25%</p>
+          <p class="cs-stat-desc">Decreased time for users to understand service offerings</p>
+        </div>
+        <div>
+          <p class="cs-stat-number">45%</p>
+          <p class="cs-stat-desc">Drop-off from the home page</p>
+        </div>
+        <div>
+          <p class="cs-stat-number">10%</p>
+          <p class="cs-stat-desc">Increase in customer support tickets related to services</p>
+        </div>
+      </div>
+
+      <!-- Problem image: old homepage or user confusion moment -->
+      <div class="img-placeholder reveal" style="aspect-ratio: 16/7">
+        <div class="img-placeholder-inner">
+          <span class="img-placeholder-label">Problem — Old homepage screenshot or user confusion moment</span>
+          <span class="img-placeholder-dim">1600 × 700px recommended</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION: RESEARCH ===================== -->
+  <section class="cs-section cs-section--alt" id="research">
     <div class="container">
       <p class="section-label">Research</p>
-      <h2 class="cs-heading reveal">Understanding where users were getting lost</h2>
-      <div class="cs-two-col">
+      <h2 class="cs-heading reveal">It always starts from research</h2>
+      <p class="cs-text reveal">It all started when I had conversations with our users and deep dived into customer chats with our support. After conducting 7 usability testings with users and 30–35 chat analysis, here is what I found:</p>
+
+      <!-- Research findings — 2-stat grid (third column intentionally empty) -->
+      <div class="cs-stats-grid reveal">
         <div>
-          <p class="cs-label-sm">Usability Testing</p>
-          <p class="cs-text reveal">Ran 7 moderated usability sessions with existing and prospective users. Asked them to complete real tasks — find a cook, understand service types, book an on-demand session — while thinking aloud. Each session surfaced the same friction points.</p>
+          <p class="cs-stat-number">70%</p>
+          <p class="cs-stat-desc">of users were looking for clarity in the service core offerings</p>
         </div>
         <div>
-          <p class="cs-label-sm">Chat Analysis</p>
-          <p class="cs-text reveal">Analysed 30–35 customer support chat transcripts for recurring confusion signals. These unsolicited messages were often more honest than anything a formal session could surface — users writing in real frustration, not performing for a researcher.</p>
+          <p class="cs-stat-number">90%</p>
+          <p class="cs-stat-desc">of users found the home page to be misleading and confusing</p>
         </div>
+        <div></div>
       </div>
+
+      <!-- Research images: usability testing + chat analysis/affinity map side by side -->
       <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%201.png" alt="Usability testing sessions" />
+        <div class="img-placeholder" style="aspect-ratio: 4/3">
+          <div class="img-placeholder-inner">
+            <span class="img-placeholder-label">Research — Usability testing session</span>
+            <span class="img-placeholder-dim">800 × 600px recommended</span>
+          </div>
         </div>
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%202.png" alt="Chat analysis and support transcripts" />
+        <div class="img-placeholder" style="aspect-ratio: 4/3">
+          <div class="img-placeholder-inner">
+            <span class="img-placeholder-label">Research — Chat analysis or affinity map</span>
+            <span class="img-placeholder-dim">800 × 600px recommended</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FINDINGS -->
-  <section class="cs-section">
+
+  <!-- ===================== SECTION: BRAINSTORMING ===================== -->
+  <section class="cs-section" id="brainstorming">
     <div class="container">
-      <p class="section-label">Key Findings</p>
-      <h2 class="cs-heading reveal">The numbers told a clear story</h2>
-      <div class="cs-two-col">
-        <div>
-          <p class="cs-label-sm">Offering Clarity</p>
-          <p class="cs-text reveal"><strong>70% of users</strong> couldn't quickly understand what ChefKart actually offered. Subscription? On-demand? Both? The homepage didn't answer this question — and users weren't willing to dig for the answer.</p>
-        </div>
-        <div>
-          <p class="cs-label-sm">Misleading First Impression</p>
-          <p class="cs-text reveal"><strong>90% of users</strong> found the homepage misleading. It prominently surfaced subscription plans even though on-demand was now the primary offering — and what most users actually wanted when they opened the app.</p>
-        </div>
-      </div>
-      <div class="cs-image-block reveal">
-        <img src="../images/chefkart-1/image%203.png" alt="Research findings overview" />
-      </div>
+      <p class="section-label">Brainstorming &amp; Prioritisation</p>
+      <h2 class="cs-heading reveal">All design directions walked the chaotic journey of design</h2>
+      <p class="cs-text reveal">All design directions were morphed into stronger, holistic designs by the end of the journey.</p>
+
+      <!-- Brainstorming images: ideation + prioritisation side by side -->
       <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%204.png" alt="User pain points mapped" />
+        <div class="img-placeholder" style="aspect-ratio: 4/3">
+          <div class="img-placeholder-inner">
+            <span class="img-placeholder-label">Brainstorming — Ideation session or whiteboard</span>
+            <span class="img-placeholder-dim">800 × 600px recommended</span>
+          </div>
         </div>
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%205.png" alt="Confusion patterns identified" />
+        <div class="img-placeholder" style="aspect-ratio: 4/3">
+          <div class="img-placeholder-inner">
+            <span class="img-placeholder-label">Brainstorming — Prioritisation matrix</span>
+            <span class="img-placeholder-dim">800 × 600px recommended</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- IDEATION -->
-  <section class="cs-section cs-section--alt">
-    <div class="container">
-      <p class="section-label">Ideation</p>
-      <h2 class="cs-heading reveal">Brainstorming the right homepage structure</h2>
-      <p class="cs-text reveal">With the problems defined, I ran a structured brainstorming session with the product and engineering team. We mapped every possible homepage element against user needs and business goals, then prioritised ruthlessly — keeping only what earned its place above the fold.</p>
-      <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%206.png" alt="Brainstorming session" />
-        </div>
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%207.png" alt="Prioritisation exercise" />
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- EXPLORATION -->
-  <section class="cs-section">
+  <!-- ===================== SECTION: EXPLORATION ===================== -->
+  <section class="cs-section cs-section--alt" id="exploration">
     <div class="container">
       <p class="section-label">Exploration</p>
-      <h2 class="cs-heading reveal">Three layouts, one clear winner</h2>
-      <p class="cs-text reveal">I explored three distinct homepage layouts — each with a different hierarchy of information and entry points. Layout 1 led with on-demand booking as the primary CTA, with subscriptions as a secondary option. Layouts 2 and 3 experimented with different ways to surface cook profiles and trust signals.</p>
-      <p class="cs-text reveal">After internal review and a quick validation session, Layout 1 won decisively. It matched how users actually thought about the product — not how the old business model had structured it.</p>
-      <div class="cs-image-grid cs-image-grid--3 reveal">
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%208.png" alt="Layout 1 — Selected" />
-        </div>
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%209.png" alt="Layout 2" />
-        </div>
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%2010.png" alt="Layout 3" />
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2 class="cs-heading reveal">We explored the possibilities with the layouts</h2>
+      <p class="cs-text reveal">We picked Layout 1 — 60% of the team found the first layout to be more clear.</p>
 
-  <!-- SOLUTION -->
-  <section class="cs-section cs-section--alt">
-    <div class="container">
-      <p class="section-label">Solution</p>
-      <h2 class="cs-heading reveal">A homepage that finally tells the right story</h2>
-      <p class="cs-text reveal">The redesigned homepage leads with what ChefKart is today — an on-demand platform for home cooking. The primary CTA gets users to a booking flow immediately. Subscriptions are available, surfaced as a value-add rather than a gatekeeper.</p>
+      <!-- Layout wireframes: portrait ratio for mobile-first screens -->
       <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%2011.png" alt="Final design — Redesigned homepage" />
+        <div class="img-placeholder" style="aspect-ratio: 9/16">
+          <div class="img-placeholder-inner">
+            <span class="img-placeholder-label">Layout 1 — Wireframe</span>
+            <span class="img-placeholder-dim">450 × 800px recommended</span>
+          </div>
         </div>
-        <div class="cs-image-block">
-          <img src="../images/chefkart-1/image%2012.png" alt="Final design — Booking flow entry" />
+        <div class="img-placeholder" style="aspect-ratio: 9/16">
+          <div class="img-placeholder-inner">
+            <span class="img-placeholder-label">Layout 2 — Wireframe</span>
+            <span class="img-placeholder-dim">450 × 800px recommended</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- IMPACT -->
-  <section class="cs-section">
-    <div class="container cs-grid">
-      <div class="cs-sidebar reveal">
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Cancellations</p>
-          <p class="cs-stat-value">Reduced drop-off</p>
-        </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Engagement</p>
-          <p class="cs-stat-value">Higher session depth</p>
+
+  <!-- ===================== SECTION: FINAL DESIGN ===================== -->
+  <!-- Alt background via cs-section--alt -->
+  <section class="cs-section cs-section--alt" id="final">
+    <div class="container">
+      <p class="section-label">Final UI</p>
+      <h2 class="cs-heading reveal">Revamped Home Page — Modern and breathing UI with better clarity on the service offerings</h2>
+
+      <!-- Full-width wide image first -->
+      <div class="img-placeholder reveal" style="aspect-ratio: 16/9">
+        <div class="img-placeholder-inner">
+          <span class="img-placeholder-label">Final Design — Full homepage redesign</span>
+          <span class="img-placeholder-dim">1600 × 900px recommended</span>
         </div>
       </div>
-      <div class="cs-body">
-        <p class="section-label">Impact</p>
-        <h2 class="cs-heading reveal">Fewer cancellations. Better engagement.</h2>
-        <p class="cs-text reveal">Post-launch, the redesigned homepage led to measurably fewer cancellations. Users who understood what they were signing up for followed through. Engagement metrics improved as users navigated deeper into the app with purpose rather than confusion.</p>
-        <p class="cs-text reveal">The bigger lesson: when your product changes, your homepage isn't just a design problem — it's a trust problem. Fixing the design fixed the trust.</p>
+
+      <!-- Two portrait key screens side by side -->
+      <div class="cs-image-grid reveal">
+        <div class="img-placeholder" style="aspect-ratio: 9/16">
+          <div class="img-placeholder-inner">
+            <span class="img-placeholder-label">Final Screen 1 — Key screen</span>
+            <span class="img-placeholder-dim">450 × 800px recommended</span>
+          </div>
+        </div>
+        <div class="img-placeholder" style="aspect-ratio: 9/16">
+          <div class="img-placeholder-inner">
+            <span class="img-placeholder-label">Final Screen 2 — Key screen</span>
+            <span class="img-placeholder-dim">450 × 800px recommended</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- NEXT -->
+
+  <!-- ===================== SECTION: IMPACT ===================== -->
+  <section class="cs-section" id="impact">
+    <div class="container">
+      <p class="section-label">Impact</p>
+      <h2 class="cs-heading reveal">The redesign moved the metrics that mattered</h2>
+
+      <!-- 3-column impact stat grid -->
+      <div class="cs-stats-grid reveal">
+        <div>
+          <p class="cs-stat-number">10%</p>
+          <p class="cs-stat-desc">Decrease in cancellations</p>
+        </div>
+        <div>
+          <p class="cs-stat-number">35%</p>
+          <p class="cs-stat-desc">Increase in bookings</p>
+        </div>
+        <div>
+          <p class="cs-stat-number">5%</p>
+          <p class="cs-stat-desc">Reduction in support tickets</p>
+        </div>
+      </div>
+
+      <!-- Impact image: metrics dashboard or before/after -->
+      <div class="img-placeholder reveal" style="aspect-ratio: 16/7">
+        <div class="img-placeholder-inner">
+          <span class="img-placeholder-label">Impact — Metrics dashboard or before/after</span>
+          <span class="img-placeholder-dim">1600 × 700px recommended</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION: KEY LEARNINGS ===================== -->
+  <section class="cs-section cs-section--alt" id="learnings">
+    <div class="container">
+      <p class="section-label">Key Learnings</p>
+      <h2 class="cs-heading reveal">What this project taught me</h2>
+      <ol class="cs-learnings reveal">
+        <li>Learned how to design keeping in mind the business metrics</li>
+        <li>Building scalable solutions ensures that future pivots or offerings can be seamlessly integrated into the app without overwhelming users</li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ===================== NEXT CASE STUDY ===================== -->
   <section class="cs-next">
     <div class="container">
       <p class="section-label">Next Case Study</p>
@@ -239,6 +382,8 @@
     </div>
   </section>
 
+
+  <!-- ===================== FOOTER ===================== -->
   <footer>
     <div class="container">
       <div class="footer-inner">
@@ -251,8 +396,41 @@
     </div>
   </footer>
 
+
+  <!-- ===================== SCRIPTS ===================== -->
   <script src="../js/theme.js"></script>
   <script src="../js/cursor.js"></script>
   <script src="../js/scroll.js"></script>
+
+  <!-- Section navigator — highlights active item as user scrolls -->
+  <script>
+    (function () {
+      const navItems = document.querySelectorAll('.cs-section-nav-item');
+      const sections = document.querySelectorAll('section[id]');
+
+      if (!navItems.length || !sections.length) return;
+
+      function setActive(id) {
+        navItems.forEach(function (item) {
+          item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+        });
+      }
+
+      // Highlight first section on load
+      setActive(sections[0].id);
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, {
+        rootMargin: '-15% 0px -60% 0px',
+        threshold: 0
+      });
+
+      sections.forEach(function (s) { observer.observe(s); });
+    })();
+  </script>
+
 </body>
 </html>
