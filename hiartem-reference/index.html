@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- hiartem.com — framer-33mvhw complete reference (exact behavior) -->
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>framer-33mvhw — exact reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ════════════ NAV PILL ════════════ -->
+  <nav class="nav-pill" id="nav">
+    <a href="#hero"    class="nav-link active">Work</a>
+    <a href="#story"   class="nav-link">Story</a>
+    <a href="#life"    class="nav-link">Life</a>
+    <a href="#contact" class="nav-link">Say hi!</a>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       HERO SECTION
+       Source ref: framer-ur5lw1 wrapper, padding:40px 32px 64px
+       The entire hero is the "scroll target" (ref:te in source bundle)
+       that triggers card exit when it leaves the viewport.
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="hero-section" id="hero">
+
+    <!--
+      framer-nv6e0v — inner content column (flex:1, gap:64px, max-width:900px)
+      This is ref:te — the element Framer observes for scroll exit trigger.
+      When this div exits the viewport, the cards fly to their exit positions.
+    -->
+    <div class="hero-content" id="scroll-target">
+
+      <!-- ── Hero text block (appear-id: 1g9oc75)
+           Script 8: initial {opacity:0.001, y:56} → {opacity:1, y:0}
+           duration:400ms  ease:cubic-bezier(0.33,0.85,0.56,1) ── -->
+      <div class="hero-text" data-appear="1g9oc75">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Porto, PT · Remote · CET/EST-friendly
+        </div>
+        <!--
+          Source font: "Instrument Sans Variable", font-variation-axes "wdth" 85 "wght" 700
+          font-size: 120px (desktop), letter-spacing:-0.02em, line-height:90%
+          Fallback to Inter since we can't load variable font
+        -->
+        <h1 class="hero-name">Artem Astakhov</h1>
+        <!--
+          Source: Inter Display 24px, letter-spacing:-0.01em, line-height:140%
+          color: rgba(255,255,255,0.6)
+        -->
+        <p class="hero-tagline">
+          Account Manager who keeps customers close and revenue growing
+          — without pretending the product doesn't matter.
+        </p>
+      </div>
+
+      <!--
+        framer-33mvhw  data-framer-name="pic"
+        Source CSS: z-index:2; flex:none; width:100%; height:380px;
+                    position:relative; overflow:visible
+      -->
+      <div class="framer-33mvhw" id="framer-33mvhw">
+
+        <!-- ══════════════════════════════════════════════════════════
+             CARD 1 — framer-11d4yik-container
+             ─────────────────────────────────────────────────────────
+             Source CSS desktop: position:absolute; width:340px;
+                                 top:10px; left:18%; transform:translate(-50%)
+
+             Appear animation (Script 8):
+               initial: translateX(-50%) translateX(-186px) translateY(157px) rotate(28deg)
+               final:   translateX(-50%) translateX(0) translateY(0) rotate(2deg)
+               duration: 1000ms  ease: cubic-bezier(0.18,1.01,0.27,0.99)
+
+             Scroll EXIT animation (framer_page.mjs __framer__transformTargets[1]):
+               target: { rotate:-25, x:-254, y:-170 }
+               spring: { bounce:0, damping:60, duration:.4, stiffness:500 }
+               → css equiv: cubic-bezier(0.44,0,0.56,1) 400ms
+
+             Hover: .glass-card adds/removes .hover class via JS
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-container" id="card-11d4yik" style="top:10px;left:18%;">
+          <!--
+            Source: <a> with href="#work" (hash:WsIChdeSv)
+            glass styles exact from DOM inline style
+            hover variant: backgroundColor rgba(181,181,181,0.16)  [from page bundle]
+          -->
+          <a class="glass-card framer-vquiZ framer-v-yac780" href="#work-section" draggable="false">
+
+            <!-- card header bar — framer-ltwmg2
+                 height:46px; background:rgba(201,201,201,0.05);
+                 border-bottom:1px solid rgba(181,181,181,0.2) -->
+            <div class="framer-ltwmg2">
+              <span class="card-label">Where I help</span>
+            </div>
+
+            <!-- card body — framer-wahzwd  height:320px; overflow:hidden -->
+            <div class="framer-wahzwd">
+
+              <!--
+                framer-5o7m3p — GREEN "SaaS" pill badge
+                Default: top:28%; left:47%; transform:translate(-50%,-50%) rotate(-27deg)
+                  background:rgb(98,236,181); border-radius:20.47px
+                  box-shadow: inset highlights + drop shadow
+                Hover (from .hover CSS):
+                  top:39px; left:95px; transform:rotate(-35deg)  [template removed on hover]
+                  Spring: bounce:0.2, duration:0.4
+              -->
+              <div class="framer-5o7m3p badge-green">
+                <!-- SVG "SaaS" text — exact paths from framer-vcdsxm (106x48px) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105.96 48" class="badge-svg" aria-hidden="true">
+                  <g transform="translate(0.688 7.907)">
+                    <!-- S -->
+                    <path d="M 12.468 0 C 16.058 0 18.9 0.895 20.996 2.682 C 23.105 4.471 24.209 6.936 24.307 10.079 L 18.272 10.079 C 18.16 8.599 17.587 7.432 16.554 6.58 C 15.52 5.728 14.165 5.302 12.488 5.302 C 10.896 5.302 9.59 5.665 8.57 6.392 C 7.564 7.118 7.061 8.047 7.061 9.179 C 7.061 10.142 7.48 10.917 8.318 11.504 C 9.156 12.091 10.533 12.594 12.447 13.013 L 15.443 13.663 C 18.768 14.375 21.199 15.444 22.735 16.869 C 24.286 18.28 25.061 20.159 25.061 22.505 C 25.061 25.509 23.957 27.883 21.75 29.629 C 19.543 31.362 16.518 32.228 12.677 32.228 C 8.682 32.228 5.567 31.285 3.332 29.399 C 1.111 27.514 0 24.873 0 21.478 L 6.223 21.478 C 6.265 23.197 6.859 24.538 8.004 25.502 C 9.15 26.452 10.721 26.927 12.719 26.927 C 14.507 26.927 15.946 26.563 17.035 25.837 C 18.125 25.111 18.669 24.14 18.669 22.925 C 18.669 21.919 18.23 21.102 17.35 20.473 C 16.484 19.844 15.059 19.313 13.076 18.88 L 9.785 18.168 C 3.667 16.841 0.608 13.949 0.608 9.493 C 0.608 7.593 1.103 5.937 2.095 4.527 C 3.087 3.102 4.47 1.991 6.244 1.195 C 8.018 0.399 10.093 0 12.468 0 Z" fill="rgb(17,168,133)"/>
+                    <!-- a -->
+                    <path d="M 38.105 9.136 C 41.136 9.136 43.484 9.814 45.146 11.169 C 46.808 12.51 47.639 14.361 47.639 16.722 L 47.639 31.726 L 41.605 31.726 L 41.605 28.603 L 41.521 28.603 C 40.934 29.678 40.131 30.531 39.111 31.16 C 38.092 31.788 36.736 32.102 35.046 32.102 C 32.839 32.102 31.016 31.55 29.577 30.447 C 28.152 29.343 27.44 27.688 27.44 25.481 C 27.44 23.818 27.838 22.519 28.634 21.583 C 29.431 20.633 30.485 19.942 31.798 19.509 C 33.111 19.076 34.536 18.79 36.072 18.65 C 38.098 18.441 39.516 18.231 40.327 18.021 C 41.137 17.812 41.542 17.35 41.542 16.638 L 41.542 16.491 C 41.542 15.681 41.22 15.017 40.578 14.5 C 39.935 13.984 39.048 13.726 37.917 13.726 C 36.771 13.726 35.842 13.991 35.13 14.522 C 34.417 15.052 34.026 15.744 33.956 16.596 L 28.152 16.596 C 28.292 14.319 29.227 12.51 30.96 11.169 C 32.692 9.814 35.074 9.136 38.105 9.136 Z M 41.583 21.416 C 41.234 21.611 40.655 21.793 39.845 21.961 C 39.035 22.114 38.133 22.268 37.142 22.421 C 36.08 22.589 35.179 22.897 34.438 23.344 C 33.712 23.777 33.348 24.433 33.348 25.313 C 33.349 26.096 33.656 26.71 34.271 27.157 C 34.899 27.59 35.731 27.807 36.764 27.807 C 38.245 27.807 39.418 27.415 40.284 26.633 C 41.15 25.837 41.583 24.838 41.583 23.636 Z" fill="rgb(17,168,133)"/>
+                    <!-- a -->
+                    <path d="M 71.591 9.095 C 73.771 9.095 75.67 9.583 77.291 10.561 C 78.925 11.525 80.196 12.873 81.104 14.606 C 82.026 16.324 82.488 18.308 82.488 20.557 L 82.488 22.212 L 66.751 22.212 C 66.807 23.846 67.289 25.153 68.197 26.131 C 69.105 27.108 70.369 27.597 71.989 27.597 C 73.191 27.597 74.19 27.339 74.986 26.822 C 75.796 26.305 76.341 25.621 76.62 24.769 L 82.257 24.769 C 81.991 26.235 81.369 27.528 80.392 28.645 C 79.414 29.762 78.185 30.643 76.704 31.285 C 75.224 31.914 73.589 32.228 71.801 32.228 C 69.566 32.228 67.616 31.732 65.954 30.74 C 64.306 29.748 63.021 28.386 62.099 26.654 C 61.191 24.908 60.737 22.917 60.737 20.682 C 60.737 18.433 61.198 16.436 62.12 14.69 C 63.056 12.943 64.341 11.574 65.975 10.582 C 67.61 9.59 69.482 9.095 71.591 9.095 Z M 71.717 13.788 C 70.334 13.788 69.209 14.193 68.343 15.004 C 67.477 15.8 66.96 16.89 66.792 18.272 L 76.662 18.272 C 76.508 16.889 75.991 15.8 75.111 15.004 C 74.245 14.193 73.114 13.788 71.717 13.788 Z" fill="rgb(17,168,133)"/>
+                    <!-- S -->
+                    <path d="M 94.212 9.136 C 97.075 9.136 99.38 9.807 101.126 11.148 C 102.872 12.489 103.773 14.312 103.83 16.617 L 98.109 16.617 C 98.095 15.737 97.738 15.004 97.04 14.417 C 96.356 13.817 95.469 13.516 94.38 13.516 C 93.318 13.516 92.486 13.747 91.886 14.208 C 91.285 14.654 90.985 15.206 90.985 15.862 C 90.985 16.435 91.215 16.904 91.676 17.267 C 92.151 17.63 92.815 17.902 93.667 18.084 L 97.858 18.901 C 100.092 19.334 101.734 20.046 102.782 21.038 C 103.843 22.016 104.375 23.323 104.375 24.957 C 104.375 26.424 103.956 27.709 103.117 28.812 C 102.293 29.902 101.141 30.754 99.66 31.369 C 98.193 31.97 96.496 32.27 94.568 32.27 C 91.69 32.27 89.309 31.613 87.423 30.3 C 85.551 28.987 84.517 27.143 84.321 24.769 L 90.398 24.769 C 90.51 25.732 90.915 26.486 91.613 27.031 C 92.311 27.576 93.261 27.848 94.462 27.848 C 95.608 27.848 96.51 27.632 97.167 27.199 C 97.823 26.766 98.151 26.207 98.151 25.523 C 98.151 24.936 97.893 24.468 97.376 24.119 C 96.873 23.755 96.174 23.483 95.28 23.301 L 91.404 22.547 C 87.017 21.709 84.824 19.558 84.824 16.093 C 84.824 13.998 85.67 12.314 87.36 11.043 C 89.05 9.772 91.334 9.136 94.212 9.136 Z" fill="rgb(17,168,133)"/>
+                  </g>
+                </svg>
+              </div>
+
+              <!--
+                framer-m5ajm9 — TEAL "B2B" pill badge
+                Source: background:rgb(19,149,161); top:50%; left:40%;
+                        transform:translate(-50%,-50%) rotate(-6deg)
+                No hover movement in source CSS
+              -->
+              <div class="framer-m5ajm9 badge-teal">
+                <span class="badge-text-inner">B2B</span>
+              </div>
+
+              <!--
+                framer-1onszi5 — BLUE "PRO" pill badge
+                Source: background:rgb(21,55,179); top:69%; left:58%;
+                        transform:translate(-50%,-50%) rotate(-17deg)
+                Hover: bottom:55px; left:111px; top:unset
+                       transform stays translate(-50%,-50%) rotate(-17deg)
+                Spring: bounce:0.2, duration:0.4
+              -->
+              <div class="framer-1onszi5 badge-blue">
+                <span class="badge-text-inner">PRO</span>
+              </div>
+
+            </div><!-- /framer-wahzwd -->
+          </a>
+        </div><!-- /card-11d4yik -->
+
+
+        <!-- ══════════════════════════════════════════════════════════
+             CARD 2 — framer-1xn3g3i-container
+             ─────────────────────────────────────────────────────────
+             Source CSS desktop: top:-30px; left:50%; width:340px
+             Resting transform: translateX(-50%) rotate(-11deg)
+
+             Appear: from translateX(-50%) translateX(17px) translateY(147px) rotate(11deg)
+             Scroll EXIT: { rotate:35, x:111, y:-425 }
+             Hover card bg: rgba(181,181,181,0.16)
+
+             Children:
+               framer-nlskxx — photo 1 (94×117px), top:calc(43.75%-58.5px), left:calc(75.5556%-47px)
+                 → hover: top:78px; right:33px; left:unset
+               framer-jzwcp8 — photo 2 (72×90px), top:calc(65.625%-45px), left:calc(21.9444%-36px)
+                 → hover: top:160px; left:35px
+               Both have box-shadow: 0 0 0 4px white, drop shadow
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-container" id="card-1xn3g3i" style="top:-30px;left:50%;">
+          <a class="glass-card framer-JHwLQ framer-v-7ti7c3" href="#story" draggable="false">
+            <div class="framer-1rx7mwy">
+              <span class="card-label">How I got here</span>
+            </div>
+            <div class="framer-1c0heh5">
+              <!--
+                framer-nlskxx — larger photo
+                Default: w:94px h:117px  top:calc(43.75%-58.5px) = 82px  left:calc(75.5556%-47px) = 210px
+                Hover:   top:78px; right:33px; left:unset
+              -->
+              <div class="framer-nlskxx">
+                <img src="https://framerusercontent.com/images/DUxRQ3QjhEwncFFfnvoy19Eyc.webp"
+                     alt="Artem" draggable="false">
+              </div>
+              <!--
+                framer-jzwcp8 — smaller photo
+                Default: w:72px h:90px  top:calc(65.625%-45px) = 165px  left:calc(21.9444%-36px) = 43px
+                Hover:   top:160px; left:35px
+              -->
+              <div class="framer-jzwcp8">
+                <img src="https://framerusercontent.com/images/Sf2DJsD6bDnQJkwBdpgYHlXLKV4.webp"
+                     alt="Artem" draggable="false">
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+        <!-- ══════════════════════════════════════════════════════════
+             CARD 3 — framer-1kc9msy-container
+             ─────────────────────────────────────────────────────────
+             Source CSS desktop: top:25px; left:84%; width:340px
+             Resting transform: translateX(-50%) rotate(11deg)
+
+             Appear: from translateX(-50%) translateX(183px) translateY(157px) rotate(-17deg)
+             Scroll EXIT: { rotate:45, x:347, y:-223 }
+             Hover card bg: rgba(181,181,181,0.16)
+
+             Children:
+               framer-1soyb7r — polaroid card (169×200px), top:calc(49.0625%-100px), left:calc(39.1667%-84.5px)
+                 → hover: top:33px; left:54px
+               framer-1ct5bbn — bird photo (180×199px), top:calc(56.5625%-99.5px), left:calc(75%-90px)
+                 → hover: bottom:5px; right:11px; top:unset; left:unset
+               Both with drop-shadow filter
+             ══════════════════════════════════════════════════════════ -->
+        <div class="card-container" id="card-1kc9msy" style="top:25px;left:84%;">
+          <a class="glass-card framer-n0y6I framer-v-2p7mfy" href="#life" draggable="false">
+            <div class="framer-1xla1qg">
+              <span class="card-label">Life off-screen</span>
+            </div>
+            <div class="framer-rb2t7k">
+              <!--
+                framer-1soyb7r — polaroid-style card
+                bg:rgb(243,243,243); border-radius:4.38px; rotate(-14deg) from DOM
+                Default: top:calc(49.0625%-100px)=57px; left:calc(39.1667%-84.5px)=48px
+                Hover: top:33px; left:54px
+              -->
+              <div class="framer-1soyb7r">
+                <div class="framer-11d5ob9">
+                  <img src="https://framerusercontent.com/images/Zv7YBF4xaJZPhtItHjaPRMcAO4o.webp"
+                       alt="Bird" draggable="false">
+                </div>
+                <!-- handwriting caption — font-family:"Caveat", rotate(-4deg) -->
+                <div class="framer-13utv58">
+                  <p class="framer-text handwriting-text">My cute bird</p>
+                </div>
+              </div>
+              <!--
+                framer-1ct5bbn — bird/life photo, filter:drop-shadow
+                Default: top:calc(56.5625%-99.5px)=81px; left:calc(75%-90px)=165px
+                Hover: bottom:5px; right:11px; top:unset; left:unset
+              -->
+              <div class="framer-1ct5bbn">
+                <img src="https://framerusercontent.com/images/I5OBFEZUWwiGrQcu3YrtZ87G9FA.webp"
+                     alt="Life" draggable="false">
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div><!-- /framer-33mvhw -->
+    </div><!-- /hero-content #scroll-target -->
+  </section>
+
+  <!-- Transition background element (framer-1p3qa7s from source) -->
+  <div class="framer-1p3qa7s" aria-hidden="true">
+    <div class="framer-38cvv4"></div>
+    <div class="framer-lv537m"></div>
+  </div>
+
+  <!-- Below-fold sections -->
+  <section class="below-section" id="work-section">
+    <div class="section-inner">
+      <p class="eyebrow">Selected work</p>
+      <h2>Companies I've helped grow</h2>
+      <div class="work-stubs">
+        <div class="stub">Deepengine · Cybersec</div>
+        <div class="stub">Caldera · Web3</div>
+        <div class="stub">WatchTowr · Cybersec</div>
+        <div class="stub stub-dim">Neo4j · Coming soon</div>
+        <div class="stub stub-dim">Dibsy · Coming soon</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="below-section" id="story">
+    <div class="section-inner">
+      <p class="eyebrow">Background</p>
+      <h2>How I found my way in</h2>
+      <p class="body-text">
+        Kerch, Ukraine. 1994. Born between two seas, one landline, and zero patience for being bored.
+        In 2001, a 56K dialup screamed its way into our house.
+      </p>
+    </div>
+  </section>
+
+  <section class="below-section" id="life">
+    <div class="section-inner">
+      <p class="eyebrow">Outside work</p>
+      <h2>What my world looks like</h2>
+      <p class="body-text">Birds, rocks, skiing, IRC friends I'd never meet.</p>
+    </div>
+  </section>
+
+  <section class="below-section" id="contact">
+    <div class="section-inner">
+      <h2>Let's build something</h2>
+      <a href="mailto:artastakhov@gmail.com" class="cta-btn">Say hi! →</a>
+    </div>
+  </section>
+
+  <script src="appear.js"></script>
+</body>
+</html>

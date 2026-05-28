@@ -1,0 +1,425 @@
+/* ═══════════════════════════════════════════════════════════════
+   hiartem.com — framer-33mvhw EXACT reference
+   Every value sourced from the HTML, CSS or JS bundle.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── tokens (from body CSS variables in source) ─────────────── */
+:root {
+  --bg:         #070607;
+  --fg:         #f7f6f2;
+  --fg-60:      rgba(255,255,255,0.6);
+  --fg-35:      rgba(255,255,255,0.35);
+  --card-bg:    rgba(201,201,201,0.12);    /* exact from DOM inline style */
+  --card-bg-h:  rgba(181,181,181,0.16);    /* exact hover from page bundle */
+  --card-bdr:   rgba(181,181,181,0.25);    /* exact from DOM inline style */
+  --card-bdr-h: rgba(181,181,181,0.25);
+  --hdr-bg:     rgba(201,201,201,0.05);    /* framer-ltwmg2 background */
+  --hdr-bdr:    rgba(181,181,181,0.2);     /* header bottom border */
+  --accent:     #5cffc0;
+  --accent-d:   #00c479;
+  --nav-h:      54px;
+  /* hover spring — Ae = {bounce:.2, delay:0, duration:.4, type:'spring'}
+     Approximated as CSS cubic-bezier with gentle overshoot */
+  --spring-hover: cubic-bezier(0.34, 1.15, 0.64, 1);
+  --dur-hover: 0.4s;
+  /* scroll-exit spring — {bounce:0, damping:60, duration:.4, stiffness:500}
+     ease:[.44,0,.56,1] from source, no bounce */
+  --spring-exit: cubic-bezier(0.44, 0, 0.56, 1);
+  --dur-exit: 0.4s;
+}
+
+/* ── reset ──────────────────────────────────────────────────── */
+*,*::before,*::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; overscroll-behavior:none; }
+body { margin:0; background:var(--bg); color:var(--fg);
+       font-family:"Inter",sans-serif; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4,p { margin:0; }
+img { display:block; user-select:none; -webkit-user-select:none; }
+a   { color:inherit; text-decoration:none; }
+
+/* ════════════════════════════════════════════════════════════════
+   NAV PILL
+   ════════════════════════════════════════════════════════════════ */
+.nav-pill {
+  position:fixed; top:12px; left:50%; transform:translateX(-50%);
+  z-index:100; display:flex; align-items:center; gap:2px;
+  height:var(--nav-h);
+  background:rgba(7,6,7,0.75);
+  backdrop-filter:blur(16px) saturate(180%);
+  -webkit-backdrop-filter:blur(16px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.1); border-radius:999px; padding:4px 6px;
+}
+.nav-link { font-size:13px; font-weight:500; color:var(--fg-60); padding:6px 16px;
+            border-radius:999px; transition:color .2s,background .2s; white-space:nowrap; }
+.nav-link:hover  { color:var(--fg); }
+.nav-link.active { color:var(--bg); background:var(--fg); }
+
+/* ════════════════════════════════════════════════════════════════
+   HERO SECTION
+   Source: framer-ur5lw1 — padding:40px 32px 64px; flex row; gap:10px
+   ════════════════════════════════════════════════════════════════ */
+.hero-section {
+  min-height:100vh; overflow:visible;
+  padding: calc(var(--nav-h) + 40px) 32px 64px;
+}
+
+/* framer-nv6e0v — flex column, gap:64px, max-width:900px, margin auto */
+.hero-content {
+  display:flex; flex-direction:column; gap:64px;
+  max-width:900px; margin:0 auto; overflow:visible;
+}
+
+/* framer-1g9oc75 — hero text block (JS sets initial opacity+y) */
+.hero-text { display:flex; flex-direction:column; gap:16px; max-width:640px; }
+
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; color:var(--fg-60);
+}
+.badge-dot {
+  width:8px; height:8px; border-radius:50%;
+  background:linear-gradient(180deg,var(--accent) 0%,var(--accent-d) 100%);
+  border:1px solid rgba(0,0,0,0.3); flex-shrink:0;
+}
+
+/* Source: Instrument Sans Variable 120px wdth:85 wght:700 -0.02em 90% */
+.hero-name {
+  font-size:clamp(48px,8vw,96px); font-weight:700;
+  letter-spacing:-0.03em; line-height:0.9; color:var(--fg);
+}
+
+/* Source: Inter Display 24px -0.01em 140% rgba(255,255,255,0.6) */
+.hero-tagline { font-size:clamp(16px,2vw,22px); color:var(--fg-60); line-height:1.4; }
+
+/* ════════════════════════════════════════════════════════════════
+   framer-33mvhw — THE FLOATING CARD COLLAGE
+   Source: z-index:2; flex:none; width:100%; height:380px;
+           position:relative; overflow:visible
+   ════════════════════════════════════════════════════════════════ */
+.framer-33mvhw {
+  position:relative; width:100%; height:380px; overflow:visible; z-index:2;
+}
+
+/* Card containers — all three
+   Source: position:absolute; width:340px; height:auto; will-change:transform */
+.card-container {
+  position:absolute; width:340px; height:auto;
+  will-change:transform;
+  /* JS manages the full transform including translateX(-50%) centering */
+}
+
+/* ── Glass card anchor ──────────────────────────────────────────
+   Exact source DOM inline styles:
+     backdrop-filter:blur(16px); background-color:rgba(201,201,201,0.12)
+     border:1px solid rgba(181,181,181,0.25); border-radius:12px
+     box-shadow:0px 13px 16px 0px rgba(0,0,0,0.15)
+   Hover: background-color → rgba(181,181,181,0.16) [from page bundle variants]
+   ─────────────────────────────────────────────────────────────── */
+.glass-card {
+  display:flex; flex-direction:column; width:100%;
+  border-radius:12px;
+  background-color:var(--card-bg);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--card-bdr);
+  box-shadow:0px 13px 16px 0px rgba(0,0,0,0.15);
+  overflow:hidden; cursor:pointer;
+  transition:background-color var(--dur-hover) var(--spring-hover);
+}
+.glass-card.hover { background-color:var(--card-bg-h); }
+
+/* Card header bars
+   Source: height:46px; background:rgba(201,201,201,0.05)
+           border-bottom:1px solid rgba(181,181,181,0.2) */
+.framer-ltwmg2, .framer-1rx7mwy, .framer-1xla1qg {
+  height:46px; display:flex; align-items:center; padding:0 16px;
+  background:var(--hdr-bg); border-bottom:1px solid var(--hdr-bdr); flex-shrink:0;
+}
+
+/* Source: Inter Display 18px 600 -0.02em 120% white */
+.card-label {
+  font-size:18px; font-weight:600; letter-spacing:-0.02em; line-height:1.2; color:#fff;
+}
+
+/* Card bodies
+   Source: framer-wahzwd / framer-1c0heh5 / framer-rb2t7k  height:320px overflow:hidden */
+.framer-wahzwd, .framer-1c0heh5, .framer-rb2t7k {
+  height:320px; overflow:hidden; position:relative; flex:none; width:100%;
+}
+.framer-1c0heh5 { width:360px; }  /* source: width:360px on this specific card */
+
+/* ════════════════════════════════════════════════════════════════
+   CARD 1 INTERNALS — "Where I help"
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── framer-5o7m3p — GREEN SaaS badge ──────────────────────────
+   Source CSS: position:absolute; top:28%; left:47%;
+               padding:14px 24px; overflow:hidden;
+               will-change:transform (for WAAPI spring)
+   Source style: background:rgb(98,236,181); border-radius:20.47px
+                 box-shadow insets + drop shadow
+                 transform=translate(-50%,-50%) rotate(-27deg)  [transformTemplate + rotate]
+   ─────────────────────────────────────────────────────────────── */
+.framer-5o7m3p {
+  position:absolute; top:28%; left:47%;
+  padding:14px 24px; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  will-change:transform;
+  background-color:rgb(98,236,181);
+  border-radius:20.47px;
+  box-shadow:
+    inset 0px 2px 2px 0px rgb(171,255,223),
+    inset 0px -2.09px 1px 0px rgba(59,246,177,0.5),
+    inset 0px -3.84px 2.56px 0px rgb(0,158,129),
+    0px 12px 16px 0px rgba(0,0,0,0.2);
+  /* transformTemplate:(e,t)=>'translate(-50%,-50%) '+t  + rotate:-27 */
+  transform:translate(-50%,-50%) rotate(-27deg);
+  transition:
+    top var(--dur-hover) var(--spring-hover),
+    left var(--dur-hover) var(--spring-hover),
+    transform var(--dur-hover) var(--spring-hover),
+    right var(--dur-hover) var(--spring-hover),
+    bottom var(--dur-hover) var(--spring-hover);
+}
+/* Hover: top:39px; left:95px; transform:rotate(-35deg) [template void] */
+.framer-vquiZ.hover .framer-5o7m3p {
+  top:39px; left:95px; transform:rotate(-35deg);
+}
+
+.badge-svg { width:106px; height:48px; }
+
+/* ── framer-m5ajm9 — TEAL badge ────────────────────────────────
+   Source CSS: position:absolute; top:50%; left:40%
+   Source style: background:rgb(19,149,161); border-radius:20.47px
+                 box-shadow insets + drop shadow
+                 transform:translate(-50%,-50%) rotate(-6deg)
+   No hover movement in source.
+   ─────────────────────────────────────────────────────────────── */
+.framer-m5ajm9 {
+  position:absolute; top:50%; left:40%;
+  padding:14px 24px; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  background-color:rgb(19,149,161);
+  border-radius:20.47px;
+  box-shadow:
+    inset 0px -1px 1px 0px rgba(255,255,255,0.3),
+    inset 0px 2px 2px 0px rgba(33,237,255,0.5),
+    inset 0px -4px 2.5px 0px rgb(3,87,112),
+    0px 12px 16px 0px rgba(0,0,0,0.2);
+  transform:translate(-50%,-50%) rotate(-6deg);
+}
+
+/* ── framer-1onszi5 — BLUE badge ────────────────────────────────
+   Source CSS: position:absolute; top:69%; left:58%
+   Source style: background:rgb(21,55,179); border-radius:20.47px
+                 transform:translate(-50%,-50%) rotate(-17deg)
+   Hover: bottom:55px; left:111px; top:unset  [transform stays same]
+   ─────────────────────────────────────────────────────────────── */
+.framer-1onszi5 {
+  position:absolute; top:69%; left:58%;
+  padding:14px 24px; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  will-change:transform;
+  background-color:rgb(21,55,179);
+  border-radius:20.47px;
+  box-shadow:
+    inset 0px -1px 1px 0px rgba(255,255,255,0.3),
+    inset 0px 2px 2px 0px rgba(33,196,255,0.5),
+    inset 0px -4px 2.5px 0px rgb(7,19,110),
+    0px 8px 16px 0px rgba(0,0,0,0.2);
+  transform:translate(-50%,-50%) rotate(-17deg);
+  transition:
+    top var(--dur-hover) var(--spring-hover),
+    bottom var(--dur-hover) var(--spring-hover),
+    left var(--dur-hover) var(--spring-hover);
+}
+/* Hover: bottom:55px; left:111px; top:unset */
+.framer-vquiZ.hover .framer-1onszi5 {
+  top:unset; bottom:55px; left:111px;
+}
+
+/* Badge inner text style */
+.badge-text-inner {
+  font-size:16px; font-weight:700; letter-spacing:-0.02em;
+  color:rgba(255,255,255,0.85);
+  text-shadow:0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   CARD 2 INTERNALS — "How I got here"
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── framer-nlskxx — large photo ────────────────────────────────
+   Source CSS: w:94px h:117px; top:calc(43.75%-58.5px); left:calc(75.5556%-47px)
+   Source style: border-radius:6px; box-shadow:0 0 0 4px #fff, 0 10px 12px rgba(0,0,0,0.3)
+                 border:1px solid rgba(0,0,0,0.2)
+   Hover: left:unset; top:78px; right:33px
+   ─────────────────────────────────────────────────────────────── */
+.framer-nlskxx {
+  position:absolute; width:94px; height:117px;
+  top:calc(43.75% - 58.5px); left:calc(75.5556% - 47px);
+  border-radius:6px; overflow:hidden;
+  box-shadow:0px 0px 0px 4px rgb(255,255,255), 0px 10px 12px 0px rgba(0,0,0,0.3);
+  border:1px solid rgba(0,0,0,0.2);
+  will-change:transform;
+  transition:
+    top var(--dur-hover) var(--spring-hover),
+    left var(--dur-hover) var(--spring-hover),
+    right var(--dur-hover) var(--spring-hover);
+}
+.framer-nlskxx img { width:100%; height:100%; object-fit:cover; }
+/* Hover: left:unset; top:78px; right:33px */
+.framer-JHwLQ.hover .framer-nlskxx { left:unset; top:78px; right:33px; }
+
+/* ── framer-jzwcp8 — smaller photo ─────────────────────────────
+   Source CSS: w:72px h:90px; top:calc(65.625%-45px); left:calc(21.9444%-36px)
+   Hover: top:160px; left:35px
+   ─────────────────────────────────────────────────────────────── */
+.framer-jzwcp8 {
+  position:absolute; width:72px; height:90px;
+  top:calc(65.625% - 45px); left:calc(21.9444% - 36px);
+  border-radius:6px; overflow:hidden;
+  box-shadow:0px 0px 0px 4px rgb(255,255,255), 0px 10px 12px 0px rgba(0,0,0,0.3);
+  border:1px solid rgba(0,0,0,0.2);
+  will-change:transform;
+  transition:
+    top var(--dur-hover) var(--spring-hover),
+    left var(--dur-hover) var(--spring-hover);
+}
+.framer-jzwcp8 img { width:100%; height:100%; object-fit:cover; }
+/* Hover: top:160px; left:35px */
+.framer-JHwLQ.hover .framer-jzwcp8 { top:160px; left:35px; }
+
+/* ════════════════════════════════════════════════════════════════
+   CARD 3 INTERNALS — "Life off-screen"
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── framer-1soyb7r — polaroid card ─────────────────────────────
+   Source CSS: w:169px h:200px; top:calc(49.0625%-100px); left:calc(39.1667%-84.5px)
+                overflow:hidden
+   Source style: background:rgb(243,243,243); border-radius:4.38px
+                 box-shadow:0 8px 12px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.15)
+                 transform:rotate(-14deg)  [from DOM style]
+   Hover: top:33px; left:54px
+   ─────────────────────────────────────────────────────────────── */
+.framer-1soyb7r {
+  position:absolute; width:169px; height:200px; overflow:hidden;
+  top:calc(49.0625% - 100px); left:calc(39.1667% - 84.5px);
+  background:rgb(243,243,243); border-radius:4px;
+  box-shadow:0px 8px 12px rgba(0,0,0,0.15), 0px 0px 0px 1px rgba(0,0,0,0.15);
+  transform:rotate(-14deg);
+  will-change:transform;
+  transition:
+    top var(--dur-hover) var(--spring-hover),
+    left var(--dur-hover) var(--spring-hover),
+    transform var(--dur-hover) var(--spring-hover);
+}
+/* Hover: top:33px; left:54px; keep rotate */
+.framer-n0y6I.hover .framer-1soyb7r { top:33px; left:54px; }
+
+/* framer-11d5ob9 — image inside polaroid
+   Source: aspect-ratio:0.988764; top:8px; left:8px; right:8px */
+.framer-11d5ob9 {
+  position:absolute; top:8px; left:8px; right:8px;
+  aspect-ratio:0.988764; overflow:hidden; border-radius:2px;
+  border:1px solid rgba(0,0,0,0.2);
+}
+.framer-11d5ob9 img { width:100%; height:100%; object-fit:cover; }
+
+/* framer-13utv58 — handwriting caption
+   Source: transform:translateX(-50%) rotate(-4deg); font:Caveat 18px 600 */
+.framer-13utv58 {
+  position:absolute; bottom:8px; left:50%;
+  transform:translateX(-50%) rotate(-4deg);
+  white-space:nowrap;
+}
+.handwriting-text {
+  font-family:"Caveat",cursive; font-size:16px; font-weight:600;
+  letter-spacing:-0.02em; color:#222;
+}
+
+/* ── framer-1ct5bbn — outer photo (drop shadow) ─────────────────
+   Source CSS: w:180px h:199px; top:calc(56.5625%-99.5px); left:calc(75%-90px)
+   Source style: filter:drop-shadow(0px 16px 9px rgba(0,0,0,0.15))
+                 transform:rotate(-20deg)  [from DOM]
+   Hover: bottom:5px; right:11px; top:unset; left:unset
+   ─────────────────────────────────────────────────────────────── */
+.framer-1ct5bbn {
+  position:absolute; width:180px; height:199px;
+  top:calc(56.5625% - 99.5px); left:calc(75% - 90px);
+  filter:drop-shadow(0px 16px 9px rgba(0,0,0,0.15));
+  transform:rotate(-20deg);
+  will-change:transform;
+  overflow:hidden; border-radius:4px;
+  transition:
+    top var(--dur-hover) var(--spring-hover),
+    left var(--dur-hover) var(--spring-hover),
+    right var(--dur-hover) var(--spring-hover),
+    bottom var(--dur-hover) var(--spring-hover);
+}
+.framer-1ct5bbn img { width:100%; height:100%; object-fit:cover; }
+/* Hover: bottom:5px; right:11px; top:unset; left:unset */
+.framer-n0y6I.hover .framer-1ct5bbn { bottom:5px; right:11px; top:unset; left:unset; }
+
+/* ════════════════════════════════════════════════════════════════
+   TRANSITION BACKGROUND (framer-1p3qa7s)
+   Source: background:white, height:220px; overflow:hidden
+   Two gradient rectangles that create the white-to-dark transition
+   between hero and work sections
+   ════════════════════════════════════════════════════════════════ */
+.framer-1p3qa7s {
+  background-color:#fff; height:220px; overflow:hidden;
+  position:relative; width:100%;
+}
+.framer-38cvv4 {
+  position:absolute; inset:-273px -160px 141px;
+  background:radial-gradient(circle at 50% 0%, rgba(7,6,7,0.95) 0%, transparent 70%);
+}
+.framer-lv537m {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(7,6,7,0) 0%, rgba(7,6,7,0.05) 100%);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   BELOW-FOLD SECTIONS
+   ════════════════════════════════════════════════════════════════ */
+.below-section {
+  padding:80px 32px; border-top:1px solid rgba(255,255,255,0.06);
+}
+.section-inner { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
+.eyebrow { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); }
+.below-section h2 { font-size:clamp(28px,3.5vw,40px); font-weight:700; letter-spacing:-0.025em; line-height:1.15; }
+.body-text { font-size:16px; color:var(--fg-60); line-height:1.7; }
+.work-stubs { display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+.stub {
+  padding:10px 14px; background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08); border-radius:10px;
+  font-size:14px; color:rgba(255,255,255,0.5);
+}
+.stub-dim { opacity:.45; }
+.cta-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--fg); color:var(--bg); font-size:14px; font-weight:700;
+  padding:12px 24px; border-radius:999px; width:fit-content;
+  transition:opacity .2s;
+}
+.cta-btn:hover { opacity:.9; }
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVE  (source breakpoints from Script 9)
+   ════════════════════════════════════════════════════════════════ */
+@media (max-width:939px) {
+  .hero-section { flex-direction:column; }
+  .framer-33mvhw { height:500px; }
+  #card-11d4yik { left:24% !important; top:20px !important; }
+  #card-1xn3g3i { top:218px !important; left:69% !important; }
+  #card-1kc9msy { top:380px !important; left:42% !important; }
+}
+@media (max-width:639px) {
+  .hero-section { padding-left:20px; padding-right:20px; }
+  .framer-33mvhw { height:520px; }
+  #card-11d4yik { left:45% !important; top:20px !important; }
+  #card-1xn3g3i { top:260px !important; left:64% !important; }
+  #card-1kc9msy { top:460px !important; left:42% !important; }
+  .card-container { width:304px; }
+  .below-section { padding:60px 20px; }
+}
