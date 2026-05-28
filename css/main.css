@@ -6,16 +6,32 @@
 
 /* --- FONTS --- */
 @font-face {
-  font-family: 'Inter';
-  src: url('../fonts/inter/Inter-Regular.woff2') format('woff2');
+  font-family: 'Gabarito';
+  src: url('../fonts/gabarito/Gabarito-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('../fonts/inter/Inter-Medium.woff2') format('woff2');
+  font-family: 'Gabarito';
+  src: url('../fonts/gabarito/Gabarito-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../fonts/satoshi/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../fonts/satoshi/Satoshi-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -156,24 +172,6 @@ nav {
   opacity: 0;
 }
 
-/* --- THEME TOGGLE --- */
-.theme-toggle {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
-  transition: color var(--duration-fast) var(--ease-out),
-              background-color var(--duration-fast) var(--ease-out);
-}
-
-.theme-toggle:hover {
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-secondary);
-}
-
 /* --- HERO --- */
 .hero {
   padding-top: calc(var(--nav-height) + var(--space-32));
@@ -198,6 +196,7 @@ nav {
 }
 
 .hero-title {
+  font-family: var(--font-display);
   font-size: var(--text-4xl);
   font-weight: var(--weight-medium);
   letter-spacing: -0.03em;
@@ -281,6 +280,7 @@ nav {
 }
 
 .work-card-title {
+  font-family: var(--font-display);
   font-size: var(--text-xl);
   font-weight: var(--weight-medium);
   color: var(--color-text-primary);
@@ -521,6 +521,7 @@ footer {
 }
 
 .about-title {
+  font-family: var(--font-display);
   font-size: var(--text-3xl);
   font-weight: var(--weight-medium);
   letter-spacing: -0.03em;
@@ -654,6 +655,7 @@ footer {
 }
 
 .about-cta-title {
+  font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: var(--weight-medium);
   letter-spacing: -0.02em;

@@ -18,7 +18,8 @@
   --color-accent-hover: #B5A389;
 
   /* --- TYPOGRAPHY --- */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:     'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display:  'Gabarito', sans-serif;
 
   --text-xs:   0.75rem;    /* 12px — labels, tags */
   --text-sm:   0.875rem;   /* 14px — captions, meta */

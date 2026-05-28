@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChefKart Partner App — Prince</title>
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/case-study.css" />
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/#work">Work</a>
+      </div>
+      <a href="/" class="nav-logo">Prince Kumar</a>
+      <div class="nav-right">
+        <a href="../about.html">About</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <div class="theme-toggle-knob">
+            <svg class="theme-toggle-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            <svg class="theme-toggle-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="cs-hero">
+    <div class="container">
+      <div class="cs-meta reveal">
+        <span>ChefKart</span>
+        <span>·</span>
+        <span>Consumer</span>
+        <span>·</span>
+        <span>2021–2024</span>
+      </div>
+      <h1 class="cs-title reveal">Building for Next Billion Users (NBUs)</h1>
+      <div class="cs-tags reveal">
+        <span class="tag">NBU Design</span>
+        <span class="tag">Partner App</span>
+        <span class="tag">Accessibility</span>
+        <span class="tag">Blue Collar</span>
+        <span class="tag">0 to 1</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVER -->
+  <div class="cs-cover reveal">
+    <div class="container">
+      <div class="cs-cover-img">
+        <img src="../images/chefkart-2/image.png" alt="ChefKart Partner App — Next Billion Users" />
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="cs-section">
+    <div class="container cs-grid">
+      <div class="cs-sidebar reveal">
+        <div class="cs-stat-block">
+          <p class="cs-stat-label">Role</p>
+          <p class="cs-stat-value">Senior Product Designer</p>
+        </div>
+        <div class="cs-stat-block">
+          <p class="cs-stat-label">Platform</p>
+          <p class="cs-stat-value">Android</p>
+        </div>
+        <div class="cs-stat-block">
+          <p class="cs-stat-label">Timeline</p>
+          <p class="cs-stat-value">2021–2023</p>
+        </div>
+        <div class="cs-stat-block">
+          <p class="cs-stat-label">Users Tested</p>
+          <p class="cs-stat-value">45 unique users · 5 rounds</p>
+        </div>
+      </div>
+      <div class="cs-body">
+        <p class="section-label">Overview</p>
+        <h2 class="cs-heading reveal">Designing a partner app for users who had never used one before</h2>
+        <p class="cs-text reveal">ChefKart's Partner App is used by the professional cooks who power every booking — blue-collar workers who are highly skilled at their craft but often new to smartphones and digital tools.</p>
+        <p class="cs-text reveal">The existing app had a 30% adoption rate. Customer Acquisition Cost had ballooned to ₹10,000 per cook. Users were dropping off within the first 60 minutes of onboarding and the system couldn't scale. The problem wasn't the product-market fit — it was the product.</p>
+        <p class="cs-text reveal">I led the complete redesign of the Partner App, grounded in deep research with the actual users it needed to serve.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="cs-section cs-section--alt">
+    <div class="container">
+      <p class="section-label">The Problem</p>
+      <h2 class="cs-heading reveal">A 30% adoption rate isn't a marketing problem</h2>
+      <div class="cs-two-col">
+        <div>
+          <p class="cs-label-sm">Adoption & Retention</p>
+          <p class="cs-text reveal">Only 30% of cooks who downloaded the app stayed active. Most dropped off within 60 minutes of first use — not because they didn't want the opportunity, but because the app was built for someone else entirely.</p>
+        </div>
+        <div>
+          <p class="cs-label-sm">Cost & Scale</p>
+          <p class="cs-text reveal">At ₹10,000 CAC per active cook, the business couldn't grow without fixing the product. Every cook lost to onboarding friction was ₹10,000 written off. The unit economics demanded a redesign.</p>
+        </div>
+      </div>
+      <div class="cs-image-grid reveal">
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%201.png" alt="Problem space — adoption metrics" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%202.png" alt="Drop-off analysis" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="section-label">Research</p>
+      <h2 class="cs-heading reveal">Going to where the users actually were</h2>
+      <p class="cs-text reveal">I conducted user interviews, focus groups, and surveys across two distinct cohorts — new cooks just joining the platform and experienced cooks who had stopped using the app. What I found challenged most of our assumptions.</p>
+      <div class="cs-image-grid reveal">
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%203.png" alt="User interviews — Cohort 1" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%204.png" alt="Focus group sessions" />
+        </div>
+      </div>
+      <div class="cs-image-grid reveal">
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%205.png" alt="Survey results — Cohort 2" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%206.png" alt="Research synthesis" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY INSIGHTS -->
+  <section class="cs-section cs-section--alt">
+    <div class="container">
+      <p class="section-label">Key Insights</p>
+      <h2 class="cs-heading reveal">Designing for this user meant rethinking everything</h2>
+      <div class="cs-two-col">
+        <div>
+          <p class="cs-label-sm">Literacy & Language</p>
+          <p class="cs-text reveal">20% of users were functionally illiterate — text-heavy interfaces were a wall, not a door. A further 20% spoke only Bengali, with limited Hindi literacy. The app needed to communicate without relying on text as its primary medium.</p>
+        </div>
+        <div>
+          <p class="cs-label-sm">Device Familiarity</p>
+          <p class="cs-text reveal">Many cooks were reluctant smartphone users — sharing devices with family, managing battery anxiety, and deeply unfamiliar with anything beyond YouTube and WhatsApp. These were the two mental models the app had to borrow from.</p>
+        </div>
+      </div>
+      <div class="cs-two-col">
+        <div>
+          <p class="cs-label-sm">Typography</p>
+          <p class="cs-text reveal">Text below 14px was simply unreadable for most users. Every label, caption, and instruction needed to meet a higher floor than standard consumer apps — not as an accessibility add-on, but as the baseline.</p>
+        </div>
+        <div>
+          <p class="cs-label-sm">Device Constraints</p>
+          <p class="cs-text reveal">Battery drain was a genuine anxiety that affected usage. Heavy animations, video onboarding, and data-hungry features were non-starters. The app had to feel light and reliable on entry-level Android hardware.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIVE ANALYSIS -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="section-label">Competitive Analysis</p>
+      <h2 class="cs-heading reveal">Learning from apps our users already trusted</h2>
+      <p class="cs-text reveal">I audited the partner-facing apps from Urban Company, Zomato, and Swiggy — the three platforms most likely to share our user base. Each had solved parts of the NBU challenge differently. Urban Company had strong onboarding scaffolding; Zomato had simplified task flows; Swiggy had invested in icon-first navigation. None had solved all of it.</p>
+      <div class="cs-image-grid reveal">
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/Screenshot_2024-10-14_at_21.21.41.png" alt="Competitive analysis — Urban Company, Zomato" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/Screenshot_2024-10-14_at_21.31.27.png" alt="Competitive analysis — Swiggy partner app" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN PRINCIPLES -->
+  <section class="cs-section cs-section--alt">
+    <div class="container">
+      <p class="section-label">Design Principles</p>
+      <h2 class="cs-heading reveal">Five principles that shaped every decision</h2>
+      <p class="cs-text reveal">Before touching a single screen, I defined the design principles for this redesign: <strong>Icon-first communication</strong> (never rely on text alone), <strong>Familiar patterns</strong> (borrow from YouTube and WhatsApp where possible), <strong>Forgiving interactions</strong> (easy to undo, hard to break), <strong>Performance-first</strong> (no animations that drain battery), and <strong>Language flexibility</strong> (support Bengali and Hindi natively).</p>
+      <div class="cs-image-grid reveal">
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%207.png" alt="Design principles framework" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%208.png" alt="Icon-first communication system" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORATION -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="section-label">Exploration</p>
+      <h2 class="cs-heading reveal">Wireframes grounded in constraints</h2>
+      <p class="cs-text reveal">Every wireframe started from a constraint, not a blank canvas. What does this screen look like if the user can't read the label? What if they have 10% battery? What if the network drops mid-flow? Designing from edge cases first led to more resilient patterns across the board.</p>
+      <div class="cs-image-grid cs-image-grid--3 reveal">
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%209.png" alt="Onboarding flow explorations" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%2010.png" alt="Home screen wireframes" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%2011.png" alt="Task management flow" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USER TESTING -->
+  <section class="cs-section cs-section--alt">
+    <div class="container">
+      <p class="section-label">User Testing</p>
+      <h2 class="cs-heading reveal">5 rounds. 45 users. 1 week.</h2>
+      <p class="cs-text reveal">I ran five rounds of user testing over one week with 45 unique users — testing in homes, in kitchens, and on the kinds of devices our cooks actually owned. Each round fed directly into the next iteration. By round 5, users were completing onboarding without any assistance.</p>
+      <div class="cs-image-grid reveal">
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%2012.png" alt="User testing sessions — Round 1-2" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%2013.png" alt="Iteration between testing rounds" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL DESIGN -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="section-label">Final Design</p>
+      <h2 class="cs-heading reveal">An app built for the people who actually use it</h2>
+      <p class="cs-text reveal">The redesigned Partner App uses icon-led navigation, large touch targets, multilingual support, and a simplified onboarding that guides cooks through setup step by step — like WhatsApp does, which 100% of our users already knew how to use.</p>
+      <div class="cs-image-grid reveal">
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%2014.png" alt="Final design — Onboarding" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%2015.png" alt="Final design — Home screen" />
+        </div>
+      </div>
+      <div class="cs-image-grid cs-image-grid--3 reveal">
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%2016.png" alt="Final design — Booking management" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%2017.png" alt="Final design — Earnings screen" />
+        </div>
+        <div class="cs-image-block">
+          <img src="../images/chefkart-2/image%2018.png" alt="Final design — Profile and settings" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="cs-section cs-section--alt">
+    <div class="container cs-grid">
+      <div class="cs-sidebar reveal">
+        <div class="cs-stat-block">
+          <p class="cs-stat-label">Adoption Rate</p>
+          <p class="cs-stat-value">30% → 90%</p>
+        </div>
+        <div class="cs-stat-block">
+          <p class="cs-stat-label">CAC Impact</p>
+          <p class="cs-stat-value">Reduced significantly</p>
+        </div>
+        <div class="cs-stat-block">
+          <p class="cs-stat-label">Users Tested</p>
+          <p class="cs-stat-value">45 unique · 5 rounds</p>
+        </div>
+      </div>
+      <div class="cs-body">
+        <p class="section-label">Impact</p>
+        <h2 class="cs-heading reveal">From 30% to 90% adoption rate post launch</h2>
+        <p class="cs-text reveal">After launch, partner adoption jumped from 30% to <strong>90%</strong>. Cooks who had previously given up within the first hour were now completing onboarding and taking their first bookings. The ₹10,000 CAC problem became a fundamentally different calculation.</p>
+        <p class="cs-text reveal">More than the numbers: this project taught me that designing for the Next Billion Users isn't about simplifying things. It's about building genuine understanding of a different context — and then letting that understanding drive every single decision.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section class="cs-next">
+    <div class="container">
+      <p class="section-label">Next Case Study</p>
+      <a href="chefkart-1.html" class="cs-next-link reveal">
+        <span class="cs-next-label">ChefKart — Customer App Home Page Revamp</span>
+        <span class="cs-next-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-left">Designed & built by Prince · Powered by Claude</p>
+        <div class="footer-links">
+          <a href="mailto:prince.design10@gmail.com">Email</a>
+          <a href="https://linkedin.com/in/prince" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/cursor.js"></script>
+  <script src="../js/scroll.js"></script>
+</body>
+</html>
