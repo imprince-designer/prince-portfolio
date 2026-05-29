@@ -58,7 +58,6 @@ html {
   max-width: 100%;
 }
 body {
-  overflow-x: hidden;
   max-width: 100%;
   font-family: var(--font-sans);
   font-size: var(--text-base);
@@ -71,6 +70,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --- LAYOUT WRAPPER --- */
+.page-wrapper {
+  overflow-x: hidden;
+  position: relative;
+}
+
 .container {
   width: 100%;
   max-width: var(--max-width);
