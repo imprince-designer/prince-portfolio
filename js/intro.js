@@ -4,7 +4,9 @@
 // Runs only on the homepage, only on first visit.
 
 (function () {
-
+// Hide nav during intro
+  const nav = document.getElementById('nav');
+  if (nav) nav.style.opacity = '0';
   // Only run on homepage
   if (!document.querySelector('.hero')) return;
 
@@ -51,6 +53,8 @@
       setTimeout(() => {
         overlay.style.opacity = '0';
         setTimeout(() => {
+          if (nav) nav.style.opacity = '1';
+nav.style.transition = 'opacity 400ms ease';
           overlay.remove();
           // Trigger scroll animations after overlay gone
           document.querySelectorAll('.reveal').forEach(el => {
