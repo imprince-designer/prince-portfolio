@@ -1013,6 +1013,7 @@ footer {
   box-shadow: none;
   font-family: var(--font-sans);
   font-size: var(--text-base);
+  font-weight: 500;
   color: var(--color-text-secondary);
   padding: 8px 16px;
   cursor: pointer;
