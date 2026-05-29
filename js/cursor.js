@@ -9,6 +9,15 @@ document.addEventListener('mousemove', (e) => {
   cursor.style.top = e.clientY + 'px';
 });
 
+let cursorTimeout;
+document.addEventListener('mousemove', () => {
+  cursor.style.opacity = '1';
+  clearTimeout(cursorTimeout);
+  cursorTimeout = setTimeout(() => {
+    cursor.style.opacity = '0';
+  }, 2000);
+});
+
 // Expand on hoverable elements
 const hoverables = document.querySelectorAll('a, button, .work-card');
 hoverables.forEach(el => {
