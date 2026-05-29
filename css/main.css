@@ -54,6 +54,11 @@
 }
 
 /* --- BASE --- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
@@ -1232,4 +1237,18 @@ body {
 @keyframes pageFadeOut {
   from { opacity: 1; transform: translateY(0); }
   to   { opacity: 0; transform: translateY(-8px); }
+}
+
+@media (min-width: 769px) {
+  .mobile-drawer {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  .mobile-drawer-overlay {
+    display: none !important;
+  }
+  .nav-mobile-trigger {
+    display: none !important;
+  }
 }
