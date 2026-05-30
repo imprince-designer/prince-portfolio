@@ -1,15 +1,15 @@
-const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%&';
 
 function scrambleWord(el) {
   const word = el.dataset.word;
   let iteration = 0;
-  const total = word.length * 6;
+  const total = word.length * 8;
 
   const interval = setInterval(() => {
     el.textContent = word
       .split('')
       .map((letter, i) => {
-        if (i < Math.floor(iteration / 6)) return letter;
+        if (i < Math.floor(iteration / 8)) return letter;
         return chars[Math.floor(Math.random() * chars.length)];
       })
       .join('');
@@ -24,18 +24,27 @@ function scrambleWord(el) {
 function initScramble() {
   const words = document.querySelectorAll('.scramble-word');
   const strip = document.querySelector('.scramble-strip');
-  if (!strip) return;
+  if (!strip || !words.length) return;
+
+  // Start all words as scrambled immediately
+  words.forEach(el => {
+    const word = el.dataset.word;
+    el.textContent = word.split('').map(() => chars[Math.floor(Math.random() * chars.length)]).join('');
+  });
+
+  let hasRun = false;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && !hasRun) {
+        hasRun = true;
         words.forEach((word, i) => {
-          setTimeout(() => scrambleWord(word), i * 150);
+          setTimeout(() => scrambleWord(word), i * 200);
         });
         observer.disconnect();
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.2 });
 
   observer.observe(strip);
 }
