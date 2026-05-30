@@ -1391,14 +1391,27 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
   color: var(--color-text-muted);
   transition: transform var(--duration-fast) var(--ease-out),
-              color var(--duration-fast) var(--ease-out);
+              color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out);
+}
+
+.case-arrow svg {
+  width: 18px;
+  height: 18px;
 }
 
 .case-card:hover .case-arrow {
-  transform: translateX(4px);
-  color: var(--color-text-primary);
+  transform: translateX(3px);
+  color: #ffffff;
+  background: #285DC6;
+  border-color: #285DC6;
 }
 
 .case-body {
@@ -1406,9 +1419,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-6);
   background: var(--color-surface);
   border-top: 1px solid var(--color-border);
+}
+
+.case-body-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
 }
 
 .case-type {
