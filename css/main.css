@@ -668,11 +668,25 @@ footer {
 }
 
 .photo-swiper .swiper-slide {
-  width: 520px;
-  height: 360px;
-  border-radius: 16px;
+  width: 580px;
+  height: 420px;
+  border-radius: 20px;
   overflow: hidden;
   cursor: grab;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.45;
+  transform: scale(0.82);
+}
+
+.photo-swiper .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.photo-swiper .swiper-slide-prev,
+.photo-swiper .swiper-slide-next {
+  opacity: 0.35;
+  transform: scale(0.78);
 }
 
 .photo-swiper .swiper-slide:active {
@@ -711,6 +725,7 @@ footer {
 }
 
 /* --- ABOUT STRIP --- */
+
 .about-strip {
   max-width: 640px;
 }
