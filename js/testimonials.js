@@ -1,39 +1,35 @@
 const track = document.getElementById('testimonialsTrack');
+const dotsContainer = document.getElementById('testimonialsDots');
 const prevBtn = document.getElementById('testimonialPrev');
 const nextBtn = document.getElementById('testimonialNext');
 
 if (track) {
   const cards = track.querySelectorAll('.testimonial-card');
-  let current = 0;
+  const dots = dotsContainer.querySelectorAll('.testimonials-dot');
+  let cur = 0;
   let autoplay;
   let startX = 0;
+  const visible = window.innerWidth < 768 ? 1 : 2;
+  const max = cards.length - visible;
 
-  // Apply ql span colours from data-color
-  cards.forEach(card => {
-    const ql = card.querySelector('.testimonial-ql');
-    if (ql) {
-      const color = ql.dataset.color;
-      ql.querySelectorAll('span').forEach(span => {
-        span.style.background = color;
-      });
-    }
-  });
-
-  function goTo(index) {
-    current = (index + cards.length) % cards.length;
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+  function goTo(i) {
+    cur = Math.max(0, Math.min(i, max));
+    const cardW = cards[0].offsetWidth + 24;
+    track.style.transform = 'translateX(-' + (cur * cardW) + 'px)';
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === cur));
   }
 
   function startAutoplay() {
-    autoplay = setInterval(() => goTo(current + 1), 5000);
+    autoplay = setInterval(() => goTo(cur < max ? cur + 1 : 0), 5000);
   }
 
   function stopAutoplay() {
     clearInterval(autoplay);
   }
 
-  prevBtn.addEventListener('click', () => { stopAutoplay(); goTo(current - 1); startAutoplay(); });
-  nextBtn.addEventListener('click', () => { stopAutoplay(); goTo(current + 1); startAutoplay(); });
+  prevBtn.addEventListener('click', () => { stopAutoplay(); goTo(cur - 1); startAutoplay(); });
+  nextBtn.addEventListener('click', () => { stopAutoplay(); goTo(cur + 1); startAutoplay(); });
+  dots.forEach((d, i) => d.addEventListener('click', () => { stopAutoplay(); goTo(i); startAutoplay(); }));
 
   track.addEventListener('mouseenter', stopAutoplay);
   track.addEventListener('mouseleave', startAutoplay);
@@ -45,7 +41,7 @@ if (track) {
 
   track.addEventListener('touchend', (e) => {
     const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) diff > 0 ? goTo(current + 1) : goTo(current - 1);
+    if (Math.abs(diff) > 50) diff > 0 ? goTo(cur + 1) : goTo(cur - 1);
     startAutoplay();
   }, { passive: true });
 
