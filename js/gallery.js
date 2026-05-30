@@ -1,14 +1,14 @@
 const photoData = [
-  { word: 'stillness',   idx: 0 },
-  { word: 'devotion',    idx: 1 },
-  { word: 'harmony',     idx: 2 },
-  { word: 'resilience',  idx: 3 },
-  { word: 'peace',       idx: 4 },
-  { word: 'innocence',   idx: 5 },
-  { word: 'faith',       idx: 6 },
-  { word: 'solitude',    idx: 7 },
-  { word: 'surrender',   idx: 8 },
-  { word: 'wonder',      idx: 9 },
+  { word: 'stillness',  color: '#E8820C' },
+  { word: 'devotion',   color: '#D4A017' },
+  { word: 'harmony',    color: '#E07B39' },
+  { word: 'resilience', color: '#C0C0C0' },
+  { word: 'peace',      color: '#C17E3A' },
+  { word: 'innocence',  color: '#A8A8A8' },
+  { word: 'faith',      color: '#7BA7BC' },
+  { word: 'solitude',   color: '#B8A898' },
+  { word: 'surrender',  color: '#E05C3A' },
+  { word: 'wonder',     color: '#7A9E7E' },
 ];
 
 const cards = Array.from(document.querySelectorAll('.photo-card'));
@@ -62,12 +62,14 @@ function positionCards() {
 
 function updateWord() {
   const newWord = photoData[current].word;
+  const newColor = photoData[current].color;
 
   wordEl.classList.add('fade-out');
   wordEl.classList.remove('fade-in');
 
   setTimeout(() => {
     wordEl.textContent = newWord;
+    wordEl.style.color = newColor;
     wordEl.getBoundingClientRect();
     wordEl.classList.remove('fade-out');
     wordEl.classList.add('fade-in');
