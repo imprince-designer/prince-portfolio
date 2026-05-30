@@ -664,7 +664,7 @@ footer {
 
 .photo-stage {
   position: relative;
-  height: 400px;
+  height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -685,19 +685,19 @@ footer {
 
 [data-theme="light"] .photo-stage::before {
   left: 0;
-  background: linear-gradient(to right, #FAFAF8 15%, transparent 100%);
+  background: linear-gradient(to right, #FAFAF8 5%, transparent 100%);
 }
 [data-theme="light"] .photo-stage::after {
   right: 0;
-  background: linear-gradient(to left, #FAFAF8 15%, transparent 100%);
+  background: linear-gradient(to left, #FAFAF8 5%, transparent 100%);
 }
 [data-theme="dark"] .photo-stage::before {
   left: 0;
-  background: linear-gradient(to right, #111110 15%, transparent 100%);
+  background: linear-gradient(to right, #111110 5%, transparent 100%);
 }
 [data-theme="dark"] .photo-stage::after {
   right: 0;
-  background: linear-gradient(to left, #111110 15%, transparent 100%);
+  background: linear-gradient(to left, #111110 5%, transparent 100%);
 }
 
 .photo-cards {
@@ -720,13 +720,13 @@ footer {
 }
 
 .photo-card.landscape {
-  width: 520px;
-  height: 350px;
+  width: 650px;
+  height: 438px;
 }
 
 .photo-card.portrait {
-  width: 240px;
-  height: 350px;
+  width: 300px;
+  height: 438px;
 }
 
 .photo-card img {

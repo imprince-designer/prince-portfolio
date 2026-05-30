@@ -4,7 +4,7 @@ let current = 0;
 const S0 = 1.0, S1 = 0.80, S2 = 0.64;
 
 function getW(card) {
-  return card.classList.contains('portrait') ? 240 : 520;
+  return card.classList.contains('portrait') ? 300 : 650;
 }
 
 function positionCards() {
@@ -28,7 +28,7 @@ function positionCards() {
       tx = (cEdge + sHalf) * s;
       rotY = -30 * s;
       scale = S1;
-      brightness = 0.62;
+      brightness = 0.70;
       zIndex = 5;
     } else if (Math.abs(diff) === 2) {
       const adj = cards[(current + s + total) % total];
@@ -40,7 +40,7 @@ function positionCards() {
       tx = (adjFarEdge + (sW * S2) / 2) * s;
       rotY = -44 * s;
       scale = S2;
-      brightness = 0.35;
+      brightness = 0.50;
       zIndex = 2;
     } else {
       opacity = 0; scale = 0.3; zIndex = 0;
