@@ -239,23 +239,64 @@
   <section class="section" id="photography">
     <div class="container">
       <p class="section-label">Through the Lens</p>
-      <div class="photo-grid reveal">
-        <div class="photo-item photo-item--large">
-          <img src="https://placehold.co/1200x800/F4F3F0/A8A7A3?text=Photo+1" alt="Photography by Prince" />
+
+      <div class="photo-grid">
+        <div class="photo-item photo-item--large" data-index="0">
+          <img src="https://images.pexels.com/photos/2421468/pexels-photo-2421468.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Elderly monk in red robes" loading="lazy" />
+          <div class="photo-overlay"><span>View</span></div>
         </div>
-        <div class="photo-item">
-          <img src="https://placehold.co/800x600/F4F3F0/A8A7A3?text=Photo+2" alt="Photography by Prince" />
+        <div class="photo-item" data-index="1">
+          <img src="https://images.pexels.com/photos/2421467/pexels-photo-2421467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Monk meditating" loading="lazy" />
+          <div class="photo-overlay"><span>View</span></div>
         </div>
-        <div class="photo-item">
-          <img src="https://placehold.co/800x600/F4F3F0/A8A7A3?text=Photo+3" alt="Photography by Prince" />
+        <div class="photo-item" data-index="2">
+          <img src="https://images.pexels.com/photos/2421470/pexels-photo-2421470.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Group of monks meditating" loading="lazy" />
+          <div class="photo-overlay"><span>View</span></div>
+        </div>
+        <div class="photo-item" data-index="3">
+          <img src="https://images.pexels.com/photos/2421477/pexels-photo-2421477.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Photography by Prince" loading="lazy" />
+          <div class="photo-overlay"><span>View</span></div>
+        </div>
+        <div class="photo-item" data-index="4">
+          <img src="https://images.pexels.com/photos/2421476/pexels-photo-2421476.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Photography by Prince" loading="lazy" />
+          <div class="photo-overlay"><span>View</span></div>
+        </div>
+        <div class="photo-item" data-index="5">
+          <img src="https://images.pexels.com/photos/2421475/pexels-photo-2421475.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Photography by Prince" loading="lazy" />
+          <div class="photo-overlay"><span>View</span></div>
+        </div>
+        <div class="photo-item" data-index="6">
+          <img src="https://images.pexels.com/photos/2421474/pexels-photo-2421474.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Photography by Prince" loading="lazy" />
+          <div class="photo-overlay"><span>View</span></div>
+        </div>
+        <div class="photo-item" data-index="7">
+          <img src="https://images.pexels.com/photos/2421473/pexels-photo-2421473.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Photography by Prince" loading="lazy" />
+          <div class="photo-overlay"><span>View</span></div>
+        </div>
+        <div class="photo-item" data-index="8">
+          <img src="https://images.pexels.com/photos/19781105/pexels-photo-19781105.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Saint at the Ganges" loading="lazy" />
+          <div class="photo-overlay"><span>View</span></div>
         </div>
       </div>
+
       <p class="photo-caption">
         I see composition everywhere. Two years behind the lens taught me to notice what most people walk past —
         a skill that quietly shapes every design decision I make.
-        <a href="https://www.pexels.com/@prince-kumar-781937/" target="_blank" class="photo-link">See more on Pexels ↗</a>
+        <a href="https://www.pexels.com/@prince-kumar-781937/" target="_blank" class="photo-link">See all on Pexels</a>
       </p>
     </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">×</button>
+      <button class="lightbox-prev" id="lightboxPrev">←</button>
+      <button class="lightbox-next" id="lightboxNext">→</button>
+      <div class="lightbox-img-wrap">
+        <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+      </div>
+      <p class="lightbox-counter" id="lightboxCounter"></p>
+    </div>
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
   </section>
 
   <!-- ABOUT STRIP -->
@@ -424,5 +465,6 @@
   <script src="js/ai-chat.js"></script>
   <script src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js"></script>
   <script src="js/testimonials.js"></script>
+  <script src="js/gallery.js"></script>
 </body>
 </html>
