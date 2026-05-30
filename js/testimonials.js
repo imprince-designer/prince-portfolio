@@ -1,49 +1,36 @@
-const track = document.getElementById('testimonialsTrack');
-const dotsContainer = document.getElementById('testimonialsDots');
-const prevBtn = document.getElementById('testimonialPrev');
-const nextBtn = document.getElementById('testimonialNext');
+import EmblaCarousel from 'https://unpkg.com/embla-carousel/embla-carousel.esm.js'
 
-if (track) {
-  const cards = track.querySelectorAll('.testimonial-card');
-  const dots = dotsContainer.querySelectorAll('.testimonials-dot');
-  let cur = 0;
-  let autoplay;
-  let startX = 0;
-  const visible = window.innerWidth < 768 ? 1 : 2;
-  const max = cards.length - visible;
+const viewport = document.querySelector('.testimonials-viewport')
+const prevBtn = document.getElementById('testimonialPrev')
+const nextBtn = document.getElementById('testimonialNext')
+const dots = document.querySelectorAll('.testimonials-dot')
 
-  function goTo(i) {
-    cur = Math.max(0, Math.min(i, max));
-    const cardW = cards[0].offsetWidth + 24;
-    track.style.transform = 'translateX(-' + (cur * cardW) + 'px)';
-    dots.forEach((d, idx) => d.classList.toggle('active', idx === cur));
+if (viewport) {
+  const embla = EmblaCarousel(viewport, {
+    loop: true,
+    align: 'start',
+    slidesToScroll: 1,
+    skipSnaps: false,
+    dragFree: false,
+    containScroll: 'trimSnaps',
+  })
+
+  function updateDots() {
+    const index = embla.selectedScrollSnap()
+    dots.forEach((d, i) => d.classList.toggle('active', i === index))
   }
 
-  function startAutoplay() {
-    autoplay = setInterval(() => goTo(cur < max ? cur + 1 : 0), 5000);
-  }
+  prevBtn.addEventListener('click', () => embla.scrollPrev())
+  nextBtn.addEventListener('click', () => embla.scrollNext())
+  dots.forEach((d, i) => d.addEventListener('click', () => embla.scrollTo(i)))
 
-  function stopAutoplay() {
-    clearInterval(autoplay);
-  }
+  embla.on('select', updateDots)
+  embla.on('init', updateDots)
 
-  prevBtn.addEventListener('click', () => { stopAutoplay(); goTo(cur - 1); startAutoplay(); });
-  nextBtn.addEventListener('click', () => { stopAutoplay(); goTo(cur + 1); startAutoplay(); });
-  dots.forEach((d, i) => d.addEventListener('click', () => { stopAutoplay(); goTo(i); startAutoplay(); }));
+  let autoplay = setInterval(() => embla.scrollNext(), 5000)
 
-  track.addEventListener('mouseenter', stopAutoplay);
-  track.addEventListener('mouseleave', startAutoplay);
-
-  track.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-    stopAutoplay();
-  }, { passive: true });
-
-  track.addEventListener('touchend', (e) => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) diff > 0 ? goTo(cur + 1) : goTo(cur - 1);
-    startAutoplay();
-  }, { passive: true });
-
-  startAutoplay();
+  viewport.addEventListener('mouseenter', () => clearInterval(autoplay))
+  viewport.addEventListener('mouseleave', () => {
+    autoplay = setInterval(() => embla.scrollNext(), 5000)
+  })
 }
