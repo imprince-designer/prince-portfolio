@@ -1860,3 +1860,39 @@ body {
   .case-body { padding: var(--space-3) var(--space-4); }
   .company-row { padding: var(--space-6) 0; }
 }
+.photo-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 0.75rem;
+}
+
+.photo-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 0 2rem;
+}
+
+.photo-stat-num {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e0e0de;
+  white-space: nowrap;
+}
+
+.photo-stat-lbl {
+  font-size: 0.7rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.photo-stat-sep {
+  width: 1px;
+  height: 20px;
+  background: #2a2a28;
+  align-self: center;
+}
