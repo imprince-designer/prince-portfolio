@@ -8,7 +8,7 @@ function getW(card) {
 }
 
 function positionCards() {
-  const cW = getW(cards[current]);
+  const GAP = 12; // consistent gap between all cards regardless of type
 
   cards.forEach((card, i) => {
     let diff = i - current;
@@ -16,6 +16,7 @@ function positionCards() {
     if (diff < -total / 2) diff += total;
 
     const s = Math.sign(diff);
+    const cW = getW(cards[current]);
     let tx = 0, rotY = 0, scale = S0, brightness = 1, zIndex = 1, shadow = 'none', opacity = 1;
 
     if (diff === 0) {
@@ -23,9 +24,7 @@ function positionCards() {
       shadow = '0 32px 80px rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.12)';
     } else if (Math.abs(diff) === 1) {
       const sW = getW(card);
-      const cEdge = (cW * S0) / 2;
-      const sHalf = (sW * S1) / 2;
-      tx = (cEdge + sHalf) * s;
+      tx = ((cW * S0) / 2 + GAP + (sW * S1) / 2) * s;
       rotY = -30 * s;
       scale = S1;
       brightness = 0.70;
@@ -34,10 +33,9 @@ function positionCards() {
       const adj = cards[(current + s + total) % total];
       const adjW = getW(adj);
       const sW = getW(card);
-      const cEdge = (cW * S0) / 2;
-      const adjCenter = cEdge + (adjW * S1) / 2;
+      const adjCenter = (cW * S0) / 2 + GAP + (adjW * S1) / 2;
       const adjFarEdge = adjCenter + (adjW * S1) / 2;
-      tx = (adjFarEdge + (sW * S2) / 2) * s;
+      tx = (adjFarEdge + GAP + (sW * S2) / 2) * s;
       rotY = -44 * s;
       scale = S2;
       brightness = 0.50;
