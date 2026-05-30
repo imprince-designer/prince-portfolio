@@ -658,52 +658,70 @@ footer {
 
 /* --- PHOTOGRAPHY --- */
 .photo-section {
-  padding: 5rem 0 3rem;
+  padding: 5rem 0 4rem;
   overflow: hidden;
   background: #111110;
 }
 
-.photo-section .section-label {
-  color: #555;
+.photo-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-.photo-section .photo-caption {
-  color: #666;
-}
-
-.photo-section .photo-link {
-  color: #6b9fff;
-}
-
-.photo-section .photo-btn {
-  border-color: #2a2a28;
+.photo-headline {
+  font-family: 'Gabarito', sans-serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
   color: #fff;
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 3rem;
+  white-space: nowrap;
 }
 
-.photo-section .photo-btn:hover {
-  background: #285DC6;
-  border-color: #285DC6;
+.photo-word-wrap {
+  display: inline-block;
+  min-width: 220px;
+  text-align: left;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.photo-word {
+  display: inline-block;
   color: #fff;
+  font-style: italic;
+  position: relative;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.4s ease;
+  will-change: opacity, transform;
 }
 
-/* Override both light and dark theme gradients to always be dark */
-.photo-stage::before {
-  left: 0;
-  background: linear-gradient(to right, #111110 5%, transparent 100%) !important;
+.photo-word.fade-out {
+  opacity: 0;
+  transform: translateY(-8px);
+  filter: blur(4px);
 }
-.photo-stage::after {
-  right: 0;
-  background: linear-gradient(to left, #111110 5%, transparent 100%) !important;
+
+.photo-word.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
 .photo-stage {
   position: relative;
-  height: 480px;
+  height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin: 2rem 0;
+  margin-bottom: 3rem;
 }
 
 .photo-stage::before,
@@ -712,26 +730,19 @@ footer {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 20%;
+  width: 18%;
   z-index: 20;
   pointer-events: none;
 }
 
-[data-theme="light"] .photo-stage::before {
+.photo-stage::before {
   left: 0;
-  background: linear-gradient(to right, #FAFAF8 5%, transparent 100%);
+  background: linear-gradient(to right, #111110 8%, transparent 100%);
 }
-[data-theme="light"] .photo-stage::after {
+
+.photo-stage::after {
   right: 0;
-  background: linear-gradient(to left, #FAFAF8 5%, transparent 100%);
-}
-[data-theme="dark"] .photo-stage::before {
-  left: 0;
-  background: linear-gradient(to right, #111110 5%, transparent 100%);
-}
-[data-theme="dark"] .photo-stage::after {
-  right: 0;
-  background: linear-gradient(to left, #111110 5%, transparent 100%);
+  background: linear-gradient(to left, #111110 8%, transparent 100%);
 }
 
 .photo-cards {
@@ -749,18 +760,22 @@ footer {
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-origin: center center;
+  will-change: transform, filter;
 }
 
 .photo-card.landscape {
-  width: 650px;
-  height: 438px;
+  width: 580px;
+  height: 390px;
 }
 
 .photo-card.portrait {
-  width: 300px;
-  height: 438px;
+  width: 270px;
+  height: 390px;
 }
 
 .photo-card img {
@@ -772,73 +787,60 @@ footer {
   user-select: none;
 }
 
-.photo-bottom {
+.photo-controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.photo-caption {
-  font-size: 0.9rem;
-  line-height: 1.75;
-  color: var(--color-text-muted, #888);
-  max-width: 480px;
-}
-
-.photo-link {
-  color: #285DC6;
-  text-decoration: none;
-  margin-left: 0.25rem;
-}
-
-.photo-link:hover { text-decoration: underline; }
-
-.photo-nav {
-  display: flex;
-  gap: 8px;
-  flex-shrink: 0;
+  justify-content: center;
+  gap: 20px;
 }
 
 .photo-btn {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 0.5px solid var(--color-border);
-  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
   cursor: pointer;
   font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
-
-[data-theme="light"] .photo-btn { border-color: #d0d0ce; color: #111; }
-[data-theme="dark"] .photo-btn { border-color: #2a2a28; color: #fff; }
 
 .photo-btn:hover {
   background: #285DC6;
   border-color: #285DC6;
+}
+
+.photo-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 28px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.15);
   color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.photo-cta:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.3);
 }
 
 @media (max-width: 768px) {
-  .photo-section { padding: 3rem 0 2rem; }
-
-  .photo-stage {
-    height: 260px;
-    margin: 1.5rem 0;
-  }
-
-  .photo-card.landscape { width: 280px; height: 190px; }
-  .photo-card.portrait { width: 140px; height: 190px; }
-
-  .photo-bottom { flex-direction: column; gap: 1rem; padding: 0 1.25rem; }
-
-  .photo-caption { font-size: 0.82rem; }
-
-  .photo-nav { justify-content: flex-start; }
+  .photo-section { padding: 3rem 0 2.5rem; }
+  .photo-stage { height: 260px; margin-bottom: 2rem; }
+  .photo-card.landscape { width: 290px; height: 195px; }
+  .photo-card.portrait { width: 140px; height: 195px; }
+  .photo-headline { font-size: 1.25rem; white-space: normal; text-align: center; }
+  .photo-word-wrap { min-width: 120px; }
 }
 
 /* --- ABOUT STRIP --- */

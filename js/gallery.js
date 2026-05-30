@@ -1,45 +1,53 @@
+const photoData = [
+  { word: 'stillness',   idx: 0 },
+  { word: 'devotion',    idx: 1 },
+  { word: 'harmony',     idx: 2 },
+  { word: 'resilience',  idx: 3 },
+  { word: 'peace',       idx: 4 },
+  { word: 'innocence',   idx: 5 },
+  { word: 'faith',       idx: 6 },
+  { word: 'solitude',    idx: 7 },
+  { word: 'surrender',   idx: 8 },
+  { word: 'wonder',      idx: 9 },
+];
+
 const cards = Array.from(document.querySelectorAll('.photo-card'));
+const wordEl = document.getElementById('photoWord');
 const total = cards.length;
 let current = 0;
+let isAnimating = false;
+
 const S0 = 1.0, S1 = 0.80, S2 = 0.64;
+const GAP = 12;
 
 function getW(card) {
-  return card.classList.contains('portrait') ? 300 : 650;
+  return card.classList.contains('portrait') ? 270 : 580;
 }
 
 function positionCards() {
-  const GAP = 12; // consistent gap between all cards regardless of type
-
+  const cW = getW(cards[current]);
   cards.forEach((card, i) => {
     let diff = i - current;
     if (diff > total / 2) diff -= total;
     if (diff < -total / 2) diff += total;
-
     const s = Math.sign(diff);
-    const cW = getW(cards[current]);
     let tx = 0, rotY = 0, scale = S0, brightness = 1, zIndex = 1, shadow = 'none', opacity = 1;
 
     if (diff === 0) {
       tx = 0; rotY = 0; scale = S0; brightness = 1; zIndex = 10;
-      shadow = '0 32px 80px rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.12)';
+      shadow = '0 40px 80px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.3)';
     } else if (Math.abs(diff) === 1) {
       const sW = getW(card);
       tx = ((cW * S0) / 2 + GAP + (sW * S1) / 2) * s;
-      rotY = -30 * s;
-      scale = S1;
-      brightness = 0.70;
-      zIndex = 5;
+      rotY = -28 * s; scale = S1; brightness = 0.65; zIndex = 5;
     } else if (Math.abs(diff) === 2) {
       const adj = cards[(current + s + total) % total];
       const adjW = getW(adj);
       const sW = getW(card);
       const adjCenter = (cW * S0) / 2 + GAP + (adjW * S1) / 2;
-      const adjFarEdge = adjCenter + (adjW * S1) / 2;
-      tx = (adjFarEdge + GAP + (sW * S2) / 2) * s;
-      rotY = -44 * s;
-      scale = S2;
-      brightness = 0.50;
-      zIndex = 2;
+      const adjEdge = adjCenter + (adjW * S1) / 2;
+      tx = (adjEdge + GAP + (sW * S2) / 2) * s;
+      rotY = -42 * s; scale = S2; brightness = 0.35; zIndex = 2;
     } else {
       opacity = 0; scale = 0.3; zIndex = 0;
     }
@@ -52,8 +60,31 @@ function positionCards() {
   });
 }
 
-function goNext() { current = (current + 1) % total; positionCards(); }
-function goPrev() { current = (current - 1 + total) % total; positionCards(); }
+function updateWord() {
+  const newWord = photoData[current].word;
+
+  wordEl.classList.add('fade-out');
+  wordEl.classList.remove('fade-in');
+
+  setTimeout(() => {
+    wordEl.textContent = newWord;
+    wordEl.getBoundingClientRect();
+    wordEl.classList.remove('fade-out');
+    wordEl.classList.add('fade-in');
+  }, 380);
+}
+
+function goTo(index) {
+  if (isAnimating) return;
+  isAnimating = true;
+  current = (index + total) % total;
+  positionCards();
+  updateWord();
+  setTimeout(() => { isAnimating = false; }, 700);
+}
+
+function goNext() { goTo(current + 1); }
+function goPrev() { goTo(current - 1); }
 
 document.getElementById('photoNext').addEventListener('click', goNext);
 document.getElementById('photoPrev').addEventListener('click', goPrev);
@@ -69,20 +100,23 @@ cards.forEach((card, i) => {
   });
 });
 
-const stage = document.querySelector('.photo-stage');
+/* Touch swipe */
 let startX = 0;
+const stage = document.querySelector('.photo-stage');
 stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
 stage.addEventListener('touchend', e => {
   const diff = startX - e.changedTouches[0].clientX;
   if (Math.abs(diff) > 50) diff > 0 ? goNext() : goPrev();
 }, { passive: true });
 
-let auto = setInterval(goNext, 4000);
+/* Autoplay — pause on hover */
+let auto = setInterval(goNext, 4500);
+stage.addEventListener('mouseenter', () => clearInterval(auto));
+stage.addEventListener('mouseleave', () => { auto = setInterval(goNext, 4500); });
 [document.getElementById('photoNext'), document.getElementById('photoPrev')].forEach(btn => {
-  btn.addEventListener('click', () => { clearInterval(auto); auto = setInterval(goNext, 4000); });
+  btn.addEventListener('click', () => { clearInterval(auto); auto = setInterval(goNext, 4500); });
 });
 
-stage.addEventListener('mouseenter', () => clearInterval(auto));
-stage.addEventListener('mouseleave', () => { auto = setInterval(goNext, 4000); });
-
+/* Init */
 positionCards();
+wordEl.classList.add('fade-in');
