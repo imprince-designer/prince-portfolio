@@ -399,6 +399,105 @@ footer {
   color: var(--color-text-primary);
 }
 
+/* --- TESTIMONIALS --- */
+.testimonials-section {
+  border-top: 1px solid var(--color-border, #e5e5e3);
+}
+
+.testimonials-carousel {
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-card {
+  min-width: 100%;
+  padding: 3rem;
+  background: var(--color-surface, #f4f3f0);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .testimonial-card {
+  background: #1a1a18;
+}
+
+.testimonial-quote {
+  font-family: 'Gabarito', sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-text);
+  max-width: 48rem;
+}
+
+.testimonial-name {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.testimonial-role {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #888);
+  margin-top: 0.25rem;
+}
+
+.testimonials-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.testimonial-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-border, #e5e5e3);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.testimonial-btn:hover {
+  background: #285DC6;
+  color: #fff;
+  border-color: #285DC6;
+}
+
+.testimonials-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.testimonials-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-border, #e5e5e3);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.testimonials-dot.active {
+  background: #285DC6;
+  transform: scale(1.3);
+}
+
 /* --- PHOTOGRAPHY GRID --- */
 .photo-grid {
   display: grid;
