@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="https://unpkg.com/embla-carousel/embla-carousel.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -242,46 +241,55 @@
       <p class="section-label">Through the Lens</p>
     </div>
 
-    <div class="swiper photo-swiper">
-      <div class="swiper-wrapper">
+    <div class="photo-stage">
+      <div class="photo-cards" id="photoCards">
 
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/2421468/pexels-photo-2421468.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Elderly monk in red robes" />
+        <div class="photo-card landscape" data-idx="0">
+          <img src="https://images.pexels.com/photos/2421468/pexels-photo-2421468.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Elderly monk in red robes" loading="lazy" />
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/2421467/pexels-photo-2421467.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Monk meditating" />
+        <div class="photo-card portrait" data-idx="1">
+          <img src="https://images.pexels.com/photos/1645878/pexels-photo-1645878.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Woman in orange veil" loading="lazy" />
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/2421470/pexels-photo-2421470.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Group of monks meditating" />
+        <div class="photo-card landscape" data-idx="2">
+          <img src="https://images.pexels.com/photos/2421470/pexels-photo-2421470.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Monks meditating" loading="lazy" />
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/2421477/pexels-photo-2421477.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Photography by Prince" />
+        <div class="photo-card portrait" data-idx="3">
+          <img src="https://images.pexels.com/photos/1645879/pexels-photo-1645879.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Man with packs on head" loading="lazy" />
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/2421476/pexels-photo-2421476.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Photography by Prince" />
+        <div class="photo-card landscape" data-idx="4">
+          <img src="https://images.pexels.com/photos/2421467/pexels-photo-2421467.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Monk meditating" loading="lazy" />
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/2421475/pexels-photo-2421475.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Photography by Prince" />
+        <div class="photo-card portrait" data-idx="5">
+          <img src="https://images.pexels.com/photos/2421456/pexels-photo-2421456.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Grayscale toddler" loading="lazy" />
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/2421474/pexels-photo-2421474.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Photography by Prince" />
+        <div class="photo-card landscape" data-idx="6">
+          <img src="https://images.pexels.com/photos/2421469/pexels-photo-2421469.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Photography" loading="lazy" />
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/2421473/pexels-photo-2421473.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Photography by Prince" />
+        <div class="photo-card portrait" data-idx="7">
+          <img src="https://images.pexels.com/photos/1645880/pexels-photo-1645880.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Photography" loading="lazy" />
         </div>
-        <div class="swiper-slide">
-          <img src="https://images.pexels.com/photos/19781105/pexels-photo-19781105.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Saint at the Ganges" />
+        <div class="photo-card landscape" data-idx="8">
+          <img src="https://images.pexels.com/photos/19781105/pexels-photo-19781105.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Saint at the Ganges" loading="lazy" />
+        </div>
+        <div class="photo-card landscape" data-idx="9">
+          <img src="https://images.pexels.com/photos/2421465/pexels-photo-2421465.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Photography" loading="lazy" />
         </div>
 
       </div>
     </div>
 
     <div class="container">
-      <p class="photo-caption">
-        I see composition everywhere. Two years behind the lens taught me to notice what most people walk past —
-        a skill that quietly shapes every design decision I make.
-        <a href="https://www.pexels.com/@prince-kumar-781937/" target="_blank" class="photo-link">See all on Pexels</a>
-      </p>
+      <div class="photo-bottom">
+        <p class="photo-caption">
+          I see composition everywhere. Two years behind the lens taught me to notice what most people walk past —
+          a skill that quietly shapes every design decision I make.
+          <a href="https://www.pexels.com/@prince-kumar-781937/" target="_blank" rel="noopener" class="photo-link">See all on Pexels</a>
+        </p>
+        <div class="photo-nav">
+          <button class="photo-btn" id="photoPrev">←</button>
+          <button class="photo-btn" id="photoNext">→</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -451,7 +459,6 @@
   <script src="js/ai-chat.js"></script>
   <script src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js"></script>
   <script src="js/testimonials.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/gallery.js"></script>
 </body>
 </html>
