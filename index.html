@@ -133,15 +133,70 @@
   <div class="page-wrapper">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-decision">
     <div class="container">
-      <div class="hero-status">Figuring out what's next</div>
-      <h1 class="hero-title reveal">
-        Designing products that feel as good as they work.
-      </h1>
-      <p class="hero-subtitle reveal">
-        Senior Product Designer with 5+ years crafting end-to-end experiences for fintech and consumer products. Based in Gurugram.
-      </p>
+
+      <div class="decision-progress" id="decisionProgress">
+        <div class="decision-prog-dot active" id="dpd0"></div>
+        <div class="decision-prog-dot" id="dpd1"></div>
+        <div class="decision-prog-dot" id="dpd2"></div>
+        <div class="decision-prog-dot" id="dpd3"></div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="decision-step active" id="dstep0">
+        <p class="decision-q">Question 01 of 03</p>
+        <h2 class="decision-question">Ship fast <span>or</span> ship right?</h2>
+        <div class="decision-options">
+          <button class="decision-opt" onclick="nextDecision(0)">Ship fast — iterate later</button>
+          <button class="decision-opt" onclick="nextDecision(0)">Ship right — always</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="decision-step" id="dstep1">
+        <p class="decision-q">Question 02 of 03</p>
+        <h2 class="decision-question">User delight <span>or</span> business growth?</h2>
+        <div class="decision-options">
+          <button class="decision-opt" onclick="nextDecision(1)">Delight first</button>
+          <button class="decision-opt" onclick="nextDecision(1)">Growth first</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="decision-step" id="dstep2">
+        <p class="decision-q">Question 03 of 03</p>
+        <h2 class="decision-question">Beautiful pixels <span>or</span> right decisions?</h2>
+        <div class="decision-options">
+          <button class="decision-opt" onclick="nextDecision(2)">Beautiful pixels</button>
+          <button class="decision-opt" onclick="nextDecision(2)">Right decisions — always</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="decision-step" id="dstep3">
+        <div class="decision-result">
+          <p class="decision-result-eyebrow">Senior Product Designer · Gurugram, India</p>
+          <h1 class="decision-result-title">Decisions matter more<br>than <span>deliverables.</span></h1>
+          <p class="decision-result-bio">I'm Prince — a Senior Product Designer with 6+ years crafting end-to-end experiences for fintech and consumer products. I've designed for <strong>Syfe</strong> in Singapore, <strong>BharatPe</strong> and <strong>ChefKart</strong> in India. I don't make things pretty. I make them work.</p>
+          <div class="decision-result-ctas">
+            <a href="#work" class="decision-cta-primary">View Work</a>
+            <a href="/Resume_Prince Kumar_2026.pdf" target="_blank" class="decision-cta-secondary">Download Resume</a>
+          </div>
+          <div class="decision-result-logos">
+            <span class="decision-logo-label">Previously at</span>
+            <div class="decision-logo-sep"></div>
+            <span class="decision-logo">Syfe</span>
+            <div class="decision-logo-sep"></div>
+            <span class="decision-logo">BharatPe</span>
+            <div class="decision-logo-sep"></div>
+            <span class="decision-logo">ChefKart</span>
+            <div class="decision-logo-sep"></div>
+            <span class="decision-logo">Deckrooster</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -467,5 +522,6 @@
   <script src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js"></script>
   <script src="js/testimonials.js"></script>
   <script src="js/gallery.js"></script>
+  <script src="js/decision.js"></script>
 </body>
 </html>
