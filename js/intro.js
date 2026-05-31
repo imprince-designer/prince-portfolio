@@ -8,8 +8,18 @@
     if (nav) nav.style.visibility = 'visible';
     const heroIntro = document.getElementById('heroIntro');
     if (heroIntro) heroIntro.style.display = 'none';
+    const loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
     const reveal = document.getElementById('hiReveal');
-    if (reveal) reveal.style.display = 'flex';
+    if (reveal) {
+      reveal.style.display = 'flex';
+      reveal.style.minHeight = '100vh';
+      reveal.style.flexDirection = 'column';
+      reveal.style.alignItems = 'center';
+      reveal.style.justifyContent = 'center';
+    }
+    const chatWidget = document.getElementById('ai-widget');
+    if (chatWidget) chatWidget.style.display = '';
     return;
   }
   sessionStorage.setItem('introSeen', 'true');
