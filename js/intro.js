@@ -20,6 +20,8 @@
     }
     const chatWidget = document.getElementById('ai-widget');
     if (chatWidget) chatWidget.style.display = '';
+    const cursor = document.getElementById('hiCursor');
+    if (cursor) cursor.style.display = 'none';
     return;
   }
   sessionStorage.setItem('introSeen', 'true');
