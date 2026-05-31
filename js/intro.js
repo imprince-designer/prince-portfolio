@@ -125,29 +125,52 @@
 
     const screens = [
       {
+        html: '<span class="hi-eyebrow">6+ years in product design teaches you</span>uncomfortable truths.',
+        allBlue: false,
+        bg: '#0E0E0D',
+        ptint: [190, 192, 200],
+        cta: 'Reveal the truth',
+        arr: true
+      },
+      {
         html: 'Not every design problem<br>needs a design solution.',
-        allBlue: false, bg: '#0F1117', ptint: [165, 175, 225],
-        cta: 'Reveal the truth', arr: true
+        allBlue: false,
+        bg: '#0F1117',
+        ptint: [165, 175, 225],
+        cta: null,
+        arr: true
       },
       {
         html: 'Perfect is often<br>the enemy of shipped.',
-        allBlue: false, bg: '#100E14', ptint: [188, 172, 218],
-        cta: null, arr: true
+        allBlue: false,
+        bg: '#100E14',
+        ptint: [188, 172, 218],
+        cta: null,
+        arr: true
       },
       {
         html: 'Data points the way.<br><span class="hi-dim">Judgment makes the call.</span>',
-        allBlue: false, bg: '#0E1210', ptint: [168, 208, 182],
-        cta: null, arr: true
+        allBlue: false,
+        bg: '#0E1210',
+        ptint: [168, 208, 182],
+        cta: null,
+        arr: true
       },
       {
         html: 'Alignment is harder<br>than execution.',
-        allBlue: false, bg: '#0D0F1A', ptint: [155, 168, 245],
-        cta: null, arr: true
+        allBlue: false,
+        bg: '#0D0F1A',
+        ptint: [155, 168, 245],
+        cta: null,
+        arr: true
       },
       {
         html: 'I design for<br>these realities.',
-        allBlue: true, bg: '#0A0D1E', ptint: [140, 158, 255],
-        cta: null, arr: 'check'
+        allBlue: true,
+        bg: '#0A0D1E',
+        ptint: [140, 158, 255],
+        cta: null,
+        arr: 'check'
       }
     ];
 
@@ -180,7 +203,7 @@
       btnsEl.innerHTML = '';
       if (s.cta) {
         const b = document.createElement('button');
-        b.className  = 'hi-cta';
+        b.className = 'hi-cta';
         b.textContent = s.cta;
         b.onclick = () => go(cur + 1, true);
         btnsEl.appendChild(b);
@@ -189,7 +212,13 @@
         const a = document.createElement('button');
         a.className = 'hi-arr' + (s.arr === 'check' ? ' blue' : '');
         a.innerHTML = s.arr === 'check' ? '✓' : '→';
-        a.onclick   = () => go(cur + 1, true);
+        a.onclick = () => {
+          if (s.arr === 'check') {
+            revealHero();
+          } else {
+            go(cur + 1, true);
+          }
+        };
         btnsEl.appendChild(a);
       }
     }
@@ -238,25 +267,20 @@
     }
 
     function revealHero() {
+      const section = document.querySelector('.hero-intro') || document.getElementById('heroIntro');
       section.style.transition = 'opacity 0.8s ease';
-      section.style.opacity    = '0';
+      section.style.opacity = '0';
       setTimeout(() => {
         section.style.display = 'none';
-        section.style.removeProperty('background-color');
         document.body.style.overflow = 'auto';
+        const nav = document.querySelector('nav') || document.querySelector('.nav');
         if (nav) nav.style.visibility = 'visible';
-        if (chatWidget) chatWidget.style.display = '';
-
-        // Init Lenis smooth scroll
-        if (window.Lenis) {
-          var lenis = new Lenis({
-            duration: 1.1,
-            easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-            smooth: true,
-          });
-          function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-          requestAnimationFrame(raf);
+        const hiReveal = document.getElementById('hiReveal');
+        if (hiReveal) {
+          hiReveal.style.display = 'flex';
+          hiReveal.removeAttribute('aria-hidden');
         }
+        if (typeof lenis !== 'undefined') lenis.start();
       }, 800);
     }
 
