@@ -95,11 +95,12 @@
     });
 
     function dismissLoader() {
+      const hiOv = document.getElementById('hiOv');
+      if (hiOv) { hiOv.style.opacity = '1'; hiOv.style.visibility = 'visible'; }
       loader.style.transition = 'opacity 0.7s ease';
       loader.style.opacity    = '0';
       setTimeout(() => {
         loader.style.display = 'none';
-        // hero screens already initialised underneath — nothing more to do here
       }, 700);
     }
   })();
@@ -115,6 +116,9 @@
     const hlEl   = document.getElementById('hiHl');
     const btnsEl = document.getElementById('hiBtns');
     const dot    = document.getElementById('hiDot');
+
+    document.getElementById('hiOv').style.opacity = '1';
+    document.getElementById('hiOv').style.visibility = 'visible';
 
     const screens = [
       {
