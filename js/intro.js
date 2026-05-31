@@ -1,18 +1,6 @@
 (function () {
   if (!document.getElementById('heroIntro')) return;
 
-  // Show intro only once per session
-  if (sessionStorage.getItem('introSeen')) {
-    document.getElementById('heroIntro').style.display = 'none';
-    const reveal = document.getElementById('hiReveal');
-    if (reveal) reveal.style.display = 'flex';
-    document.body.style.overflow = 'auto';
-    const nav = document.getElementById('nav');
-    if (nav) nav.style.visibility = 'visible';
-    return;
-  }
-  sessionStorage.setItem('introSeen', 'true');
-
   // Lock scroll and hide nav + chatbot while intro is active
   document.body.style.overflow = 'hidden';
   var nav = document.getElementById('nav');
