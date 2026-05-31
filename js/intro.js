@@ -1,39 +1,14 @@
 (function () {
   if (!document.getElementById('heroIntro')) return;
 
-  var nav        = document.getElementById('nav');
-  var heroIntro  = document.getElementById('heroIntro');
-  var hiStory    = document.getElementById('hiStory');
-  var hiReveal   = document.getElementById('hiReveal');
-  var hiProgress = document.getElementById('hiProgress');
-  var hiGhost    = document.getElementById('hiGhost');
-  var hiHeadline = document.getElementById('hiHeadline');
-  var hiArrow    = document.getElementById('hiArrow');
-
-  var screens = [
-    "Not every design problem needs a design solution.",
-    "Perfect is often the enemy of shipped.",
-    "Data points the way. Judgment makes the call.",
-    "Alignment is harder than execution.",
-    "I design for these realities."
-  ];
-
-  var screenBgs = ['#0E0E0D', '#0F1117', '#100E14', '#0E1210', '#0D1020'];
-
-  var currentScreen = 0;
-
-  // Give GSAP a concrete inline starting value so bg transitions always work (BUG 3)
-  gsap.set(heroIntro, { backgroundColor: '#0E0E0D' });
-
-  // Lock body scroll, fix the section to viewport, hide chatbot
+  // Lock scroll and hide nav + chatbot while intro is active
   document.body.style.overflow = 'hidden';
-  document.body.classList.add('intro-phase');
-  heroIntro.classList.add('phase-active');
-
+  var nav = document.getElementById('nav');
+  if (nav) nav.style.visibility = 'hidden';
   var chatWidget = document.getElementById('ai-widget');
   if (chatWidget) chatWidget.style.display = 'none';
 
-  // ─── PHASE 1: Particle loader (click to dismiss) ────────────────────────────
+  // ─── LOADER: Particle field (click to dismiss) ────────────────────────────
 
   ;(function initLoaderParticles() {
     const loader = document.getElementById('loader');
@@ -123,7 +98,6 @@
       if (hint)  { hint.style.opacity  = '0'; hint.style.animation = 'none'; }
 
       spawnPts(100, W / 2, H * 0.48, true);
-
       setTimeout(() => { dismissLoader(); }, 1000);
     });
 
@@ -132,154 +106,219 @@
       loader.style.opacity    = '0';
       setTimeout(() => {
         loader.style.display = 'none';
-        startPhase2();   // hand off to story screens; overflow stays locked until Phase 3
+        // hero screens already initialised underneath — nothing more to do here
       }, 700);
     }
   })();
 
-  // ─── PHASE 2: Story screens ─────────────────────────────────────────────────
+  // ─── HERO SCREENS: Canvas particle field + story slides ──────────────────────
 
-  function startPhase2() {
-    hiProgress.classList.add('visible');
-    // Also drive opacity via GSAP in case CSS transition doesn't fire (BUG 4)
-    gsap.to(hiProgress, { opacity: 1, duration: 0.4, ease: 'power2.out' });
-    gsap.to(hiStory, { opacity: 1, duration: 0.5, ease: 'power2.out' });
-    showScreen(0, true);
-  }
+  ;(function initHeroScreens() {
+    const section = document.querySelector('.hero-intro') || document.getElementById('heroIntro');
+    if (!section) return;
 
-  function showScreen(index, isFirst) {
-    currentScreen = index;
+    const canvas = document.getElementById('hi-canvas');
+    const ctx    = canvas.getContext('2d');
+    const hlEl   = document.getElementById('hiHl');
+    const btnsEl = document.getElementById('hiBtns');
+    const dot    = document.getElementById('hiDot');
 
-    // Transition section background colour
-    gsap.to(heroIntro, { backgroundColor: screenBgs[index], duration: 0.8, ease: 'power2.inOut' });
+    const screens = [
+      {
+        html: '<span class="hi-eyebrow">6+ years in product design teaches you</span>uncomfortable truths.',
+        allBlue: false, bg: '#0E0E0D', ptint: [190, 192, 200],
+        cta: 'Reveal the truth', arr: false
+      },
+      {
+        html: 'Not every design problem<br>needs a design solution.',
+        allBlue: false, bg: '#0F1117', ptint: [165, 175, 225],
+        cta: null, arr: true
+      },
+      {
+        html: 'Perfect is often<br>the enemy of shipped.',
+        allBlue: false, bg: '#100E14', ptint: [188, 172, 218],
+        cta: null, arr: true
+      },
+      {
+        html: 'Data points the way.<br><span class="hi-dim">Judgment makes the call.</span>',
+        allBlue: false, bg: '#0E1210', ptint: [168, 208, 182],
+        cta: null, arr: true
+      },
+      {
+        html: 'Alignment is harder<br>than execution.',
+        allBlue: false, bg: '#0D0F1A', ptint: [155, 168, 245],
+        cta: null, arr: true
+      },
+      {
+        html: 'I design for<br>these realities.',
+        allBlue: true, bg: '#0A0D1E', ptint: [140, 158, 255],
+        cta: null, arr: 'check'
+      }
+    ];
 
-    // Fill progress bars up to (but not including) current screen
-    for (var i = 0; i < 5; i++) {
-      var fill = document.getElementById('hpb' + i);
-      if (fill) fill.classList.toggle('done', i < index);
+    let cur = 0, busy = false, animT = 0, breatheT = 0;
+    let W, H, pts = [];
+    let ct = { r: 190, g: 192, b: 200 };
+    let tt = { r: 190, g: 192, b: 200 };
+    let mx = { x: -999, y: -999 };
+
+    function resize() {
+      W = canvas.width  = section.offsetWidth;
+      H = canvas.height = section.offsetHeight;
     }
+    resize();
+    window.addEventListener('resize', resize);
 
-    var newText = screens[index];
-    var headlineColor = index === 4 ? '#4F8EF7' : '#FAFAF8';
-
-    if (isFirst) {
-      gsap.set(hiGhost, { opacity: 0 });
-      hiGhost.textContent = '';
-      hiHeadline.textContent = newText;
-      hiHeadline.style.color = headlineColor;
-      gsap.fromTo(hiHeadline,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }
-      );
-    } else {
-      // Page-turn: outgoing slides up, incoming slides up from below
-      gsap.to(hiHeadline, {
-        opacity: 0, y: -32, duration: 0.45, ease: 'power2.in',
-        onComplete: function () {
-          // Ghost fades in with previous line
-          gsap.set(hiGhost, { opacity: 0 });
-          hiGhost.textContent = screens[index - 1];
-          gsap.fromTo(hiGhost,
-            { opacity: 0 },
-            { opacity: 0.18, duration: 0.5, ease: 'power2.out' }
-          );
-
-          // New headline rises in
-          hiHeadline.textContent = newText;
-          hiHeadline.style.color = headlineColor;
-          gsap.fromTo(hiHeadline,
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }
-          );
-        }
+    for (let i = 0; i < 110; i++) {
+      pts.push({
+        x: Math.random() * 1400, y: Math.random() * 900,
+        bx: Math.random() * 1400, by: Math.random() * 900,
+        vx: 0, vy: 0,
+        r: Math.random() * 1.4 + 0.3,
+        a: Math.random() * 0.3 + 0.06,
+        ph: Math.random() * Math.PI * 2,
+        sp: Math.random() * 0.003 + 0.001
       });
     }
 
-    hiArrow.textContent   = index === 4 ? '✓' : '→';
-    hiArrow.style.borderColor = index === 4 ? 'rgba(255,255,255,0.5)' : '';
-  }
-
-  hiArrow.addEventListener('click', function () {
-    if (currentScreen < 4) {
-      var fill = document.getElementById('hpb' + currentScreen);
-      if (fill) fill.classList.add('done');
-      showScreen(currentScreen + 1, false);
-    } else {
-      startPhase3();
-    }
-  });
-
-  // ─── PHASE 3: Reveal ────────────────────────────────────────────────────────
-
-  function startPhase3() {
-    for (var i = 0; i < 5; i++) {
-      var fill = document.getElementById('hpb' + i);
-      if (fill) fill.classList.add('done');
+    function buildBtns(s) {
+      btnsEl.innerHTML = '';
+      if (s.cta) {
+        const b = document.createElement('button');
+        b.className  = 'hi-cta';
+        b.textContent = s.cta;
+        b.onclick = () => go(cur + 1, true);
+        btnsEl.appendChild(b);
+      }
+      if (s.arr) {
+        const a = document.createElement('button');
+        a.className = 'hi-arr' + (s.arr === 'check' ? ' blue' : '');
+        a.innerHTML = s.arr === 'check' ? '✓' : '→';
+        a.onclick   = () => go(cur + 1, true);
+        btnsEl.appendChild(a);
+      }
     }
 
-    gsap.to(hiStory, {
-      opacity: 0, duration: 0.4, ease: 'power2.in',
-      onComplete: function () {
-        hiStory.style.display = 'none';
-        gsap.to(hiProgress, { opacity: 0, duration: 0.3 });
+    function renderScreen(idx, animate) {
+      const s = screens[idx];
+      section.style.background = s.bg;
+      tt = { r: s.ptint[0], g: s.ptint[1], b: s.ptint[2] };
 
-        // Clear GSAP inline bg so CSS .revealed takes effect (BUG 1)
-        heroIntro.style.position = 'relative';
-        heroIntro.style.height = 'auto';
-        heroIntro.style.backgroundColor = '';
-        heroIntro.style.removeProperty('background-color');
-        gsap.set(heroIntro, { clearProps: 'background,backgroundColor' });
+      if (animate) {
+        hlEl.style.transition = 'opacity 0.32s ease, transform 0.32s ease';
+        hlEl.style.opacity    = '0';
+        setTimeout(() => {
+          hlEl.innerHTML  = s.html;
+          hlEl.className  = 'hi-hl' + (s.allBlue ? ' all-blue' : '');
+          buildBtns(s);
+          breatheT = 0;
+          hlEl.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            hlEl.style.opacity   = '1';
+            hlEl.style.transform = 'scale(1)';
+          }));
+        }, 320);
+      } else {
+        hlEl.innerHTML = s.html;
+        hlEl.className = 'hi-hl' + (s.allBlue ? ' all-blue' : '');
+        buildBtns(s);
+      }
+    }
 
-        // Unfix the section, switch to theme background
-        heroIntro.classList.remove('phase-active');
-        heroIntro.classList.add('revealed');
+    // Fixed: first check only blocks negative/busy; revealHero fires when idx >= length
+    function go(idx, animate) {
+      if (busy || idx < 0) return;
+      if (idx >= screens.length) {
+        revealHero();
+        return;
+      }
+      busy = true;
+      const dir = idx > cur ? -20 : 20;
+      hlEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      hlEl.style.opacity    = '0';
+      hlEl.style.transform  = `translateY(${dir}px)`;
+      cur = idx;
+      renderScreen(cur, animate);
+      setTimeout(() => { busy = false; }, 750);
+    }
 
-        // Restore scroll + page visibility + chatbot
-        document.body.style.overflow = '';
-        document.body.classList.remove('intro-phase');
+    function revealHero() {
+      section.style.transition = 'opacity 0.8s ease';
+      section.style.opacity    = '0';
+      setTimeout(() => {
+        section.style.display = 'none';
+        section.style.removeProperty('background-color');
+        document.body.style.overflow = 'auto';
+        if (nav) nav.style.visibility = 'visible';
         if (chatWidget) chatWidget.style.display = '';
 
-        // Fade nav in
-        if (nav) {
-          gsap.set(nav, { opacity: 0 });
-          gsap.to(nav, { opacity: 1, duration: 0.6, delay: 0.2, ease: 'power2.out' });
+        // Init Lenis smooth scroll
+        if (window.Lenis) {
+          var lenis = new Lenis({
+            duration: 1.1,
+            easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+            smooth: true,
+          });
+          function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+          requestAnimationFrame(raf);
         }
+      }, 800);
+    }
 
-        // Fade reveal panel in
-        hiReveal.style.display = 'flex';
-        gsap.fromTo(hiReveal,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.8, ease: 'power2.out' }
-        );
+    renderScreen(0, false);
 
-        startTypewriter();
-
-        // Init Lenis only after reveal settles
-        setTimeout(function () {
-          if (window.Lenis) {
-            var lenis = new Lenis({
-              duration: 1.1,
-              easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-              smooth: true,
-            });
-            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-            requestAnimationFrame(raf);
-          }
-        }, 800);
-      }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === ' ') go(cur + 1, true);
+      if (e.key === 'ArrowLeft') go(cur - 1, true);
     });
-  }
 
-  function startTypewriter() {
-    var fullText = "Hello! I'm Prince — I bring ideas and products to life, whether through immersive interactive screens or websites, mobile apps designed for seamless user experiences.";
-    var typeEl   = document.getElementById('hiTypeText');
-    var cursor   = document.getElementById('hiCursor');
-    if (!typeEl) return;
-    var i = 0;
-    var iv = setInterval(function () {
-      if (i < fullText.length) { typeEl.textContent += fullText[i]; i++; }
-      else { clearInterval(iv); if (cursor) cursor.style.display = 'none'; }
-    }, 35);
-  }
+    section.addEventListener('mousemove', e => {
+      const r  = section.getBoundingClientRect();
+      mx.x = e.clientX - r.left;
+      mx.y = e.clientY - r.top;
+      dot.style.left = mx.x + 'px';
+      dot.style.top  = mx.y + 'px';
+    });
+    section.addEventListener('mouseleave', () => { mx.x = -999; mx.y = -999; });
+
+    (function loop() {
+      ctx.clearRect(0, 0, W, H);
+      animT   += 0.016;
+      breatheT += 0.016;
+
+      ct.r += (tt.r - ct.r) * 0.022;
+      ct.g += (tt.g - ct.g) * 0.022;
+      ct.b += (tt.b - ct.b) * 0.022;
+
+      pts.forEach(p => {
+        p.bx += Math.cos(p.ph + animT * p.sp) * 0.16;
+        p.by += Math.sin(p.ph + animT * p.sp * 0.8) * 0.13;
+        p.bx = Math.max(0, Math.min(W, p.bx));
+        p.by = Math.max(0, Math.min(H, p.by));
+        const dx   = p.x - mx.x, dy = p.y - mx.y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        if (dist < 160) {
+          const f = (160 - dist) / 160;
+          p.vx += dx / dist * f * 2.8;
+          p.vy += dy / dist * f * 2.8;
+        }
+        p.vx += (p.bx - p.x) * 0.045;
+        p.vy += (p.by - p.y) * 0.045;
+        p.vx *= 0.78; p.vy *= 0.78;
+        p.x += p.vx; p.y += p.vy;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${Math.round(ct.r)},${Math.round(ct.g)},${Math.round(ct.b)},${p.a})`;
+        ctx.fill();
+      });
+
+      if (hlEl.style.opacity !== '0') {
+        const s = 1 + Math.sin(breatheT * 0.22) * 0.02;
+        hlEl.style.transform = `scale(${s})`;
+      }
+
+      requestAnimationFrame(loop);
+    })();
+  })();
 
 })();
