@@ -33,52 +33,109 @@
   var chatWidget = document.getElementById('ai-widget');
   if (chatWidget) chatWidget.style.display = 'none';
 
-  // ─── PHASE 1: Loader overlay ────────────────────────────────────────────────
+  // ─── PHASE 1: Particle loader (click to dismiss) ────────────────────────────
 
-  var overlay  = document.createElement('div');
-  var loadLine = document.createElement('div');
-  var loadText = document.createElement('p');
+  ;(function initLoaderParticles() {
+    const loader = document.getElementById('loader');
+    if (!loader) return;
 
-  overlay.id         = 'intro-overlay';
-  loadLine.className = 'hi-load-line';
-  loadText.textContent = '6 years in product design teaches you one uncomfortable truth.';
+    const cv  = document.getElementById('loader-canvas');
+    const ctx = cv.getContext('2d');
+    const dot = document.getElementById('loader-dot');
+    let W, H, pts = [], mx = { x: -999, y: -999 }, scattered = false, animT = 0;
 
-  overlay.appendChild(loadLine);
-  overlay.appendChild(loadText);
-  document.body.appendChild(overlay);
+    function resize() {
+      W = cv.width  = loader.offsetWidth;
+      H = cv.height = loader.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
 
-  Object.assign(overlay.style, {
-    position: 'fixed', inset: '0',
-    backgroundColor: '#0E0E0D',
-    display: 'flex', flexDirection: 'column',
-    alignItems: 'center', justifyContent: 'center',
-    zIndex: '9998', gap: '20px',
-  });
+    function spawnPts(n, cx, cy, burst) {
+      for (let i = 0; i < n; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const spd   = burst ? (Math.random() * 2.2 + 0.4) : 0;
+        pts.push({
+          x:  cx != null ? cx + (Math.random() - 0.5) * 380 : Math.random() * W,
+          y:  cy != null ? cy + (Math.random() - 0.5) * 120 : Math.random() * H,
+          bx: Math.random() * W, by: Math.random() * H,
+          vx: burst ? Math.cos(angle) * spd : 0,
+          vy: burst ? Math.sin(angle) * spd : 0,
+          r:  Math.random() * 1.4 + 0.3,
+          a:  Math.random() * 0.36 + 0.07,
+          ph: Math.random() * Math.PI * 2,
+          sp: Math.random() * 0.003 + 0.001
+        });
+      }
+    }
+    spawnPts(115);
 
-  Object.assign(loadLine.style, {
-    width: '1px', height: '48px',
-    background: '#FAFAF8', opacity: '0',
-  });
+    function drawLoop() {
+      if (!document.getElementById('loader') ||
+          document.getElementById('loader').style.display === 'none') return;
+      ctx.clearRect(0, 0, W, H);
+      animT += 0.016;
+      pts.forEach(p => {
+        p.bx += Math.cos(p.ph + animT * p.sp) * 0.18;
+        p.by += Math.sin(p.ph + animT * p.sp * 0.75) * 0.14;
+        p.bx = Math.max(0, Math.min(W, p.bx));
+        p.by = Math.max(0, Math.min(H, p.by));
+        const dx   = p.x - mx.x, dy = p.y - mx.y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        if (dist < 160) {
+          const f = (160 - dist) / 160;
+          p.vx += dx / dist * f * 2.8;
+          p.vy += dy / dist * f * 2.8;
+        }
+        const damp = scattered ? 0.93 : 0.76;
+        const pull = scattered ? 0.011 : 0.05;
+        p.vx += (p.bx - p.x) * pull;
+        p.vy += (p.by - p.y) * pull;
+        p.vx *= damp; p.vy *= damp;
+        p.x += p.vx; p.y += p.vy;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${p.a})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(drawLoop);
+    }
+    drawLoop();
 
-  Object.assign(loadText.style, {
-    fontFamily: "'Gabarito', sans-serif",
-    fontSize: '22px', fontWeight: '500',
-    color: '#FAFAF8', opacity: '0',
-    textAlign: 'center', maxWidth: '480px',
-    padding: '0 24px', lineHeight: '1.6',
-  });
-
-  // Line in → text fades in over 1.2s → hold 1.8s → overlay fades out 0.8s
-  gsap.fromTo(loadLine, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.2, ease: 'power2.inOut' });
-  gsap.fromTo(loadText, { opacity: 0 }, { opacity: 1, duration: 1.2, delay: 0.3, ease: 'power2.inOut' });
-
-  // Start fade-out at: 0.3 + 1.2 + 1.8 = 3.3s after init
-  setTimeout(function () {
-    gsap.to(overlay, {
-      opacity: 0, duration: 0.8, ease: 'power2.inOut',
-      onComplete: function () { overlay.remove(); startPhase2(); }
+    loader.addEventListener('mousemove', e => {
+      const r = loader.getBoundingClientRect();
+      mx.x = e.clientX - r.left;
+      mx.y = e.clientY - r.top;
+      dot.style.left = mx.x + 'px';
+      dot.style.top  = mx.y + 'px';
     });
-  }, 3300);
+    loader.addEventListener('mouseleave', () => { mx.x = -999; mx.y = -999; });
+
+    loader.addEventListener('click', () => {
+      if (scattered) return;
+      scattered = true;
+
+      const small = document.querySelector('.loader-small');
+      const big   = document.querySelector('.loader-big');
+      const hint  = document.querySelector('.loader-hint');
+      if (small) { small.style.opacity = '0'; small.style.filter = 'blur(10px)'; }
+      if (big)   { big.style.opacity   = '0'; big.style.filter   = 'blur(10px)'; }
+      if (hint)  { hint.style.opacity  = '0'; hint.style.animation = 'none'; }
+
+      spawnPts(100, W / 2, H * 0.48, true);
+
+      setTimeout(() => { dismissLoader(); }, 1000);
+    });
+
+    function dismissLoader() {
+      loader.style.transition = 'opacity 0.7s ease';
+      loader.style.opacity    = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+        startPhase2();   // hand off to story screens; overflow stays locked until Phase 3
+      }, 700);
+    }
+  })();
 
   // ─── PHASE 2: Story screens ─────────────────────────────────────────────────
 
