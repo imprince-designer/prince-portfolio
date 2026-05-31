@@ -272,14 +272,23 @@
       setTimeout(() => {
         section.style.display = 'none';
         document.body.style.overflow = 'auto';
-        const nav = document.querySelector('nav') || document.querySelector('.nav');
+        const nav = document.querySelector('nav') || document.getElementById('nav');
         if (nav) nav.style.visibility = 'visible';
-        const hiReveal = document.getElementById('hiReveal');
-        if (hiReveal) {
-          hiReveal.style.display = 'flex';
-          hiReveal.removeAttribute('aria-hidden');
+        const chatWidget = document.getElementById('ai-widget');
+        if (chatWidget) chatWidget.style.display = '';
+        const reveal = document.getElementById('hiReveal');
+        if (reveal) reveal.style.display = 'flex';
+        const typed = document.getElementById('hiTyped');
+        const cursor = document.getElementById('hiCursor');
+        if (typed) {
+          const text = "Hello! I'm Prince — I bring ideas and products to life, whether through immersive interactive screens or websites, mobile apps designed for seamless user experiences.";
+          let i = 0;
+          const type = () => {
+            if (i < text.length) { typed.textContent += text[i++]; setTimeout(type, 35); }
+            else if (cursor) cursor.style.display = 'none';
+          };
+          type();
         }
-        if (typeof lenis !== 'undefined') lenis.start();
       }, 800);
     }
 
