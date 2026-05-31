@@ -125,14 +125,9 @@
 
     const screens = [
       {
-        html: '<span class="hi-eyebrow">6+ years in product design teaches you</span>uncomfortable truths.',
-        allBlue: false, bg: '#0E0E0D', ptint: [190, 192, 200],
-        cta: 'Reveal the truth', arr: false
-      },
-      {
         html: 'Not every design problem<br>needs a design solution.',
         allBlue: false, bg: '#0F1117', ptint: [165, 175, 225],
-        cta: null, arr: true
+        cta: 'Reveal the truth', arr: true
       },
       {
         html: 'Perfect is often<br>the enemy of shipped.',
@@ -158,8 +153,8 @@
 
     let cur = 0, busy = false, animT = 0, breatheT = 0;
     let W, H, pts = [];
-    let ct = { r: 190, g: 192, b: 200 };
-    let tt = { r: 190, g: 192, b: 200 };
+    let ct = { r: 165, g: 175, b: 225 };
+    let tt = { r: 165, g: 175, b: 225 };
     let mx = { x: -999, y: -999 };
 
     function resize() {
@@ -225,13 +220,13 @@
       }
     }
 
-    // Fixed: first check only blocks negative/busy; revealHero fires when idx >= length
     function go(idx, animate) {
-      if (busy || idx < 0) return;
-      if (idx >= screens.length) {
+      if (idx < 0) return;
+      if (idx >= screens.length) {   // always allow reveal, bypasses busy guard
         revealHero();
         return;
       }
+      if (busy) return;
       busy = true;
       const dir = idx > cur ? -20 : 20;
       hlEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
