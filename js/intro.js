@@ -117,9 +117,6 @@
     const btnsEl = document.getElementById('hiBtns');
     const dot    = document.getElementById('hiDot');
 
-    document.getElementById('hiOv').style.opacity = '1';
-    document.getElementById('hiOv').style.visibility = 'visible';
-
     const screens = [
       {
         html: '<span class="hi-eyebrow">6+ years in product design teaches you</span>uncomfortable truths.',
@@ -282,6 +279,8 @@
     }
 
     renderScreen(0, false);
+    document.getElementById('hiOv').style.opacity = '1';
+    document.getElementById('hiOv').style.visibility = 'visible';
 
     document.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight' || e.key === ' ') go(cur + 1, true);
