@@ -220,6 +220,16 @@ body.intro-phase .page-wrapper > *:not(#heroIntro) { visibility: hidden; }
   box-sizing: border-box;
 }
 
+.hero-intro.phase-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 100;
+}
+
 /* Progress bars */
 .hi-progress {
   position: absolute;
@@ -268,7 +278,6 @@ body.intro-phase .page-wrapper > *:not(#heroIntro) { visibility: hidden; }
   font-family: 'Satoshi', sans-serif;
   font-size: 13px;
   color: #FAFAF8;
-  opacity: 0.15;
   margin-bottom: 20px;
   min-height: 20px;
   line-height: 1.5;
@@ -321,11 +330,26 @@ body.intro-phase .page-wrapper > *:not(#heroIntro) { visibility: hidden; }
 
 .hi-location {
   font-family: 'Satoshi', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-size: 13px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
+}
+
+[data-theme="light"] .hi-location { color: #555550; }
+[data-theme="dark"]  .hi-location { color: rgba(250, 250, 248, 0.6); }
+
+.hi-location-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #285DC6;
+  flex-shrink: 0;
+  margin-right: 6px;
 }
 
 .hi-reveal-title {
@@ -381,16 +405,13 @@ body.intro-phase .page-wrapper > *:not(#heroIntro) { visibility: hidden; }
 }
 
 .hi-logos img {
-  height: 24px;
+  height: 28px;
   width: auto;
   object-fit: contain;
 }
 
-[data-theme="light"] .hi-logos img { opacity: 0.55; }
-
 [data-theme="dark"] .hi-logos img {
   filter: brightness(0) invert(1);
-  opacity: 0.6;
 }
 
 @media (max-width: 768px) {
