@@ -22,6 +22,9 @@
 
   var currentScreen = 0;
 
+  // Give GSAP a concrete inline starting value so bg transitions always work (BUG 3)
+  gsap.set(heroIntro, { backgroundColor: '#0E0E0D' });
+
   // Lock body scroll, fix the section to viewport, hide chatbot
   document.body.style.overflow = 'hidden';
   document.body.classList.add('intro-phase');
@@ -81,6 +84,8 @@
 
   function startPhase2() {
     hiProgress.classList.add('visible');
+    // Also drive opacity via GSAP in case CSS transition doesn't fire (BUG 4)
+    gsap.to(hiProgress, { opacity: 1, duration: 0.4, ease: 'power2.out' });
     gsap.to(hiStory, { opacity: 1, duration: 0.5, ease: 'power2.out' });
     showScreen(0, true);
   }
@@ -160,6 +165,13 @@
       onComplete: function () {
         hiStory.style.display = 'none';
         gsap.to(hiProgress, { opacity: 0, duration: 0.3 });
+
+        // Clear GSAP inline bg so CSS .revealed takes effect (BUG 1)
+        heroIntro.style.position = 'relative';
+        heroIntro.style.height = 'auto';
+        heroIntro.style.backgroundColor = '';
+        heroIntro.style.removeProperty('background-color');
+        gsap.set(heroIntro, { clearProps: 'background,backgroundColor' });
 
         // Unfix the section, switch to theme background
         heroIntro.classList.remove('phase-active');
