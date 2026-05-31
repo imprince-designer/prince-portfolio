@@ -45,6 +45,19 @@
     }
     spawnPts(115);
 
+    // Show screen 1 content inside loader immediately
+    const loaderText = document.createElement('div');
+    loaderText.id = 'loader-story-text';
+    loaderText.style.cssText = 'position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;z-index:2;text-align:center;padding:48px;font-family:Gabarito,sans-serif;';
+    loaderText.innerHTML = `
+      <div style="font-size:13px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:14px">6+ years in product design teaches you</div>
+      <div style="font-size:42px;font-weight:600;color:#fff;line-height:1.18;letter-spacing:-0.02em">uncomfortable truths.</div>
+      <div style="margin-top:40px;display:flex;gap:16px;pointer-events:all">
+        <button onclick="document.getElementById('loader').click()" style="padding:11px 26px;border-radius:100px;border:1px solid rgba(255,255,255,0.28);background:transparent;color:rgba(255,255,255,0.75);font-size:13px;font-family:Gabarito,sans-serif;font-weight:500;cursor:pointer;">Reveal the truth</button>
+        <button onclick="document.getElementById('loader').click()" style="width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);background:transparent;color:#fff;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;">→</button>
+      </div>`;
+    loader.appendChild(loaderText);
+
     function drawLoop() {
       if (!document.getElementById('loader') ||
           document.getElementById('loader').style.display === 'none') return;
@@ -90,13 +103,13 @@
       if (scattered) return;
       scattered = true;
 
+      const lst = document.getElementById('loader-story-text');
+      if (lst) { lst.style.transition = 'opacity 0.4s'; lst.style.opacity = '0'; }
       spawnPts(100, W / 2, H * 0.48, true);
       setTimeout(() => { dismissLoader(); }, 1000);
     });
 
     function dismissLoader() {
-      const hiOv = document.getElementById('hiOv');
-      if (hiOv) { hiOv.style.opacity = '1'; hiOv.style.visibility = 'visible'; }
       loader.style.transition = 'opacity 0.7s ease';
       loader.style.opacity    = '0';
       setTimeout(() => {
@@ -118,14 +131,6 @@
     const dot    = document.getElementById('hiDot');
 
     const screens = [
-      {
-        html: '<span class="hi-eyebrow">6+ years in product design teaches you</span>uncomfortable truths.',
-        allBlue: false,
-        bg: '#0E0E0D',
-        ptint: [190, 192, 200],
-        cta: 'Reveal the truth',
-        arr: true
-      },
       {
         html: 'Not every design problem<br>needs a design solution.',
         allBlue: false,
