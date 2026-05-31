@@ -1,6 +1,19 @@
 (function () {
   if (!document.getElementById('heroIntro')) return;
 
+  // Skip intro if already seen this session
+  if (sessionStorage.getItem('introSeen')) {
+    document.body.style.overflow = 'auto';
+    const nav = document.getElementById('nav');
+    if (nav) nav.style.visibility = 'visible';
+    const heroIntro = document.getElementById('heroIntro');
+    if (heroIntro) heroIntro.style.display = 'none';
+    const reveal = document.getElementById('hiReveal');
+    if (reveal) reveal.style.display = 'flex';
+    return;
+  }
+  sessionStorage.setItem('introSeen', 'true');
+
   // Lock scroll and hide nav + chatbot while intro is active
   document.body.style.overflow = 'hidden';
   var nav = document.getElementById('nav');
@@ -125,6 +138,7 @@
     if (!section) return;
 
     const canvas = document.getElementById('hi-canvas');
+    if (!canvas) return;
     const ctx    = canvas.getContext('2d');
     const hlEl   = document.getElementById('hiHl');
     const btnsEl = document.getElementById('hiBtns');
