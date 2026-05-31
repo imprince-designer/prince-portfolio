@@ -155,29 +155,42 @@
   </section>
 
   <!-- HERO REVEAL -->
-  <section class="hi-reveal-section" id="hiReveal" style="display:none;min-height:100vh;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:80px 48px;background:var(--color-bg)">
+  <section class="hi-reveal-section" id="hiReveal" style="display:none;min-height:100vh;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:120px 48px 48px;background:var(--color-bg)">
     <p class="hi-reveal-loc" style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:20px">
       <span style="display:inline-block;width:6px;height:6px;background:#285DC6;border-radius:50%;margin-right:8px;vertical-align:middle"></span>
       Based in Gurugram, India
     </p>
     <h1 style="font-family:'Gabarito',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:900;color:var(--color-text);line-height:1.1;letter-spacing:-0.025em;max-width:640px;margin:0 auto 20px">Decisions matter more<br>than deliverables.</h1>
-    <p style="font-size:20px;color:#797979;line-height:1.7;max-width:520px;margin:0 auto 48px">
+    <p style="font-size:20px;color:#797979;line-height:1.7;max-width:520px;margin:0 auto 60px">
       <span id="hiTyped">Hello! I'm Prince, I bring ideas and products to life, whether through immersive interactive screens or websites, mobile apps designed for seamless user experiences.</span>
     </p>
-    <hr style="border:none;border-top:1px solid rgba(0,0,0,0.08);width:100%;max-width:680px;margin:0 auto 40px">
-    <div style="display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:nowrap;padding-bottom:40px;border-bottom:1px solid rgba(0,0,0,0.08);max-width:780px;margin:0 auto">
-      <img src="/images/logos/syfe.webp" alt="Syfe" style="height:36px;width:auto;opacity:0.7">
-      <img src="/images/logos/bharatpe.png" alt="BharatPe" style="height:42px;width:auto;opacity:0.7">
-      <img src="/images/logos/nift.png" alt="NIFT" style="height:56px;width:auto;opacity:0.7">
-      <img src="/images/logos/chefkart.png" alt="ChefKart" style="height:56px;width:auto;opacity:0.7">
-      <img src="/images/logos/deckrooster.jpg" alt="Deckrooster" style="height:48px;width:auto;opacity:0.7">
+    <hr style="border:none;border-top:1px solid rgba(59, 59, 59, 0.08);width:100%;max-width:680px;margin:0 auto 40px">
+    <div style="width:100%;overflow:hidden;padding-bottom:40px;mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent)">
+      <div id="logoTrack" style="display:flex;align-items:center;gap:80px;width:max-content">
+        <img src="/images/logos/syfe.webp" alt="Syfe" class="logo-tick" style="height:36px;width:auto">
+        <img src="/images/logos/bharatpe.png" alt="BharatPe" class="logo-tick" style="height:42px;width:auto">
+        <img src="/images/logos/nift.png" alt="NIFT" class="logo-tick" style="height:80px;width:auto">
+        <img src="/images/logos/chefkart.png" alt="ChefKart" class="logo-tick" style="height:56px;width:auto">
+        <img src="/images/logos/deckrooster.jpg" alt="Deckrooster" class="logo-tick" style="height:50px;width:auto">
+        <img src="/images/logos/syfe.webp" alt="Syfe" class="logo-tick" style="height:36px;width:auto">
+        <img src="/images/logos/bharatpe.png" alt="BharatPe" class="logo-tick" style="height:42px;width:auto">
+        <img src="/images/logos/nift.png" alt="NIFT" class="logo-tick" style="height:80px;width:auto">
+        <img src="/images/logos/chefkart.png" alt="ChefKart" class="logo-tick" style="height:56px;width:auto">
+        <img src="/images/logos/deckrooster.jpg" alt="Deckrooster" class="logo-tick" style="height:50px;width:auto">
+      </div>
     </div>
   </section>
 
+  <!-- BELIEF BANNER -->
+  <section style="background:linear-gradient(135deg,#C92F65,#8c1a42);padding:80px 42px;text-align:center;margin:48px 48px 64px;border-radius:32px">
+    <p style="font-family:'Gabarito',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;max-width:800px;margin:0 auto">I believe great design comes from strong communication and collaboration between teams and clients.</p>
+  </section>
+
   <!-- WORK -->
-  <section class="section" id="work">
+  <section class="section" id="work" style="padding-top:40px">
     <div class="container">
-      <p class="section-label">Selected Work</p>
+      <p class="section-label" style="text-align:center">Selected Work</p>
+      <h2 class="testimonials-headline" style="margin-top:4px;text-align:center;max-width:100%">Projects that <span>made an impact</span></h2>
       <div class="work-companies">
 
         <div class="company-row">
@@ -325,16 +338,6 @@
         <button class="photo-btn" id="photoPrev">←</button>
         <a href="https://www.pexels.com/@prince-kumar-781937/" target="_blank" rel="noopener" class="photo-cta">See all on Pexels</a>
         <button class="photo-btn" id="photoNext">→</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT STRIP -->
-  <section class="section" id="about-strip">
-    <div class="container about-strip">
-      <div class="about-strip-text reveal">
-        <p>I'm Prince — a Senior Product Designer who believes the best products are the ones people barely notice because they just work. I've spent 5+ years designing for fintech and consumer apps, working across the full stack from research to final pixel.</p>
-        <a href="about.html" class="about-link">More about me ↗</a>
       </div>
     </div>
   </section>

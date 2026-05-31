@@ -591,7 +591,7 @@ body.intro-phase .page-wrapper > *:not(#heroIntro) { visibility: hidden; }
 /* --- SECTION --- */
 .section {
   padding: var(--space-24) 0;
-  border-top: 1px solid var(--color-border);
+  border-top: opx solid var(--color-border);
 }
 
 .section-label {
@@ -601,7 +601,7 @@ body.intro-phase .page-wrapper > *:not(#heroIntro) { visibility: hidden; }
   color: var(--color-text-muted);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-4);
 }
 
 /* --- WORK GRID --- */
@@ -827,21 +827,25 @@ footer {
 
 .testimonials-viewport {
   overflow: hidden;
+  padding: 0 1.5rem;
 }
 
 .testimonials-track {
   display: flex;
-  gap: 1.5rem;
+  gap: 0;
   touch-action: pan-y;
   user-select: none;
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -webkit-tap-highlight-color: transparent;
+  align-items: stretch;
+  justify-content: space-between;
 }
 
 .testimonial-card {
   flex: 0 0 calc(50% - 0.75rem);
   min-width: 0;
+  margin-right: 3.5rem;
   border-radius: 24px;
   padding: 2.5rem;
   display: flex;
@@ -886,9 +890,9 @@ footer {
 }
 
 .testimonial-quote {
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.85;
-  font-style: italic;
+  font-style: regular;
   flex: 1;
   overflow: hidden;
   display: -webkit-box;
@@ -2001,14 +2005,13 @@ body {
   }
 }
 /* --- WORK COMPANIES --- */
-.work-companies { display: flex; flex-direction: column; }
+.work-companies { display: flex; flex-direction: column; margin-top: 48px; }
 
 .company-row {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 48px;
   padding: 48px 0;
-  border-top: 1px solid var(--color-border);
   align-items: start;
 }
 
@@ -2246,4 +2249,26 @@ body {
   height: 20px;
   background: #2a2a28;
   align-self: center;
+}
+
+@keyframes logoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.logo-tick {
+  cursor: default;
+  transition: opacity 0.3s;
+}
+
+.logo-tick:hover {
+  animation: logoShake 0.4s ease;
+}
+
+@keyframes logoShake {
+  0%,100% { transform: rotate(0deg); }
+  20% { transform: rotate(-3deg); }
+  40% { transform: rotate(3deg); }
+  60% { transform: rotate(-2deg); }
+  80% { transform: rotate(2deg); }
 }
