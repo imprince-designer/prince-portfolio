@@ -90,13 +90,6 @@
       if (scattered) return;
       scattered = true;
 
-      const small = document.querySelector('.loader-small');
-      const big   = document.querySelector('.loader-big');
-      const hint  = document.querySelector('.loader-hint');
-      if (small) { small.style.opacity = '0'; small.style.filter = 'blur(10px)'; }
-      if (big)   { big.style.opacity   = '0'; big.style.filter   = 'blur(10px)'; }
-      if (hint)  { hint.style.opacity  = '0'; hint.style.animation = 'none'; }
-
       spawnPts(100, W / 2, H * 0.48, true);
       setTimeout(() => { dismissLoader(); }, 1000);
     });
