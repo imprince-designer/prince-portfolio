@@ -308,7 +308,8 @@
         const cursor = document.getElementById('hiCursor');
         if (typed) {
           typed.textContent = '';
-          const text = "Hello! I'm Prince — I bring ideas and products to life, whether through immersive interactive screens or websites, mobile apps designed for seamless user experiences.";
+          typed.parentElement.style.color = '#797979';
+          const text = "Hello! I'm Prince, I bring ideas and products to life, whether through immersive interactive screens or websites, mobile apps designed for seamless user experiences.";
           let i = 0;
           const type = () => {
             if (i < text.length) { typed.textContent += text[i++]; setTimeout(type, 35); }
