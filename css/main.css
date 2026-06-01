@@ -2272,3 +2272,10 @@ body {
   60% { transform: rotate(-2deg); }
   80% { transform: rotate(2deg); }
 }
+
+::view-transition-old(chefkart-hero) {
+  animation: none;
+}
+::view-transition-new(chefkart-hero) {
+  animation: none;
+}
