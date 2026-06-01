@@ -501,17 +501,21 @@
   <script src="js/gallery.js"></script>
   <script src="js/logo-ticker.js"></script>
   <script>
-  document.getElementById('chefkart2-link').addEventListener('click', function(e) {
-    e.preventDefault();
-    const href = this.href;
-    if (!document.startViewTransition) {
-      window.location.href = href;
-      return;
-    }
-    document.startViewTransition(() => {
-      window.location.href = href;
+  const link = document.getElementById('chefkart2-link');
+  if (link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const img = this.querySelector('img');
+      const rect = img.getBoundingClientRect();
+      sessionStorage.setItem('chefkart-hero-rect', JSON.stringify({
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height
+      }));
+      window.location.href = this.href;
     });
-  });
+  }
   </script>
 </body>
 </html>
