@@ -349,8 +349,17 @@
 
       <div class="cs-ut-panel">
         <div class="cs-ut-screen">
-          <div class="cs-screen-frame">
-            <img id="utScreenImg" src="https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+01" alt="User testing screen" />
+          <div class="cs-android-bezel">
+            <div class="cs-android-top">
+              <div class="cs-android-camera"></div>
+              <div class="cs-android-speaker"></div>
+            </div>
+            <div class="cs-android-screen">
+              <img id="utScreenImg" src="../images/chefkart/usability/UT_01.png" alt="User testing screen" />
+            </div>
+            <div class="cs-android-bottom">
+              <div class="cs-android-home"></div>
+            </div>
           </div>
         </div>
         <div class="cs-ut-detail">
@@ -627,38 +636,10 @@
   <!-- UT tabs -->
   <script>
   var utData = [
-    {
-      round: 'Round 01',
-      title: 'Navigation was completely broken',
-      body: 'Cooks couldn\'t find their bookings at all. The navigation pattern borrowed from generic consumer apps — but these users had never used one. We had to start from their mental model, not ours.',
-      fix: 'Fix → Moved bookings to home screen surface level',
-      fixClass: '',
-      img: 'https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+01'
-    },
-    {
-      round: 'Round 02',
-      title: 'Language barrier was still blocking',
-      body: 'The icon system helped but 20% of Bengali-only speakers couldn\'t read the labels. Hindi support wasn\'t optional — it was the difference between inclusion and exclusion.',
-      fix: 'Fix → Added Hindi and Bengali language toggle',
-      fixClass: '',
-      img: 'https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+02'
-    },
-    {
-      round: 'Round 03',
-      title: 'Onboarding drop-off at step 4',
-      body: 'Real progress — but onboarding was still 7 steps long. Users abandoned consistently at step 4. The flow was logical to us but overwhelming to them.',
-      fix: 'Fix → Cut onboarding from 7 steps to 4',
-      fixClass: '',
-      img: 'https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+03'
-    },
-    {
-      round: 'Round 04',
-      title: 'Completed unaided. Ready to ship.',
-      body: 'Every user completed onboarding without any assistance. First booking taken within 8 minutes of install. The app finally worked for the people it was built for.',
-      fix: '✓ Shipped',
-      fixClass: 'cs-ut-fix--final',
-      img: 'https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+04+✓'
-    }
+    {round:'Round 01',title:'Navigation was completely broken',body:'Cooks couldn\'t find their bookings at all. The navigation pattern borrowed from generic consumer apps — but these users had never used one. We had to start from their mental model, not ours.',fix:'Fix → Moved bookings to home screen surface level',fixClass:'',img:'../images/chefkart/usability/UT_01.png'},
+    {round:'Round 02',title:'Language barrier was still blocking',body:'The icon system helped but 20% of Bengali-only speakers couldn\'t read the labels. Hindi support wasn\'t optional — it was the difference between inclusion and exclusion.',fix:'Fix → Added Hindi and Bengali language toggle',fixClass:'',img:'../images/chefkart/usability/UT_02.png'},
+    {round:'Round 03',title:'Onboarding drop-off at step 4',body:'Progress was real but onboarding was still 7 steps long. Users abandoned consistently at step 4. The flow was logical to us but overwhelming to them.',fix:'Fix → Cut onboarding from 7 steps to 4',fixClass:'',img:'../images/chefkart/usability/UT_03.png'},
+    {round:'Round 04',title:'Completed unaided. Ready to ship.',body:'Every user completed onboarding without any assistance. First booking taken within 8 minutes of install. The app finally worked for the people it was built for.',fix:'✓ Shipped',fixClass:'cs-ut-fix--final',img:'../images/chefkart/usability/UT_04.png'}
   ];
 
   function switchUTTab(i) {

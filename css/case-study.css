@@ -1746,3 +1746,71 @@
   object-fit: cover;
   display: block;
 }
+
+/* --- ANDROID BEZEL --- */
+.cs-android-bezel {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  border-radius: 36px;
+  padding: 16px 10px;
+  box-shadow:
+    0 0 0 1px #333,
+    0 24px 60px rgba(0,0,0,0.25),
+    inset 0 0 0 1px #2a2a2a;
+  position: relative;
+}
+
+.cs-android-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 10px;
+}
+
+.cs-android-camera {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2a2a2a;
+  border: 1px solid #333;
+}
+
+.cs-android-speaker {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: #2a2a2a;
+}
+
+.cs-android-screen {
+  width: 100%;
+  aspect-ratio: 360 / 800;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+
+.cs-android-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.cs-android-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+.cs-android-home {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: #2a2a2a;
+}
