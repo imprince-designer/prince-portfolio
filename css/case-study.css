@@ -1093,7 +1093,16 @@
 }
 
 .cs-ut-screen {
-  margin-left: -100px;
+  width: 300px;
+  flex-shrink: 0;
+  height: 480px;
+  overflow: hidden;
+}
+
+.cs-ut-screen .marvel-device {
+  transform: scale(0.45);
+  transform-origin: top left;
+  margin: 0;
 }
 
 .cs-ut-screen .cs-screen-frame {
