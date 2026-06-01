@@ -1747,3 +1747,106 @@
   display: block;
 }
 
+/* --- PURE CSS iPHONE MOCKUP --- */
+.cs-iphone {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.cs-iphone-body {
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 44px;
+  padding: 12px;
+  box-shadow:
+    0 0 0 1px #3a3a3a,
+    0 0 0 2px #111,
+    0 32px 64px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  position: relative;
+}
+
+.cs-iphone-side-btn {
+  position: absolute;
+  background: #222;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.cs-iphone-vol-up {
+  left: -3px;
+  top: 80px;
+  width: 3px;
+  height: 32px;
+}
+
+.cs-iphone-vol-down {
+  left: -3px;
+  top: 124px;
+  width: 3px;
+  height: 32px;
+}
+
+.cs-iphone-power {
+  right: -3px;
+  top: 100px;
+  width: 3px;
+  height: 48px;
+}
+
+.cs-iphone-inner {
+  background: #000;
+  border-radius: 34px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-iphone-notch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 6px;
+  background: #000;
+  flex-shrink: 0;
+}
+
+.cs-iphone-island {
+  width: 80px;
+  height: 22px;
+  background: #111;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 1px #222;
+}
+
+.cs-iphone-screen {
+  width: 100%;
+  aspect-ratio: 390 / 760;
+  overflow: hidden;
+  background: #000;
+  flex-shrink: 0;
+}
+
+.cs-iphone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.cs-iphone-chin {
+  background: #000;
+  padding: 8px 0 10px;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cs-iphone-indicator {
+  width: 100px;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+}
+
