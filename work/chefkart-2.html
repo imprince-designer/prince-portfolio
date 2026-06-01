@@ -654,20 +654,32 @@
   function switchUTTab(i) {
     currentUT = i;
     var d = utData[i];
-    var panel = document.querySelector('.cs-ut-panel');
-    panel.style.opacity = '0';
-    panel.style.transition = 'opacity 0.4s ease';
+
+    var img = document.getElementById('utScreenImg');
+    var detail = document.querySelector('.cs-ut-detail');
+
+    img.style.transition = 'opacity 0.3s ease';
+    img.style.opacity = '0';
+
     setTimeout(function() {
-      document.getElementById('utRound').textContent = d.round;
-      document.getElementById('utTitle').textContent = d.title;
-      document.getElementById('utBody').textContent = d.body;
-      var fix = document.getElementById('utFix');
-      fix.textContent = d.fix;
-      fix.className = 'cs-ut-fix ' + (d.fixClass || '');
-      document.getElementById('utScreenImg').src = d.img;
-      document.getElementById('utCounter').textContent = (i + 1) + ' / ' + utData.length;
-      panel.style.opacity = '1';
+      img.src = d.img;
+      img.style.opacity = '1';
     }, 300);
+
+    setTimeout(function() {
+      detail.style.transition = 'opacity 0.3s ease';
+      detail.style.opacity = '0';
+      setTimeout(function() {
+        document.getElementById('utRound').textContent = d.round;
+        document.getElementById('utTitle').textContent = d.title;
+        document.getElementById('utBody').textContent = d.body;
+        var fix = document.getElementById('utFix');
+        fix.textContent = d.fix;
+        fix.className = 'cs-ut-fix ' + (d.fixClass || '');
+        document.getElementById('utCounter').textContent = (i + 1) + ' / ' + utData.length;
+        detail.style.opacity = '1';
+      }, 250);
+    }, 150);
   }
   function nextUTTab() { switchUTTab((currentUT + 1) % utData.length); }
   function prevUTTab() { switchUTTab((currentUT - 1 + utData.length) % utData.length); }
