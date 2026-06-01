@@ -342,13 +342,6 @@
       <div class="cs-section-rule"></div>
       <p class="cs-ut-stats">5 rounds &nbsp;·&nbsp; 45 users &nbsp;·&nbsp; 1 week</p>
 
-      <div class="cs-ut-tabs">
-        <button class="cs-ut-tab active" onclick="switchUTTab(0)">UT 01</button>
-        <button class="cs-ut-tab" onclick="switchUTTab(1)">UT 02</button>
-        <button class="cs-ut-tab" onclick="switchUTTab(2)">UT 03</button>
-        <button class="cs-ut-tab cs-ut-tab--final" onclick="switchUTTab(3)">UT 04 ✓</button>
-      </div>
-
       <div class="cs-ut-panel">
         <div class="cs-ut-screen">
           <div class="marvel-device iphone-x black" style="transform: scale(0.55); transform-origin: top center; margin-bottom: -180px;">
@@ -377,6 +370,11 @@
           <p class="cs-ut-detail-title" id="utTitle">Navigation was completely broken</p>
           <p class="cs-ut-detail-body" id="utBody">Cooks couldn't find their bookings at all. The navigation pattern borrowed from generic consumer apps — but these users had never used one. We had to start from their mental model, not ours.</p>
           <p class="cs-ut-fix" id="utFix">Fix → Moved bookings to home screen surface level</p>
+          <div class="cs-ut-nav">
+            <button class="cs-ut-arrow" onclick="prevUTTab()">←</button>
+            <span class="cs-ut-nav-counter" id="utCounter">1 / 4</span>
+            <button class="cs-ut-arrow" onclick="nextUTTab()">→</button>
+          </div>
         </div>
       </div>
     </div>
@@ -652,7 +650,9 @@
     {round:'Round 04',title:'Completed unaided. Ready to ship.',body:'Every user completed onboarding without any assistance. First booking taken within 8 minutes of install. The app finally worked for the people it was built for.',fix:'✓ Shipped',fixClass:'cs-ut-fix--final',img:'../images/chefkart/usability/UT_04.png'}
   ];
 
+  var currentUT = 0;
   function switchUTTab(i) {
+    currentUT = i;
     var d = utData[i];
     document.getElementById('utRound').textContent = d.round;
     document.getElementById('utTitle').textContent = d.title;
@@ -662,15 +662,11 @@
     fix.className = 'cs-ut-fix ' + (d.fixClass || '');
     var img = document.getElementById('utScreenImg');
     img.style.opacity = '0';
-    setTimeout(function() {
-      img.src = d.img;
-      img.alt = 'User testing ' + d.round;
-      img.style.opacity = '1';
-    }, 200);
-    document.querySelectorAll('.cs-ut-tab').forEach(function(t, j) {
-      t.classList.toggle('active', j === i);
-    });
+    setTimeout(function(){ img.src = d.img; img.style.opacity = '1'; }, 200);
+    document.getElementById('utCounter').textContent = (i + 1) + ' / ' + utData.length;
   }
+  function nextUTTab() { switchUTTab((currentUT + 1) % utData.length); }
+  function prevUTTab() { switchUTTab((currentUT - 1 + utData.length) % utData.length); }
   </script>
 
   <!-- Impact counter -->
