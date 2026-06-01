@@ -8,14 +8,15 @@
   <link rel="stylesheet" href="../css/tokens.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="https://devices.css.do/devices.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/marvel-devices.css@1.0.0/assets/devices.min.css">
 </head>
 <body>
 
-  <!-- CURSOR -->
   <div class="cursor" id="cursor"></div>
 
+  <nav class="cs-page-nav" id="csPageNav" aria-label="Page sections"></nav>
 
-  <!-- ===================== NAV ===================== -->
   <nav id="nav" style="position:fixed;top:0;left:0;right:0;width:100%;z-index:9999;">
     <div class="nav-inner">
       <a href="../index.html" class="nav-logo">Prince K<span class="nav-logo-dot">.</span></a>
@@ -59,6 +60,7 @@
                 <div class="nav-card-img"><img src="../images/photography/photo-1.jpg" alt="Photography" /></div>
                 <p class="nav-card-title">Through the Lens</p>
                 <p class="nav-card-desc">Stillness, people, light. Seeing what most walk past.</p>
+                <a href="../Resume_Prince Kumar_2026.pdf" target="_blank" class="nav-item" style="font-size:14px; color:var(--color-text-primary); text-decoration:none;">Resume</a>
               </div>
             </div>
           </div>
@@ -106,6 +108,13 @@
             </div>
           </div>
         </div>
+
+        <div class="nav-item">
+          <a href="../Resume_Prince Kumar_2026.pdf"
+             target="_blank"
+             class="nav-dropdown-trigger"
+             style="text-decoration:none;">Resume</a>
+        </div>
       </div>
 
       <div class="nav-right">
@@ -127,350 +136,402 @@
 
   <div class="page-wrapper">
 
-  <!-- ===================== SECTION NAVIGATOR ===================== -->
-  <!-- Fixed left sidebar — hidden on mobile via CSS (max-width: 768px) -->
-  <!-- Active state driven by IntersectionObserver at bottom of file -->
-  <nav class="cs-section-nav" aria-label="Section navigation">
-    <a class="cs-section-nav-item" href="#overview">
-      <span class="cs-section-nav-dot"></span>
-      <span class="cs-section-nav-label">Overview</span>
-    </a>
-    <a class="cs-section-nav-item" href="#problem">
-      <span class="cs-section-nav-dot"></span>
-      <span class="cs-section-nav-label">Problem</span>
-    </a>
-    <a class="cs-section-nav-item" href="#research">
-      <span class="cs-section-nav-dot"></span>
-      <span class="cs-section-nav-label">Research</span>
-    </a>
-    <a class="cs-section-nav-item" href="#brainstorming">
-      <span class="cs-section-nav-dot"></span>
-      <span class="cs-section-nav-label">Brainstorming</span>
-    </a>
-    <a class="cs-section-nav-item" href="#exploration">
-      <span class="cs-section-nav-dot"></span>
-      <span class="cs-section-nav-label">Exploration</span>
-    </a>
-    <a class="cs-section-nav-item" href="#final">
-      <span class="cs-section-nav-dot"></span>
-      <span class="cs-section-nav-label">Final Design</span>
-    </a>
-    <a class="cs-section-nav-item" href="#impact">
-      <span class="cs-section-nav-dot"></span>
-      <span class="cs-section-nav-label">Impact</span>
-    </a>
-    <a class="cs-section-nav-item" href="#learnings">
-      <span class="cs-section-nav-dot"></span>
-      <span class="cs-section-nav-label">Learnings</span>
-    </a>
-  </nav>
-
-
-  <!-- ===================== HERO ===================== -->
-  <section class="cs-hero">
-    <div class="container">
-      <div class="cs-meta reveal">
-        <span>ChefKart</span>
-        <span>·</span>
-        <span>Consumer</span>
-        <span>·</span>
-        <span>2023–2024</span>
-      </div>
-      <h1 class="cs-title reveal">Customer App — Home Page Revamp for Business Pivot</h1>
-      <div class="cs-tags reveal">
-        <span class="tag">UX Research</span>
-        <span class="tag">Home Page Redesign</span>
-        <span class="tag">Consumer App</span>
-        <span class="tag">Business Pivot</span>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================== COVER IMAGE — 21:9 hero shot ===================== -->
-  <div class="cs-cover reveal">
-    <div class="container">
-      <div class="img-placeholder" style="aspect-ratio: 21/9">
-        <div class="img-placeholder-inner">
-          <span class="img-placeholder-label">Cover Image — Hero shot of the redesigned ChefKart app</span>
-          <span class="img-placeholder-dim">2100 × 900px</span>
-        </div>
-      </div>
-    </div>
+  <!-- HERO IMAGE BLOCK — full bleed 16:9 -->
+  <div class="cs-hero-img">
+    <img src="../images/work/chefkart-1-cover.png" alt="ChefKart Customer App — Home Page Revamp" style="view-transition-name: chefkart1-hero;" />
+    <button class="cs-scroll-arrow" id="scrollArrow" aria-label="Scroll to content">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 6l5 5 5-5" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 
-
-  <!-- ===================== SECTION: OVERVIEW ===================== -->
-  <section class="cs-section" id="overview">
-    <div class="container cs-grid">
-
-      <!-- Sidebar: project metadata -->
-      <div class="cs-sidebar reveal">
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Role</p>
-          <p class="cs-stat-value">Senior Product Designer</p>
-        </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Platform</p>
-          <p class="cs-stat-value">iOS · Android</p>
-        </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Timeline</p>
-          <p class="cs-stat-value">2023–2024</p>
-        </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Methods</p>
-          <p class="cs-stat-value">Usability Testing · Chat Analysis</p>
-        </div>
-      </div>
-
-      <!-- Body: overview text -->
-      <div class="cs-body">
-        <p class="section-label">Overview</p>
-        <h2 class="cs-heading reveal">When your product pivots, your homepage needs to pivot with it</h2>
-        <p class="cs-text reveal">ChefKart connects customers with professional home cooks. In 2022 the company pivoted from subscription-first to on-demand services. But by 2024 the homepage still spoke the language of subscriptions. New users landed on a page designed for a product that no longer existed — causing confusion, drop-off and cancellations.</p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ===================== SECTION: INTRODUCTION ===================== -->
-  <!-- Narrative bridge between overview and problem — no nav item -->
-  <section class="cs-section cs-section--alt">
+  <!-- ABOUT THE PROJECT -->
+  <section id="overview" class="cs-about">
     <div class="container">
-      <p class="section-label">Introduction</p>
-      <h2 class="cs-heading reveal">My journey in the design team</h2>
-      <p class="cs-text reveal">In 2022, ChefKart pivoted to introduce new on-demand services but the existing app wasn't built to support these offerings. By 2024, users were struggling to understand the services, leading to confusion, drop-offs, and last-minute cancellations. I worked on design solutions to clarify services and streamline the booking process, using user feedback and research to guide the improvements.</p>
-
-      <!-- Overview image: app context or team photo -->
-      <div class="img-placeholder reveal" style="aspect-ratio: 16/9">
-        <div class="img-placeholder-inner">
-          <span class="img-placeholder-label">Overview — App context or team photo</span>
-          <span class="img-placeholder-dim">1600 × 900px recommended</span>
+      <p class="cs-about__eyebrow">About the Project</p>
+      <h1 class="cs-about__title reveal">Redesigning the home screen that drives every booking</h1>
+      <hr class="cs-about__rule" />
+      <div class="cs-about__grid">
+        <div class="cs-about__body reveal">
+          <p>ChefKart's customer-facing app connects households with professional cooks for daily meal prep. This project focused on redesigning the home page — the most critical screen in the booking journey — to reduce drop-off and increase repeat bookings.</p>
+        </div>
+        <div class="cs-about__meta reveal">
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Role</p>
+            <p class="cs-about__meta-value">Senior Product Designer</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Platform</p>
+            <p class="cs-about__meta-value">iOS & Android</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Timeline</p>
+            <p class="cs-about__meta-value">2 months · 2023</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Team</p>
+            <p class="cs-about__meta-value">Solo designer</p>
+          </div>
+          
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ===================== SECTION: PROBLEM ===================== -->
-  <section class="cs-section" id="problem">
+  <!-- THE PROBLEM -->
+  <section id="problem" class="cs-section">
     <div class="container">
-      <p class="section-label">Problem Breakdown</p>
-      <h2 class="cs-heading reveal">The numbers behind the confusion</h2>
+      <p class="cs-eyebrow">The Problem</p>
+      <h2 class="cs-section-title">Drop-off was highest on the screen users saw most</h2>
+      <div class="cs-section-rule"></div>
 
-      <!-- 3-column stat grid -->
-      <div class="cs-stats-grid reveal">
-        <div>
-          <p class="cs-stat-number">25%</p>
-          <p class="cs-stat-desc">Decreased time for users to understand service offerings</p>
+      <div class="cs-stats-grid">
+        <div class="cs-stat-col">
+          <p class="cs-big-num">40%</p>
+          <p class="cs-stat-name">Adoption Rate</p>
+          <p class="cs-stat-detail">Only 3 in 10 cooks who downloaded the app stayed active.</p>
         </div>
-        <div>
-          <p class="cs-stat-number">45%</p>
-          <p class="cs-stat-desc">Drop-off from the home page</p>
+        <div class="cs-stat-col">
+          <p class="cs-big-num">₹8k</p>
+          <p class="cs-stat-name">Cost Per Cook</p>
+          <p class="cs-stat-detail">CAC ballooned to ₹10,000 per active partner acquired.</p>
         </div>
-        <div>
-          <p class="cs-stat-number">10%</p>
-          <p class="cs-stat-desc">Increase in customer support tickets related to services</p>
-        </div>
-      </div>
-
-      <!-- Problem image: old homepage or user confusion moment -->
-      <div class="img-placeholder reveal" style="aspect-ratio: 16/7">
-        <div class="img-placeholder-inner">
-          <span class="img-placeholder-label">Problem — Old homepage screenshot or user confusion moment</span>
-          <span class="img-placeholder-dim">1600 × 700px recommended</span>
+        <div class="cs-stat-col">
+          <p class="cs-big-num">2min</p>
+          <p class="cs-stat-name">Drop-off Window</p>
+          <p class="cs-stat-detail">Most users abandoned the app within their first hour.</p>
         </div>
       </div>
-    </div>
-  </section>
 
+      <div class="cs-section-rule"></div>
 
-  <!-- ===================== SECTION: RESEARCH ===================== -->
-  <section class="cs-section cs-section--alt" id="research">
-    <div class="container">
-      <p class="section-label">Research</p>
-      <h2 class="cs-heading reveal">It always starts from research</h2>
-      <p class="cs-text reveal">It all started when I had conversations with our users and deep dived into customer chats with our support. After conducting 7 usability testings with users and 30–35 chat analysis, here is what I found:</p>
-
-      <!-- Research findings — 2-stat grid (third column intentionally empty) -->
-      <div class="cs-stats-grid reveal">
-        <div>
-          <p class="cs-stat-number">70%</p>
-          <p class="cs-stat-desc">of users were looking for clarity in the service core offerings</p>
-        </div>
-        <div>
-          <p class="cs-stat-number">90%</p>
-          <p class="cs-stat-desc">of users found the home page to be misleading and confusing</p>
-        </div>
-        <div></div>
-      </div>
-
-      <!-- Research images: usability testing + chat analysis/affinity map side by side -->
-      <div class="cs-image-grid reveal">
-        <div class="img-placeholder" style="aspect-ratio: 4/3">
-          <div class="img-placeholder-inner">
-            <span class="img-placeholder-label">Research — Usability testing session</span>
-            <span class="img-placeholder-dim">800 × 600px recommended</span>
+      <div class="cs-problem-list">
+        <div class="cs-problem-row">
+          <span class="cs-problem-num">01</span>
+          <div>
+            <p class="cs-problem-head">The home page tried to serve every use case at once</p>
+            <p class="cs-problem-body">New bookings, active subscriptions, promotions, and account settings all competed for attention on a single screen. Nothing felt primary — so users hesitated.</p>
           </div>
         </div>
-        <div class="img-placeholder" style="aspect-ratio: 4/3">
-          <div class="img-placeholder-inner">
-            <span class="img-placeholder-label">Research — Chat analysis or affinity map</span>
-            <span class="img-placeholder-dim">800 × 600px recommended</span>
+        <div class="cs-problem-row">
+          <span class="cs-problem-num">02</span>
+          <div>
+            <p class="cs-problem-head">Repeat customers were treated like new ones</p>
+            <p class="cs-problem-body">The home screen showed the same content regardless of booking history. Users who had booked 20 times saw the same onboarding-style layout as day-one users.</p>
+          </div>
+        </div>
+        <div class="cs-problem-row">
+          <span class="cs-problem-num">03</span>
+          <div>
+            <p class="cs-problem-head">The booking CTA was buried</p>
+            <p class="cs-problem-body">The primary action — book a cook — was below the fold on most Android devices. Users had to scroll past promotional banners to do the one thing the app was built for.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- OLD SCREENS -->
+  <section class="cs-screens-section">
+    <div class="cs-screens-grid">
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/work/chefkart-1-cover.png" alt="Existing app — Onboarding" />
+        </div>
+      </div>
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/work/chefkart-1-cover.png" alt="Existing app — Home" />
+        </div>
+      </div>
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/work/chefkart-1-cover.png" alt="Existing app — Bookings" />
+        </div>
+      </div>
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/work/chefkart-1-cover.png" alt="Existing app — Earnings" />
+        </div>
+      </div>
+    </div>
+    <p class="cs-screens-caption">Existing partner app screens — before the redesign</p>
+  </section>
 
-  <!-- ===================== SECTION: BRAINSTORMING ===================== -->
-  <section class="cs-section" id="brainstorming">
+  <!-- RESEARCH -->
+  <section id="research" class="cs-section">
     <div class="container">
-      <p class="section-label">Brainstorming &amp; Prioritisation</p>
-      <h2 class="cs-heading reveal">All design directions walked the chaotic journey of design</h2>
-      <p class="cs-text reveal">All design directions were morphed into stronger, holistic designs by the end of the journey.</p>
+      <p class="cs-eyebrow">Research & Insights</p>
+      <h2 class="cs-section-title">The home page was doing too many jobs</h2>
+      <div class="cs-section-rule"></div>
+      <p class="cs-research-intro">I didn't research from a desk. I went to where the cooks actually were — homes, kitchens, shared accommodations. Four methods, run in parallel, over two weeks. Each one revealed something the others couldn't.</p>
+    </div>
 
-      <!-- Brainstorming images: ideation + prioritisation side by side -->
-      <div class="cs-image-grid reveal">
-        <div class="img-placeholder" style="aspect-ratio: 4/3">
-          <div class="img-placeholder-inner">
-            <span class="img-placeholder-label">Brainstorming — Ideation session or whiteboard</span>
-            <span class="img-placeholder-dim">800 × 600px recommended</span>
+    <div class="container">
+    <div class="cs-carousel-wrap">
+      <div class="cs-carousel-track" id="researchCarousel">
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Field+Visit" alt="Field visit" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Interview+Session" alt="Interview session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=User+Interview" alt="User interview" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Focus+Group" alt="Focus group" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Survey+Session" alt="Survey session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Cook+At+Home" alt="Cook at home" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Kitchen+Visit" alt="Kitchen visit" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Note+Taking" alt="Note taking" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Affinity+Map" alt="Affinity mapping" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Synthesis" alt="Research synthesis" /></div>
+
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Field+Visit" alt="Field visit" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Interview+Session" alt="Interview session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=User+Interview" alt="User interview" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Focus+Group" alt="Focus group" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Survey+Session" alt="Survey session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Cook+At+Home" alt="Cook at home" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Kitchen+Visit" alt="Kitchen visit" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Note+Taking" alt="Note taking" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Affinity+Map" alt="Affinity mapping" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Synthesis" alt="Research synthesis" /></div>
+      </div>
+    </div>
+    </div>
+
+    <div class="container">
+      <div class="cs-research-findings" style="gap: 0 32px;">
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">20%</p>
+          <p class="cs-finding-head">Functionally illiterate</p>
+          <p class="cs-finding-body">Text-first UI was a complete blocker. Icon-first wasn't a style choice — it was survival for 1 in 5 users.</p>
+        </div>
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">20%</p>
+          <p class="cs-finding-head">Bengali only speakers</p>
+          <p class="cs-finding-body">English-first excluded 1 in 5 users before they even reached the home screen.</p>
+        </div>
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">100%</p>
+          <p class="cs-finding-head">Used WhatsApp daily</p>
+          <p class="cs-finding-body">The only trusted mental model we had. So we borrowed every familiar pattern we could from it.</p>
+        </div>
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">#1</p>
+          <p class="cs-finding-head">Reason for uninstall</p>
+          <p class="cs-finding-body">Battery drain. Performance on entry-level Android wasn't optional — it was the product.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HMW -->
+  <section id="hmw" class="cs-hmw-section">
+    <div class="container">
+      <p class="cs-eyebrow" style="text-align: center; color: #E85D3A; margin-bottom: var(--space-6);">The Question That Drove Everything</p>
+    </div>
+    <div style="padding: 0 var(--space-24);">
+      <div class="cs-hmw-ticker-wrap">
+        <div class="cs-hmw-ticker-track" id="hmwTrack">
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USER TESTING -->
+  <section id="testing" class="cs-section">
+    <div class="container">
+      <p class="cs-eyebrow">User Testing</p>
+      <h2 class="cs-section-title">Three rounds to get the hierarchy right</h2>
+      <div class="cs-section-rule"></div>
+      <p class="cs-ut-stats">5 rounds &nbsp;·&nbsp; 45 users &nbsp;·&nbsp; 1 week</p>
+
+      <div class="cs-ut-panel">
+        <div class="cs-ut-screen">
+          <div class="marvel-device iphone-x black" style="transform: scale(0.55); transform-origin: top center; margin-bottom: -180px;">
+            <div class="notch">
+              <div class="camera"></div>
+              <div class="speaker"></div>
+            </div>
+            <div class="top-bar"></div>
+            <div class="sleep"></div>
+            <div class="bottom-bar"></div>
+            <div class="volume"></div>
+            <div class="overflow">
+              <div class="shadow shadow--tr"></div>
+              <div class="shadow shadow--tl"></div>
+              <div class="shadow shadow--br"></div>
+              <div class="shadow shadow--bl"></div>
+            </div>
+            <div class="inner-shadow"></div>
+            <div class="screen">
+              <img id="utScreenImg" src="../images/work/chefkart-1-cover.png" alt="User testing screen" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
           </div>
         </div>
-        <div class="img-placeholder" style="aspect-ratio: 4/3">
-          <div class="img-placeholder-inner">
-            <span class="img-placeholder-label">Brainstorming — Prioritisation matrix</span>
-            <span class="img-placeholder-dim">800 × 600px recommended</span>
+        <div class="cs-ut-detail">
+          <p class="cs-ut-round" id="utRound">Round 01</p>
+          <p class="cs-ut-detail-title" id="utTitle">Navigation was completely broken</p>
+          <p class="cs-ut-detail-body" id="utBody">Cooks couldn't find their bookings at all. The navigation pattern borrowed from generic consumer apps — but these users had never used one. We had to start from their mental model, not ours.</p>
+          <p class="cs-ut-fix" id="utFix">Fix → Moved bookings to home screen surface level</p>
+          <div class="cs-ut-nav">
+            <button class="cs-ut-arrow" onclick="prevUTTab()">←</button>
+            <span class="cs-ut-nav-counter" id="utCounter">1 / 4</span>
+            <button class="cs-ut-arrow" onclick="nextUTTab()">→</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ===================== SECTION: EXPLORATION ===================== -->
-  <section class="cs-section cs-section--alt" id="exploration">
-    <div class="container">
-      <p class="section-label">Exploration</p>
-      <h2 class="cs-heading reveal">We explored the possibilities with the layouts</h2>
-      <p class="cs-text reveal">We picked Layout 1 — 60% of the team found the first layout to be more clear.</p>
-
-      <!-- Layout wireframes: portrait ratio for mobile-first screens -->
-      <div class="cs-image-grid reveal">
-        <div class="img-placeholder" style="aspect-ratio: 9/16">
-          <div class="img-placeholder-inner">
-            <span class="img-placeholder-label">Layout 1 — Wireframe</span>
-            <span class="img-placeholder-dim">450 × 800px recommended</span>
-          </div>
-        </div>
-        <div class="img-placeholder" style="aspect-ratio: 9/16">
-          <div class="img-placeholder-inner">
-            <span class="img-placeholder-label">Layout 2 — Wireframe</span>
-            <span class="img-placeholder-dim">450 × 800px recommended</span>
-          </div>
-        </div>
-      </div>
+  <!-- MEDIA BREAK -->
+  <section class="cs-media-break">
+    <div class="cs-media-frame">
+      <img src="../images/work/chefkart-1-cover.png" alt="ChefKart project visual" />
     </div>
+    <p class="cs-media-caption">Caption goes here</p>
   </section>
 
-
-  <!-- ===================== SECTION: FINAL DESIGN ===================== -->
-  <!-- Alt background via cs-section--alt -->
-  <section class="cs-section cs-section--alt" id="final">
+  <!-- IMPACT -->
+  <section id="impact" class="cs-section">
     <div class="container">
-      <p class="section-label">Final UI</p>
-      <h2 class="cs-heading reveal">Revamped Home Page — Modern and breathing UI with better clarity on the service offerings</h2>
-
-      <!-- Full-width wide image first -->
-      <div class="img-placeholder reveal" style="aspect-ratio: 16/9">
-        <div class="img-placeholder-inner">
-          <span class="img-placeholder-label">Final Design — Full homepage redesign</span>
-          <span class="img-placeholder-dim">1600 × 900px recommended</span>
-        </div>
-      </div>
-
-      <!-- Two portrait key screens side by side -->
-      <div class="cs-image-grid reveal">
-        <div class="img-placeholder" style="aspect-ratio: 9/16">
-          <div class="img-placeholder-inner">
-            <span class="img-placeholder-label">Final Screen 1 — Key screen</span>
-            <span class="img-placeholder-dim">450 × 800px recommended</span>
+      <div class="cs-impact-grid">
+        <p class="cs-impact-big">From 30% to 90% adoption. In one redesign. For users the original app forgot existed.</p>
+        <div class="cs-impact-stats-grid">
+          <div class="cs-impact-stat-cell">
+            <p class="cs-impact-was">30%</p>
+            <p class="cs-impact-num" data-target="90" data-suffix="%">0%</p>
+            <p class="cs-impact-name">App Adoption</p>
           </div>
-        </div>
-        <div class="img-placeholder" style="aspect-ratio: 9/16">
-          <div class="img-placeholder-inner">
-            <span class="img-placeholder-label">Final Screen 2 — Key screen</span>
-            <span class="img-placeholder-dim">450 × 800px recommended</span>
+          <div class="cs-impact-stat-cell">
+            <p class="cs-impact-was">35%</p>
+            <p class="cs-impact-num" data-target="85" data-suffix="%">0%</p>
+            <p class="cs-impact-name">Daily Check-ins</p>
+          </div>
+          <div class="cs-impact-stat-cell">
+            <p class="cs-impact-was">&nbsp;</p>
+            <p class="cs-impact-num" data-target="60" data-suffix="%">0%</p>
+            <p class="cs-impact-name">CAC Reduction</p>
+          </div>
+          <div class="cs-impact-stat-cell cs-impact-stat-cell--last">
+            <p class="cs-impact-was">&nbsp;</p>
+            <p class="cs-impact-num cs-impact-num--static">↓</p>
+            <p class="cs-impact-name">Performance Issues</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ===================== SECTION: IMPACT ===================== -->
-  <section class="cs-section" id="impact">
-    <div class="container">
-      <p class="section-label">Impact</p>
-      <h2 class="cs-heading reveal">The redesign moved the metrics that mattered</h2>
-
-      <!-- 3-column impact stat grid -->
-      <div class="cs-stats-grid reveal">
-        <div>
-          <p class="cs-stat-number">10%</p>
-          <p class="cs-stat-desc">Decrease in cancellations</p>
-        </div>
-        <div>
-          <p class="cs-stat-number">35%</p>
-          <p class="cs-stat-desc">Increase in bookings</p>
-        </div>
-        <div>
-          <p class="cs-stat-number">5%</p>
-          <p class="cs-stat-desc">Reduction in support tickets</p>
-        </div>
+  <!-- FINAL DESIGN -->
+  <section id="design" class="cs-section" style="padding: var(--space-24) 0; overflow: hidden;">
+    <div class="cs-design-frame">
+    <div class="cs-masonry-motion" id="masonryMotion">
+      <div class="cs-mm-col" id="mmCol1">
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(2)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 03" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 03</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(3)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 04" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 04</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(2)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 03" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 03</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(3)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 04" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 04</p></div></div>
       </div>
 
-      <!-- Impact image: metrics dashboard or before/after -->
-      <div class="img-placeholder reveal" style="aspect-ratio: 16/7">
-        <div class="img-placeholder-inner">
-          <span class="img-placeholder-label">Impact — Metrics dashboard or before/after</span>
-          <span class="img-placeholder-dim">1600 × 700px recommended</span>
+      <div class="cs-mm-col" id="mmCol2">
+        <div class="cs-mm-item" onclick="rsOpen(4)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 05" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 05</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(5)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 06" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 06</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(6)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 07" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 07</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(7)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 08" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 08</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(4)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 05" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 05</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(5)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 06" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 06</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(6)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 07" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 07</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(7)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 08" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 08</p></div></div>
+      </div>
+
+      <div class="cs-mm-col" id="mmCol3">
+        <div class="cs-mm-item" onclick="rsOpen(8)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 09" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 09</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(9)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 10" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 10</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(8)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 09" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 09</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(9)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 10" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 10</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/work/chefkart-1-cover.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="learnings" class="cs-section">
+    <div class="container">
+      <div class="cs-learnings-grid">
+        <div class="cs-learnings-left">
+          <p class="cs-eyebrow">What I Learned</p>
+          <h2 class="cs-section-title">What a single screen taught me about focus.</h2>
+        </div>
+        <div class="cs-learnings-right">
+          <div class="cs-learning-row">
+            <span class="cs-learning-num">01</span>
+            <div>
+              <p class="cs-learning-head">Focus is a design decision</p>
+              <p class="cs-learning-body">The hardest part of redesigning the home screen was deciding what NOT to show. Every stakeholder wanted their feature front and centre. The job was saying no with data.</p>
+            </div>
+          </div>
+          <div class="cs-learning-row">
+            <span class="cs-learning-num">02</span>
+            <div>
+              <p class="cs-learning-head">Hierarchy changes behaviour</p>
+              <p class="cs-learning-body">Moving the booking CTA above the fold increased taps by 40% in testing. Visual hierarchy isn't aesthetic — it's the primary tool for directing user behaviour.</p>
+            </div>
+          </div>
+          <div class="cs-learning-row">
+            <span class="cs-learning-num">03</span>
+            <div>
+              <p class="cs-learning-head">Context changes everything</p>
+              <p class="cs-learning-body">Personalising the home screen for returning users changed the emotional tone of the app entirely. The same feature felt different just because we knew who the person was.</p>
+            </div>
+          </div>
+          <div class="cs-learning-row cs-learning-row--last">
+            <span class="cs-learning-num">04</span>
+            <div>
+              <p class="cs-learning-head">Single screens have system-wide effects</p>
+              <p class="cs-learning-body">A change to the home page touched the navigation, the booking flow, and the notification strategy. I learned that no screen is isolated — every change has a blast radius.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ===================== SECTION: KEY LEARNINGS ===================== -->
-  <section class="cs-section cs-section--alt" id="learnings">
+  <!-- CTA -->
+  <section class="cs-cta-section">
     <div class="container">
-      <p class="section-label">Key Learnings</p>
-      <h2 class="cs-heading reveal">What this project taught me</h2>
-      <ol class="cs-learnings reveal">
-        <li>Learned how to design keeping in mind the business metrics</li>
-        <li>Building scalable solutions ensures that future pivots or offerings can be seamlessly integrated into the app without overwhelming users</li>
-      </ol>
+      <div class="cs-cta-wrap">
+        <h2 class="cs-cta-heading">Let's work together!</h2>
+        <div class="cs-cta-body">
+          <p class="cs-cta-question">Got a problem<br>worth solving? 🤝</p>
+          <p class="cs-cta-text">Reach out at <a href="mailto:prince.design10@gmail.com" class="cs-cta-link">prince.design10@gmail.com</a>. I respond to every message and I'll get back to you within 24 hours.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-
-  <!-- ===================== NEXT CASE STUDY ===================== -->
+  <!-- NEXT -->
   <section class="cs-next">
     <div class="container">
-      <p class="section-label">Next Case Study</p>
-      <a href="chefkart-2.html" class="cs-next-link reveal">
-        <span class="cs-next-label">ChefKart — Building for Next Billion Users</span>
+      <a href="syfe.html" class="cs-next-link reveal" id="nextProjectLink">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <p class="cs-next-label-sm">Next Case Study</p>
+          <span class="cs-next-label">Syfe — Wealth Platform</span>
+        </div>
         <span class="cs-next-arrow">→</span>
       </a>
     </div>
   </section>
 
-
-  <!-- ===================== FOOTER ===================== -->
   <footer>
     <div class="container">
       <div class="footer-inner">
@@ -511,39 +572,304 @@
   </div>
   <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
 
-  <!-- ===================== SCRIPTS ===================== -->
+  <!-- LIGHTBOX -->
+  <div class="rs-lb" id="rsLb">
+    <button class="rs-lb-close" onclick="rsClose()">✕</button>
+    <p class="rs-lb-label" id="rsLbLabel">Screen 01</p>
+    <div class="rs-lb-screen">
+      <img id="rsLbImg" src="" alt="" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:18px;" />
+    </div>
+    <div class="rs-lb-controls">
+      <button class="rs-lb-btn" onclick="rsPrev()">←</button>
+      <p class="rs-lb-counter" id="rsLbCounter">1 / 10</p>
+      <button class="rs-lb-btn" onclick="rsNext()">→</button>
+    </div>
+  </div>
+
+  <div class="cs-next-cursor-thumb" id="nextCursorThumb" style="opacity:0; position:fixed; z-index:99999; pointer-events:none; width:200px; border-radius:12px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,0.18); transform:rotate(-4deg); transition:opacity 0.25s ease; top:0; left:0; aspect-ratio:16/9;">
+    <img src="../images/work/syfe-cover.png" alt="Syfe" style="width:100%; height:100%; object-fit:cover; display:block;" />
+  </div>
+
   <script src="../js/theme.js"></script>
   <script src="../js/cursor.js"></script>
   <script src="../js/scroll.js"></script>
+  <script src="../js/case-study-nav.js"></script>
 
-  <!-- Section navigator — highlights active item as user scrolls -->
+  <!-- Parallax hero + scroll arrow -->
   <script>
-    (function () {
-      const navItems = document.querySelectorAll('.cs-section-nav-item');
-      const sections = document.querySelectorAll('section[id]');
+  (function () {
+    var heroImg = document.querySelector('.cs-hero-img img');
+    var scrollArrow = document.getElementById('scrollArrow');
 
-      if (!navItems.length || !sections.length) return;
-
-      function setActive(id) {
-        navItems.forEach(function (item) {
-          item.classList.toggle('active', item.getAttribute('href') === '#' + id);
-        });
-      }
-
-      // Highlight first section on load
-      setActive(sections[0].id);
-
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      }, {
-        rootMargin: '-15% 0px -60% 0px',
-        threshold: 0
+    if (scrollArrow) {
+      scrollArrow.addEventListener('click', function () {
+        var overview = document.getElementById('overview');
+        if (overview) overview.scrollIntoView({ behavior: 'smooth' });
       });
+    }
 
-      sections.forEach(function (s) { observer.observe(s); });
-    })();
+    if (!heroImg && !scrollArrow) return;
+
+    var ticking = false;
+
+    function update() {
+      var y = window.scrollY;
+      if (heroImg) heroImg.style.transform = 'translateY(' + (y * 0.4) + 'px)';
+      if (scrollArrow) scrollArrow.style.opacity = String(Math.max(0, 1 - y / 80));
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+  }());
+  </script>
+
+  <!-- HMW ticker rAF -->
+  <script>
+  (function () {
+    var track = document.getElementById('hmwTrack');
+    if (!track) return;
+    var x = 0;
+    var speed = 0.4;
+    var halfWidth = track.scrollWidth / 2;
+    function animateHMW() {
+      x -= speed;
+      if (Math.abs(x) >= halfWidth) x = 0;
+      track.style.transform = 'translateX(' + x + 'px)';
+      requestAnimationFrame(animateHMW);
+    }
+    animateHMW();
+  }());
+  </script>
+
+  <!-- UT tabs -->
+  <script>
+  var utData = [
+    {round:'Round 01',title:'Navigation was completely broken',body:'Cooks couldn\'t find their bookings at all. The navigation pattern borrowed from generic consumer apps — but these users had never used one. We had to start from their mental model, not ours.',fix:'Fix → Moved bookings to home screen surface level',fixClass:'',img:'../images/work/chefkart-1-cover.png'},
+    {round:'Round 02',title:'Language barrier was still blocking',body:'The icon system helped but 20% of Bengali-only speakers couldn\'t read the labels. Hindi support wasn\'t optional — it was the difference between inclusion and exclusion.',fix:'Fix → Added Hindi and Bengali language toggle',fixClass:'',img:'../images/work/chefkart-1-cover.png'},
+    {round:'Round 03',title:'Onboarding drop-off at step 4',body:'Progress was real but onboarding was still 7 steps long. Users abandoned consistently at step 4. The flow was logical to us but overwhelming to them.',fix:'Fix → Cut onboarding from 7 steps to 4',fixClass:'',img:'../images/work/chefkart-1-cover.png'},
+    {round:'Round 04',title:'Completed unaided. Ready to ship.',body:'Every user completed onboarding without any assistance. First booking taken within 8 minutes of install. The app finally worked for the people it was built for.',fix:'✓ Shipped',fixClass:'cs-ut-fix--final',img:'../images/work/chefkart-1-cover.png'}
+  ];
+
+  var currentUT = 0;
+  function switchUTTab(i) {
+    currentUT = i;
+    var d = utData[i];
+
+    var img = document.getElementById('utScreenImg');
+    var detail = document.querySelector('.cs-ut-detail');
+
+    img.style.transition = 'opacity 0.3s ease';
+    img.style.opacity = '0';
+
+    setTimeout(function() {
+      img.src = d.img;
+      img.style.opacity = '1';
+    }, 300);
+
+    setTimeout(function() {
+      detail.style.transition = 'opacity 0.3s ease';
+      detail.style.opacity = '0';
+      setTimeout(function() {
+        document.getElementById('utRound').textContent = d.round;
+        document.getElementById('utTitle').textContent = d.title;
+        document.getElementById('utBody').textContent = d.body;
+        var fix = document.getElementById('utFix');
+        fix.textContent = d.fix;
+        fix.className = 'cs-ut-fix ' + (d.fixClass || '');
+        document.getElementById('utCounter').textContent = (i + 1) + ' / ' + utData.length;
+        detail.style.opacity = '1';
+      }, 250);
+    }, 150);
+  }
+  function nextUTTab() { switchUTTab((currentUT + 1) % utData.length); }
+  function prevUTTab() { switchUTTab((currentUT - 1 + utData.length) % utData.length); }
+  </script>
+
+  <!-- Impact counter -->
+  <script>
+  (function() {
+    var nums = document.querySelectorAll('.cs-impact-num[data-target]');
+    if (!nums.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var target = parseInt(el.dataset.target);
+          var suffix = el.dataset.suffix || '';
+          var current = 0;
+          var step = Math.ceil(target / 40);
+          var interval = setInterval(function() {
+            current += step;
+            if (current >= target) {
+              el.textContent = target + suffix;
+              clearInterval(interval);
+            } else {
+              el.textContent = current + suffix;
+            }
+          }, 30);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    nums.forEach(function(n) { observer.observe(n); });
+  })();
+  </script>
+
+  <!-- Design section column animation -->
+  <script>
+  (function() {
+    var col1 = document.getElementById('mmCol1');
+    var col2 = document.getElementById('mmCol2');
+    var col3 = document.getElementById('mmCol3');
+    if (!col1 || !col2 || !col3) return;
+
+    var y1 = 0;
+    var y2 = 0;
+    var y3 = 0;
+    var speed = 0.4;
+
+    function getHalf(el) {
+      return el.scrollHeight / 2;
+    }
+
+    y3 = -(getHalf(col3));
+
+    function animate() {
+      y1 -= speed;
+      y2 += speed;
+      y3 -= speed;
+
+      var h1 = getHalf(col1);
+      var h2 = getHalf(col2);
+      var h3 = getHalf(col3);
+
+      if (Math.abs(y1) >= h1) y1 = 0;
+      if (y2 >= 0) y2 = -h2;
+      if (Math.abs(y3) >= h3) y3 = 0;
+
+      col1.style.transform = 'translateY(' + y1 + 'px)';
+      col2.style.transform = 'translateY(' + y2 + 'px)';
+      col3.style.transform = 'translateY(' + y3 + 'px)';
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+  </script>
+
+  <!-- Lightbox -->
+  <script>
+  var rsData = [
+    { label: 'Screen 01', src: '../images/work/chefkart-1-cover.png' },
+    { label: 'Screen 02', src: '../images/work/chefkart-1-cover.png' },
+    { label: 'Screen 03', src: '../images/work/chefkart-1-cover.png' },
+    { label: 'Screen 04', src: '../images/work/chefkart-1-cover.png' },
+    { label: 'Screen 05', src: '../images/work/chefkart-1-cover.png' },
+    { label: 'Screen 06', src: '../images/work/chefkart-1-cover.png' },
+    { label: 'Screen 07', src: '../images/work/chefkart-1-cover.png' },
+    { label: 'Screen 08', src: '../images/work/chefkart-1-cover.png' },
+    { label: 'Screen 09', src: '../images/work/chefkart-1-cover.png' },
+    { label: 'Screen 10', src: '../images/work/chefkart-1-cover.png' }
+  ];
+  var rsCurrent = 0;
+
+  function rsOpen(i) {
+    rsCurrent = i;
+    rsUpdate();
+    document.getElementById('rsLb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function rsClose() {
+    document.getElementById('rsLb').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function rsUpdate() {
+    var d = rsData[rsCurrent];
+    document.getElementById('rsLbLabel').textContent = d.label;
+    document.getElementById('rsLbImg').src = d.src;
+    document.getElementById('rsLbImg').alt = d.label;
+    document.getElementById('rsLbCounter').textContent = (rsCurrent + 1) + ' / ' + rsData.length;
+  }
+  function rsNext() { rsCurrent = (rsCurrent + 1) % rsData.length; rsUpdate(); }
+  function rsPrev() { rsCurrent = (rsCurrent - 1 + rsData.length) % rsData.length; rsUpdate(); }
+
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('rsLb').classList.contains('open')) return;
+    if (e.key === 'ArrowRight') rsNext();
+    if (e.key === 'ArrowLeft') rsPrev();
+    if (e.key === 'Escape') rsClose();
+  });
+
+  document.getElementById('rsLb').addEventListener('click', function(e) {
+    if (e.target === this) rsClose();
+  });
+  </script>
+
+  <!-- Next project cursor thumbnail -->
+  <script>
+  (function() {
+    var thumb = document.getElementById('nextCursorThumb');
+    var link = document.getElementById('nextProjectLink');
+    if (!thumb || !link) return;
+
+    var curX = 0, curY = 0;
+
+    document.addEventListener('mousemove', function(e) {
+      curX = e.clientX;
+      curY = e.clientY;
+      thumb.style.left = (curX + 16) + 'px';
+      thumb.style.top = (curY - 60) + 'px';
+    });
+
+    link.addEventListener('mouseenter', function() {
+      thumb.style.opacity = '1';
+    });
+
+    link.addEventListener('mouseleave', function() {
+      thumb.style.opacity = '0';
+    });
+  })();
+  </script>
+  <script>
+  (function() {
+    const stored = sessionStorage.getItem('chefkart1-hero-rect');
+    if (!stored) return;
+    sessionStorage.removeItem('chefkart1-hero-rect');
+
+    const from = JSON.parse(stored);
+    const heroImg = document.querySelector('.cs-hero-img img');
+    if (!heroImg) return;
+
+    heroImg.style.opacity = '0';
+
+    window.addEventListener('load', function() {
+      const to = heroImg.getBoundingClientRect();
+
+      const scaleX = from.width / to.width;
+      const scaleY = from.height / to.height;
+      const translateX = from.left - to.left;
+      const translateY = from.top - to.top;
+
+      heroImg.style.transformOrigin = 'top left';
+      heroImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
+      heroImg.style.opacity = '1';
+      heroImg.style.borderRadius = '12px';
+      heroImg.style.transition = 'none';
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          heroImg.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.6s ease, opacity 0.2s ease';
+          heroImg.style.transform = 'translate(0, 0) scale(1)';
+          heroImg.style.borderRadius = '0px';
+        });
+      });
+    });
+  })();
   </script>
 
 </body>

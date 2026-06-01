@@ -8,10 +8,14 @@
   <link rel="stylesheet" href="../css/tokens.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="https://devices.css.do/devices.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/marvel-devices.css@1.0.0/assets/devices.min.css">
 </head>
 <body>
 
   <div class="cursor" id="cursor"></div>
+
+  <nav class="cs-page-nav" id="csPageNav" aria-label="Page sections"></nav>
 
   <nav id="nav" style="position:fixed;top:0;left:0;right:0;width:100%;z-index:9999;">
     <div class="nav-inner">
@@ -56,6 +60,7 @@
                 <div class="nav-card-img"><img src="../images/photography/photo-1.jpg" alt="Photography" /></div>
                 <p class="nav-card-title">Through the Lens</p>
                 <p class="nav-card-desc">Stillness, people, light. Seeing what most walk past.</p>
+                <a href="../Resume_Prince Kumar_2026.pdf" target="_blank" class="nav-item" style="font-size:14px; color:var(--color-text-primary); text-decoration:none;">Resume</a>
               </div>
             </div>
           </div>
@@ -103,6 +108,13 @@
             </div>
           </div>
         </div>
+
+        <div class="nav-item">
+          <a href="../Resume_Prince Kumar_2026.pdf"
+             target="_blank"
+             class="nav-dropdown-trigger"
+             style="text-decoration:none;">Resume</a>
+        </div>
       </div>
 
       <div class="nav-right">
@@ -124,145 +136,385 @@
 
   <div class="page-wrapper">
 
-  <!-- HERO -->
-  <section class="cs-hero">
-    <div class="container">
-      <div class="cs-meta reveal">
-        <span>BharatPe</span>
-        <span>·</span>
-        <span>Fintech</span>
-        <span>·</span>
-        <span>Oct 2024 – Dec 2025</span>
-      </div>
-      <h1 class="cs-title reveal">How do you design for 100 million merchants who've never used a bank app?</h1>
-      <div class="cs-tags reveal">
-        <span class="tag">0 to 1</span>
-        <span class="tag">Financial Inclusion</span>
-        <span class="tag">UPI</span>
-        <span class="tag">Credit Design</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- COVER -->
-  <div class="cs-cover reveal">
-    <div class="container">
-      <div class="cs-cover-img">
-        <img src="https://placehold.co/1600x700/F4F3F0/A8A7A3?text=BharatPe+Cover" alt="BharatPe project cover" />
-      </div>
-    </div>
+  <!-- HERO IMAGE BLOCK — full bleed 16:9 -->
+  <div class="cs-hero-img">
+    <img src="../images/work/bharatpe-cover.png" alt="BharatPe — Designer Tools" style="view-transition-name: bharatpe-hero;" />
+    <button class="cs-scroll-arrow" id="scrollArrow" aria-label="Scroll to content">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 6l5 5 5-5" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 
-  <!-- OVERVIEW -->
-  <section class="cs-section">
-    <div class="container cs-grid">
-      <div class="cs-sidebar reveal">
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Role</p>
-          <p class="cs-stat-value">Senior Product Designer</p>
+  <!-- ABOUT THE PROJECT -->
+  <section id="overview" class="cs-about">
+    <div class="container">
+      <p class="cs-about__eyebrow">About the Project</p>
+      <h1 class="cs-about__title reveal">Building the design system that scaled BharatPe</h1>
+      <hr class="cs-about__rule" />
+      <div class="cs-about__grid">
+        <div class="cs-about__body reveal">
+          <p>BharatPe is India's leading merchant payments platform. This project focused on building internal designer tooling — a design system and component library that unified how 12 product teams shipped features across the super-app.</p>
         </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Platform</p>
-          <p class="cs-stat-value">Android · iOS</p>
+        <div class="cs-about__meta reveal">
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Role</p>
+            <p class="cs-about__meta-value">Senior Product Designer</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Platform</p>
+            <p class="cs-about__meta-value">Internal tooling</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Timeline</p>
+            <p class="cs-about__meta-value">6 months · 2023</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Team</p>
+            <p class="cs-about__meta-value">3 designers</p>
+          </div>
+          
         </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Timeline</p>
-          <p class="cs-stat-value">Oct 2024 – Dec 2025</p>
-        </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Location</p>
-          <p class="cs-stat-value">Gurugram, India</p>
-        </div>
-      </div>
-      <div class="cs-body">
-        <p class="section-label">Overview</p>
-        <h2 class="cs-heading reveal">Designing financial tools for India's underserved merchant ecosystem</h2>
-        <p class="cs-text reveal">BharatPe serves over 100 million merchants across India — shopkeepers, vendors, small business owners who are deeply familiar with cash but new to digital financial products. The design challenge isn't just usability. It's trust, language, literacy and context.</p>
-        <p class="cs-text reveal">Across my tenure I led design on four major launches: a 0-to-1 Mutual Funds platform, Credit Line on UPI, Auto EMI Credit Card experience, and a complete redesign of the TPAP app onboarding journey.</p>
       </div>
     </div>
   </section>
 
-  <!-- PROJECT 1 -->
-  <section class="cs-section cs-section--alt">
+  <!-- THE PROBLEM -->
+  <section id="problem" class="cs-section">
     <div class="container">
-      <p class="section-label">Project 01</p>
-      <h2 class="cs-heading reveal">0-to-1 Mutual Funds Platform</h2>
-      <div class="cs-two-col">
-        <div>
-          <p class="cs-label-sm">The Problem</p>
-          <p class="cs-text reveal">BharatPe merchants had savings but no accessible investment vehicle. Mutual funds existed in India but felt inaccessible — complex language, intimidating interfaces, no trust signals for first-time investors.</p>
+      <p class="cs-eyebrow">The Problem</p>
+      <h2 class="cs-section-title">12 teams. Zero consistency.</h2>
+      <div class="cs-section-rule"></div>
+
+      <div class="cs-stats-grid">
+        <div class="cs-stat-col">
+          <p class="cs-big-num">12</p>
+          <p class="cs-stat-name">Adoption Rate</p>
+          <p class="cs-stat-detail">Only 3 in 10 cooks who downloaded the app stayed active.</p>
         </div>
-        <div>
-          <p class="cs-label-sm">The Outcome</p>
-          <p class="cs-text reveal">Launched 0-to-1, acquiring <strong>15K investors within the first 2 weeks</strong> — surpassing the estimated 10K target by 50%.</p>
+        <div class="cs-stat-col">
+          <p class="cs-big-num">60%</p>
+          <p class="cs-stat-name">Cost Per Cook</p>
+          <p class="cs-stat-detail">CAC ballooned to ₹10,000 per active partner acquired.</p>
+        </div>
+        <div class="cs-stat-col">
+          <p class="cs-big-num">3x</p>
+          <p class="cs-stat-name">Drop-off Window</p>
+          <p class="cs-stat-detail">Most users abandoned the app within their first hour.</p>
         </div>
       </div>
-      <div class="cs-image-placeholder reveal">
-        <p>Project visuals coming soon</p>
+
+      <div class="cs-section-rule"></div>
+
+      <div class="cs-problem-list">
+        <div class="cs-problem-row">
+          <span class="cs-problem-num">01</span>
+          <div>
+            <p class="cs-problem-head">No single source of truth for components</p>
+            <p class="cs-problem-body">Each team had its own button styles, colour tokens, and spacing rules. A new feature required design decisions that should have been made once, years earlier.</p>
+          </div>
+        </div>
+        <div class="cs-problem-row">
+          <span class="cs-problem-num">02</span>
+          <div>
+            <p class="cs-problem-head">Handoff was a weekly negotiation</p>
+            <p class="cs-problem-body">Without shared components, every design-to-dev handoff sparked debates about spacing, state, and intent. Velocity suffered on every team.</p>
+          </div>
+        </div>
+        <div class="cs-problem-row">
+          <span class="cs-problem-num">03</span>
+          <div>
+            <p class="cs-problem-head">The super-app was fragmenting visually</p>
+            <p class="cs-problem-body">As BharatPe added features — lending, insurance, analytics — the product began to look and feel like 12 different apps stitched together.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECT 2 -->
-  <section class="cs-section">
-    <div class="container">
-      <p class="section-label">Project 02</p>
-      <h2 class="cs-heading reveal">Credit Line on UPI — Featured at Global Fintech Fest 2025</h2>
-      <div class="cs-two-col">
-        <div>
-          <p class="cs-label-sm">The Problem</p>
-          <p class="cs-text reveal">Credit access for small merchants in India is fundamentally broken — slow, collateral-heavy, and exclusionary. UPI had the reach but no credit layer on top of it.</p>
-        </div>
-        <div>
-          <p class="cs-label-sm">The Outcome</p>
-          <p class="cs-text reveal">Designed and launched Credit Line on UPI, featured at <strong>Global Fintech Fest 2025</strong>, unlocking a <strong>$1 Trillion addressable market.</strong></p>
+  <!-- OLD SCREENS -->
+  <section class="cs-screens-section">
+    <div class="cs-screens-grid">
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/work/bharatpe-cover.png" alt="Existing app — Onboarding" />
         </div>
       </div>
-      <div class="cs-image-placeholder reveal">
-        <p>Project visuals coming soon</p>
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/work/bharatpe-cover.png" alt="Existing app — Home" />
+        </div>
+      </div>
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/work/bharatpe-cover.png" alt="Existing app — Bookings" />
+        </div>
+      </div>
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/work/bharatpe-cover.png" alt="Existing app — Earnings" />
+        </div>
+      </div>
+    </div>
+    <p class="cs-screens-caption">Existing partner app screens — before the redesign</p>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" class="cs-section">
+    <div class="container">
+      <p class="cs-eyebrow">Research & Insights</p>
+      <h2 class="cs-section-title">Components were being rebuilt from scratch every sprint</h2>
+      <div class="cs-section-rule"></div>
+      <p class="cs-research-intro">I didn't research from a desk. I went to where the cooks actually were — homes, kitchens, shared accommodations. Four methods, run in parallel, over two weeks. Each one revealed something the others couldn't.</p>
+    </div>
+
+    <div class="container">
+    <div class="cs-carousel-wrap">
+      <div class="cs-carousel-track" id="researchCarousel">
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Field+Visit" alt="Field visit" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Interview+Session" alt="Interview session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=User+Interview" alt="User interview" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Focus+Group" alt="Focus group" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Survey+Session" alt="Survey session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Cook+At+Home" alt="Cook at home" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Kitchen+Visit" alt="Kitchen visit" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Note+Taking" alt="Note taking" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Affinity+Map" alt="Affinity mapping" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Synthesis" alt="Research synthesis" /></div>
+
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Field+Visit" alt="Field visit" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Interview+Session" alt="Interview session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=User+Interview" alt="User interview" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Focus+Group" alt="Focus group" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Survey+Session" alt="Survey session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Cook+At+Home" alt="Cook at home" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Kitchen+Visit" alt="Kitchen visit" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Note+Taking" alt="Note taking" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Affinity+Map" alt="Affinity mapping" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Synthesis" alt="Research synthesis" /></div>
+      </div>
+    </div>
+    </div>
+
+    <div class="container">
+      <div class="cs-research-findings" style="gap: 0 32px;">
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">20%</p>
+          <p class="cs-finding-head">Functionally illiterate</p>
+          <p class="cs-finding-body">Text-first UI was a complete blocker. Icon-first wasn't a style choice — it was survival for 1 in 5 users.</p>
+        </div>
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">20%</p>
+          <p class="cs-finding-head">Bengali only speakers</p>
+          <p class="cs-finding-body">English-first excluded 1 in 5 users before they even reached the home screen.</p>
+        </div>
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">100%</p>
+          <p class="cs-finding-head">Used WhatsApp daily</p>
+          <p class="cs-finding-body">The only trusted mental model we had. So we borrowed every familiar pattern we could from it.</p>
+        </div>
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">#1</p>
+          <p class="cs-finding-head">Reason for uninstall</p>
+          <p class="cs-finding-body">Battery drain. Performance on entry-level Android wasn't optional — it was the product.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECT 3 -->
-  <section class="cs-section cs-section--alt">
+  <!-- HMW -->
+  <section id="hmw" class="cs-hmw-section">
     <div class="container">
-      <p class="section-label">Project 03</p>
-      <h2 class="cs-heading reveal">Auto EMI Credit Card Experience</h2>
-      <div class="cs-two-col">
-        <div>
-          <p class="cs-label-sm">The Problem</p>
-          <p class="cs-text reveal">Daily card subscriptions were stuck at 10 — merchants weren't seeing enough value to commit to a recurring payment product.</p>
+      <p class="cs-eyebrow" style="text-align: center; color: #E85D3A; margin-bottom: var(--space-6);">The Question That Drove Everything</p>
+    </div>
+    <div style="padding: 0 var(--space-24);">
+      <div class="cs-hmw-ticker-wrap">
+        <div class="cs-hmw-ticker-track" id="hmwTrack">
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
         </div>
-        <div>
-          <p class="cs-label-sm">The Outcome</p>
-          <p class="cs-text reveal">Redesigned the Auto EMI Credit Card experience, increasing <strong>daily card subscriptions from 10 to 100</strong> — a 10x growth.</p>
-        </div>
-      </div>
-      <div class="cs-image-placeholder reveal">
-        <p>Project visuals coming soon</p>
       </div>
     </div>
   </section>
 
-  <!-- PROJECT 4 -->
-  <section class="cs-section">
+  <!-- USER TESTING -->
+  <section id="testing" class="cs-section">
     <div class="container">
-      <p class="section-label">Project 04</p>
-      <h2 class="cs-heading reveal">TPAP App Onboarding Redesign</h2>
-      <div class="cs-two-col">
-        <div>
-          <p class="cs-label-sm">The Problem</p>
-          <p class="cs-text reveal">The onboarding journey was taking 12 minutes on average and converting at only 73.31%. Merchants were dropping off before they even started.</p>
+      <p class="cs-eyebrow">User Testing</p>
+      <h2 class="cs-section-title">Engineers and designers were speaking different languages</h2>
+      <div class="cs-section-rule"></div>
+      <p class="cs-ut-stats">5 rounds &nbsp;·&nbsp; 45 users &nbsp;·&nbsp; 1 week</p>
+
+      <div class="cs-ut-panel">
+        <div class="cs-ut-screen">
+          <div class="marvel-device iphone-x black" style="transform: scale(0.55); transform-origin: top center; margin-bottom: -180px;">
+            <div class="notch">
+              <div class="camera"></div>
+              <div class="speaker"></div>
+            </div>
+            <div class="top-bar"></div>
+            <div class="sleep"></div>
+            <div class="bottom-bar"></div>
+            <div class="volume"></div>
+            <div class="overflow">
+              <div class="shadow shadow--tr"></div>
+              <div class="shadow shadow--tl"></div>
+              <div class="shadow shadow--br"></div>
+              <div class="shadow shadow--bl"></div>
+            </div>
+            <div class="inner-shadow"></div>
+            <div class="screen">
+              <img id="utScreenImg" src="../images/work/bharatpe-cover.png" alt="User testing screen" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
         </div>
-        <div>
-          <p class="cs-label-sm">The Outcome</p>
-          <p class="cs-text reveal">Redesigned end-to-end — <strong>funnel conversion improved to 85%</strong> and average onboarding time dropped from 12 minutes to <strong>5 minutes.</strong></p>
+        <div class="cs-ut-detail">
+          <p class="cs-ut-round" id="utRound">Round 01</p>
+          <p class="cs-ut-detail-title" id="utTitle">Navigation was completely broken</p>
+          <p class="cs-ut-detail-body" id="utBody">Cooks couldn't find their bookings at all. The navigation pattern borrowed from generic consumer apps — but these users had never used one. We had to start from their mental model, not ours.</p>
+          <p class="cs-ut-fix" id="utFix">Fix → Moved bookings to home screen surface level</p>
+          <div class="cs-ut-nav">
+            <button class="cs-ut-arrow" onclick="prevUTTab()">←</button>
+            <span class="cs-ut-nav-counter" id="utCounter">1 / 4</span>
+            <button class="cs-ut-arrow" onclick="nextUTTab()">→</button>
+          </div>
         </div>
       </div>
-      <div class="cs-image-placeholder reveal">
-        <p>Project visuals coming soon</p>
+    </div>
+  </section>
+
+  <!-- MEDIA BREAK -->
+  <section class="cs-media-break">
+    <div class="cs-media-frame">
+      <img src="../images/work/bharatpe-cover.png" alt="ChefKart project visual" />
+    </div>
+    <p class="cs-media-caption">Caption goes here</p>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact" class="cs-section">
+    <div class="container">
+      <div class="cs-impact-grid">
+        <p class="cs-impact-big">From 30% to 90% adoption. In one redesign. For users the original app forgot existed.</p>
+        <div class="cs-impact-stats-grid">
+          <div class="cs-impact-stat-cell">
+            <p class="cs-impact-was">30%</p>
+            <p class="cs-impact-num" data-target="90" data-suffix="%">0%</p>
+            <p class="cs-impact-name">App Adoption</p>
+          </div>
+          <div class="cs-impact-stat-cell">
+            <p class="cs-impact-was">35%</p>
+            <p class="cs-impact-num" data-target="85" data-suffix="%">0%</p>
+            <p class="cs-impact-name">Daily Check-ins</p>
+          </div>
+          <div class="cs-impact-stat-cell">
+            <p class="cs-impact-was">&nbsp;</p>
+            <p class="cs-impact-num" data-target="60" data-suffix="%">0%</p>
+            <p class="cs-impact-name">CAC Reduction</p>
+          </div>
+          <div class="cs-impact-stat-cell cs-impact-stat-cell--last">
+            <p class="cs-impact-was">&nbsp;</p>
+            <p class="cs-impact-num cs-impact-num--static">↓</p>
+            <p class="cs-impact-name">Performance Issues</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL DESIGN -->
+  <section id="design" class="cs-section" style="padding: var(--space-24) 0; overflow: hidden;">
+    <div class="cs-design-frame">
+    <div class="cs-masonry-motion" id="masonryMotion">
+      <div class="cs-mm-col" id="mmCol1">
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/work/bharatpe-cover.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/work/bharatpe-cover.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(2)"><img src="../images/work/bharatpe-cover.png" alt="Screen 03" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 03</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(3)"><img src="../images/work/bharatpe-cover.png" alt="Screen 04" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 04</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/work/bharatpe-cover.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/work/bharatpe-cover.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(2)"><img src="../images/work/bharatpe-cover.png" alt="Screen 03" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 03</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(3)"><img src="../images/work/bharatpe-cover.png" alt="Screen 04" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 04</p></div></div>
+      </div>
+
+      <div class="cs-mm-col" id="mmCol2">
+        <div class="cs-mm-item" onclick="rsOpen(4)"><img src="../images/work/bharatpe-cover.png" alt="Screen 05" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 05</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(5)"><img src="../images/work/bharatpe-cover.png" alt="Screen 06" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 06</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(6)"><img src="../images/work/bharatpe-cover.png" alt="Screen 07" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 07</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(7)"><img src="../images/work/bharatpe-cover.png" alt="Screen 08" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 08</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(4)"><img src="../images/work/bharatpe-cover.png" alt="Screen 05" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 05</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(5)"><img src="../images/work/bharatpe-cover.png" alt="Screen 06" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 06</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(6)"><img src="../images/work/bharatpe-cover.png" alt="Screen 07" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 07</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(7)"><img src="../images/work/bharatpe-cover.png" alt="Screen 08" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 08</p></div></div>
+      </div>
+
+      <div class="cs-mm-col" id="mmCol3">
+        <div class="cs-mm-item" onclick="rsOpen(8)"><img src="../images/work/bharatpe-cover.png" alt="Screen 09" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 09</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(9)"><img src="../images/work/bharatpe-cover.png" alt="Screen 10" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 10</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/work/bharatpe-cover.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/work/bharatpe-cover.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(8)"><img src="../images/work/bharatpe-cover.png" alt="Screen 09" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 09</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(9)"><img src="../images/work/bharatpe-cover.png" alt="Screen 10" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 10</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/work/bharatpe-cover.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/work/bharatpe-cover.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="learnings" class="cs-section">
+    <div class="container">
+      <div class="cs-learnings-grid">
+        <div class="cs-learnings-left">
+          <p class="cs-eyebrow">What I Learned</p>
+          <h2 class="cs-section-title">What I learned building systems at scale.</h2>
+        </div>
+        <div class="cs-learnings-right">
+          <div class="cs-learning-row">
+            <span class="cs-learning-num">01</span>
+            <div>
+              <p class="cs-learning-head">Systems work is invisible until it isn't</p>
+              <p class="cs-learning-body">When the design system works, nobody notices. I learned that the measure of good systems work is the absence of complaints — and how to communicate that value upward.</p>
+            </div>
+          </div>
+          <div class="cs-learning-row">
+            <span class="cs-learning-num">02</span>
+            <div>
+              <p class="cs-learning-head">Naming things is half the work</p>
+              <p class="cs-learning-body">The hardest part of building a component library was agreeing on names. A shared vocabulary between design and engineering is a force multiplier — and it does not come for free.</p>
+            </div>
+          </div>
+          <div class="cs-learning-row">
+            <span class="cs-learning-num">03</span>
+            <div>
+              <p class="cs-learning-head">Design systems are product decisions</p>
+              <p class="cs-learning-body">Every component I added or excluded was a product decision with downstream consequences. I learned to treat the design system as a product — with users, feedback loops, and versioning.</p>
+            </div>
+          </div>
+          <div class="cs-learning-row cs-learning-row--last">
+            <span class="cs-learning-num">04</span>
+            <div>
+              <p class="cs-learning-head">Adoption is the real launch</p>
+              <p class="cs-learning-body">Shipping the system was the easy part. Getting 12 teams to actually use it — with documentation, office hours, and migration support — was where the real work happened.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cs-cta-section">
+    <div class="container">
+      <div class="cs-cta-wrap">
+        <h2 class="cs-cta-heading">Let's work together!</h2>
+        <div class="cs-cta-body">
+          <p class="cs-cta-question">Got a problem<br>worth solving? 🤝</p>
+          <p class="cs-cta-text">Reach out at <a href="mailto:prince.design10@gmail.com" class="cs-cta-link">prince.design10@gmail.com</a>. I respond to every message and I'll get back to you within 24 hours.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -270,9 +522,11 @@
   <!-- NEXT -->
   <section class="cs-next">
     <div class="container">
-      <p class="section-label">Next Case Study</p>
-      <a href="syfe.html" class="cs-next-link reveal">
-        <span class="cs-next-label">Syfe — Wealth Management Platform</span>
+      <a href="syfe.html" class="cs-next-link reveal" id="nextProjectLink">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <p class="cs-next-label-sm">Next Case Study</p>
+          <span class="cs-next-label">Syfe — Wealth Platform</span>
+        </div>
         <span class="cs-next-arrow">→</span>
       </a>
     </div>
@@ -318,8 +572,305 @@
   </div>
   <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
 
+  <!-- LIGHTBOX -->
+  <div class="rs-lb" id="rsLb">
+    <button class="rs-lb-close" onclick="rsClose()">✕</button>
+    <p class="rs-lb-label" id="rsLbLabel">Screen 01</p>
+    <div class="rs-lb-screen">
+      <img id="rsLbImg" src="" alt="" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:18px;" />
+    </div>
+    <div class="rs-lb-controls">
+      <button class="rs-lb-btn" onclick="rsPrev()">←</button>
+      <p class="rs-lb-counter" id="rsLbCounter">1 / 10</p>
+      <button class="rs-lb-btn" onclick="rsNext()">→</button>
+    </div>
+  </div>
+
+  <div class="cs-next-cursor-thumb" id="nextCursorThumb" style="opacity:0; position:fixed; z-index:99999; pointer-events:none; width:200px; border-radius:12px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,0.18); transform:rotate(-4deg); transition:opacity 0.25s ease; top:0; left:0; aspect-ratio:16/9;">
+    <img src="../images/work/syfe-cover.png" alt="Syfe" style="width:100%; height:100%; object-fit:cover; display:block;" />
+  </div>
+
   <script src="../js/theme.js"></script>
   <script src="../js/cursor.js"></script>
   <script src="../js/scroll.js"></script>
+  <script src="../js/case-study-nav.js"></script>
+
+  <!-- Parallax hero + scroll arrow -->
+  <script>
+  (function () {
+    var heroImg = document.querySelector('.cs-hero-img img');
+    var scrollArrow = document.getElementById('scrollArrow');
+
+    if (scrollArrow) {
+      scrollArrow.addEventListener('click', function () {
+        var overview = document.getElementById('overview');
+        if (overview) overview.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    if (!heroImg && !scrollArrow) return;
+
+    var ticking = false;
+
+    function update() {
+      var y = window.scrollY;
+      if (heroImg) heroImg.style.transform = 'translateY(' + (y * 0.4) + 'px)';
+      if (scrollArrow) scrollArrow.style.opacity = String(Math.max(0, 1 - y / 80));
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+  }());
+  </script>
+
+  <!-- HMW ticker rAF -->
+  <script>
+  (function () {
+    var track = document.getElementById('hmwTrack');
+    if (!track) return;
+    var x = 0;
+    var speed = 0.4;
+    var halfWidth = track.scrollWidth / 2;
+    function animateHMW() {
+      x -= speed;
+      if (Math.abs(x) >= halfWidth) x = 0;
+      track.style.transform = 'translateX(' + x + 'px)';
+      requestAnimationFrame(animateHMW);
+    }
+    animateHMW();
+  }());
+  </script>
+
+  <!-- UT tabs -->
+  <script>
+  var utData = [
+    {round:'Round 01',title:'Navigation was completely broken',body:'Cooks couldn\'t find their bookings at all. The navigation pattern borrowed from generic consumer apps — but these users had never used one. We had to start from their mental model, not ours.',fix:'Fix → Moved bookings to home screen surface level',fixClass:'',img:'../images/work/bharatpe-cover.png'},
+    {round:'Round 02',title:'Language barrier was still blocking',body:'The icon system helped but 20% of Bengali-only speakers couldn\'t read the labels. Hindi support wasn\'t optional — it was the difference between inclusion and exclusion.',fix:'Fix → Added Hindi and Bengali language toggle',fixClass:'',img:'../images/work/bharatpe-cover.png'},
+    {round:'Round 03',title:'Onboarding drop-off at step 4',body:'Progress was real but onboarding was still 7 steps long. Users abandoned consistently at step 4. The flow was logical to us but overwhelming to them.',fix:'Fix → Cut onboarding from 7 steps to 4',fixClass:'',img:'../images/work/bharatpe-cover.png'},
+    {round:'Round 04',title:'Completed unaided. Ready to ship.',body:'Every user completed onboarding without any assistance. First booking taken within 8 minutes of install. The app finally worked for the people it was built for.',fix:'✓ Shipped',fixClass:'cs-ut-fix--final',img:'../images/work/bharatpe-cover.png'}
+  ];
+
+  var currentUT = 0;
+  function switchUTTab(i) {
+    currentUT = i;
+    var d = utData[i];
+
+    var img = document.getElementById('utScreenImg');
+    var detail = document.querySelector('.cs-ut-detail');
+
+    img.style.transition = 'opacity 0.3s ease';
+    img.style.opacity = '0';
+
+    setTimeout(function() {
+      img.src = d.img;
+      img.style.opacity = '1';
+    }, 300);
+
+    setTimeout(function() {
+      detail.style.transition = 'opacity 0.3s ease';
+      detail.style.opacity = '0';
+      setTimeout(function() {
+        document.getElementById('utRound').textContent = d.round;
+        document.getElementById('utTitle').textContent = d.title;
+        document.getElementById('utBody').textContent = d.body;
+        var fix = document.getElementById('utFix');
+        fix.textContent = d.fix;
+        fix.className = 'cs-ut-fix ' + (d.fixClass || '');
+        document.getElementById('utCounter').textContent = (i + 1) + ' / ' + utData.length;
+        detail.style.opacity = '1';
+      }, 250);
+    }, 150);
+  }
+  function nextUTTab() { switchUTTab((currentUT + 1) % utData.length); }
+  function prevUTTab() { switchUTTab((currentUT - 1 + utData.length) % utData.length); }
+  </script>
+
+  <!-- Impact counter -->
+  <script>
+  (function() {
+    var nums = document.querySelectorAll('.cs-impact-num[data-target]');
+    if (!nums.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var target = parseInt(el.dataset.target);
+          var suffix = el.dataset.suffix || '';
+          var current = 0;
+          var step = Math.ceil(target / 40);
+          var interval = setInterval(function() {
+            current += step;
+            if (current >= target) {
+              el.textContent = target + suffix;
+              clearInterval(interval);
+            } else {
+              el.textContent = current + suffix;
+            }
+          }, 30);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    nums.forEach(function(n) { observer.observe(n); });
+  })();
+  </script>
+
+  <!-- Design section column animation -->
+  <script>
+  (function() {
+    var col1 = document.getElementById('mmCol1');
+    var col2 = document.getElementById('mmCol2');
+    var col3 = document.getElementById('mmCol3');
+    if (!col1 || !col2 || !col3) return;
+
+    var y1 = 0;
+    var y2 = 0;
+    var y3 = 0;
+    var speed = 0.4;
+
+    function getHalf(el) {
+      return el.scrollHeight / 2;
+    }
+
+    y3 = -(getHalf(col3));
+
+    function animate() {
+      y1 -= speed;
+      y2 += speed;
+      y3 -= speed;
+
+      var h1 = getHalf(col1);
+      var h2 = getHalf(col2);
+      var h3 = getHalf(col3);
+
+      if (Math.abs(y1) >= h1) y1 = 0;
+      if (y2 >= 0) y2 = -h2;
+      if (Math.abs(y3) >= h3) y3 = 0;
+
+      col1.style.transform = 'translateY(' + y1 + 'px)';
+      col2.style.transform = 'translateY(' + y2 + 'px)';
+      col3.style.transform = 'translateY(' + y3 + 'px)';
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+  </script>
+
+  <!-- Lightbox -->
+  <script>
+  var rsData = [
+    { label: 'Screen 01', src: '../images/work/bharatpe-cover.png' },
+    { label: 'Screen 02', src: '../images/work/bharatpe-cover.png' },
+    { label: 'Screen 03', src: '../images/work/bharatpe-cover.png' },
+    { label: 'Screen 04', src: '../images/work/bharatpe-cover.png' },
+    { label: 'Screen 05', src: '../images/work/bharatpe-cover.png' },
+    { label: 'Screen 06', src: '../images/work/bharatpe-cover.png' },
+    { label: 'Screen 07', src: '../images/work/bharatpe-cover.png' },
+    { label: 'Screen 08', src: '../images/work/bharatpe-cover.png' },
+    { label: 'Screen 09', src: '../images/work/bharatpe-cover.png' },
+    { label: 'Screen 10', src: '../images/work/bharatpe-cover.png' }
+  ];
+  var rsCurrent = 0;
+
+  function rsOpen(i) {
+    rsCurrent = i;
+    rsUpdate();
+    document.getElementById('rsLb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function rsClose() {
+    document.getElementById('rsLb').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function rsUpdate() {
+    var d = rsData[rsCurrent];
+    document.getElementById('rsLbLabel').textContent = d.label;
+    document.getElementById('rsLbImg').src = d.src;
+    document.getElementById('rsLbImg').alt = d.label;
+    document.getElementById('rsLbCounter').textContent = (rsCurrent + 1) + ' / ' + rsData.length;
+  }
+  function rsNext() { rsCurrent = (rsCurrent + 1) % rsData.length; rsUpdate(); }
+  function rsPrev() { rsCurrent = (rsCurrent - 1 + rsData.length) % rsData.length; rsUpdate(); }
+
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('rsLb').classList.contains('open')) return;
+    if (e.key === 'ArrowRight') rsNext();
+    if (e.key === 'ArrowLeft') rsPrev();
+    if (e.key === 'Escape') rsClose();
+  });
+
+  document.getElementById('rsLb').addEventListener('click', function(e) {
+    if (e.target === this) rsClose();
+  });
+  </script>
+
+  <!-- Next project cursor thumbnail -->
+  <script>
+  (function() {
+    var thumb = document.getElementById('nextCursorThumb');
+    var link = document.getElementById('nextProjectLink');
+    if (!thumb || !link) return;
+
+    var curX = 0, curY = 0;
+
+    document.addEventListener('mousemove', function(e) {
+      curX = e.clientX;
+      curY = e.clientY;
+      thumb.style.left = (curX + 16) + 'px';
+      thumb.style.top = (curY - 60) + 'px';
+    });
+
+    link.addEventListener('mouseenter', function() {
+      thumb.style.opacity = '1';
+    });
+
+    link.addEventListener('mouseleave', function() {
+      thumb.style.opacity = '0';
+    });
+  })();
+  </script>
+  <script>
+  (function() {
+    const stored = sessionStorage.getItem('bharatpe-hero-rect');
+    if (!stored) return;
+    sessionStorage.removeItem('bharatpe-hero-rect');
+
+    const from = JSON.parse(stored);
+    const heroImg = document.querySelector('.cs-hero-img img');
+    if (!heroImg) return;
+
+    heroImg.style.opacity = '0';
+
+    window.addEventListener('load', function() {
+      const to = heroImg.getBoundingClientRect();
+
+      const scaleX = from.width / to.width;
+      const scaleY = from.height / to.height;
+      const translateX = from.left - to.left;
+      const translateY = from.top - to.top;
+
+      heroImg.style.transformOrigin = 'top left';
+      heroImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
+      heroImg.style.opacity = '1';
+      heroImg.style.borderRadius = '12px';
+      heroImg.style.transition = 'none';
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          heroImg.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.6s ease, opacity 0.2s ease';
+          heroImg.style.transform = 'translate(0, 0) scale(1)';
+          heroImg.style.borderRadius = '0px';
+        });
+      });
+    });
+  })();
+  </script>
+
 </body>
 </html>
