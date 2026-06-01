@@ -13,6 +13,8 @@
 
   <div class="cursor" id="cursor"></div>
 
+  <nav class="cs-page-nav" id="csPageNav" aria-label="Page sections"></nav>
+
   <nav id="nav" style="position:fixed;top:0;left:0;right:0;width:100%;z-index:9999;">
     <div class="nav-inner">
       <a href="../index.html" class="nav-logo">Prince K<span class="nav-logo-dot">.</span></a>
@@ -124,267 +126,373 @@
 
   <div class="page-wrapper">
 
-  <!-- HERO -->
-  <section class="cs-hero">
-    <div class="container">
-      <div class="cs-meta reveal">
-        <span>ChefKart</span>
-        <span>·</span>
-        <span>Consumer</span>
-        <span>·</span>
-        <span>2021–2024</span>
-      </div>
-      <h1 class="cs-title reveal">Building for Next Billion Users (NBUs)</h1>
-      <div class="cs-tags reveal">
-        <span class="tag">NBU Design</span>
-        <span class="tag">Partner App</span>
-        <span class="tag">Accessibility</span>
-        <span class="tag">Blue Collar</span>
-        <span class="tag">0 to 1</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- COVER -->
-  <div class="cs-cover reveal">
-    <div class="container">
-      <div class="cs-cover-img">
-        <img src="https://placehold.co/1600x700/F4F3F0/A8A7A3?text=ChefKart+2+Cover" alt="ChefKart Partner App — Next Billion Users" />
-      </div>
-    </div>
+  <!-- HERO IMAGE BLOCK — full bleed 16:9 -->
+  <div class="cs-hero-img">
+    <img src="https://placehold.co/1920x1080/F4F3F0/A8A7A3?text=ChefKart+Cover" alt="ChefKart Partner App — Next Billion Users" />
+    <button class="cs-scroll-arrow" id="scrollArrow" aria-label="Scroll to content">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 6l5 5 5-5" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 
-  <!-- OVERVIEW -->
-  <section class="cs-section">
-    <div class="container cs-grid">
-      <div class="cs-sidebar reveal">
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Role</p>
-          <p class="cs-stat-value">Senior Product Designer</p>
+  <!-- ABOUT THE PROJECT -->
+  <section id="overview" class="cs-about">
+    <div class="container">
+      <p class="cs-about__eyebrow">About the Project</p>
+      <h1 class="cs-about__title reveal">Building for Next Billion Users (NBUs)</h1>
+      <hr class="cs-about__rule" />
+      <div class="cs-about__grid">
+        <div class="cs-about__body reveal">
+          <p>ChefKart's Partner App is used by the professional cooks who power every booking — blue-collar workers who are highly skilled at their craft but often new to smartphones and digital tools. The existing app had a 30% adoption rate. Customer Acquisition Cost had ballooned to ₹10,000 per cook. Users were dropping off within the first 60 minutes of onboarding. The problem wasn't product-market fit — it was the product. I led the complete redesign, grounded in deep research with the actual users it needed to serve.</p>
         </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Platform</p>
-          <p class="cs-stat-value">Android</p>
+        <div class="cs-about__meta reveal">
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Role</p>
+            <p class="cs-about__meta-value">Senior Product Designer</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Platform</p>
+            <p class="cs-about__meta-value">Android</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Timeline</p>
+            <p class="cs-about__meta-value">2021–2023</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Users Tested</p>
+            <p class="cs-about__meta-value">45 unique · 5 rounds</p>
+          </div>
+          <div class="cs-about__meta-group">
+            <p class="cs-about__meta-label">Tags</p>
+            <p class="cs-about__meta-value">NBU Design · Partner App · Accessibility · 0 to 1</p>
+          </div>
         </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Timeline</p>
-          <p class="cs-stat-value">2021–2023</p>
-        </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Users Tested</p>
-          <p class="cs-stat-value">45 unique users · 5 rounds</p>
-        </div>
-      </div>
-      <div class="cs-body">
-        <p class="section-label">Overview</p>
-        <h2 class="cs-heading reveal">Designing a partner app for users who had never used one before</h2>
-        <p class="cs-text reveal">ChefKart's Partner App is used by the professional cooks who power every booking — blue-collar workers who are highly skilled at their craft but often new to smartphones and digital tools.</p>
-        <p class="cs-text reveal">The existing app had a 30% adoption rate. Customer Acquisition Cost had ballooned to ₹10,000 per cook. Users were dropping off within the first 60 minutes of onboarding and the system couldn't scale. The problem wasn't the product-market fit — it was the product.</p>
-        <p class="cs-text reveal">I led the complete redesign of the Partner App, grounded in deep research with the actual users it needed to serve.</p>
       </div>
     </div>
   </section>
 
   <!-- THE PROBLEM -->
-  <section class="cs-section cs-section--alt">
+  <section id="problem" class="cs-section">
     <div class="container">
-      <p class="section-label">The Problem</p>
-      <h2 class="cs-heading reveal">A 30% adoption rate isn't a marketing problem</h2>
-      <div class="cs-two-col">
-        <div>
-          <p class="cs-label-sm">Adoption & Retention</p>
-          <p class="cs-text reveal">Only 30% of cooks who downloaded the app stayed active. Most dropped off within 60 minutes of first use — not because they didn't want the opportunity, but because the app was built for someone else entirely.</p>
+      <p class="cs-eyebrow">The Problem</p>
+      <h2 class="cs-section-title">A 30% adoption rate isn't<br>a marketing problem</h2>
+      <div class="cs-section-rule"></div>
+
+      <div class="cs-stats-grid">
+        <div class="cs-stat-col">
+          <p class="cs-big-num">30%</p>
+          <p class="cs-stat-name">Adoption Rate</p>
+          <p class="cs-stat-detail">Only 3 in 10 cooks who downloaded the app stayed active.</p>
         </div>
-        <div>
-          <p class="cs-label-sm">Cost & Scale</p>
-          <p class="cs-text reveal">At ₹10,000 CAC per active cook, the business couldn't grow without fixing the product. Every cook lost to onboarding friction was ₹10,000 written off. The unit economics demanded a redesign.</p>
+        <div class="cs-stat-col">
+          <p class="cs-big-num">₹10k</p>
+          <p class="cs-stat-name">Cost Per Cook</p>
+          <p class="cs-stat-detail">CAC ballooned to ₹10,000 per active partner acquired.</p>
+        </div>
+        <div class="cs-stat-col">
+          <p class="cs-big-num">60m</p>
+          <p class="cs-stat-name">Drop-off Window</p>
+          <p class="cs-stat-detail">Most users abandoned the app within their first hour.</p>
         </div>
       </div>
-      <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Problem space — adoption metrics" />
+
+      <div class="cs-section-rule"></div>
+
+      <div class="cs-problem-list">
+        <div class="cs-problem-row">
+          <span class="cs-problem-num">01</span>
+          <div>
+            <p class="cs-problem-head">The app wasn't built for its actual users</p>
+            <p class="cs-problem-body">Blue-collar cooks with limited smartphone literacy were given a text-heavy, English-first app with no guidance. It was built for someone else entirely.</p>
+          </div>
         </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Drop-off analysis" />
+        <div class="cs-problem-row">
+          <span class="cs-problem-num">02</span>
+          <div>
+            <p class="cs-problem-head">Every drop-off cost the business ₹10,000</p>
+            <p class="cs-problem-body">The unit economics demanded a fix — not a patch, a complete redesign from the ground up.</p>
+          </div>
+        </div>
+        <div class="cs-problem-row">
+          <span class="cs-problem-num">03</span>
+          <div>
+            <p class="cs-problem-head">The system couldn't scale without solving this first</p>
+            <p class="cs-problem-body">No amount of marketing spend could fix a product that lost 7 out of 10 users before they took their first booking.</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- OLD SCREENS -->
+  <section class="cs-screens-section">
+    <div class="cs-screens-grid">
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/chefkart/old/01.png" alt="Existing app — Onboarding" />
+        </div>
+      </div>
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/chefkart/old/02.png" alt="Existing app — Home" />
+        </div>
+      </div>
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/chefkart/old/03.png" alt="Existing app — Bookings" />
+        </div>
+      </div>
+      <div class="cs-screen-item">
+        <div class="cs-screen-frame">
+          <img src="../images/chefkart/old/04.png" alt="Existing app — Earnings" />
+        </div>
+      </div>
+    </div>
+    <p class="cs-screens-caption">Existing partner app screens — before the redesign</p>
   </section>
 
   <!-- RESEARCH -->
-  <section class="cs-section">
+  <section id="research" class="cs-section">
     <div class="container">
-      <p class="section-label">Research</p>
-      <h2 class="cs-heading reveal">Going to where the users actually were</h2>
-      <p class="cs-text reveal">I conducted user interviews, focus groups, and surveys across two distinct cohorts — new cooks just joining the platform and experienced cooks who had stopped using the app. What I found challenged most of our assumptions.</p>
-      <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="User interviews — Cohort 1" />
-        </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Focus group sessions" />
-        </div>
+      <p class="cs-eyebrow">Research & Insights</p>
+      <h2 class="cs-section-title">Four methods. One field trip.</h2>
+      <div class="cs-section-rule"></div>
+      <p class="cs-research-intro">I didn't research from a desk. I went to where the cooks actually were — homes, kitchens, shared accommodations. Four methods, run in parallel, over two weeks. Each one revealed something the others couldn't.</p>
+    </div>
+
+    <div class="container">
+    <div class="cs-carousel-wrap">
+      <div class="cs-carousel-track" id="researchCarousel">
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Field+Visit" alt="Field visit" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Interview+Session" alt="Interview session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=User+Interview" alt="User interview" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Focus+Group" alt="Focus group" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Survey+Session" alt="Survey session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Cook+At+Home" alt="Cook at home" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Kitchen+Visit" alt="Kitchen visit" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Note+Taking" alt="Note taking" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Affinity+Map" alt="Affinity mapping" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Synthesis" alt="Research synthesis" /></div>
+
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Field+Visit" alt="Field visit" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Interview+Session" alt="Interview session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=User+Interview" alt="User interview" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Focus+Group" alt="Focus group" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Survey+Session" alt="Survey session" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Cook+At+Home" alt="Cook at home" /></div>
+        <div class="cs-carousel-img cs-carousel-landscape"><img src="https://placehold.co/600x400/E8E6E0/A8A7A3?text=Kitchen+Visit" alt="Kitchen visit" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Note+Taking" alt="Note taking" /></div>
+        <div class="cs-carousel-img cs-carousel-square"><img src="https://placehold.co/400x400/E8E6E0/A8A7A3?text=Affinity+Map" alt="Affinity mapping" /></div>
+        <div class="cs-carousel-img cs-carousel-portrait"><img src="https://placehold.co/300x400/E8E6E0/A8A7A3?text=Synthesis" alt="Research synthesis" /></div>
       </div>
-      <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Survey results — Cohort 2" />
+    </div>
+    </div>
+
+    <div class="container">
+      <div class="cs-research-findings" style="gap: 0 32px;">
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">20%</p>
+          <p class="cs-finding-head">Functionally illiterate</p>
+          <p class="cs-finding-body">Text-first UI was a complete blocker. Icon-first wasn't a style choice — it was survival for 1 in 5 users.</p>
         </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Research synthesis" />
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">20%</p>
+          <p class="cs-finding-head">Bengali only speakers</p>
+          <p class="cs-finding-body">English-first excluded 1 in 5 users before they even reached the home screen.</p>
+        </div>
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">100%</p>
+          <p class="cs-finding-head">Used WhatsApp daily</p>
+          <p class="cs-finding-body">The only trusted mental model we had. So we borrowed every familiar pattern we could from it.</p>
+        </div>
+        <div class="cs-research-finding">
+          <p class="cs-finding-num">#1</p>
+          <p class="cs-finding-head">Reason for uninstall</p>
+          <p class="cs-finding-body">Battery drain. Performance on entry-level Android wasn't optional — it was the product.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- KEY INSIGHTS -->
-  <section class="cs-section cs-section--alt">
+  <!-- HMW -->
+  <section id="hmw" class="cs-hmw-section">
     <div class="container">
-      <p class="section-label">Key Insights</p>
-      <h2 class="cs-heading reveal">Designing for this user meant rethinking everything</h2>
-      <div class="cs-two-col">
-        <div>
-          <p class="cs-label-sm">Literacy & Language</p>
-          <p class="cs-text reveal">20% of users were functionally illiterate — text-heavy interfaces were a wall, not a door. A further 20% spoke only Bengali, with limited Hindi literacy. The app needed to communicate without relying on text as its primary medium.</p>
-        </div>
-        <div>
-          <p class="cs-label-sm">Device Familiarity</p>
-          <p class="cs-text reveal">Many cooks were reluctant smartphone users — sharing devices with family, managing battery anxiety, and deeply unfamiliar with anything beyond YouTube and WhatsApp. These were the two mental models the app had to borrow from.</p>
-        </div>
-      </div>
-      <div class="cs-two-col">
-        <div>
-          <p class="cs-label-sm">Typography</p>
-          <p class="cs-text reveal">Text below 14px was simply unreadable for most users. Every label, caption, and instruction needed to meet a higher floor than standard consumer apps — not as an accessibility add-on, but as the baseline.</p>
-        </div>
-        <div>
-          <p class="cs-label-sm">Device Constraints</p>
-          <p class="cs-text reveal">Battery drain was a genuine anxiety that affected usage. Heavy animations, video onboarding, and data-hungry features were non-starters. The app had to feel light and reliable on entry-level Android hardware.</p>
-        </div>
-      </div>
+      <p class="cs-eyebrow" style="text-align: center; color: #E85D3A; margin-bottom: var(--space-6);">The Question That Drove Everything</p>
     </div>
-  </section>
-
-  <!-- COMPETITIVE ANALYSIS -->
-  <section class="cs-section">
-    <div class="container">
-      <p class="section-label">Competitive Analysis</p>
-      <h2 class="cs-heading reveal">Learning from apps our users already trusted</h2>
-      <p class="cs-text reveal">I audited the partner-facing apps from Urban Company, Zomato, and Swiggy — the three platforms most likely to share our user base. Each had solved parts of the NBU challenge differently. Urban Company had strong onboarding scaffolding; Zomato had simplified task flows; Swiggy had invested in icon-first navigation. None had solved all of it.</p>
-      <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Competitive analysis — Urban Company, Zomato" />
-        </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Competitive analysis — Swiggy partner app" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESIGN PRINCIPLES -->
-  <section class="cs-section cs-section--alt">
-    <div class="container">
-      <p class="section-label">Design Principles</p>
-      <h2 class="cs-heading reveal">Five principles that shaped every decision</h2>
-      <p class="cs-text reveal">Before touching a single screen, I defined the design principles for this redesign: <strong>Icon-first communication</strong> (never rely on text alone), <strong>Familiar patterns</strong> (borrow from YouTube and WhatsApp where possible), <strong>Forgiving interactions</strong> (easy to undo, hard to break), <strong>Performance-first</strong> (no animations that drain battery), and <strong>Language flexibility</strong> (support Bengali and Hindi natively).</p>
-      <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Design principles framework" />
-        </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Icon-first communication system" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPLORATION -->
-  <section class="cs-section">
-    <div class="container">
-      <p class="section-label">Exploration</p>
-      <h2 class="cs-heading reveal">Wireframes grounded in constraints</h2>
-      <p class="cs-text reveal">Every wireframe started from a constraint, not a blank canvas. What does this screen look like if the user can't read the label? What if they have 10% battery? What if the network drops mid-flow? Designing from edge cases first led to more resilient patterns across the board.</p>
-      <div class="cs-image-grid cs-image-grid--3 reveal">
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Onboarding flow explorations" />
-        </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Home screen wireframes" />
-        </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Task management flow" />
+    <div style="padding: 0 var(--space-24);">
+      <div class="cs-hmw-ticker-wrap">
+        <div class="cs-hmw-ticker-track" id="hmwTrack">
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
+          <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- USER TESTING -->
-  <section class="cs-section cs-section--alt">
+  <section id="testing" class="cs-section">
     <div class="container">
-      <p class="section-label">User Testing</p>
-      <h2 class="cs-heading reveal">5 rounds. 45 users. 1 week.</h2>
-      <p class="cs-text reveal">I ran five rounds of user testing over one week with 45 unique users — testing in homes, in kitchens, and on the kinds of devices our cooks actually owned. Each round fed directly into the next iteration. By round 5, users were completing onboarding without any assistance.</p>
-      <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="User testing sessions — Round 1-2" />
+      <p class="cs-eyebrow">User Testing</p>
+      <h2 class="cs-section-title">Each round broke something new.</h2>
+      <div class="cs-section-rule"></div>
+      <p class="cs-ut-stats">5 rounds &nbsp;·&nbsp; 45 users &nbsp;·&nbsp; 1 week</p>
+
+      <div class="cs-ut-tabs">
+        <button class="cs-ut-tab active" onclick="switchUTTab(0)">UT 01</button>
+        <button class="cs-ut-tab" onclick="switchUTTab(1)">UT 02</button>
+        <button class="cs-ut-tab" onclick="switchUTTab(2)">UT 03</button>
+        <button class="cs-ut-tab cs-ut-tab--final" onclick="switchUTTab(3)">UT 04 ✓</button>
+      </div>
+
+      <div class="cs-ut-panel">
+        <div class="cs-ut-screen">
+          <div class="cs-screen-frame">
+            <img id="utScreenImg" src="https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+01" alt="User testing screen" />
+          </div>
         </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Iteration between testing rounds" />
+        <div class="cs-ut-detail">
+          <p class="cs-ut-round" id="utRound">Round 01</p>
+          <p class="cs-ut-detail-title" id="utTitle">Navigation was completely broken</p>
+          <p class="cs-ut-detail-body" id="utBody">Cooks couldn't find their bookings at all. The navigation pattern borrowed from generic consumer apps — but these users had never used one. We had to start from their mental model, not ours.</p>
+          <p class="cs-ut-fix" id="utFix">Fix → Moved bookings to home screen surface level</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA BREAK -->
+  <section class="cs-media-break">
+    <div class="cs-media-frame">
+      <img src="https://placehold.co/1920x1080/F4F3F0/A8A7A3?text=Project+Visual" alt="ChefKart user testing" />
+    </div>
+    <p class="cs-media-caption">Caption goes here</p>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact" class="cs-section">
+    <div class="container">
+      <div class="cs-impact-grid">
+        <p class="cs-impact-big">From 30% to 90% adoption. In one redesign. For users the original app forgot existed.</p>
+        <div class="cs-impact-stats-grid">
+          <div class="cs-impact-stat-cell">
+            <p class="cs-impact-was">30%</p>
+            <p class="cs-impact-num" data-target="90" data-suffix="%">0%</p>
+            <p class="cs-impact-name">App Adoption</p>
+          </div>
+          <div class="cs-impact-stat-cell">
+            <p class="cs-impact-was">35%</p>
+            <p class="cs-impact-num" data-target="85" data-suffix="%">0%</p>
+            <p class="cs-impact-name">Daily Check-ins</p>
+          </div>
+          <div class="cs-impact-stat-cell">
+            <p class="cs-impact-was">&nbsp;</p>
+            <p class="cs-impact-num" data-target="60" data-suffix="%">0%</p>
+            <p class="cs-impact-name">CAC Reduction</p>
+          </div>
+          <div class="cs-impact-stat-cell cs-impact-stat-cell--last">
+            <p class="cs-impact-was">&nbsp;</p>
+            <p class="cs-impact-num cs-impact-num--static">↓</p>
+            <p class="cs-impact-name">Performance Issues</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FINAL DESIGN -->
-  <section class="cs-section">
-    <div class="container">
-      <p class="section-label">Final Design</p>
-      <h2 class="cs-heading reveal">An app built for the people who actually use it</h2>
-      <p class="cs-text reveal">The redesigned Partner App uses icon-led navigation, large touch targets, multilingual support, and a simplified onboarding that guides cooks through setup step by step — like WhatsApp does, which 100% of our users already knew how to use.</p>
-      <div class="cs-image-grid reveal">
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Final design — Onboarding" />
-        </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Final design — Home screen" />
-        </div>
+  <section id="design" class="cs-section" style="padding: var(--space-24) 0; overflow: hidden;">
+    <div class="cs-design-frame">
+    <div class="cs-masonry-motion" id="masonryMotion">
+      <div class="cs-mm-col" id="mmCol1">
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/chefkart/01.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/chefkart/02.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(2)"><img src="../images/chefkart/03.png" alt="Screen 03" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 03</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(3)"><img src="../images/chefkart/04.png" alt="Screen 04" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 04</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/chefkart/01.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/chefkart/02.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(2)"><img src="../images/chefkart/03.png" alt="Screen 03" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 03</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(3)"><img src="../images/chefkart/04.png" alt="Screen 04" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 04</p></div></div>
       </div>
-      <div class="cs-image-grid cs-image-grid--3 reveal">
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Final design — Booking management" />
+
+      <div class="cs-mm-col" id="mmCol2">
+        <div class="cs-mm-item" onclick="rsOpen(4)"><img src="../images/chefkart/05.png" alt="Screen 05" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 05</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(5)"><img src="../images/chefkart/06.png" alt="Screen 06" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 06</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(6)"><img src="../images/chefkart/07.png" alt="Screen 07" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 07</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(7)"><img src="../images/chefkart/08.png" alt="Screen 08" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 08</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(4)"><img src="../images/chefkart/05.png" alt="Screen 05" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 05</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(5)"><img src="../images/chefkart/06.png" alt="Screen 06" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 06</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(6)"><img src="../images/chefkart/07.png" alt="Screen 07" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 07</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(7)"><img src="../images/chefkart/08.png" alt="Screen 08" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 08</p></div></div>
+      </div>
+
+      <div class="cs-mm-col" id="mmCol3">
+        <div class="cs-mm-item" onclick="rsOpen(8)"><img src="../images/chefkart/09.png" alt="Screen 09" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 09</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(9)"><img src="../images/chefkart/10.png" alt="Screen 10" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 10</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/chefkart/01.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/chefkart/02.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(8)"><img src="../images/chefkart/09.png" alt="Screen 09" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 09</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(9)"><img src="../images/chefkart/10.png" alt="Screen 10" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 10</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(0)"><img src="../images/chefkart/01.png" alt="Screen 01" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 01</p></div></div>
+        <div class="cs-mm-item" onclick="rsOpen(1)"><img src="../images/chefkart/02.png" alt="Screen 02" /><div class="cs-mm-overlay"></div><div class="rs-lbl"><p>Screen 02</p></div></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- LEARNINGS -->
+  <section id="learnings" class="cs-section">
+    <div class="container">
+      <div class="cs-learnings-grid">
+        <div class="cs-learnings-left">
+          <p class="cs-eyebrow">What I Learned</p>
+          <h2 class="cs-section-title">Four things this project taught me.</h2>
         </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Final design — Earnings screen" />
-        </div>
-        <div class="cs-image-block">
-          <img src="https://placehold.co/1200x675/F4F3F0/A8A7A3?text=Project+Visual" alt="Final design — Profile and settings" />
+        <div class="cs-learnings-right">
+          <div class="cs-learning-row">
+            <span class="cs-learning-num">01</span>
+            <div>
+              <p class="cs-learning-head">Literacy as a design constraint</p>
+              <p class="cs-learning-body">Designing for illiterate users meant rethinking every label, icon and flow from scratch. Simplicity isn't a style — it's a survival decision for 1 in 5 of your users.</p>
+            </div>
+          </div>
+          <div class="cs-learning-row">
+            <span class="cs-learning-num">02</span>
+            <div>
+              <p class="cs-learning-head">Research leadership is a design skill</p>
+              <p class="cs-learning-body">Leading 5 rounds of user testing taught me that good research has to be fast enough to actually influence decisions — or it's just documentation.</p>
+            </div>
+          </div>
+          <div class="cs-learning-row">
+            <span class="cs-learning-num">03</span>
+            <div>
+              <p class="cs-learning-head">Constraints are creative fuel</p>
+              <p class="cs-learning-body">Designing for low-end Android, poor network, battery anxiety — every constraint forced a better, leaner solution than I would have found on a blank canvas.</p>
+            </div>
+          </div>
+          <div class="cs-learning-row cs-learning-row--last">
+            <span class="cs-learning-num">04</span>
+            <div>
+              <p class="cs-learning-head">Systems thinking over screen thinking</p>
+              <p class="cs-learning-body">Working within existing UI components while introducing new ones taught me to design the system, not just the screens.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- IMPACT -->
-  <section class="cs-section cs-section--alt">
-    <div class="container cs-grid">
-      <div class="cs-sidebar reveal">
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Adoption Rate</p>
-          <p class="cs-stat-value">30% → 90%</p>
+  <!-- CTA -->
+  <section class="cs-cta-section">
+    <div class="container">
+      <div class="cs-cta-wrap">
+        <h2 class="cs-cta-heading">Let's work together!</h2>
+        <div class="cs-cta-body">
+          <p class="cs-cta-question">Got a problem<br>worth solving? 🤝</p>
+          <p class="cs-cta-text">Reach out at <a href="mailto:prince.design10@gmail.com" class="cs-cta-link">prince.design10@gmail.com</a>. I respond to every message and I'll get back to you within 24 hours.</p>
         </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">CAC Impact</p>
-          <p class="cs-stat-value">Reduced significantly</p>
-        </div>
-        <div class="cs-stat-block">
-          <p class="cs-stat-label">Users Tested</p>
-          <p class="cs-stat-value">45 unique · 5 rounds</p>
-        </div>
-      </div>
-      <div class="cs-body">
-        <p class="section-label">Impact</p>
-        <h2 class="cs-heading reveal">From 30% to 90% adoption rate post launch</h2>
-        <p class="cs-text reveal">After launch, partner adoption jumped from 30% to <strong>90%</strong>. Cooks who had previously given up within the first hour were now completing onboarding and taking their first bookings. The ₹10,000 CAC problem became a fundamentally different calculation.</p>
-        <p class="cs-text reveal">More than the numbers: this project taught me that designing for the Next Billion Users isn't about simplifying things. It's about building genuine understanding of a different context — and then letting that understanding drive every single decision.</p>
       </div>
     </div>
   </section>
@@ -392,9 +500,11 @@
   <!-- NEXT -->
   <section class="cs-next">
     <div class="container">
-      <p class="section-label">Next Case Study</p>
-      <a href="chefkart-1.html" class="cs-next-link reveal">
-        <span class="cs-next-label">ChefKart — Customer App Home Page Revamp</span>
+      <a href="chefkart-1.html" class="cs-next-link reveal" id="nextProjectLink">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <p class="cs-next-label-sm">Next Case Study</p>
+          <span class="cs-next-label">ChefKart — Customer App Home Page Revamp</span>
+        </div>
         <span class="cs-next-arrow">→</span>
       </a>
     </div>
@@ -440,8 +550,283 @@
   </div>
   <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
 
+  <!-- LIGHTBOX -->
+  <div class="rs-lb" id="rsLb">
+    <button class="rs-lb-close" onclick="rsClose()">✕</button>
+    <p class="rs-lb-label" id="rsLbLabel">Screen 01</p>
+    <div class="rs-lb-screen">
+      <img id="rsLbImg" src="" alt="" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:18px;" />
+    </div>
+    <div class="rs-lb-controls">
+      <button class="rs-lb-btn" onclick="rsPrev()">←</button>
+      <p class="rs-lb-counter" id="rsLbCounter">1 / 10</p>
+      <button class="rs-lb-btn" onclick="rsNext()">→</button>
+    </div>
+  </div>
+
+  <div class="cs-next-cursor-thumb" id="nextCursorThumb" style="opacity:0; position:fixed; z-index:99999; pointer-events:none; width:200px; border-radius:12px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,0.18); transform:rotate(-4deg); transition:opacity 0.25s ease; top:0; left:0; aspect-ratio:16/9;">
+    <img src="../images/work/chefkart-1-cover.png" alt="ChefKart Customer App" style="width:100%; height:100%; object-fit:cover; display:block;" />
+  </div>
+
   <script src="../js/theme.js"></script>
   <script src="../js/cursor.js"></script>
   <script src="../js/scroll.js"></script>
+  <script src="../js/case-study-nav.js"></script>
+
+  <!-- Parallax hero + scroll arrow -->
+  <script>
+  (function () {
+    var heroImg = document.querySelector('.cs-hero-img img');
+    var scrollArrow = document.getElementById('scrollArrow');
+
+    if (scrollArrow) {
+      scrollArrow.addEventListener('click', function () {
+        var overview = document.getElementById('overview');
+        if (overview) overview.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    if (!heroImg && !scrollArrow) return;
+
+    var ticking = false;
+
+    function update() {
+      var y = window.scrollY;
+      if (heroImg) heroImg.style.transform = 'translateY(' + (y * 0.4) + 'px)';
+      if (scrollArrow) scrollArrow.style.opacity = String(Math.max(0, 1 - y / 80));
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+  }());
+  </script>
+
+  <!-- HMW ticker rAF -->
+  <script>
+  (function () {
+    var track = document.getElementById('hmwTrack');
+    if (!track) return;
+    var x = 0;
+    var speed = 0.4;
+    var halfWidth = track.scrollWidth / 2;
+    function animateHMW() {
+      x -= speed;
+      if (Math.abs(x) >= halfWidth) x = 0;
+      track.style.transform = 'translateX(' + x + 'px)';
+      requestAnimationFrame(animateHMW);
+    }
+    animateHMW();
+  }());
+  </script>
+
+  <!-- UT tabs -->
+  <script>
+  var utData = [
+    {
+      round: 'Round 01',
+      title: 'Navigation was completely broken',
+      body: 'Cooks couldn\'t find their bookings at all. The navigation pattern borrowed from generic consumer apps — but these users had never used one. We had to start from their mental model, not ours.',
+      fix: 'Fix → Moved bookings to home screen surface level',
+      fixClass: '',
+      img: 'https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+01'
+    },
+    {
+      round: 'Round 02',
+      title: 'Language barrier was still blocking',
+      body: 'The icon system helped but 20% of Bengali-only speakers couldn\'t read the labels. Hindi support wasn\'t optional — it was the difference between inclusion and exclusion.',
+      fix: 'Fix → Added Hindi and Bengali language toggle',
+      fixClass: '',
+      img: 'https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+02'
+    },
+    {
+      round: 'Round 03',
+      title: 'Onboarding drop-off at step 4',
+      body: 'Real progress — but onboarding was still 7 steps long. Users abandoned consistently at step 4. The flow was logical to us but overwhelming to them.',
+      fix: 'Fix → Cut onboarding from 7 steps to 4',
+      fixClass: '',
+      img: 'https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+03'
+    },
+    {
+      round: 'Round 04',
+      title: 'Completed unaided. Ready to ship.',
+      body: 'Every user completed onboarding without any assistance. First booking taken within 8 minutes of install. The app finally worked for the people it was built for.',
+      fix: '✓ Shipped',
+      fixClass: 'cs-ut-fix--final',
+      img: 'https://placehold.co/390x844/F4F3F0/A8A7A3?text=UT+04+✓'
+    }
+  ];
+
+  function switchUTTab(i) {
+    var d = utData[i];
+    document.getElementById('utRound').textContent = d.round;
+    document.getElementById('utTitle').textContent = d.title;
+    document.getElementById('utBody').textContent = d.body;
+    var fix = document.getElementById('utFix');
+    fix.textContent = d.fix;
+    fix.className = 'cs-ut-fix ' + (d.fixClass || '');
+    var img = document.getElementById('utScreenImg');
+    img.style.opacity = '0';
+    setTimeout(function() {
+      img.src = d.img;
+      img.alt = 'User testing ' + d.round;
+      img.style.opacity = '1';
+    }, 200);
+    document.querySelectorAll('.cs-ut-tab').forEach(function(t, j) {
+      t.classList.toggle('active', j === i);
+    });
+  }
+  </script>
+
+  <!-- Impact counter -->
+  <script>
+  (function() {
+    var nums = document.querySelectorAll('.cs-impact-num[data-target]');
+    if (!nums.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var target = parseInt(el.dataset.target);
+          var suffix = el.dataset.suffix || '';
+          var current = 0;
+          var step = Math.ceil(target / 40);
+          var interval = setInterval(function() {
+            current += step;
+            if (current >= target) {
+              el.textContent = target + suffix;
+              clearInterval(interval);
+            } else {
+              el.textContent = current + suffix;
+            }
+          }, 30);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    nums.forEach(function(n) { observer.observe(n); });
+  })();
+  </script>
+
+  <!-- Design section column animation -->
+  <script>
+  (function() {
+    var col1 = document.getElementById('mmCol1');
+    var col2 = document.getElementById('mmCol2');
+    var col3 = document.getElementById('mmCol3');
+    if (!col1 || !col2 || !col3) return;
+
+    var y1 = 0;
+    var y2 = 0;
+    var y3 = 0;
+    var speed = 0.4;
+
+    function getHalf(el) {
+      return el.scrollHeight / 2;
+    }
+
+    y3 = -(getHalf(col3));
+
+    function animate() {
+      y1 -= speed;
+      y2 += speed;
+      y3 -= speed;
+
+      var h1 = getHalf(col1);
+      var h2 = getHalf(col2);
+      var h3 = getHalf(col3);
+
+      if (Math.abs(y1) >= h1) y1 = 0;
+      if (y2 >= 0) y2 = -h2;
+      if (Math.abs(y3) >= h3) y3 = 0;
+
+      col1.style.transform = 'translateY(' + y1 + 'px)';
+      col2.style.transform = 'translateY(' + y2 + 'px)';
+      col3.style.transform = 'translateY(' + y3 + 'px)';
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+  </script>
+
+  <!-- Lightbox -->
+  <script>
+  var rsData = [
+    { label: 'Screen 01', src: '../images/chefkart/01.png' },
+    { label: 'Screen 02', src: '../images/chefkart/02.png' },
+    { label: 'Screen 03', src: '../images/chefkart/03.png' },
+    { label: 'Screen 04', src: '../images/chefkart/04.png' },
+    { label: 'Screen 05', src: '../images/chefkart/05.png' },
+    { label: 'Screen 06', src: '../images/chefkart/06.png' },
+    { label: 'Screen 07', src: '../images/chefkart/07.png' },
+    { label: 'Screen 08', src: '../images/chefkart/08.png' },
+    { label: 'Screen 09', src: '../images/chefkart/09.png' },
+    { label: 'Screen 10', src: '../images/chefkart/10.png' }
+  ];
+  var rsCurrent = 0;
+
+  function rsOpen(i) {
+    rsCurrent = i;
+    rsUpdate();
+    document.getElementById('rsLb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function rsClose() {
+    document.getElementById('rsLb').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function rsUpdate() {
+    var d = rsData[rsCurrent];
+    document.getElementById('rsLbLabel').textContent = d.label;
+    document.getElementById('rsLbImg').src = d.src;
+    document.getElementById('rsLbImg').alt = d.label;
+    document.getElementById('rsLbCounter').textContent = (rsCurrent + 1) + ' / ' + rsData.length;
+  }
+  function rsNext() { rsCurrent = (rsCurrent + 1) % rsData.length; rsUpdate(); }
+  function rsPrev() { rsCurrent = (rsCurrent - 1 + rsData.length) % rsData.length; rsUpdate(); }
+
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('rsLb').classList.contains('open')) return;
+    if (e.key === 'ArrowRight') rsNext();
+    if (e.key === 'ArrowLeft') rsPrev();
+    if (e.key === 'Escape') rsClose();
+  });
+
+  document.getElementById('rsLb').addEventListener('click', function(e) {
+    if (e.target === this) rsClose();
+  });
+  </script>
+
+  <!-- Next project cursor thumbnail -->
+  <script>
+  (function() {
+    var thumb = document.getElementById('nextCursorThumb');
+    var link = document.getElementById('nextProjectLink');
+    if (!thumb || !link) return;
+
+    var curX = 0, curY = 0;
+
+    document.addEventListener('mousemove', function(e) {
+      curX = e.clientX;
+      curY = e.clientY;
+      thumb.style.left = (curX + 16) + 'px';
+      thumb.style.top = (curY - 60) + 'px';
+    });
+
+    link.addEventListener('mouseenter', function() {
+      thumb.style.opacity = '1';
+    });
+
+    link.addEventListener('mouseleave', function() {
+      thumb.style.opacity = '0';
+    });
+  })();
+  </script>
+
 </body>
 </html>
