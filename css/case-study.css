@@ -1082,9 +1082,13 @@
 
 .cs-ut-panel {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: var(--space-16);
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
   align-items: start;
+}
+
+.cs-ut-screen {
+  margin-left: -30px;
 }
 
 .cs-ut-screen .cs-screen-frame {
@@ -1104,41 +1108,41 @@
 }
 
 .cs-ut-detail {
-  padding-top: var(--space-4);
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .cs-ut-round {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
-  margin-bottom: var(--space-3);
 }
 
 .cs-ut-detail-title {
   font-family: var(--font-display);
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(24px, 3vw, 36px);
   font-weight: 700;
   color: var(--color-text-primary);
   letter-spacing: -0.02em;
   line-height: 1.15;
-  margin-bottom: var(--space-6);
+  margin-bottom: 0;
 }
 
 .cs-ut-detail-body {
   font-size: 15px;
   color: var(--color-text-secondary);
-  line-height: 1.85;
-  margin-bottom: var(--space-6);
-  max-width: 520px;
+  line-height: 1.8;
+  max-width: 480px;
 }
 
 .cs-ut-fix {
   font-size: 13px;
   font-weight: 600;
   color: #285DC6;
-  letter-spacing: 0.01em;
 }
 
 .cs-ut-fix--final {
