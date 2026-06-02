@@ -24,6 +24,7 @@
     if (cursor) cursor.style.display = 'none';
     const navEl = document.getElementById('nav');
     if (navEl) navEl.style.pointerEvents = 'auto';
+    document.body.classList.remove('intro-phase');
     return;
   }
   sessionStorage.setItem('introSeen', 'true');
@@ -305,6 +306,7 @@
         document.body.style.overflow = 'auto';
         const nav = document.querySelector('nav') || document.getElementById('nav');
         if (nav) nav.style.pointerEvents = 'auto';
+        document.body.classList.remove('intro-phase');
         const chatWidget = document.getElementById('ai-widget');
         if (chatWidget) chatWidget.style.display = '';
         const reveal = document.getElementById('hiReveal');
@@ -385,6 +387,7 @@
   setTimeout(function() {
     const navEl = document.getElementById('nav');
     if (navEl) navEl.style.pointerEvents = 'auto';
+    document.body.classList.remove('intro-phase');
   }, 3000);
 
 })();
