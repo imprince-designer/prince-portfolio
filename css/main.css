@@ -2412,7 +2412,7 @@ body {
 }
 
 .about-values {
-  background: #F5F3EE;
+  background: #F6F6F6;
 }
 [data-theme="dark"] .about-values {
   background: #1a1a18;
@@ -2420,10 +2420,13 @@ body {
 .about-values-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
 }
 .about-values-item {
   padding: 48px 40px;
-  border-right: 0.5px solid #e0ddd8;
+  border-right: 0.5px solid #e0e0e0;
 }
 [data-theme="dark"] .about-values-item {
   border-color: rgba(255,255,255,0.08);
@@ -2449,9 +2452,12 @@ body {
   margin-bottom: 20px;
 }
 .about-values-body {
-  font-size: 13px;
-  line-height: 1.75;
-  color: var(--color-text-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+}
+[data-theme="dark"] .about-values-body {
+  color: rgba(255,255,255,0.6);
 }
 @media (max-width: 768px) {
   .about-values-grid {
