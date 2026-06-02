@@ -2450,6 +2450,9 @@ body {
   letter-spacing: -0.03em;
   color: var(--color-text-primary);
   margin-bottom: 20px;
+  min-height: 120px;
+  display: flex;
+  align-items: flex-start;
 }
 .about-values-body {
   font-size: 15px;
