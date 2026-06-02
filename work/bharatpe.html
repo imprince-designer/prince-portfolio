@@ -15,7 +15,7 @@
 
   <div class="cursor" id="cursor"></div>
 
-  <nav class="cs-page-nav" id="csPageNav" aria-label="Page sections"></nav>
+  <nav class="cs-page-nav" id="csPageNav" aria-label="Page sections" style="display:none;"></nav>
 
   <nav id="nav" style="position:fixed;top:0;left:0;right:0;width:100%;z-index:9999;">
     <div class="nav-inner">
@@ -186,7 +186,71 @@
   </div>
 
   <!-- ABOUT THE PROJECT -->
-  <section id="overview" class="cs-about">
+  <div class="cs-nda-screen">
+    <div class="cs-nda-inner">
+
+      <div class="cs-nda-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Under NDA
+      </div>
+
+      <div class="cs-nda-overview">
+        <p class="cs-nda-eyebrow">Case Study · BharatPe · 2023</p>
+        <h1 class="cs-nda-title">Launching Mutual Funds on BharatPe Invest — 0 to 1</h1>
+        <p class="cs-nda-body">BharatPe is one of India's leading fintech platforms. This project was a 0-to-1 build — designing and launching the Mutual Funds platform on BharatPe Invest, the consumer-facing investment app, bringing accessible wealth management to everyday users for the first time.</p>
+      </div>
+
+      <hr class="cs-nda-rule" />
+
+      <div class="cs-nda-two-col">
+        <div class="cs-nda-problem">
+          <p class="cs-nda-label">Problem</p>
+          <h2 class="cs-nda-section-title">A financially active user base with no way to invest</h2>
+          <p class="cs-nda-section-body">BharatPe Invest's users were financially active but had no trusted, simple way to invest in Mutual Funds within the app. Designing this meant building for first-time investors — users who needed extreme clarity, trust signals, and a frictionless onboarding flow to take their first investment step.</p>
+        </div>
+        <div class="cs-nda-role">
+          <p class="cs-nda-label">Role</p>
+          <div class="cs-nda-role-grid">
+            <div><p class="cs-nda-meta-label">Title</p><p class="cs-nda-meta-value">Senior Product Designer</p></div>
+            <div><p class="cs-nda-meta-label">Scope</p><p class="cs-nda-meta-value">0-to-1 product design</p></div>
+            <div><p class="cs-nda-meta-label">Platform</p><p class="cs-nda-meta-value">Android & iOS</p></div>
+            <div><p class="cs-nda-meta-label">Year</p><p class="cs-nda-meta-value">2023</p></div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="cs-nda-rule" />
+
+      <div class="cs-nda-metrics">
+        <p class="cs-nda-label">Impact</p>
+        <div class="cs-nda-metrics-grid">
+          <div class="cs-nda-metric-card">
+            <div class="cs-nda-metric-num">15K+</div>
+            <div class="cs-nda-metric-label">Investors acquired in the first 2 weeks — surpassing the 10K launch target by 50%</div>
+          </div>
+          <div class="cs-nda-metric-card">
+            <div class="cs-nda-metric-num">4,500+</div>
+            <div class="cs-nda-metric-label">SIP mandates created in the first month of launch</div>
+          </div>
+          <div class="cs-nda-metric-card">
+            <div class="cs-nda-metric-num">30%</div>
+            <div class="cs-nda-metric-label">SIP adoption rate among new investors — above industry average of 25%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-nda-cta">
+        <div class="cs-nda-cta-left">
+          <p class="cs-nda-cta-eyebrow">Want to see the full case study?</p>
+          <h2 class="cs-nda-cta-title">Let's get on a call</h2>
+          <p class="cs-nda-cta-sub">I'm happy to walk you through the process, decisions and designs.</p>
+        </div>
+        <a href="https://linkedin.com/in/prince" target="_blank" class="cs-nda-cta-btn">Let's connect</a>
+      </div>
+
+    </div>
+  </div>
+  <section id="overview" class="cs-about" style="display:none;">
     <div class="container">
       <p class="cs-about__eyebrow">About the Project</p>
       <h1 class="cs-about__title reveal">Building the design system that scaled BharatPe</h1>
@@ -219,7 +283,7 @@
   </section>
 
   <!-- THE PROBLEM -->
-  <section id="problem" class="cs-section">
+  <section id="problem" class="cs-section" style="display:none;">
     <div class="container">
       <p class="cs-eyebrow">The Problem</p>
       <h2 class="cs-section-title">12 teams. Zero consistency.</h2>
@@ -272,7 +336,7 @@
   </section>
 
   <!-- OLD SCREENS -->
-  <section class="cs-screens-section">
+  <section class="cs-screens-section" style="display:none;">
     <div class="cs-screens-grid">
       <div class="cs-screen-item">
         <div class="cs-screen-frame">
@@ -299,7 +363,7 @@
   </section>
 
   <!-- RESEARCH -->
-  <section id="research" class="cs-section">
+  <section id="research" class="cs-section" style="display:none;">
     <div class="container">
       <p class="cs-eyebrow">Research & Insights</p>
       <h2 class="cs-section-title">Components were being rebuilt from scratch every sprint</h2>
@@ -362,7 +426,7 @@
   </section>
 
   <!-- HMW -->
-  <section id="hmw" class="cs-hmw-section">
+  <section id="hmw" class="cs-hmw-section" style="display:none;">
     <div class="container">
       <p class="cs-eyebrow" style="text-align: center; color: #E85D3A; margin-bottom: var(--space-6);">The Question That Drove Everything</p>
     </div>
@@ -379,7 +443,7 @@
   </section>
 
   <!-- USER TESTING -->
-  <section id="testing" class="cs-section">
+  <section id="testing" class="cs-section" style="display:none;">
     <div class="container">
       <p class="cs-eyebrow">User Testing</p>
       <h2 class="cs-section-title">Engineers and designers were speaking different languages</h2>
@@ -425,7 +489,7 @@
   </section>
 
   <!-- MEDIA BREAK -->
-  <section class="cs-media-break">
+  <section class="cs-media-break" style="display:none;">
     <div class="cs-media-frame">
       <img src="../images/work/bharatpe-cover.png" alt="ChefKart project visual" />
     </div>
@@ -433,7 +497,7 @@
   </section>
 
   <!-- IMPACT -->
-  <section id="impact" class="cs-section">
+  <section id="impact" class="cs-section" style="display:none;">
     <div class="container">
       <div class="cs-impact-grid">
         <p class="cs-impact-big">From 30% to 90% adoption. In one redesign. For users the original app forgot existed.</p>
@@ -464,7 +528,7 @@
   </section>
 
   <!-- FINAL DESIGN -->
-  <section id="design" class="cs-section" style="padding: var(--space-24) 0; overflow: hidden;">
+  <section id="design" class="cs-section" style="display:none; padding: var(--space-24) 0; overflow: hidden;">
     <div class="cs-design-frame">
     <div class="cs-masonry-motion" id="masonryMotion">
       <div class="cs-mm-col" id="mmCol1">
@@ -504,7 +568,7 @@
   </section>
 
   <!-- LEARNINGS -->
-  <section id="learnings" class="cs-section">
+  <section id="learnings" class="cs-section" style="display:none;">
     <div class="container">
       <div class="cs-learnings-grid">
         <div class="cs-learnings-left">
@@ -546,7 +610,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="cs-cta-section">
+  <section class="cs-cta-section" style="display:none;">
     <div class="container">
       <div class="cs-cta-wrap">
         <h2 class="cs-cta-heading">Let's work together!</h2>
@@ -559,7 +623,7 @@
   </section>
 
   <!-- NEXT -->
-  <section class="cs-next">
+  <section class="cs-next" style="display:none;">
     <div class="container">
       <a href="syfe.html" class="cs-next-link reveal" id="nextProjectLink">
         <div style="display:flex; flex-direction:column; gap:4px;">
