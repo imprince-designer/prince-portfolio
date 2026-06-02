@@ -21,19 +21,19 @@
           <button class="nav-dropdown-trigger">Work</button>
           <div class="nav-mega">
             <div class="nav-mega-links">
-              <a class="nav-mega-item active" href="/work/syfe.html" data-card="work-0">
+              <a class="nav-mega-item active" href="/work/chefkart-2.html" data-card="work-0" onmouseenter="navExpandCS(true)">
                 <div class="nav-mega-text">
                   <p class="nav-mega-title">Product Case Studies</p>
                   <p class="nav-mega-desc">End-to-end design for fintech & consumer</p>
                 </div>
               </a>
-              <a class="nav-mega-item" href="/work/ai-explorations.html" data-card="work-1">
+              <a class="nav-mega-item" href="/work/ai-explorations.html" data-card="work-1" onmouseenter="navExpandCS(false); navShowCard('work-1')">
                 <div class="nav-mega-text">
                   <p class="nav-mega-title">AI Explorations</p>
                   <p class="nav-mega-desc">Design at the intersection of AI & product</p>
                 </div>
               </a>
-              <a class="nav-mega-item" href="/work/photography.html" data-card="work-2">
+              <a class="nav-mega-item" href="/work/photography.html" data-card="work-2" onmouseenter="navExpandCS(false); navShowCard('work-2')">
                 <div class="nav-mega-text">
                   <p class="nav-mega-title">Photography</p>
                   <p class="nav-mega-desc">Two years behind the lens</p>
@@ -41,20 +41,60 @@
               </a>
             </div>
             <div class="nav-mega-card-panel">
-              <div class="nav-card-item active" data-card-id="work-0">
-                <div class="nav-card-img"><img src="/images/work/syfe-cover.png" alt="Product case studies" /></div>
-                <p class="nav-card-title">Syfe · BharatPe · ChefKart</p>
-                <p class="nav-card-desc">End-to-end product design across fintech and consumer apps.</p>
+              <div class="nav-cs-panel open" id="navCsPanel" onmouseleave="navShowCard('cs-default')">
+                <a class="nav-cs-item" href="/work/syfe.html" onmouseenter="navShowCard('cs-2')">
+                  <p class="nav-cs-title">Designing wealth for everyday investors</p>
+                  <p class="nav-cs-meta">Syfe · 2025</p>
+                </a>
+                <a class="nav-cs-item" href="/work/bharatpe.html" onmouseenter="navShowCard('cs-3')">
+                  <p class="nav-cs-title">Design system that scaled payments</p>
+                  <p class="nav-cs-meta">BharatPe · 2023</p>
+                </a>
+                <a class="nav-cs-item" href="/work/chefkart-2.html" onmouseenter="navShowCard('cs-0')">
+                  <p class="nav-cs-title">Redesigning the cook experience</p>
+                  <p class="nav-cs-meta">ChefKart · 2023</p>
+                </a>
+                <a class="nav-cs-item" href="/work/chefkart-1.html" onmouseenter="navShowCard('cs-1')">
+                  <p class="nav-cs-title">Home screen that drives every booking</p>
+                  <p class="nav-cs-meta">ChefKart · 2023</p>
+                </a>
               </div>
-              <div class="nav-card-item" data-card-id="work-1">
-                <div class="nav-card-img"><img src="/images/photography/photo-1.jpg" alt="AI explorations" /></div>
-                <p class="nav-card-title">AI × Design</p>
-                <p class="nav-card-desc">Experiments at the intersection of AI and product thinking.</p>
-              </div>
-              <div class="nav-card-item" data-card-id="work-2">
-                <div class="nav-card-img"><img src="/images/photography/photo-1.jpg" alt="Photography" /></div>
-                <p class="nav-card-title">Through the Lens</p>
-                <p class="nav-card-desc">Stillness, people, light. Seeing what most walk past.</p>
+              <div class="nav-cs-thumbs">
+                <div class="nav-card-item active" data-card-id="cs-default">
+                  <div class="nav-card-img"><img src="/images/work/chefkart-2-cover.png" alt="Product case studies" /></div>
+                  <p class="nav-card-title">Syfe · BharatPe · ChefKart</p>
+                  <p class="nav-card-desc">End-to-end product design across fintech and consumer apps.</p>
+                </div>
+                <div class="nav-card-item" data-card-id="cs-0">
+                  <div class="nav-card-img"><img src="/images/work/chefkart-2-cover.png" alt="ChefKart Partner App" /></div>
+                  <p class="nav-card-title">ChefKart Partner App</p>
+                  <p class="nav-card-desc">Redesigning for the next billion users.</p>
+                </div>
+                <div class="nav-card-item" data-card-id="cs-1">
+                  <div class="nav-card-img"><img src="/images/work/chefkart-1-cover.png" alt="ChefKart Customer App" /></div>
+                  <p class="nav-card-title">ChefKart Customer App</p>
+                  <p class="nav-card-desc">Home screen that drives every booking.</p>
+                </div>
+                <div class="nav-card-item" data-card-id="cs-2">
+                  <div class="nav-card-img"><img src="/images/work/syfe-cover.png" alt="Syfe" /></div>
+                  <p class="nav-card-title">Syfe</p>
+                  <p class="nav-card-desc">Designing wealth for everyday investors.</p>
+                </div>
+                <div class="nav-card-item" data-card-id="cs-3">
+                  <div class="nav-card-img"><img src="/images/work/bharatpe-cover.png" alt="BharatPe" /></div>
+                  <p class="nav-card-title">BharatPe</p>
+                  <p class="nav-card-desc">Design system that scaled payments.</p>
+                </div>
+                <div class="nav-card-item" data-card-id="work-1">
+                  <div class="nav-card-img"><img src="/images/photography/photo-1.jpg" alt="AI explorations" /></div>
+                  <p class="nav-card-title">AI × Design</p>
+                  <p class="nav-card-desc">Experiments at the intersection of AI and product thinking.</p>
+                </div>
+                <div class="nav-card-item" data-card-id="work-2">
+                  <div class="nav-card-img"><img src="/images/photography/photo-1.jpg" alt="Photography" /></div>
+                  <p class="nav-card-title">Through the Lens</p>
+                  <p class="nav-card-desc">Stillness, people, light. Seeing what most walk past.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -299,5 +339,32 @@
   <script src="js/theme.js"></script>
   <script src="js/cursor.js"></script>
   <script src="js/scroll.js"></script>
+  <script>
+  function navExpandCS(expand) {
+    var panel = document.getElementById('navCsPanel');
+    if (!panel) return;
+    if (expand) {
+      panel.classList.add('open');
+      navShowCard('cs-default');
+    } else {
+      panel.classList.remove('open');
+    }
+  }
+
+  function navShowCard(cardId) {
+    document.querySelectorAll('.nav-card-item').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    var target = document.querySelector('[data-card-id="' + cardId + '"]');
+    if (target) target.classList.add('active');
+  }
+
+  var workMega = document.querySelector('.nav-mega');
+  if (workMega) {
+    workMega.addEventListener('mouseenter', function() {
+      navExpandCS(true);
+    });
+  }
+  </script>
 </body>
 </html>
