@@ -22,6 +22,8 @@
     if (chatWidget) chatWidget.style.display = '';
     const cursor = document.getElementById('hiCursor');
     if (cursor) cursor.style.display = 'none';
+    const navEl = document.getElementById('nav');
+    if (navEl) navEl.style.pointerEvents = 'auto';
     return;
   }
   sessionStorage.setItem('introSeen', 'true');
@@ -379,5 +381,10 @@
       requestAnimationFrame(loop);
     })();
   })();
+
+  setTimeout(function() {
+    const navEl = document.getElementById('nav');
+    if (navEl) navEl.style.pointerEvents = 'auto';
+  }, 3000);
 
 })();
