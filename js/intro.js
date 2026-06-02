@@ -307,6 +307,7 @@
         const nav = document.querySelector('nav') || document.getElementById('nav');
         if (nav) { nav.style.pointerEvents = 'auto'; nav.style.visibility = 'visible'; }
         document.body.classList.remove('intro-phase');
+        window.scrollTo(0, 0);
         const chatWidget = document.getElementById('ai-widget');
         if (chatWidget) chatWidget.style.display = '';
         const reveal = document.getElementById('hiReveal');
