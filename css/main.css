@@ -2627,9 +2627,9 @@ body {
   display: grid;
   grid-template-columns: 48px 1fr;
   gap: 20px;
-  padding: 20px 0;
+  padding: 16px 0;
   border-top: 0.5px solid #e8e8e5;
-  align-items: start;
+  align-items: center;
 }
 [data-theme="dark"] .about-journey-item {
   border-color: rgba(255,255,255,0.08);
@@ -2654,15 +2654,19 @@ body {
   padding-top: 2px;
 }
 .about-journey-logo {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 24px;
   object-fit: contain;
-  border-radius: 6px;
   flex-shrink: 0;
-  margin-bottom: 6px;
+}
+.about-journey-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 .about-journey-role {
-  font-size: 13px;
+  font-size: 14px;
   color: #111;
   font-weight: 600;
 }
