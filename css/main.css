@@ -1864,7 +1864,9 @@ footer {
   font-size: 11px;
   color: var(--color-text-muted);
 }
-.nav-mega-card-panel { position: relative; min-height: 200px; }
+.nav-mega-card-panel { position: relative; min-height: 200px; display: flex; flex-direction: row; gap: 0; }
+.nav-cs-thumbs { position: relative; flex: 1; min-height: 200px; }
+.nav-cs-thumbs .nav-card-item { position: absolute; inset: 0; }
 .nav-card-item {
   position: absolute;
   inset: 0;
