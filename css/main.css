@@ -2624,8 +2624,12 @@ body {
   flex-direction: column;
 }
 .about-journey-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
   padding: 20px 0;
   border-top: 0.5px solid #e8e8e5;
+  align-items: start;
 }
 .about-journey-item:last-child {
   border-bottom: 0.5px solid #e8e8e5;
@@ -2637,8 +2641,8 @@ body {
   font-size: 11px;
   color: #bbb;
   font-family: monospace;
-  padding-top: 2px;
   line-height: 1.6;
+  padding-top: 2px;
 }
 .about-journey-logo {
   height: 24px;
