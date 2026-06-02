@@ -49,6 +49,22 @@ document.querySelectorAll('a[href]').forEach(link => {
   });
 });
 
+// Dropdown open/close on button hover only
+document.querySelectorAll('.nav-item--dropdown').forEach(function(item) {
+  const trigger = item.querySelector('.nav-dropdown-trigger');
+  const mega = item.querySelector('.nav-mega');
+  if (!trigger || !mega) return;
+  trigger.addEventListener('mouseenter', function() {
+    item.classList.add('is-open');
+  });
+  item.addEventListener('mouseleave', function() {
+    item.classList.remove('is-open');
+  });
+  mega.addEventListener('mouseenter', function() {
+    item.classList.add('is-open');
+  });
+});
+
 // Mega dropdown card switching
 document.querySelectorAll('.nav-mega-item').forEach(item => {
   item.addEventListener('mouseenter', () => {

@@ -1795,7 +1795,7 @@ footer {
   gap: 12px;
 }
 [data-theme="dark"] .nav-mega { box-shadow: 0 16px 48px rgba(35, 35, 35, 0.4); }
-.nav-item--dropdown:hover .nav-mega {
+.nav-item--dropdown.is-open .nav-mega {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
