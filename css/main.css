@@ -2410,3 +2410,58 @@ body {
   line-height: 1.1;
   margin-bottom: 24px;
 }
+
+.about-values {
+  background: #F5F3EE;
+}
+[data-theme="dark"] .about-values {
+  background: #1a1a18;
+}
+.about-values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.about-values-item {
+  padding: 48px 40px;
+  border-right: 0.5px solid #e0ddd8;
+}
+[data-theme="dark"] .about-values-item {
+  border-color: rgba(255,255,255,0.08);
+}
+.about-values-item:last-child {
+  border-right: none;
+}
+.about-values-num {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #285DC6;
+  margin-bottom: 16px;
+}
+.about-values-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+}
+.about-values-body {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+@media (max-width: 768px) {
+  .about-values-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-values-item {
+    border-right: none;
+    border-bottom: 0.5px solid #e0ddd8;
+  }
+  .about-values-item:last-child {
+    border-bottom: none;
+  }
+}
