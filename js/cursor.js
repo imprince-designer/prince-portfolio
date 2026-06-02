@@ -1,3 +1,5 @@
+document.body.style.cursor = 'auto';
+
 // CUSTOM CURSOR
 // Small dot that follows your mouse.
 // Expands into a circle when hovering links.
