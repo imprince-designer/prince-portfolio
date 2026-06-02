@@ -462,6 +462,54 @@
   }
   </script>
   <script>
+  var carousel = document.querySelector('.about-personality-carousel');
+  var track = document.getElementById('personalityTrack');
+  if (carousel && track) {
+    var isDown = false;
+    var startX = 0;
+    var scrollLeft = 0;
+    var animationName = 'personalityScroll';
+    var dragThreshold = 5;
+    var moved = false;
+
+    carousel.addEventListener('mousedown', function(e) {
+      isDown = true;
+      moved = false;
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+      track.style.animationPlayState = 'paused';
+      carousel.style.cursor = 'grabbing';
+    });
+
+    carousel.addEventListener('mouseleave', function() {
+      if (isDown) {
+        isDown = false;
+        track.style.animationPlayState = 'running';
+        carousel.style.cursor = 'grab';
+      }
+    });
+
+    carousel.addEventListener('mouseup', function() {
+      isDown = false;
+      track.style.animationPlayState = 'running';
+      carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mousemove', function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - carousel.offsetLeft;
+      var walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > dragThreshold) moved = true;
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    carousel.style.cursor = 'grab';
+    carousel.style.overflowX = 'scroll';
+    carousel.style.scrollbarWidth = 'none';
+    carousel.style.msOverflowStyle = 'none';
+  }
+
   document.querySelectorAll('.about-personality-photo').forEach(function(photo) {
     photo.addEventListener('mousemove', function(e) {
       var rect = photo.getBoundingClientRect();
