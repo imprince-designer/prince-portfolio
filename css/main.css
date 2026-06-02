@@ -1800,6 +1800,18 @@ footer {
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
+.nav-item--dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 16px;
+  display: none;
+}
+.nav-item--dropdown.is-open::after {
+  display: block;
+}
 .nav-mega-links {
   display: flex;
   flex-direction: column;
