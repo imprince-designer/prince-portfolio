@@ -459,6 +459,7 @@
       html += '<div class="about-personality-photo"><img src="' + src + '" alt="' + mode + '" /></div>';
     });
     track.innerHTML = html;
+    attachParallax();
   }
   </script>
   <script>
@@ -510,30 +511,35 @@
     carousel.style.msOverflowStyle = 'none';
   }
 
-  document.querySelectorAll('.about-personality-photo').forEach(function(photo) {
-    photo.addEventListener('mousemove', function(e) {
-      var rect = photo.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
-      var img = photo.querySelector('img');
-      if (img) {
-        img.style.transform = 'translate(' + (-x * 16) + 'px, ' + (-y * 16) + 'px)';
-      }
+  function attachParallax() {
+    document.querySelectorAll('.about-personality-photo').forEach(function(photo) {
+      if (photo._parallaxAttached) return;
+      photo._parallaxAttached = true;
+      photo.addEventListener('mousemove', function(e) {
+        var rect = photo.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        var img = photo.querySelector('img');
+        if (img) {
+          img.style.transform = 'translate(' + (-x * 16) + 'px, ' + (-y * 16) + 'px)';
+        }
+      });
+      photo.addEventListener('mouseleave', function() {
+        var img = photo.querySelector('img');
+        if (img) {
+          img.style.transform = 'translate(0px, 0px)';
+          img.style.transition = 'transform 0.6s ease-out';
+        }
+      });
+      photo.addEventListener('mouseenter', function() {
+        var img = photo.querySelector('img');
+        if (img) {
+          img.style.transition = 'transform 0.1s ease-out';
+        }
+      });
     });
-    photo.addEventListener('mouseleave', function() {
-      var img = photo.querySelector('img');
-      if (img) {
-        img.style.transform = 'translate(0px, 0px)';
-        img.style.transition = 'transform 0.6s ease-out';
-      }
-    });
-    photo.addEventListener('mouseenter', function() {
-      var img = photo.querySelector('img');
-      if (img) {
-        img.style.transition = 'transform 0.1s ease-out';
-      }
-    });
-  });
+  }
+  attachParallax();
   </script>
 </body>
 </html>
