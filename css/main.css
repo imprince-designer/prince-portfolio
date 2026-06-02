@@ -1804,6 +1804,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 220px;
 }
 .nav-mega-item {
   display: flex;
@@ -1867,7 +1868,7 @@ footer {
   color: var(--color-text-muted);
 }
 .nav-mega-card-panel { position: relative; min-height: 200px; display: flex; flex-direction: row; gap: 0; width: 100%; }
-.nav-cs-panel { min-width: 260px; }
+.nav-cs-panel { min-width: 240px; max-width: 240px; }
 .nav-cs-thumbs { position: relative; width: 220px; flex-shrink: 0; }
 .nav-cs-thumbs .nav-card-item { position: absolute; inset: 0; display: flex; flex-direction: column; }
 .nav-cs-thumbs .nav-card-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: var(--radius-md); margin-bottom: 8px; }
