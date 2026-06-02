@@ -54,15 +54,13 @@ document.querySelectorAll('.nav-item--dropdown').forEach(function(item) {
   const trigger = item.querySelector('.nav-dropdown-trigger');
   const mega = item.querySelector('.nav-mega');
   if (!trigger || !mega) return;
-  trigger.addEventListener('mouseenter', function() {
-    item.classList.add('is-open');
-  });
-  item.addEventListener('mouseleave', function() {
-    item.classList.remove('is-open');
-  });
-  mega.addEventListener('mouseenter', function() {
-    item.classList.add('is-open');
-  });
+  let closeTimer = null;
+  function open() { clearTimeout(closeTimer); item.classList.add('is-open'); }
+  function close() { closeTimer = setTimeout(function() { item.classList.remove('is-open'); }, 120); }
+  trigger.addEventListener('mouseenter', open);
+  trigger.addEventListener('mouseleave', close);
+  mega.addEventListener('mouseenter', open);
+  mega.addEventListener('mouseleave', close);
 });
 
 // Mega dropdown card switching
