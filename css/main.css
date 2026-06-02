@@ -2595,7 +2595,7 @@ body {
 }
 
 .about-journey {
-  background: #FAFAF8;
+  background: #ffffff;
   padding: 80px 48px;
 }
 [data-theme="dark"] .about-journey {
@@ -2625,7 +2625,7 @@ body {
 }
 .about-journey-item {
   display: grid;
-  grid-template-columns: 48px 1fr;
+  grid-template-columns: 90px 1fr;
   gap: 20px;
   padding: 20px 0;
   border-top: 0.5px solid #e8e8e5;
@@ -2638,8 +2638,8 @@ body {
   border-color: rgba(255,255,255,0.08);
 }
 .about-journey-year {
-  font-size: 11px;
-  color: #bbb;
+  font-size: 12px;
+  color: #9b9b9b;
   font-family: monospace;
   line-height: 1.6;
   padding-top: 2px;
@@ -2654,6 +2654,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  align-items: flex-start;
 }
 .about-journey-year-inline {
   font-size: 11px;
