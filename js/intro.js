@@ -145,6 +145,9 @@
 
   // ─── HERO SCREENS: Canvas particle field + story slides ──────────────────────
 
+  const navEl = document.getElementById('nav');
+  if (navEl) navEl.style.pointerEvents = 'none';
+
   ;(function initHeroScreens() {
     const section = document.querySelector('.hero-intro') || document.getElementById('heroIntro');
     if (!section) return;
@@ -299,7 +302,7 @@
         section.style.display = 'none';
         document.body.style.overflow = 'auto';
         const nav = document.querySelector('nav') || document.getElementById('nav');
-        if (nav) { nav.style.visibility = 'visible'; nav.style.pointerEvents = 'auto'; }
+        if (nav) nav.style.pointerEvents = 'auto';
         const chatWidget = document.getElementById('ai-widget');
         if (chatWidget) chatWidget.style.display = '';
         const reveal = document.getElementById('hiReveal');
