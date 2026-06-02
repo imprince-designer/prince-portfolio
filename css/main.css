@@ -2624,20 +2624,13 @@ body {
   flex-direction: column;
 }
 .about-journey-item {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
-  padding: 14px 0;
+  padding: 20px 0;
   border-top: 0.5px solid #e8e8e5;
-  align-items: center;
-}
-[data-theme="dark"] .about-journey-item {
-  border-color: rgba(255,255,255,0.08);
 }
 .about-journey-item:last-child {
   border-bottom: 0.5px solid #e8e8e5;
 }
-[data-theme="dark"] .about-journey-item:last-child {
+[data-theme="dark"] .about-journey-item {
   border-color: rgba(255,255,255,0.08);
 }
 .about-journey-year {
@@ -2656,9 +2649,14 @@ body {
 }
 .about-journey-content {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  gap: 6px;
+}
+.about-journey-year-inline {
+  font-size: 11px;
+  color: #bbb;
+  font-family: monospace;
+  letter-spacing: 0.04em;
 }
 .about-journey-role {
   font-size: 14px;
