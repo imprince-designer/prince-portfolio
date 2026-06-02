@@ -2652,9 +2652,21 @@ body {
 }
 .about-journey-header {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 10px;
+}
+.about-journey-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.about-journey-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .about-journey-company {
   font-family: 'Gabarito', Georgia, serif;
