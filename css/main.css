@@ -2332,8 +2332,8 @@ body {
   align-items: center;
 }
 .about-hero-photo {
-  width: 340px;
-  height: 460px;
+  width: 420px;
+  height: 560px;
   border-radius: 8px;
   overflow: hidden;
   background: var(--color-bg-secondary);
