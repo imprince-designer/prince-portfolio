@@ -2565,6 +2565,13 @@ body {
   width: max-content;
   animation: personalityScroll 45s linear infinite;
 }
+.about-personality-photo:hover ~ .about-personality-photo,
+.about-personality-photo:hover {
+  animation-play-state: paused;
+}
+.about-personality-carousel:has(.about-personality-photo:hover) .about-personality-track {
+  animation-play-state: paused;
+}
 @keyframes personalityScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
