@@ -2645,11 +2645,10 @@ body {
   padding-top: 2px;
 }
 .about-journey-logo {
-  height: 24px;
   width: auto;
-  max-width: 80px;
   object-fit: contain;
   flex-shrink: 0;
+  display: block;
 }
 .about-journey-content {
   display: flex;
