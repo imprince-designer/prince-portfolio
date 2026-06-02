@@ -204,6 +204,31 @@
     </div>
   </section>
 
+  <section class="about-personality" id="aboutPersonality">
+    <div class="about-personality-inner">
+      <div class="about-personality-toggle">
+        <span class="about-personality-label active" id="labelWork" onclick="switchPersonality('work')">At Work</span>
+        <span class="about-personality-slash">/</span>
+        <span class="about-personality-label" id="labelLife" onclick="switchPersonality('life')">In Life</span>
+      </div>
+      <p class="about-personality-body" id="personalityBody">I deep dive before I open Figma. I've been the first designer in the room and the tenth. Both taught me that the real problem is rarely the stated one. I've wired AI into how I think, not just how I work. I believe the best ideas come from the person sitting next to you, not from a brief.</p>
+      <div class="about-personality-carousel">
+        <div class="about-personality-track" id="personalityTrack">
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_001.jpg" alt="At work" /></div>
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_02.JPG" alt="At work" /></div>
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_03.jpg" alt="At work" /></div>
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_04.png" alt="At work" /></div>
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_05.png" alt="At work" /></div>
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_001.jpg" alt="At work" /></div>
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_02.JPG" alt="At work" /></div>
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_03.jpg" alt="At work" /></div>
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_04.png" alt="At work" /></div>
+          <div class="about-personality-photo"><img src="/images/about/work/About_Work_05.png" alt="At work" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BIO -->
   <section class="section">
     <div class="container about-bio-grid">
@@ -389,6 +414,51 @@
     workMega.addEventListener('mouseenter', function() {
       navExpandCS(true);
     });
+  }
+  </script>
+  <script>
+  var workPhotos = [
+    '/images/about/work/About_Work_001.jpg',
+    '/images/about/work/About_Work_02.JPG',
+    '/images/about/work/About_Work_03.jpg',
+    '/images/about/work/About_Work_04.png',
+    '/images/about/work/About_Work_05.png'
+  ];
+  var lifePhotos = [
+    '/images/about/life/About_Life_01.png',
+    '/images/about/life/About_Life_02.png',
+    '/images/about/life/About_Life_03.jpg',
+    '/images/about/life/About_Life_04.JPG',
+    '/images/about/life/About_Life_05.JPG',
+    '/images/about/life/About_Life_05.png'
+  ];
+  var workText = "I deep dive before I open Figma. I've been the first designer in the room and the tenth. Both taught me that the real problem is rarely the stated one. I've wired AI into how I think, not just how I work. I believe the best ideas come from the person sitting next to you, not from a brief.";
+  var lifeText = "I think life is too short to be serious all the time. Cricket on weekends, comedy on weeknights, and a camera always within reach. I find beauty in small moments most people scroll past. A good laugh, a mountain at golden hour, the perfect mithai.";
+
+  function switchPersonality(mode) {
+    var body = document.getElementById('personalityBody');
+    var track = document.getElementById('personalityTrack');
+    var section = document.getElementById('aboutPersonality');
+    var labelWork = document.getElementById('labelWork');
+    var labelLife = document.getElementById('labelLife');
+
+    body.style.opacity = '0';
+    setTimeout(function() {
+      body.textContent = mode === 'work' ? workText : lifeText;
+      body.style.opacity = '1';
+    }, 250);
+
+    section.style.background = mode === 'work' ? '#0a0d1a' : '#1a0a0d';
+
+    labelWork.classList.toggle('active', mode === 'work');
+    labelLife.classList.toggle('active', mode === 'life');
+
+    var photos = mode === 'work' ? workPhotos : lifePhotos;
+    var html = '';
+    photos.concat(photos).forEach(function(src) {
+      html += '<div class="about-personality-photo"><img src="' + src + '" alt="' + mode + '" /></div>';
+    });
+    track.innerHTML = html;
   }
   </script>
 </body>

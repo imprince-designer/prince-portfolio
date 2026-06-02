@@ -2512,3 +2512,76 @@ body {
   object-position: center top;
   display: block;
 }
+
+.about-personality {
+  background: #0a0d1a;
+  padding: 80px 48px;
+  transition: background 0.5s ease;
+}
+.about-personality-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.about-personality-toggle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.about-personality-label {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.about-personality-label.active {
+  color: #fff;
+}
+.about-personality-slash {
+  font-size: 20px;
+  color: rgba(255,255,255,0.15);
+  font-weight: 300;
+}
+.about-personality-body {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  margin-bottom: 48px;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+.about-personality-carousel {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.about-personality-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: personalityScroll 22s linear infinite;
+}
+.about-personality-track:hover {
+  animation-play-state: paused;
+}
+@keyframes personalityScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.about-personality-photo {
+  width: 240px;
+  height: 160px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.about-personality-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
