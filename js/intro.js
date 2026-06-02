@@ -305,7 +305,7 @@
         section.style.display = 'none';
         document.body.style.overflow = 'auto';
         const nav = document.querySelector('nav') || document.getElementById('nav');
-        if (nav) nav.style.pointerEvents = 'auto';
+        if (nav) { nav.style.pointerEvents = 'auto'; nav.style.visibility = 'visible'; }
         document.body.classList.remove('intro-phase');
         const chatWidget = document.getElementById('ai-widget');
         if (chatWidget) chatWidget.style.display = '';
