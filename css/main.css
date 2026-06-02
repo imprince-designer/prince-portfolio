@@ -1776,7 +1776,9 @@ footer {
   top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(-8px);
-  width: 760px;
+  width: auto;
+  min-width: 560px;
+  max-width: 860px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
