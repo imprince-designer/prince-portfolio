@@ -2627,7 +2627,7 @@ body {
   display: grid;
   grid-template-columns: 48px 1fr;
   gap: 20px;
-  padding: 16px 0;
+  padding: 14px 0;
   border-top: 0.5px solid #e8e8e5;
   align-items: center;
 }
@@ -2647,23 +2647,18 @@ body {
   padding-top: 2px;
   line-height: 1.6;
 }
-.about-journey-content {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-top: 2px;
-}
 .about-journey-logo {
-  width: 40px;
   height: 24px;
+  width: auto;
+  max-width: 80px;
   object-fit: contain;
   flex-shrink: 0;
 }
 .about-journey-content {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 16px;
-  flex-wrap: wrap;
 }
 .about-journey-role {
   font-size: 14px;
