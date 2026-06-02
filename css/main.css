@@ -2406,7 +2406,7 @@ body {
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 800;
   color: var(--color-text-primary);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.038em;
   line-height: 1.1;
   margin-bottom: 24px;
 }
