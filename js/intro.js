@@ -299,7 +299,7 @@
         section.style.display = 'none';
         document.body.style.overflow = 'auto';
         const nav = document.querySelector('nav') || document.getElementById('nav');
-        if (nav) nav.style.visibility = 'visible';
+        if (nav) { nav.style.visibility = 'visible'; nav.style.pointerEvents = 'auto'; }
         const chatWidget = document.getElementById('ai-widget');
         if (chatWidget) chatWidget.style.display = '';
         const reveal = document.getElementById('hiReveal');
