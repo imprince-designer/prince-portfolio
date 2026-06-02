@@ -2628,8 +2628,8 @@ body {
 }
 .about-journey-item {
   display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 24px;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
   padding: 20px 0;
   border-top: 0.5px solid #e8e8e5;
   align-items: start;
@@ -2658,10 +2658,13 @@ body {
 }
 .about-journey-company {
   font-family: 'Gabarito', Georgia, serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 900;
-  color: var(--color-text-primary);
+  color: #111;
   letter-spacing: -0.02em;
+}
+[data-theme="dark"] .about-journey-company {
+  color: #fff;
 }
 .about-journey-role {
   font-size: 12px;
@@ -2670,9 +2673,9 @@ body {
 }
 .about-journey-desc {
   font-size: 13px;
-  color: #666;
+  color: #444;
   line-height: 1.7;
 }
 [data-theme="dark"] .about-journey-desc {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.65);
 }
