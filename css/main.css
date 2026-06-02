@@ -2683,3 +2683,56 @@ body {
     position: static;
   }
 }
+
+.about-cta-new {
+  background: #111110;
+  padding: 80px 48px;
+}
+.about-cta-new-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.about-cta-new-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 64px;
+}
+.about-cta-new-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+  padding-top: 40px;
+  border-top: 0.5px solid rgba(255,255,255,0.1);
+}
+.about-cta-new-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+}
+.about-cta-new-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+.about-cta-new-links {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 0.5px solid rgba(255,255,255,0.1);
+}
+.about-cta-new-icon {
+  color: rgba(255,255,255,0.6);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+.about-cta-new-icon:hover {
+  color: #fff;
+}
