@@ -2619,75 +2619,70 @@ body {
   position: sticky;
   top: 100px;
 }
-.about-journey-label {
-  display: none;
-}
-.about-journey-list {
-  display: flex;
-  flex-direction: column;
-}
-.about-journey-item {
+.about-journey-grid {
   display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
-  padding: 20px 0;
-  border-top: 0.5px solid #e8e8e5;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
-[data-theme="dark"] .about-journey-item {
-  border-color: rgba(255,255,255,0.08);
-}
-.about-journey-item:last-child {
-  border-bottom: 0.5px solid #e8e8e5;
-}
-[data-theme="dark"] .about-journey-item:last-child {
-  border-color: rgba(255,255,255,0.08);
-}
-.about-journey-year {
-  font-size: 11px;
-  color: #bbb;
-  font-family: monospace;
-  padding-top: 4px;
-  line-height: 1.6;
-}
-.about-journey-header {
+.about-journey-card {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 10px;
+  gap: 16px;
+  padding: 20px;
+  background: var(--color-bg-secondary);
+  border-radius: 12px;
+  border: 0.5px solid var(--color-border);
 }
-.about-journey-logo {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-  border-radius: 8px;
+.about-journey-logo-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: #1a1a18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+  padding: 8px;
 }
-.about-journey-header > div {
+.about-journey-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.about-journey-card-body {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
+}
+.about-journey-period {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #285DC6;
 }
 .about-journey-company {
   font-family: 'Gabarito', Georgia, serif;
   font-size: 18px;
   font-weight: 900;
-  color: #111;
+  color: var(--color-text-primary);
   letter-spacing: -0.02em;
+  line-height: 1.1;
 }
-[data-theme="dark"] .about-journey-company {
-  color: #fff;
-}
-.about-journey-role {
+.about-journey-location {
   font-size: 12px;
-  color: #285DC6;
-  font-weight: 600;
+  color: var(--color-text-muted);
 }
-.about-journey-desc {
-  font-size: 13px;
-  color: #444;
-  line-height: 1.7;
-}
-[data-theme="dark"] .about-journey-desc {
-  color: rgba(255,255,255,0.65);
+@media (max-width: 768px) {
+  .about-journey-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-journey-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-journey-heading {
+    position: static;
+  }
 }
