@@ -36,38 +36,60 @@
       <div class="nav-center">
         <div class="nav-item nav-item--dropdown">
           <button class="nav-dropdown-trigger">Work</button>
-          <div class="nav-mega nav-mega--work">
-            <div class="nav-mega-left">
-              <div class="nav-mega-cat active" data-cat="work" onmouseenter="navSwitchCat('work')">Product Case Studies</div>
-              <a class="nav-mega-cat" href="/work/ai-explorations.html" onmouseenter="navSwitchCat('ai')">AI Explorations</a>
-              <a class="nav-mega-cat" href="/work/photography.html" onmouseenter="navSwitchCat('photo')">Photography</a>
-            </div>
-            <div class="nav-mega-mid" id="navMegaMid">
-              <a class="nav-cs-item" href="/work/chefkart-2.html" onmouseenter="navShowThumb('chefkart2')" onmouseleave="navHideThumb()">
-                <p class="nav-cs-title">Redesigning the cook experience</p>
-                <p class="nav-cs-meta">ChefKart · 2023</p>
+          <div class="nav-mega">
+            <div class="nav-mega-links">
+              <a class="nav-mega-item active" href="/work/chefkart-2.html" data-card="work-0" onmouseenter="navExpandCS(true)">
+                <div class="nav-mega-text">
+                  <p class="nav-mega-title">Product Case Studies</p>
+                  <p class="nav-mega-desc">End-to-end design for fintech & consumer</p>
+                </div>
               </a>
-              <a class="nav-cs-item" href="/work/chefkart-1.html" onmouseenter="navShowThumb('chefkart1')" onmouseleave="navHideThumb()">
-                <p class="nav-cs-title">Home screen that drives every booking</p>
-                <p class="nav-cs-meta">ChefKart · 2023</p>
+              <a class="nav-mega-item" href="/work/ai-explorations.html" data-card="work-1" onmouseenter="navExpandCS(false); navShowCard('work-1')">
+                <div class="nav-mega-text">
+                  <p class="nav-mega-title">AI Explorations</p>
+                  <p class="nav-mega-desc">Design at the intersection of AI & product</p>
+                </div>
               </a>
-              <a class="nav-cs-item" href="/work/syfe.html" onmouseenter="navShowThumb('syfe')" onmouseleave="navHideThumb()">
-                <p class="nav-cs-title">Designing wealth for everyday investors</p>
-                <p class="nav-cs-meta">Syfe · 2022</p>
-              </a>
-              <a class="nav-cs-item" href="/work/bharatpe.html" onmouseenter="navShowThumb('bharatpe')" onmouseleave="navHideThumb()">
-                <p class="nav-cs-title">Design system that scaled payments</p>
-                <p class="nav-cs-meta">BharatPe · 2023</p>
+              <a class="nav-mega-item" href="/work/photography.html" data-card="work-2" onmouseenter="navExpandCS(false); navShowCard('work-2')">
+                <div class="nav-mega-text">
+                  <p class="nav-mega-title">Photography</p>
+                  <p class="nav-mega-desc">Two years behind the lens</p>
+                </div>
               </a>
             </div>
-            <div class="nav-mega-right">
-              <div class="nav-thumb-area" id="navThumbArea">
-                <img class="nav-thumb active" id="nav-thumb-chefkart2" src="/images/work/chefkart-2-cover.png" alt="ChefKart Partner App" />
-                <img class="nav-thumb" id="nav-thumb-chefkart1" src="/images/work/chefkart-1-cover.png" alt="ChefKart Customer App" />
-                <img class="nav-thumb" id="nav-thumb-syfe" src="/images/work/syfe-cover.png" alt="Syfe" />
-                <img class="nav-thumb" id="nav-thumb-bharatpe" src="/images/work/bharatpe-cover.png" alt="BharatPe" />
-                <img class="nav-thumb" id="nav-thumb-ai" src="/images/photography/photo-1.jpg" alt="AI Explorations" />
-                <img class="nav-thumb" id="nav-thumb-photo" src="/images/photography/photo-1.jpg" alt="Photography" />
+            <div class="nav-mega-card-panel">
+              <div class="nav-cs-panel" id="navCsPanel">
+                <a class="nav-cs-item" href="/work/chefkart-2.html">
+                  <p class="nav-cs-title">Redesigning the cook experience</p>
+                  <p class="nav-cs-meta">ChefKart · 2023</p>
+                </a>
+                <a class="nav-cs-item" href="/work/chefkart-1.html">
+                  <p class="nav-cs-title">Home screen that drives every booking</p>
+                  <p class="nav-cs-meta">ChefKart · 2023</p>
+                </a>
+                <a class="nav-cs-item" href="/work/syfe.html">
+                  <p class="nav-cs-title">Designing wealth for everyday investors</p>
+                  <p class="nav-cs-meta">Syfe · 2022</p>
+                </a>
+                <a class="nav-cs-item" href="/work/bharatpe.html">
+                  <p class="nav-cs-title">Design system that scaled payments</p>
+                  <p class="nav-cs-meta">BharatPe · 2023</p>
+                </a>
+              </div>
+              <div class="nav-card-item active" data-card-id="work-0">
+                <div class="nav-card-img"><img src="/images/work/chefkart-2-cover.png" alt="Product case studies" /></div>
+                <p class="nav-card-title">Syfe · BharatPe · ChefKart</p>
+                <p class="nav-card-desc">End-to-end product design across fintech and consumer apps.</p>
+              </div>
+              <div class="nav-card-item" data-card-id="work-1">
+                <div class="nav-card-img"><img src="/images/photography/photo-1.jpg" alt="AI explorations" /></div>
+                <p class="nav-card-title">AI × Design</p>
+                <p class="nav-card-desc">Experiments at the intersection of AI and product thinking.</p>
+              </div>
+              <div class="nav-card-item" data-card-id="work-2">
+                <div class="nav-card-img"><img src="/images/photography/photo-1.jpg" alt="Photography" /></div>
+                <p class="nav-card-title">Through the Lens</p>
+                <p class="nav-card-desc">Stillness, people, light. Seeing what most walk past.</p>
               </div>
             </div>
           </div>
@@ -514,45 +536,22 @@
   }
   </script>
   <script>
-  var navCurrentThumb = null;
+  function navExpandCS(expand) {
+    var panel = document.getElementById('navCsPanel');
+    if (!panel) return;
+    if (expand) {
+      panel.classList.add('open');
+    } else {
+      panel.classList.remove('open');
+    }
+  }
 
-  function navSwitchCat(cat) {
-    document.querySelectorAll('.nav-mega-cat').forEach(function(el) {
+  function navShowCard(cardId) {
+    document.querySelectorAll('.nav-card-item').forEach(function(el) {
       el.classList.remove('active');
     });
-    var mid = document.getElementById('navMegaMid');
-    if (cat === 'work') {
-      document.querySelector('[data-cat="work"]').classList.add('active');
-      mid.classList.add('open');
-      navHideThumb();
-    } else {
-      mid.classList.remove('open');
-      navShowThumb(cat);
-    }
-  }
-
-  function navShowThumb(id) {
-    if (navCurrentThumb) {
-      document.getElementById('nav-thumb-' + navCurrentThumb).classList.remove('active');
-    }
-    navCurrentThumb = id;
-    document.getElementById('nav-thumb-' + id).classList.add('active');
-    document.getElementById('navThumbArea').classList.add('visible');
-  }
-
-  function navHideThumb() {
-    document.getElementById('navThumbArea').classList.remove('visible');
-    if (navCurrentThumb) {
-      document.getElementById('nav-thumb-' + navCurrentThumb).classList.remove('active');
-      navCurrentThumb = null;
-    }
-  }
-
-  var workMega = document.querySelector('.nav-mega--work');
-  if (workMega) {
-    workMega.addEventListener('mouseenter', function() {
-      navSwitchCat('work');
-    });
+    var target = document.querySelector('[data-card-id="' + cardId + '"]');
+    if (target) target.classList.add('active');
   }
   </script>
 </body>
