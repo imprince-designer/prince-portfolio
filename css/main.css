@@ -1854,7 +1854,10 @@ footer {
   transition: background var(--duration-fast) var(--ease-out);
 }
 .nav-cs-item:hover {
-  background: var(--color-background-secondary);
+  background: #D4E4F7;
+}
+[data-theme="dark"] .nav-cs-item:hover {
+  background: rgba(40,93,198,0.2);
 }
 .nav-cs-title {
   font-size: 12px;
