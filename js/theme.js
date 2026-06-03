@@ -41,7 +41,7 @@ function closeDrawer() {
 // Page transitions
 document.querySelectorAll('a[href]').forEach(link => {
   const href = link.getAttribute('href');
-  if (!href || href.startsWith('#') || href.startsWith('/#') || href.startsWith('mailto') || href.startsWith('http') || href.startsWith('tel')) return;
+  if (!href || href.startsWith('#') || href.startsWith('/#') || href.includes('#') || href.startsWith('mailto') || href.startsWith('http') || href.startsWith('tel')) return;
   link.addEventListener('click', e => {
     e.preventDefault();
     document.body.classList.add('page-exit');
