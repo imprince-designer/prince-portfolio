@@ -14,6 +14,30 @@
 </head>
 <body>
 
+<!-- Mobile Gate -->
+<div id="mobile-gate" style="display:none; position:fixed; inset:0; z-index:99999; background:#111110; flex-direction:column; align-items:center; justify-content:center; padding:3rem 2rem; box-sizing:border-box;">
+  <div style="position:absolute; top:2.5rem; left:50%; transform:translateX(-50%); font-family:'Satoshi',sans-serif; font-size:11px; letter-spacing:0.12em; color:rgba(250,250,248,0.25); text-transform:uppercase; white-space:nowrap;">Prince Kumar</div>
+  <p style="font-family:Georgia,serif; font-size:clamp(18px,5vw,24px); font-weight:400; color:#FAFAF8; line-height:1.55; text-align:center; letter-spacing:-0.01em; margin:0 0 2rem;">The work here is meant to be felt, not just seen.</p>
+  <div style="width:32px; height:1px; background:rgba(250,250,248,0.15); margin:0 auto 2rem;"></div>
+  <p style="font-family:'Satoshi',sans-serif; font-size:11px; color:rgba(250,250,248,0.28); letter-spacing:0.08em; text-align:center; text-transform:uppercase; margin:0;">Desktop gets you there.</p>
+</div>
+<script>
+  (function() {
+    var gate = document.getElementById('mobile-gate');
+    function check() {
+      if (window.innerWidth <= 1024) {
+        gate.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      } else {
+        gate.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+    check();
+    window.addEventListener('resize', check);
+  })();
+</script>
+
   <div class="cursor" id="cursor"></div>
 
   <nav class="cs-page-nav" id="csPageNav" aria-label="Page sections"></nav>
