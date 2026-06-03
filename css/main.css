@@ -2859,17 +2859,6 @@ body {
   position: relative;
   z-index: 2;
 }
-.photo-card {
-  border-radius: 8px;
-  animation: fadeUp 0.6s ease forwards;
-  opacity: 0;
-}
-.photo-card-1 { height: 140px; background: #1a3a5c; animation-delay: 0.1s; }
-.photo-card-2 { height: 100px; background: #2d1b4e; animation-delay: 0.2s; }
-.photo-card-3 { height: 120px; background: #1a3a2c; animation-delay: 0.3s; }
-.photo-card-4 { height: 100px; background: #3a2a1a; animation-delay: 0.4s; }
-.photo-card-5 { height: 140px; background: #1a2a4a; animation-delay: 0.5s; }
-.photo-card-6 { height: 120px; background: #2a1a3a; animation-delay: 0.6s; }
 @keyframes fadeUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
 
 .ai-grid { position: relative; width: 380px; height: 380px; }
