@@ -5,7 +5,7 @@
   if (sessionStorage.getItem('introSeen')) {
     document.body.style.overflow = 'auto';
     const nav = document.getElementById('nav');
-    if (nav) nav.style.visibility = 'visible';
+    if (nav) { nav.style.visibility = 'visible'; nav.classList.add('nav-slide-down'); }
     const heroIntro = document.getElementById('heroIntro');
     if (heroIntro) heroIntro.style.display = 'none';
     const loader = document.getElementById('loader');
@@ -27,6 +27,8 @@
     document.body.classList.remove('intro-phase');
     return;
   }
+  var chatWidget = document.getElementById('ai-widget');
+  if (chatWidget) chatWidget.style.display = 'none';
   sessionStorage.setItem('introSeen', 'true');
 
   // Lock scroll and hide nav + chatbot while intro is active
@@ -305,8 +307,13 @@
         section.style.display = 'none';
         document.body.style.overflow = 'auto';
         const nav = document.querySelector('nav') || document.getElementById('nav');
-        if (nav) { nav.style.pointerEvents = 'auto'; nav.style.visibility = 'visible'; }
+        if (nav) {
+          nav.style.pointerEvents = 'auto';
+          nav.style.visibility = 'visible';
+          setTimeout(function() { nav.classList.add('nav-slide-down'); }, 50);
+        }
         document.body.classList.remove('intro-phase');
+        document.dispatchEvent(new Event('introComplete'));
         window.scrollTo(0, 0);
         const chatWidget = document.getElementById('ai-widget');
         if (chatWidget) chatWidget.style.display = '';

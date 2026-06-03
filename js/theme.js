@@ -41,7 +41,7 @@ function closeDrawer() {
 // Page transitions
 document.querySelectorAll('a[href]').forEach(link => {
   const href = link.getAttribute('href');
-  if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('http') || href.startsWith('tel')) return;
+  if (!href || href.startsWith('#') || href.startsWith('/#') || href.startsWith('mailto') || href.startsWith('http') || href.startsWith('tel')) return;
   link.addEventListener('click', e => {
     e.preventDefault();
     document.body.classList.add('page-exit');
@@ -63,26 +63,29 @@ document.querySelectorAll('.nav-item--dropdown').forEach(function(item) {
   mega.addEventListener('mouseleave', close);
 });
 
-// Mega dropdown card switching
-document.querySelectorAll('.nav-mega-item').forEach(item => {
-  item.addEventListener('mouseenter', () => {
-    const cardId = item.getAttribute('data-card');
+// Mega dropdown thumbnail switching
+document.querySelectorAll('.nav-mega-item').forEach(function(item) {
+  item.addEventListener('mouseenter', function() {
+    const cardId = this.getAttribute('data-card');
     if (!cardId) return;
-    const mega = item.closest('.nav-mega');
-    // Update active link
-    mega.querySelectorAll('.nav-mega-item').forEach(i => i.classList.remove('active'));
-    item.classList.add('active');
-    // Update active card
-    mega.querySelectorAll('.nav-card-item').forEach(card => {
-      card.classList.remove('active');
-      card.style.position = 'absolute';
-      card.style.opacity = '0';
-    });
-    const activeCard = mega.querySelector(`[data-card-id="${cardId}"]`);
-    if (activeCard) {
-      activeCard.classList.add('active');
-      activeCard.style.position = 'relative';
-      activeCard.style.opacity = '1';
+    const mega = this.closest('.nav-mega');
+    mega.querySelectorAll('.nav-mega-item').forEach(function(i) { i.classList.remove('active'); });
+    this.classList.add('active');
+    mega.querySelectorAll('.nav-thumb-item').forEach(function(t) { t.classList.remove('active'); });
+    const thumb = mega.querySelector('[data-thumb="' + cardId + '"]');
+    if (thumb) thumb.classList.add('active');
+  });
+});
+
+// Product Case Studies — smooth scroll to #work on homepage
+document.querySelectorAll('a.nav-mega-item[href="/#work"]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+      e.preventDefault();
+      const target = document.querySelector('#work');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      const dropdown = document.querySelector('.nav-item--dropdown');
+      if (dropdown) dropdown.classList.remove('is-open');
     }
   });
 });
