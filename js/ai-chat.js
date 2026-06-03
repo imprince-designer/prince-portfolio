@@ -97,15 +97,16 @@ function buildWidget() {
       </div>
     </div>
   `;
+  applyWidgetStyles();
   if (!document.body.classList.contains('intro-phase')) {
     document.body.appendChild(widget);
+    bindEvents();
   } else {
     document.addEventListener('introComplete', function() {
       document.body.appendChild(widget);
+      bindEvents();
     });
   }
-  applyWidgetStyles();
-  bindEvents();
 }
 
 function applyWidgetStyles() {
