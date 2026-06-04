@@ -356,8 +356,6 @@ function applyWidgetStyles() {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 12px;
-      position: relative;
     }
 
     /* === TOGGLE PILL === */
@@ -407,10 +405,9 @@ function applyWidgetStyles() {
 
     /* === PANEL === */
     #ai-panel {
-      position: absolute;
-      bottom: calc(100% + 12px);
-      right: 0;
-      margin-bottom: 0;
+      position: fixed;
+      bottom: 88px;
+      right: 32px;
       display: none;
       flex-direction: column;
       width: 360px;
