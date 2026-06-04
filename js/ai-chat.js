@@ -24,11 +24,11 @@ const kb = {
     {
       id: 'syfe',
       keywords: ["syfe", "singapore", "wealth", "advisory", "digital advisory", "rebalancing", "accredited", "withdrawal", "ai buddy", "portfolio", "investment"],
-      answer: (name) => `${name ? `Great question, ${name}! ` : ''}At Syfe — a Singapore-based wealth platform — I led design on three major 0-to-1 initiatives:
+      answer: (name) => `${name ? `Great question, ${name}! ` : ''}At Syfe - a Singapore-based wealth platform - I led design on three major 0-to-1 initiatives:
 
-1. **AI-powered Digital Advisory** — a smart portfolio platform that drove a 22% increase in portfolio rebalancing.
-2. **Withdrawal Journey for Accredited Investors** — redesigned the full flow, cutting support tickets by 40%.
-3. **Syfe AI Buddy** — a conversational investment interface that boosted investment activity by 35%.
+1. **AI-powered Digital Advisory** - a smart portfolio platform that drove a 22% increase in portfolio rebalancing.
+2. **Withdrawal Journey for Accredited Investors** - redesigned the full flow, cutting support tickets by 40%.
+3. **Syfe AI Buddy** - a conversational investment interface that boosted investment activity by 35%.
 
 All three were built from scratch. Want to dig into any one of them?`,
       link: '/work/syfe.html',
@@ -39,12 +39,12 @@ All three were built from scratch. Want to dig into any one of them?`,
     {
       id: 'bharatpe',
       keywords: ["bharatpe", "bharat pe", "merchant", "upi", "mutual fund", "credit line", "emi", "tpap", "onboarding", "fintech", "india"],
-      answer: (name) => `${name ? `Sure, ${name}! ` : ''}BharatPe is one of India's largest merchant fintech platforms — 100M+ merchants. Here's what I shipped there:
+      answer: (name) => `${name ? `Sure, ${name}! ` : ''}BharatPe is one of India's largest merchant fintech platforms - 100M+ merchants. Here's what I shipped there:
 
-1. **0-to-1 Mutual Funds Platform** — 15,000 investors in the first 2 weeks.
-2. **Credit Line on UPI** — featured at Global Fintech Fest 2025.
-3. **Auto EMI Card** — grew subscriptions 10x through redesign.
-4. **TPAP Onboarding** — cut completion time from 12 minutes to 5 minutes.
+1. **0-to-1 Mutual Funds Platform** - 15,000 investors in the first 2 weeks.
+2. **Credit Line on UPI** - featured at Global Fintech Fest 2025.
+3. **Auto EMI Card** - grew subscriptions 10x through redesign.
+4. **TPAP Onboarding** - cut completion time from 12 minutes to 5 minutes.
 
 Big scale, real impact.`,
       link: '/work/bharatpe.html',
@@ -55,7 +55,7 @@ Big scale, real impact.`,
     {
       id: 'chefkart',
       keywords: ["chefkart", "chef", "food", "cook", "consumer", "founding", "dau", "partner app", "research"],
-      answer: (name) => `${name ? `Oh, ChefKart is a good one, ${name}! ` : ''}ChefKart is where I was the founding designer — employee #1 on design. I built the design practice from nothing:
+      answer: (name) => `${name ? `Oh, ChefKart is a good one, ${name}! ` : ''}ChefKart is where I was the founding designer - employee #1 on design. I built the design practice from nothing:
 
 - Scaled the customer app to **50K+ DAU**
 - Grew the website to **100K+ DAU**
@@ -71,7 +71,7 @@ It's the project that shaped how I think about design at scale.`,
     {
       id: 'deckrooster',
       keywords: ["deckrooster", "deck rooster", "australia", "pitch deck", "startup", "presentation"],
-      answer: (name) => `${name ? `Nice, ${name}! ` : ''}Deckrooster was an Australia-based startup focused on pitch decks and presentation design. It's where I got deep exposure to B2B design and storytelling through decks — a very different muscle than product design, and one I'm glad I built.`,
+      answer: (name) => `${name ? `Nice, ${name}! ` : ''}Deckrooster was an Australia-based startup focused on pitch decks and presentation design. It's where I got deep exposure to B2B design and storytelling through decks - a very different muscle than product design, and one I'm glad I built.`,
       link: null
     },
 
@@ -79,7 +79,7 @@ It's the project that shaped how I think about design at scale.`,
     {
       id: 'photography',
       keywords: ["photo", "photography", "camera", "pexels", "shoot", "lens", "street", "portrait"],
-      answer: (name) => `${name ? `Love that you asked, ${name}! ` : ''}Photography is a decade-long parallel practice. I shoot people, streets, stillness — mostly in India. My work is on Pexels and it's directly shaped how I approach design: composition, hierarchy, what deserves attention and what doesn't.
+      answer: (name) => `${name ? `Love that you asked, ${name}! ` : ''}Photography is a decade-long parallel practice. I shoot people, streets, stillness - mostly in India. My work is on Pexels and it's directly shaped how I approach design: composition, hierarchy, what deserves attention and what doesn't.
 
 It's not a hobby. It's the other half of how I see.`,
       link: '/work/photography.html',
@@ -108,12 +108,12 @@ I mentor designers on breaking into product design, career transitions, portfoli
       keywords: ["ai", "artificial intelligence", "llm", "conversational", "buddy", "ai native", "ai design", "chatbot", "claude"],
       answer: (name) => `${name ? `Great question, ${name}! ` : ''}AI-native UX is where I've invested deeply:
 
-- Designed **Syfe AI Buddy** — a conversational portfolio interface
+- Designed **Syfe AI Buddy** - a conversational portfolio interface
 - Built the **AI-powered Digital Advisory** platform at Syfe
 - Using AI as a design and build tool (this portfolio was built with Claude)
 - This very widget you're talking to is part of my AI explorations
 
-I'm particularly interested in how AI changes the shape of interaction — not just adding a chatbot, but rethinking flows entirely.`,
+I'm particularly interested in how AI changes the shape of interaction - not just adding a chatbot, but rethinking flows entirely.`,
       link: '/work/ai-explorations.html',
       linkLabel: 'See AI explorations'
     },
@@ -126,7 +126,7 @@ I'm particularly interested in how AI changes the shape of interaction — not j
 
 "Not every design problem needs a design solution." Sometimes the answer is a better conversation, a simpler system, or just saying no.
 
-I care about decisions more than deliverables. The artefact is the output — the thinking is the work. I try to work at the intersection of rigour and instinct, and I get uncomfortable when design is just styling.`,
+I care about decisions more than deliverables. The artefact is the output - the thinking is the work. I try to work at the intersection of rigour and instinct, and I get uncomfortable when design is just styling.`,
       link: null
     },
 
@@ -136,7 +136,7 @@ I care about decisions more than deliverables. The artefact is the output — th
       keywords: ["skill", "tool", "figma", "design system", "framer", "adobe", "code", "stack", "software"],
       answer: (name) => `${name ? `Sure ${name}! ` : ''}Core skills: interaction design, financial UX, design systems, mobile-first thinking, research.
 
-Tools: Figma, Figma Make, Claude Code, Framer, Adobe suite. Increasingly, I'm building in code — this entire portfolio is hand-coded in HTML, CSS and Vanilla JS. No frameworks.`,
+Tools: Figma, Figma Make, Claude Code, Framer, Adobe suite. Increasingly, I'm building in code - this entire portfolio is hand-coded in HTML, CSS and Vanilla JS. No frameworks.`,
       link: null
     },
 
@@ -146,7 +146,7 @@ Tools: Figma, Figma Make, Claude Code, Framer, Adobe suite. Increasingly, I'm bu
       keywords: ["experience", "years", "background", "career", "work history", "resume", "cv", "senior"],
       answer: (name) => `${name ? `${name}, ` : ''}6+ years across fintech and consumer products. The trail: ChefKart (founding designer) → Deckrooster (Australia) → Syfe (Singapore) → BharatPe (India). Senior Product Designer across all of it.
 
-I specialise in end-to-end product design — from research and strategy through to shipped product — with a growing edge in AI-native product experiences.`,
+I specialise in end-to-end product design - from research and strategy through to shipped product - with a growing edge in AI-native product experiences.`,
       link: null
     },
 
@@ -171,11 +171,11 @@ I specialise in end-to-end product design — from research and strategy through
     {
       id: 'hire',
       keywords: ["available", "hire", "job", "open", "freelance", "contact", "reach", "email", "opportunity", "role", "position"],
-      answer: (name) => `${name ? `${name}, ` : ''}yes — open to senior product design roles in fintech, consumer apps or AI products. Available immediately. Based in Gurugram, India, but open to remote globally.
+      answer: (name) => `${name ? `${name}, ` : ''}yes - open to senior product design roles in fintech, consumer apps or AI products. Available immediately. Based in Gurugram, India, but open to remote globally.
 
 Best way to reach out: **prince.design10@gmail.com**
 
-Or just browse the case studies — the work speaks for itself.`,
+Or just browse the case studies - the work speaks for itself.`,
       link: null
     },
 
@@ -183,7 +183,7 @@ Or just browse the case studies — the work speaks for itself.`,
     {
       id: 'education',
       keywords: ["education", "nift", "degree", "study", "college", "university", "bachelor", "graduate"],
-      answer: (name) => `${name ? `${name}, ` : ''}studied at **NIFT** — National Institute of Fashion Technology — graduating with a Bachelor of Design in 2020. Design thinking, craft and systems thinking were baked in from day one. It's a strong foundation for a product design career.`,
+      answer: (name) => `${name ? `${name}, ` : ''}studied at **NIFT** - National Institute of Fashion Technology - graduating with a Bachelor of Design in 2020. Design thinking, craft and systems thinking were baked in from day one. It's a strong foundation for a product design career.`,
       link: null
     },
 
@@ -191,7 +191,7 @@ Or just browse the case studies — the work speaks for itself.`,
     {
       id: 'portfolio',
       keywords: ["this", "website", "portfolio", "site", "built", "code", "html", "css", "javascript", "how was this made"],
-      answer: (name) => `${name ? `Good eye, ${name}! ` : ''}This portfolio was designed and built entirely in code — pure HTML, CSS, and Vanilla JS. No frameworks, no Webflow, no templates.
+      answer: (name) => `${name ? `Good eye, ${name}! ` : ''}This portfolio was designed and built entirely in code - pure HTML, CSS, and Vanilla JS. No frameworks, no Webflow, no templates.
 
 I built it from scratch as a designer who wanted to learn to ship. Claude was my co-pilot throughout. It has a cinematic intro, 3D photo carousel, AI chat (hi 👋), dark mode, and more.
 
@@ -207,13 +207,13 @@ It's live proof that the best designers today can both design and build.`,
 
 He's known for 0-to-1 product thinking, strong design systems, and a growing edge in AI-native experiences. Outside of work: photographer, mentor, and the person who built this entire site by hand.
 
-I'm his portfolio buddy — ask me anything.`,
+I'm his portfolio buddy - ask me anything.`,
       link: null
     },
 
   ],
 
-  fallback: (name) => `${name ? `Hmm ${name}, ` : 'Hmm, '}that's one I'd rather Prince answer directly. Drop him a line at **prince.design10@gmail.com** — he's good at responding. Or browse the case studies above for the full picture.`
+  fallback: (name) => `${name ? `Hmm ${name}, ` : 'Hmm, '}that's one I'd rather Prince answer directly. Drop him a line at **prince.design10@gmail.com** - he's good at responding. Or browse the case studies above for the full picture.`
 };
 
 // ---- MATCHING ENGINE --------------------------------------
@@ -307,7 +307,7 @@ function buildWidget() {
 
       <div id="ai-messages">
         <div class="ai-msg ai-msg--bot">
-          Hey there 👋 I'm Prince's portfolio buddy — think of me as his hype person who actually knows the work. Before we dive in, what's your name?
+          Hey there 👋 I'm Prince's portfolio buddy - think of me as his hype person who actually knows the work. Before we dive in, what's your name?
         </div>
       </div>
 
@@ -703,7 +703,7 @@ function bindEvents() {
         suggestions.style.display = 'flex';
         input.placeholder = `Ask me anything, ${visitorName}...`;
 
-        addBotMessage(`Nice to meet you, ${visitorName}! 🙌 What would you like to know about Prince — his projects, his process, or whether he's available?`, null, null);
+        addBotMessage(`Nice to meet you, ${visitorName}! 🙌 What would you like to know about Prince - his projects, his process, or whether he's available?`, null, null);
       } else {
         // Log to Formspree
         logToSheets(val);
