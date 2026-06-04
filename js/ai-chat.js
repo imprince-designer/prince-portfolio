@@ -363,7 +363,7 @@ function applyWidgetStyles() {
       display: flex;
       align-items: center;
       gap: 10px;
-      background: var(--color-text-primary, #111110);
+      background: #2C2C34;
       color: var(--color-bg, #FAFAF8);
       padding: 10px 18px 10px 12px;
       border-radius: 100px;
@@ -447,7 +447,7 @@ function applyWidgetStyles() {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: var(--color-text-primary, #111110);
+      background: #2C2C34;
       color: var(--color-bg, #FAFAF8);
       display: flex;
       align-items: center;
@@ -526,7 +526,7 @@ function applyWidgetStyles() {
       border-bottom-left-radius: 4px;
     }
     .ai-msg--user {
-      background: var(--color-text-primary, #111110);
+      background: #2C2C34;
       color: var(--color-bg, #FAFAF8);
       align-self: flex-end;
       border-bottom-right-radius: 4px;
@@ -626,7 +626,7 @@ function applyWidgetStyles() {
       width: 36px;
       height: 36px;
       border-radius: 10px;
-      background: var(--color-text-primary, #111110);
+      background: #2C2C34;
       color: var(--color-bg, #FAFAF8);
       border: none;
       cursor: pointer;
