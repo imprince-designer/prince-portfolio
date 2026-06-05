@@ -171,12 +171,13 @@ I specialise in end-to-end product design - from research and strategy through t
     {
       id: 'hire',
       keywords: ["available", "hire", "job", "open", "freelance", "contact", "reach", "email", "opportunity", "role", "position"],
-      answer: (name) => `${name ? `${name}, ` : ''}yes - open to senior product design roles in fintech, consumer apps or AI products. Available immediately. Based in Gurugram, India, but open to remote globally.
+      answer: (name) => `${name ? `${name}, ` : ''}Prince is currently open to Senior/Lead product design opportunities. He works across fintech, consumer, and AI products and considers the strength of the problem and team more important than industry or geography.
 
-Best way to reach out: **prince.design10@gmail.com**
+He is based in Gurugram, India, and is open to remote roles globally or relocation if required.
 
-Or just browse the case studies - the work speaks for itself.`,
-      link: null
+You can reach him at **prince.design10@gmail.com** or on LinkedIn at linkedin.com/in/kprince838`,
+      link: 'https://www.linkedin.com/in/kprince838/',
+      linkLabel: 'Connect on LinkedIn'
     },
 
     // --- EDUCATION ---
