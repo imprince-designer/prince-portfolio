@@ -4,6 +4,8 @@
 // visitor name collection, and Google Sheets logging.
 // ============================================================
 
+const SHOW_WHATSAPP = true;
+
 // ---- FORMSPREE CONFIG --------------------------------------
 const FORMSPREE_URL = 'https://formspree.io/f/xykaynlo';
 // -----------------------------------------------------------
@@ -274,13 +276,13 @@ function buildWidget() {
   widget.id = 'ai-widget';
   widget.innerHTML = `
     <div id="ai-toggle" aria-label="Chat with Prince's portfolio buddy">
-      <div id="ai-toggle-avatar">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
+      <div id="ai-bubble">Have questions about Prince's work? I'm here.</div>
+      <div id="ai-emoji-pill">
+        <div id="ai-emoji-part"><span id="ai-emoji-inner">👋</span></div>
+        <div id="ai-pill-part">
+          <span id="ai-pill-text">Ask about my work</span>
+        </div>
       </div>
-      <span id="ai-toggle-label">Ask about my work</span>
-      <div id="ai-toggle-dot"></div>
     </div>
 
     <div id="ai-panel">
@@ -293,10 +295,6 @@ function buildWidget() {
           </div>
           <div>
             <div id="ai-header-name">Prince's Buddy</div>
-            <div id="ai-header-status">
-              <span id="ai-status-dot"></span>
-              Online
-            </div>
           </div>
         </div>
         <button id="ai-close" aria-label="Close">
@@ -327,6 +325,14 @@ function buildWidget() {
           </svg>
         </button>
       </div>
+      ${SHOW_WHATSAPP ? `
+      <div id="ai-whatsapp">
+        <a href="#" onclick="window.open('https://wa.me/917004908335?text=Hi%20Prince%2C%20I%20found%20you%20through%20your%20portfolio%20and%20wanted%20to%20connect.','whatsapp','width=500,height=700,left=100,top=100'); return false;" id="ai-whatsapp-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Ping me here!
+        </a>
+      </div>
+      ` : ''}
     </div>
   `;
 
@@ -335,10 +341,12 @@ function buildWidget() {
   if (!document.body.classList.contains('intro-phase')) {
     document.body.appendChild(widget);
     bindEvents();
+    runIntroAnimation();
   } else {
     document.addEventListener('introComplete', () => {
       document.body.appendChild(widget);
       bindEvents();
+      runIntroAnimation();
     });
   }
 }
@@ -359,47 +367,94 @@ function applyWidgetStyles() {
       align-items: flex-end;
     }
 
-    /* === TOGGLE PILL === */
+    /* === TOGGLE === */
     #ai-toggle {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #2C2C34;
-      color: var(--color-bg, #FAFAF8);
-      padding: 10px 18px 10px 12px;
-      border-radius: 100px;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0;
       cursor: pointer;
-      font-size: 13px;
-      font-weight: 500;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15), 0 1px 4px rgba(0,0,0,0.1);
-      transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 220ms ease;
+      position: relative;
+    }
+    #ai-bubble {
+      background: #2C2C34;
+      color: #fff;
+      border-radius: 14px 14px 14px 14px;
+      padding: 10px 14px;
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 240px;
+      margin-bottom: 8px;
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+      transform-origin: bottom right;
+      position: relative;
+      font-family: var(--font-sans);
+      pointer-events: none;
+    }
+    #ai-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      right: 20px;
+      width: 12px;
+      height: 8px;
+      background: #2C2C34;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+    #ai-emoji-pill {
+      display: inline-flex;
+      align-items: center;
+      background: #2C2C34;
+      border-radius: 100px;
+      overflow: hidden;
+      height: 48px;
+      padding: 0 4px 0 4px;
+      opacity: 0;
+      transform: scale(0.8);
+      transform-origin: bottom right;
       user-select: none;
-      letter-spacing: -0.01em;
     }
-    #ai-toggle:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-    }
-    #ai-toggle-avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.15);
+    #ai-emoji-part {
+      width: 40px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      font-size: 22px;
     }
-    #ai-toggle-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #4ade80;
-      flex-shrink: 0;
-      box-shadow: 0 0 0 2px rgba(74,222,128,0.3);
-      animation: pulse-dot 2s ease infinite;
+    #ai-emoji-inner {
+      display: inline-block;
+      transform-origin: 70% 80%;
     }
-    @keyframes pulse-dot {
+    #ai-pill-part {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-right: 14px;
+      padding-left: 2px;
+      max-width: 0;
+      overflow: hidden;
+      opacity: 0;
+      white-space: nowrap;
+    }
+    #ai-pill-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      font-family: var(--font-sans);
+    }
+    @keyframes wave-hand {
+      0% { transform: rotate(0deg); }
+      15% { transform: rotate(22deg); }
+      30% { transform: rotate(-8deg); }
+      45% { transform: rotate(20deg); }
+      60% { transform: rotate(-5deg); }
+      75% { transform: rotate(14deg); }
+      100% { transform: rotate(0deg); }
+    }
+    @keyframes dot-glow {
       0%, 100% { box-shadow: 0 0 0 2px rgba(74,222,128,0.3); }
       50% { box-shadow: 0 0 0 5px rgba(74,222,128,0.1); }
     }
@@ -460,21 +515,6 @@ function applyWidgetStyles() {
       font-weight: 600;
       color: var(--color-text-primary, #111110);
       letter-spacing: -0.01em;
-    }
-    #ai-header-status {
-      font-size: 11px;
-      color: var(--color-text-muted, #888);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 1px;
-    }
-    #ai-status-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #4ade80;
-      display: inline-block;
     }
     #ai-close {
       width: 28px;
@@ -648,6 +688,74 @@ function applyWidgetStyles() {
     }
   `;
   document.head.appendChild(style);
+
+  if (SHOW_WHATSAPP) {
+    style.textContent += `
+      #ai-whatsapp {
+        padding: 10px 14px;
+        border-top: 1px solid var(--color-border);
+        text-align: center;
+      }
+      #ai-whatsapp-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #25D366;
+        text-decoration: none;
+        font-family: var(--font-sans);
+        transition: opacity 150ms ease;
+      }
+      #ai-whatsapp-link:hover { opacity: 0.8; }
+    `;
+  }
+}
+
+// ---- INTRO ANIMATION --------------------------------------
+function runIntroAnimation() {
+  const bubble    = document.getElementById('ai-bubble');
+  const emojiPill = document.getElementById('ai-emoji-pill');
+  const pillPart  = document.getElementById('ai-pill-part');
+  const emojiInner = document.getElementById('ai-emoji-inner');
+
+  // Step 1 - emoji circle pops in
+  setTimeout(() => {
+    emojiPill.style.transition = 'opacity 0.4s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
+    emojiPill.style.opacity = '1';
+    emojiPill.style.transform = 'scale(1)';
+  }, 800);
+
+  // Step 2 - wave
+  setTimeout(() => {
+    emojiInner.style.animation = 'wave-hand 0.9s ease-in-out';
+  }, 1400);
+
+  // Step 3 - bubble rises
+  setTimeout(() => {
+    bubble.style.transition = 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
+    bubble.style.opacity = '1';
+    bubble.style.transform = 'translateY(0) scale(1)';
+  }, 2400);
+
+  // Step 4 - wave again
+  setTimeout(() => {
+    emojiInner.style.animation = 'wave-hand 0.9s ease-in-out';
+  }, 3200);
+
+  // Step 5 - bubble fades
+  setTimeout(() => {
+    bubble.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+    bubble.style.opacity = '0';
+    bubble.style.transform = 'translateY(6px) scale(0.95)';
+  }, 4200);
+
+  // Step 6 - pill expands from emoji circle
+  setTimeout(() => {
+    pillPart.style.transition = 'max-width 0.55s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease';
+    pillPart.style.maxWidth = '220px';
+    pillPart.style.opacity = '1';
+  }, 4500);
 }
 
 // ---- BIND EVENTS ------------------------------------------
@@ -659,6 +767,17 @@ function bindEvents() {
   const send        = document.getElementById('ai-send');
   const messages    = document.getElementById('ai-messages');
   const suggestions = document.getElementById('ai-suggestions');
+
+  // Hover wave on emoji
+  const emojiInner = document.getElementById('ai-emoji-inner');
+  toggle.addEventListener('mouseenter', () => {
+    emojiInner.style.animation = 'none';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        emojiInner.style.animation = 'wave-hand 0.9s ease-in-out';
+      });
+    });
+  });
 
   // Toggle panel open/close
   toggle.addEventListener('click', () => {
