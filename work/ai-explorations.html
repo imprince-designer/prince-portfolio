@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XVLN334EM6"></script>
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/tokens.css" />
   <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/case-study.css" />
+  <link rel="stylesheet" href="../css/ai-explorations.css?v=2" />
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
@@ -30,8 +30,9 @@
 <script>
   (function() {
     var gate = document.getElementById('mobile-gate');
+    var isLocalDev = /^(localhost|127\.0\.0\.1|192\.168\.|10\.)/.test(window.location.hostname);
     function check() {
-      if (window.innerWidth <= 1024) {
+      if (!isLocalDev && window.innerWidth <= 1024) {
         gate.style.display = 'flex';
         document.body.style.overflow = 'hidden';
       } else {
@@ -138,6 +139,13 @@
             </div>
           </div>
         </div>
+
+        <div class="nav-item">
+          <a href="../Resume_Prince Kumar_2026.pdf"
+             target="_blank"
+             class="nav-dropdown-trigger"
+             style="text-decoration:none;">Resume</a>
+        </div>
       </div>
 
       <div class="nav-right">
@@ -158,27 +166,116 @@
   </nav>
 
   <div class="page-wrapper">
-    <section class="coming-hero ai-hero" id="aiHero">
-      <div class="coming-inner">
-        <div class="coming-eyebrow">AI Explorations</div>
-        <h1 class="coming-title">Something interesting<br>is being brewed.</h1>
-        <p class="coming-body">Experiments at the intersection of design and AI. Conversational interfaces, LLM-native products, and ideas that don't fit anywhere else. Coming soon.</p>
-        <div class="coming-actions">
-          <a href="https://www.linkedin.com/in/kprince838/" target="_blank" class="coming-btn-primary">Follow the journey</a>
+
+  <!-- EXPERIMENTS CANVAS -->
+  <section class="ai-canvas-section">
+    <div class="ai-canvas-viewport" id="aiCanvasViewport">
+      <div class="ai-canvas-spotlight" id="aiCanvasSpotlight"></div>
+      <div class="ai-canvas" id="aiCanvas">
+
+        <div class="ai-card ai-card--active ai-card--pos-1" id="aiActiveCard" tabindex="0">
+          <div class="ai-card-chrome">
+            <span class="ai-card-dot" aria-hidden="true"></span>
+            <span class="ai-card-dot" aria-hidden="true"></span>
+            <span class="ai-card-dot" aria-hidden="true"></span>
+          </div>
+          <div class="ai-card-body">
+            <div class="ai-card-identity">
+              <div class="ai-card-avatar" aria-hidden="true">
+                <span class="ai-card-avatar-glass-wrap">
+                  <span class="ai-card-avatar-glass"></span>
+                </span>
+              </div>
+              <div class="ai-card-identity-text">
+                <h3 class="ai-card-title">Autonomous job search agent</h3>
+                <p class="ai-card-status">Live<span class="ai-card-cursor" aria-hidden="true"></span></p>
+              </div>
+            </div>
+            <p class="ai-card-sub">Checks company career pages and job boards twice a day, filters out anything using skills, and ranks new matches using AI so I only see what's worth applying.</p>
+            <p class="ai-card-date">Jul 2026</p>
+          </div>
+        </div>
+
+        <div class="ai-card ai-card--idea ai-card--pos-2">
+          <div class="ai-card-chrome">
+            <span class="ai-card-dot" aria-hidden="true"></span>
+            <span class="ai-card-dot" aria-hidden="true"></span>
+            <span class="ai-card-dot" aria-hidden="true"></span>
+          </div>
+          <div class="ai-card-body">
+            <div class="ai-card-identity">
+              <div class="ai-card-avatar ai-card-avatar--idle" aria-hidden="true">
+                <span class="ai-card-avatar-glass-wrap">
+                  <span class="ai-card-avatar-glass"></span>
+                </span>
+              </div>
+              <div class="ai-card-identity-text">
+                <h3 class="ai-card-title ai-card-title--muted">New idea</h3>
+                <p class="ai-card-status">queued</p>
+              </div>
+            </div>
+            <p class="ai-card-sub ai-card-sub--muted">Details coming soon</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="ai-drag-hint" id="aiDragHint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20"/></svg>
+        <span>Drag cards, or drag the canvas</span>
+      </div>
+    </div>
+
+    <div class="ai-card-list">
+      <div class="ai-card ai-card--active" tabindex="0">
+        <div class="ai-card-chrome">
+          <span class="ai-card-dot" aria-hidden="true"></span>
+          <span class="ai-card-dot" aria-hidden="true"></span>
+          <span class="ai-card-dot" aria-hidden="true"></span>
+        </div>
+        <div class="ai-card-body">
+          <div class="ai-card-identity">
+            <div class="ai-card-avatar" aria-hidden="true">
+              <span class="ai-card-avatar-glass-wrap">
+                <span class="ai-card-avatar-glass"></span>
+              </span>
+            </div>
+            <div class="ai-card-identity-text">
+              <h3 class="ai-card-title">Autonomous job search agent</h3>
+              <p class="ai-card-status">Live<span class="ai-card-cursor" aria-hidden="true"></span></p>
+            </div>
+          </div>
+          <p class="ai-card-sub">Checks company career pages and job boards twice a day, filters out anything using skills, and ranks new matches using AI so I only see what's worth applying.</p>
+          <p class="ai-card-date">Jul 2026</p>
         </div>
       </div>
-      <div class="coming-visual ai-visual">
-        <div class="ai-grid">
-          <div class="ai-node ai-node-1"><span>Design</span></div>
-          <div class="ai-node ai-node-2"><span>LLM</span></div>
-          <div class="ai-node ai-node-3"><span>Intent</span></div>
-          <div class="ai-node ai-node-4"><span>Context</span></div>
-          <div class="ai-node ai-node-5"><span>Flow</span></div>
-          <div class="ai-node ai-node-6"><span>Trust</span></div>
-          <div class="ai-pulse"></div>
+
+      <div class="ai-card ai-card--idea">
+        <div class="ai-card-chrome">
+          <span class="ai-card-dot" aria-hidden="true"></span>
+          <span class="ai-card-dot" aria-hidden="true"></span>
+          <span class="ai-card-dot" aria-hidden="true"></span>
+        </div>
+        <div class="ai-card-body">
+          <div class="ai-card-identity">
+            <div class="ai-card-avatar ai-card-avatar--idle" aria-hidden="true">
+              <span class="ai-card-avatar-glass-wrap">
+                <span class="ai-card-avatar-glass"></span>
+              </span>
+            </div>
+            <div class="ai-card-identity-text">
+              <h3 class="ai-card-title ai-card-title--muted">New idea</h3>
+              <p class="ai-card-status">queued</p>
+            </div>
+          </div>
+          <p class="ai-card-sub ai-card-sub--muted">Details coming soon</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <p class="ai-watermark">What I build when I am not designing screens</p>
+
   </div><!-- /page-wrapper -->
 
   <div class="mobile-drawer" id="mobileDrawer">
@@ -207,8 +304,81 @@
   </div>
   <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
 
+  <div class="ai-dialog-overlay" id="aiDialogOverlay">
+    <div class="ai-dialog" id="aiDialog" role="dialog" aria-modal="true" aria-labelledby="aiDialogTitle">
+      <button type="button" class="ai-dialog-close" id="aiDialogClose" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="ai-dialog-body" id="aiDialogBody">
+        <div class="ai-dialog-layout">
+          <div class="ai-dialog-text">
+            <div class="ai-dialog-meta">
+              <span class="ai-dialog-status">Live<span class="ai-card-cursor" aria-hidden="true"></span></span>
+              <span class="ai-dialog-date">Jul 2026</span>
+            </div>
+            <h2 id="aiDialogTitle" class="ai-dialog-title">Autonomous job search agent</h2>
+            <div class="ai-dialog-section">
+              <ul class="ai-dialog-capabilities">
+                <li><svg class="ai-dialog-cap-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pulls live listings directly from company ATS platforms (Greenhouse, Lever, Ashby) and job boards (RemoteOK, Himalayas), not scraped, straight from the source</li>
+                <li><svg class="ai-dialog-cap-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tracks every listing it's already evaluated in a persistent database, so nothing repeats across runs</li>
+                <li><svg class="ai-dialog-cap-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Scores each new match against my resume using Gemini, returning a fit score and a specific reason, not a generic keyword overlap</li>
+                <li><svg class="ai-dialog-cap-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Runs autonomously on GitHub Actions, twice daily, with no manual trigger</li>
+              </ul>
+            </div>
+            <a class="ai-dialog-cta ai-dialog-cta--inline" href="https://github.com/imprince-designer/job-search-agent" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.49 2.87 8.3 6.84 9.65.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.61-3.37-1.19-3.37-1.19-.45-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.55 2.34 1.1 2.91.84.09-.66.35-1.1.63-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.35c.85 0 1.7.12 2.5.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.19C22 6.58 17.52 2 12 2z"/></svg>
+              View on GitHub
+            </a>
+          </div>
+          <div class="ai-dialog-media" aria-hidden="true">
+            <div class="ai-dialog-media-inner">
+              <div class="ai-term">
+                <div class="ai-term-line"><span class="ai-term-prompt">&gt;</span> discovering companies — remoteok + web search</div>
+                <div class="ai-term-line"><span class="ai-term-ok">✓</span> 47 companies tracked</div>
+                <div class="ai-term-line"><span class="ai-term-prompt">&gt;</span> scanning tier 1 — confirmed companies</div>
+                <div class="ai-term-line"><span class="ai-term-prompt">&gt;</span> scanning tier 2 — aggregators</div>
+                <div class="ai-term-line"><span class="ai-term-ok">✓</span> 3 new listings, 0 duplicates</div>
+                <div class="ai-term-line"><span class="ai-term-prompt">&gt;</span> scoring vs resume.pdf — gemini</div>
+                <div class="ai-term-line ai-term-result">senior product designer · ramp <span class="ai-term-score">— 91%</span></div>
+                <div class="ai-term-line ai-term-result">staff designer · vercel <span class="ai-term-score">— 74%</span></div>
+                <div class="ai-term-line"><span class="ai-term-ok">✓</span> dedup db saved · next run in 12h<span class="ai-term-cursor"></span></div>
+              </div>
+              <div class="ai-media-result">
+                <div class="ai-result-card">
+                  <div class="ai-result-top">
+                    <div class="ai-result-mark">R</div>
+                    <div class="ai-result-heading">
+                      <div class="ai-result-role">Senior Product Designer</div>
+                      <div class="ai-result-co">Ramp</div>
+                    </div>
+                    <span class="ai-result-pill">91% fit</span>
+                  </div>
+                  <p class="ai-result-why">Strong overlap in fintech UX and 0→1 systems work — closest match this run.</p>
+                  <span class="ai-result-time">scored just now</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ai-dialog-footer">
+        <a class="ai-dialog-cta ai-dialog-cta--fixed" href="https://github.com/imprince-designer/job-search-agent" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.49 2.87 8.3 6.84 9.65.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.61-3.37-1.19-3.37-1.19-.45-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.55 2.34 1.1 2.91.84.09-.66.35-1.1.63-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.35c.85 0 1.7.12 2.5.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.19C22 6.58 17.52 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script src="../js/theme.js"></script>
+  <script>
+    // This page always opens in dark mode, regardless of the visitor's
+    // saved site-wide theme preference. The toggle still works normally
+    // from here on and does not touch the global preference until clicked.
+    document.documentElement.setAttribute('data-theme', 'dark');
+  </script>
   <script src="../js/cursor.js"></script>
   <script src="../js/scroll.js"></script>
+  <script src="../js/ai-canvas.js"></script>
 </body>
 </html>
