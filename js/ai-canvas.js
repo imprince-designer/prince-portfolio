@@ -28,10 +28,10 @@
   var resultWhy = resultCard && resultCard.querySelector('.ai-result-why');
 
   var MATCHES = [
-    { mark: 'R', role: 'Senior Product Designer', co: 'Ramp', fit: '91%', why: 'Strong overlap in fintech UX and 0→1 systems work — closest match this run.' },
+    { mark: 'R', role: 'Senior Product Designer', co: 'Ramp', fit: '91%', why: 'Strong overlap in fintech UX and 0→1 systems work. Closest match this run.' },
     { mark: 'N', role: 'Product Designer', co: 'Notion', fit: '88%', why: 'Consumer-grade craft bar matches recent case studies closely.' },
     { mark: 'V', role: 'Staff Designer', co: 'Vercel', fit: '74%', why: 'Developer-tooling design experience, though seniority skews higher than usual.' },
-    { mark: 'B', role: 'Lead Product Designer', co: 'Brex', fit: '82%', why: 'Second fintech match this week — strong domain repeat.' }
+    { mark: 'B', role: 'Lead Product Designer', co: 'Brex', fit: '82%', why: 'Second fintech match this week, strong domain repeat.' }
   ];
 
   var MATCH_REVEAL_DELAY = 4300; // matches the CSS terminal-to-card handoff timing
