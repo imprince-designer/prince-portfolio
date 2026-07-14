@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
   <link rel="stylesheet" href="https://unpkg.com/embla-carousel/embla-carousel.css" />
 
   <!-- ANIMATION LIBRARIES -->
@@ -27,30 +28,6 @@
 </head>
 
 <body class="intro-phase">
-
-<!-- Mobile Gate -->
-<div id="mobile-gate" style="display:none; position:fixed; inset:0; z-index:99999; background:#111110; flex-direction:column; align-items:center; justify-content:center; padding:3rem 2rem; box-sizing:border-box;">
-  <div style="position:absolute; top:2.5rem; left:50%; transform:translateX(-50%); font-family:'Satoshi',sans-serif; font-size:11px; letter-spacing:0.12em; color:rgba(250,250,248,0.25); text-transform:uppercase; white-space:nowrap;">Prince Kumar</div>
-  <p style="font-family:Georgia,serif; font-size:clamp(18px,5vw,24px); font-weight:400; color:#FAFAF8; line-height:1.55; text-align:center; letter-spacing:-0.01em; margin:0 0 2rem;">The work here is meant to be felt, not just seen.</p>
-  <div style="width:32px; height:1px; background:rgba(250,250,248,0.15); margin:0 auto 2rem;"></div>
-  <p style="font-family:'Satoshi',sans-serif; font-size:11px; color:rgba(250,250,248,0.28); letter-spacing:0.08em; text-align:center; text-transform:uppercase; margin:0;">Desktop gets you there.</p>
-</div>
-<script>
-  (function() {
-    var gate = document.getElementById('mobile-gate');
-    function check() {
-      if (window.innerWidth <= 1024) {
-        gate.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      } else {
-        gate.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    }
-    check();
-    window.addEventListener('resize', check);
-  })();
-</script>
 
   <!-- CUSTOM CURSOR -->
   <div class="cursor" id="cursor"></div>
@@ -224,7 +201,7 @@
   </section>
 
   <!-- BELIEF BANNER -->
-  <section style="background:linear-gradient(135deg,#C92F65,#8c1a42);padding:80px 42px;text-align:center;margin:16px 48px 64px;border-radius:32px">
+  <section id="belief-banner" style="background:linear-gradient(135deg,#C92F65,#8c1a42);padding:80px 42px;text-align:center;margin:16px 48px 64px;border-radius:32px">
     <p style="font-family:'Gabarito',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;max-width:800px;margin:0 auto">I believe great design comes from strong communication and collaboration between teams and clients.</p>
   </section>
 
@@ -238,7 +215,8 @@
         <div class="company-row">
           <div class="company-left">
             <h2 class="company-name">Syfe</h2>
-            <p class="company-meta">Dec 2025 – Present<br>Singapore<br>Wealth Management</p>
+            <span class="company-location">Singapore</span>
+            <p class="company-meta">Dec 2025 – Present<br>Wealth Management</p>
             <span class="company-tag">Fintech</span>
           </div>
           <div class="company-right">
@@ -261,7 +239,8 @@
         <div class="company-row">
           <div class="company-left">
             <h2 class="company-name">BharatPe</h2>
-            <p class="company-meta">Oct 2024 – Dec 2025<br>Gurugram, India<br>Merchant Fintech</p>
+            <span class="company-location">India</span>
+            <p class="company-meta">Oct 2024 – Dec 2025<br>Merchant Fintech</p>
             <span class="company-tag">Fintech</span>
           </div>
           <div class="company-right">
@@ -284,7 +263,8 @@
         <div class="company-row">
           <div class="company-left">
             <h2 class="company-name">ChefKart</h2>
-            <p class="company-meta">Mar 2021 – Oct 2024<br>Gurugram, India<br>Consumer · Food Tech</p>
+            <span class="company-location">India</span>
+            <p class="company-meta">Mar 2021 – Oct 2024<br>Consumer · Food Tech</p>
             <span class="company-tag">Consumer</span>
           </div>
           <div class="company-right">
@@ -386,25 +366,25 @@
 
   <!-- MENTORSHIP -->
   <section class="mentorship-section" style="padding: 80px 24px 40px; background: var(--color-background-primary);">
-  <div style="max-width:1100px; margin:0 auto; background:#f2edeb; border-radius:20px; padding:3.5rem 3.5rem 4rem;">
+  <div class="mentorship-card" style="max-width:1100px; margin:0 auto; background:#f2edeb; border-radius:20px; padding:3.5rem 3.5rem 4rem;">
 
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;">
+    <div class="mentorship-top" style="display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;">
       <div>
         <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(17,17,16,0.4); margin-bottom:10px; font-family:var(--font-body);">Beyond the work</div>
         <div style="font-size:clamp(24px,3vw,32px); font-weight:700; color:#111110; line-height:1.25; font-family:var(--font-display);">Mentoring the next<br>generation of designers.</div>
       </div>
-      <div style="display:flex; gap:11px; align-items:center; flex-shrink:0;">
+      <div class="mentorship-badges" style="display:flex; gap:11px; align-items:center; flex-shrink:0;">
         <img src="/images/topmate-top1.png" alt="Top 1%" style="width:88px; height:88px; border-radius:18px; display:block; transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1); cursor:pointer;" onmouseenter="this.style.transform='translateY(-6px) scale(1.05)'" onmouseleave="this.style.transform='translateY(0) scale(1)'" />
         <img src="/images/topmate-peoples-choice.png" alt="People's Choice" style="width:88px; height:88px; border-radius:18px; display:block; transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1); cursor:pointer;" onmouseenter="this.style.transform='translateY(-6px) scale(1.05)'" onmouseleave="this.style.transform='translateY(0) scale(1)'" />
         <img src="/images/topmate-community-care.png" alt="Community Care" style="width:88px; height:88px; border-radius:18px; display:block; transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1); cursor:pointer;" onmouseenter="this.style.transform='translateY(-6px) scale(1.05)'" onmouseleave="this.style.transform='translateY(0) scale(1)'" />
       </div>
     </div>
 
-    <div style="height:0.5px; background:rgba(17,17,16,0.1); margin:2rem 0;"></div>
+    <div class="mentorship-divider" style="height:0.5px; background:rgba(17,17,16,0.1); margin:2rem 0;"></div>
 
-    <div style="display:flex; gap:2.5rem; align-items:center;">
+    <div class="mentorship-body" style="display:flex; gap:2.5rem; align-items:center;">
 
-      <div style="flex:1; min-width:0;">
+      <div class="mentorship-quote-col" style="flex:1; min-width:0;">
         <div id="mentorship-quote" style="font-size:18px; color:#111110; line-height:1.75; font-family:var(--font-body); transition:opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1); min-height:140px; display:flex; align-items:flex-start;">"I had an amazing session with Prince. He was very friendly and provided me with important tips on improving my resume, portfolio, and job search. He helped me create a plan for the coming days and filled me with confidence."</div>
         <div style="margin-top:10px; font-size:14px; color:rgba(17,17,16,0.45); font-family:var(--font-body); transition:opacity 0.4s ease;">
           <span id="mentorship-name" style="font-weight:600; color:#2C2C34;"></span>
@@ -413,9 +393,9 @@
         <div id="mentorship-dots" style="display:flex; gap:6px; margin-top:1.25rem;"></div>
       </div>
 
-      <div style="width:0; flex-shrink:0;"></div>
+      <div class="mentorship-spacer" style="width:0; flex-shrink:0;"></div>
 
-      <div style="flex:0 0 340px; display:flex; flex-direction:column;">
+      <div class="mentorship-stats" style="flex:0 0 340px; display:flex; flex-direction:column;">
         <div style="display:flex; flex:1;">
           <div style="padding:1.25rem; flex:1; text-align:center; border-bottom:0.5px solid rgba(17,17,16,0.1); display:flex; flex-direction:column; align-items:center; justify-content:center;">
             <div style="font-size:36px; font-weight:700; color:#2C2C34; line-height:1; font-family:var(--font-display);">32</div>
@@ -442,7 +422,7 @@
 
     </div>
 
-    <div style="text-align:center; margin-top:2rem; padding-top:20px;">
+    <div class="mentorship-cta" style="text-align:center; margin-top:2rem; padding-top:20px;">
       <a href="https://topmate.io/prince_kumar26" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:600; color:#fff; text-decoration:none; padding:12px 48px; border-radius:100px; background:#2C2C34; font-family:var(--font-body); transition:transform 0.2s ease, background 0.2s ease;" onmouseenter="this.style.background='#111110'; this.style.transform='translateY(-2px)'" onmouseleave="this.style.background='#2C2C34'; this.style.transform='translateY(0)'">View on Topmate</a>
     </div>
 
@@ -596,30 +576,53 @@
         </div>
       </div>
 
-      <div class="testimonials-progress" id="testimonialsDots">
-        <button class="testimonials-dot active"></button>
-        <button class="testimonials-dot"></button>
-        <button class="testimonials-dot"></button>
-        <button class="testimonials-dot"></button>
-        <button class="testimonials-dot"></button>
+      <div class="testimonials-signifiers">
+        <button class="testimonial-btn testimonial-btn--mobile" id="testimonialPrevMobile" aria-label="Previous">←</button>
+        <div class="testimonials-progress" id="testimonialsDots">
+          <button class="testimonials-dot active"></button>
+          <button class="testimonials-dot"></button>
+          <button class="testimonials-dot"></button>
+          <button class="testimonials-dot"></button>
+          <button class="testimonials-dot"></button>
+        </div>
+        <button class="testimonial-btn testimonial-btn--mobile" id="testimonialNextMobile" aria-label="Next">→</button>
       </div>
 
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <p class="footer-left">Designed & built by Prince · Powered by Claude</p>
-        <div class="footer-links">
-          <a href="mailto:prince.design10@gmail.com">Email</a>
-          <a href="https://www.linkedin.com/in/kprince838/" target="_blank">LinkedIn</a>
-          <a href="https://www.pexels.com/@prince-kumar-781937/" target="_blank">Pexels</a>
+  <section class="about-cta-new">
+    <div class="about-cta-new-inner">
+      <h2 class="about-cta-new-title">Whenever, wherever.<br>We're meant to work together.</h2>
+      <div class="about-cta-new-bottom">
+        <div class="about-cta-new-left">
+          <p class="about-cta-new-label">Contact me for full-time jobs, freelance projects, design advice or just to say hello</p>
+        </div>
+        <div class="about-cta-new-right">
+          <p class="about-cta-new-desc">I have an inbox zero rule so I'll see your message for sure and I'll reply with at least one smiley. I promise.</p>
         </div>
       </div>
+      <div class="about-cta-new-links">
+        <a href="mailto:prince.design10@gmail.com" class="about-cta-new-icon" aria-label="Email">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/kprince838/" target="_blank" class="about-cta-new-icon" aria-label="LinkedIn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </a>
+        <a href="/Resume_Prince Kumar_2026.pdf" target="_blank" class="about-cta-new-icon" aria-label="Resume">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </a>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <div class="about-claude-sig">
+    <div class="about-claude-sig-inner">
+      <div class="about-claude-divider"></div>
+      <p class="about-claude-line">This portfolio was</p>
+      <p class="about-claude-statement">Designed, built & shipped entirely with <span>Claude.</span></p>
+    </div>
+  </div>
 
   </div><!-- /page-wrapper -->
 
@@ -634,9 +637,9 @@
       <div class="mobile-drawer-nav">
         <div class="mobile-drawer-section">
           <p class="mobile-drawer-label">Work</p>
-          <a href="/work/syfe.html" class="mobile-drawer-link">Product Case Studies</a>
+          <a href="/#work" class="mobile-drawer-link">Product Case Studies</a>
           <a href="/work/ai-explorations.html" class="mobile-drawer-link">AI Explorations</a>
-          <a href="/work/photography.html" class="mobile-drawer-link">Photography</a>
+          <a href="/work/photography.html" class="mobile-drawer-link">Photography - Through My Lens</a>
         </div>
         <div class="mobile-drawer-section">
           <p class="mobile-drawer-label">About</p>

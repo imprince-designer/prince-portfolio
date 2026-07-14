@@ -21,7 +21,10 @@ const S0 = 1.0, S1 = 0.80, S2 = 0.64;
 const GAP = 12;
 
 function getW(card) {
-  return card.classList.contains('portrait') ? 270 : 580;
+  // Read the actual rendered width instead of hardcoding desktop's
+  // 270/580 — this way it's correct at whatever size the CSS media
+  // queries currently give the card (mobile included).
+  return card.offsetWidth;
 }
 
 function positionCards() {
@@ -117,6 +120,15 @@ stage.addEventListener('mouseenter', () => clearInterval(auto));
 stage.addEventListener('mouseleave', () => { auto = setInterval(goNext, 4500); });
 [document.getElementById('photoNext'), document.getElementById('photoPrev')].forEach(btn => {
   btn.addEventListener('click', () => { clearInterval(auto); auto = setInterval(goNext, 4500); });
+});
+
+/* Re-run positioning on resize/orientation change, since card widths
+   (and therefore all the coverflow offsets) depend on the current
+   breakpoint. */
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(positionCards, 150);
 });
 
 /* Init */

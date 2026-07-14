@@ -362,6 +362,7 @@
   .cs-stat-item { border-right: none; border-bottom: 1px solid var(--color-border); }
   .cs-stat-item:last-child { border-bottom: none; }
   .cs-next-label { font-size: 18px; }
+  .cs-next { padding: 40px 0; }
 }
 
 @media (max-width: 480px) {
@@ -980,15 +981,95 @@
   max-width: 560px;
 }
 
+/* Static paragraph replaces the scrolling ticker on mobile — a marquee
+   asks someone to wait through a loop to read it, which doesn't fit a
+   phone visit. Hidden on desktop, where the ticker stays as-is. */
+.cs-hmw-static {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .cs-carousel-img { height: 180px; }
   .cs-carousel-portrait  { width: 130px; }
   .cs-carousel-landscape { width: 260px; }
   .cs-carousel-square    { width: 180px; }
-  .cs-research-findings { grid-template-columns: 1fr 1fr; gap: 0; }
-  .cs-research-finding { border-bottom: 1px solid var(--color-border); }
-  .cs-research-finding:nth-child(2n) { border-right: none; padding-right: 0; }
-  .cs-research-finding:nth-child(n+3) { border-bottom: none; }
+  /* Cross-divider grid: border-top/border-left are applied by grid
+     position (nth-child), not by a single element spanning both rows —
+     each line sits flush against its own cell's grid boundary, so it
+     stays correctly aligned even though row 1 and row 2 have different
+     content heights. gap:0 + padding (instead of a gap value) keeps the
+     lines touching, forming one continuous cross rather than dashed
+     segments with a visible break at the gap. */
+  .cs-research-findings {
+    grid-template-columns: 1fr 1fr;
+    /* !important required — chefkart-2.html has an inline
+       style="gap: 0 32px" on this element, which otherwise beats this
+       class rule regardless of media query and leaves a 32px horizontal
+       gap that breaks the cross-divider alignment. */
+    gap: 0 !important;
+  }
+  .cs-research-finding {
+    padding: var(--space-6) 24px;
+    border-left: none;
+    border-top: none;
+  }
+  .cs-research-finding:nth-child(-n+2) {
+    padding-top: 0;
+  }
+  .cs-research-finding:nth-child(2n+1) {
+    padding-left: 0;
+  }
+  .cs-research-finding:nth-child(2n) {
+    border-left: 1px solid var(--color-border);
+  }
+  .cs-research-finding:nth-child(n+3) {
+    border-top: 1px solid var(--color-border);
+  }
+  /* .cs-screens-section and .cs-media-break both had --space-24 (96px)
+     horizontal padding, unconditional, with no mobile override at all —
+     on a 375px phone that alone left ~183px for the whole 2-column
+     screens grid or the 16:9 media frame. */
+  .cs-screens-section {
+    padding: var(--space-8) 20px var(--space-12);
+  }
+  .cs-media-break {
+    padding: var(--space-8) 20px;
+  }
+  .cs-hmw-section {
+    padding: var(--space-12) 0;
+  }
+  /* Scrolling ticker replaced by the static paragraph below — a marquee
+     that loops every few seconds isn't something a mobile visitor will
+     wait around to finish reading. */
+  .cs-hmw-ticker-outer {
+    display: none;
+  }
+  /* The eyebrow now lives inside .cs-hmw-static instead, so it shares
+     the same background band as the question — hiding the original
+     standalone copy here to avoid showing it twice. */
+  .cs-hmw-eyebrow-outer {
+    display: none;
+  }
+  .cs-hmw-static {
+    display: block;
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .cs-hmw-static-eyebrow {
+    margin-bottom: 16px;
+  }
+  .cs-hmw-static-text {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 6vw, 32px);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    text-align: center;
+    margin: 0;
+  }
 }
 
 /* --- USER TESTING SECTION --- */
@@ -1127,6 +1208,13 @@
   margin-top: 24px;
 }
 
+/* Duplicate nav shown right after the device on mobile instead of at the
+   bottom of the text block — hidden on desktop, where the original
+   .cs-ut-nav inside .cs-ut-detail is the only one shown. */
+.cs-ut-nav-mobile {
+  display: none;
+}
+
 .cs-ut-arrow {
   width: 40px;
   height: 40px;
@@ -1158,12 +1246,76 @@
 }
 
 @media (max-width: 768px) {
+  /* #testing's own padding-bottom (--space-24, 96px) has higher
+     specificity than .cs-section's general mobile padding reduction, so
+     it wasn't getting caught by that — stacked with #impact's own top
+     padding right after it, that was ~144px of blank space between the
+     last testing round and the Impact headline. Tightened further plus
+     #impact's own top padding below — a divider now marks the section
+     break, so the gap doesn't need to do that job by itself anymore. */
+  #testing {
+    padding-bottom: 16px;
+  }
+  #impact {
+    padding-top: 16px;
+  }
+  /* Scoped to the divider added between Testing and Impact specifically —
+     .cs-section-rule is reused after several other headings on this page
+     and its normal 24px margin-bottom is still needed there. */
+  .cs-section-divider {
+    margin-bottom: 0;
+  }
   .cs-ut-panel {
     grid-template-columns: 1fr;
+    /* 32px (desktop's column-gap) becomes a row-gap once this stacks to
+       a single column — on top of .cs-ut-screen's own ~45px of internal
+       dead space below the device (see height note below) and
+       .cs-ut-nav-mobile's own margin, that stacked up to a large gap
+       between the device and the arrows underneath it. */
+    gap: 12px;
+  }
+  .cs-ut-screen {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    /* 520px (desktop's value) is taller than the device actually
+       renders at this scale (~475px visual height — see the margin-left
+       comment below for how that number is derived), leaving dead space
+       at the bottom of this container before the arrows even start.
+       Tightened to match. */
+    height: 480px;
+    overflow: hidden;
   }
   .cs-ut-screen .cs-screen-frame {
     max-width: 240px;
     margin: 0 auto;
+  }
+  /* Root cause, confirmed against the actual marvel-devices.css source:
+     .marvel-device.iphone-x is 375x812px with 26px padding on
+     content-box sizing, so its real *layout* box is 427x864px — but
+     transform:scale() only shrinks the *visual* rendering, not that
+     layout box. Every previous attempt (flex centering, margin:auto,
+     align-items) was trying to center the full 427px-wide layout box in
+     a 300px container, which was never going to land the visual
+     content in the middle. Fix: pin transform-origin to a known,
+     fixed point (top left, overriding the inline top-center) and
+     compute the exact margin-left needed to center the scaled result:
+     (300 - 427*0.55) / 2 ≈ 32.6px. */
+  .cs-ut-screen .marvel-device {
+    transform-origin: top left !important;
+    margin-left: 32.6px;
+  }
+  .cs-ut-nav {
+    display: none;
+  }
+  .cs-ut-nav-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    /* top spacing now comes entirely from .cs-ut-panel's 12px gap above
+       — this used to add its own 16px on top of that, double-spacing it. */
+    margin: 0 0 24px;
   }
 }
 
@@ -1551,10 +1703,16 @@
   letter-spacing: 0.08em;
 }
 
+.cs-design-mobile {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .cs-masonry-motion {
-    grid-template-columns: repeat(2, 1fr);
-    height: 500px;
+  /* #design has an inline style="padding: var(--space-24) 0" (96px top
+     and bottom, confirmed via inspector) — needs !important, a class
+     selector can't beat an inline style otherwise. */
+  #design {
+    padding: 32px 0 !important;
   }
 }
 
@@ -1593,6 +1751,26 @@
     black 88%,
     transparent 100%
   );
+}
+
+@media (max-width: 768px) {
+  /* Both rules below must be scoped as .cs-design-frame .cs-masonry-motion
+     / .cs-design-frame, matching the base rules' compound-selector
+     specificity, and placed after them in source order — a plain
+     .cs-masonry-motion (lower specificity) or a copy positioned earlier
+     both silently lose regardless of the media query. This is why the
+     "2-column mobile" version was never actually rendering: it was
+     always losing to the 3-column desktop rule above, with the full
+     48px padding and 192px width reduction intact. */
+  .cs-design-frame {
+    width: calc(100% - 40px);
+  }
+  .cs-design-frame .cs-masonry-motion {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    height: 460px;
+    padding: 16px;
+  }
 }
 
 /* --- LEARNINGS SECTION --- */
@@ -1734,6 +1912,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
+  margin-bottom: 16px;
 }
 
 .cs-next-cursor-thumb {
@@ -1888,4 +2067,131 @@
 .cs-nda-cta-sub { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 8px; }
 .cs-nda-cta-btn { background: #285DC6; color: #fff; border: none; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; text-decoration: none; display: inline-block; }
 .cs-nda-cta-btn:hover { background: #1e4fa8; }
+
+@media (max-width: 768px) {
+  /* This whole block never had mobile coverage — .cs-nda-inner alone was
+     96px of padding on each side (--space-24), leaving ~183px of usable
+     width on a 375px phone before anything else is even accounted for. */
+  .cs-nda-screen {
+    padding: var(--space-16) 0;
+  }
+  .cs-nda-inner {
+    padding: 0 24px;
+  }
+  .cs-nda-title {
+    margin-bottom: 16px;
+  }
+  .cs-nda-rule {
+    margin: 32px 0;
+  }
+  .cs-nda-two-col {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  .cs-nda-metrics {
+    margin-bottom: 40px;
+    /* Rotated back cards extend further than translateX alone accounts
+       for — a rotated rectangle's bounding box grows on both axes, so
+       padding math alone can't fully guarantee no overflow. This clips
+       it at the container edge as a hard safety net instead of letting
+       it push the page into horizontal scroll. Both axes are set
+       together deliberately — overflow-x alone makes browsers coerce
+       overflow-y to auto (can't mix visible with non-visible per spec),
+       which turned this into an unwanted vertical scroll container. */
+    overflow: hidden;
+  }
+  .cs-nda-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .cs-nda-metric-card {
+    padding: 20px;
+  }
+  .cs-nda-metric-num {
+    font-size: 36px;
+  }
+  .cs-nda-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
+    gap: 20px;
+  }
+  .cs-nda-cta-title {
+    font-size: 22px;
+  }
+  .cs-nda-cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* --- IMPACT SECTION: LAYERED PEEK DECK (mobile only) ---
+   Desktop keeps the plain .cs-nda-metrics-grid untouched. On mobile the
+   grid is swapped out for this interactive fan-of-cards, built by JS
+   (see bharatpe.html) into #ndaPeekStage. */
+.cs-nda-peek-stage {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Only hide the grid where a peek deck actually exists to replace it —
+     otherwise pages without the new markup lose their Impact cards with
+     nothing to show in their place. */
+  .cs-nda-metrics:has(.cs-nda-peek-stage) .cs-nda-metrics-grid {
+    display: none;
+  }
+  .cs-nda-peek-stage {
+    display: block;
+    position: relative;
+    /* Taller than the card itself, on purpose — the fan needs vertical
+       room to actually spread into, otherwise the back cards have
+       nowhere to peek out to and just hide behind the front one. */
+    height: 260px;
+    padding: 20px 30px;
+    touch-action: pan-y;
+  }
+  .cs-nda-peek-card {
+    position: absolute;
+    /* Not edge-to-edge on purpose, and notably shorter than the stage
+       (35px top/bottom instead of the stage's own edges) — a rotated
+       rectangle's height grows by roughly height*sin(angle), so a
+       shorter card grows less and needs far less margin to stay clear
+       of the overflow:hidden clip. Tuning the offset numbers alone
+       wasn't reliable; shrinking the card itself is the direct fix. */
+    top: 35px;
+    bottom: 35px;
+    left: 13%;
+    right: 13%;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    color: #F0EEE9;
+    cursor: grab;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+  }
+  .cs-nda-peek-card:active {
+    cursor: grabbing;
+  }
+  .cs-nda-peek-num {
+    font-family: var(--font-display, inherit);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .cs-nda-peek-lbl {
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    max-width: 85%;
+  }
+}
 

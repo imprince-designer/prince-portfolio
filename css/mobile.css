@@ -1,0 +1,132 @@
+/* ===========================================
+   PRINCE PORTFOLIO — MOBILE STYLES
+   Loaded only on screens max-width: 768px
+   Desktop (main.css) is never affected
+   =========================================== */
+
+/* --- HERO --- */
+#hiReveal {
+  padding: calc(var(--nav-height) + 40px) 24px 40px !important;
+  min-height: unset !important;
+  justify-content: flex-start !important;
+}
+
+#hiReveal h1 {
+  max-width: 100% !important;
+  margin: 0 0 16px !important;
+  text-align: center !important;
+}
+
+#hiReveal h1 br {
+  display: none !important;
+}
+
+#hiReveal h1 mark {
+  padding: 0 3px !important;
+}
+
+/* --- BELIEF BANNER --- */
+#belief-banner {
+  display: none !important;
+}
+
+/* --- WORK SECTION --- */
+.company-left {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  margin-bottom: 8px !important;
+  flex-wrap: nowrap !important;
+}
+
+.company-name {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+.company-location {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #797979 !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+.company-location::before {
+  content: "· " !important;
+}
+
+.company-meta {
+  display: none !important;
+}
+
+.company-tag {
+  display: none !important;
+}
+
+.company-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 24px 0 !important;
+}
+
+/* --- MENTORSHIP --- */
+/* This section is entirely inline-styled, so these classes exist only to
+   give mobile.css something to target — desktop keeps its exact inline
+   look untouched, since this stylesheet never loads there. */
+.mentorship-section {
+  padding: 48px 20px 24px !important;
+}
+
+.mentorship-card {
+  padding: 2rem 1.5rem 2.25rem !important;
+  border-radius: 16px !important;
+}
+
+.mentorship-top {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 1.25rem !important;
+}
+
+.mentorship-badges img {
+  width: 56px !important;
+  height: 56px !important;
+}
+
+.mentorship-divider {
+  margin: 1.5rem 0 !important;
+}
+
+.mentorship-body {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 1.75rem !important;
+}
+
+#mentorship-quote {
+  font-size: 16px !important;
+  min-height: unset !important;
+}
+
+.mentorship-spacer {
+  display: none !important;
+}
+
+.mentorship-stats {
+  flex: none !important;
+  width: 100% !important;
+}
+
+.mentorship-cta a {
+  display: flex !important;
+  width: 100% !important;
+  justify-content: center !important;
+  padding: 14px 24px !important;
+  box-sizing: border-box !important;
+}

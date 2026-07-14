@@ -22,30 +22,6 @@
 </head>
 <body>
 
-<!-- Mobile Gate -->
-<div id="mobile-gate" style="display:none; position:fixed; inset:0; z-index:99999; background:#111110; flex-direction:column; align-items:center; justify-content:center; padding:3rem 2rem; box-sizing:border-box;">
-  <div style="position:absolute; top:2.5rem; left:50%; transform:translateX(-50%); font-family:'Satoshi',sans-serif; font-size:11px; letter-spacing:0.12em; color:rgba(250,250,248,0.25); text-transform:uppercase; white-space:nowrap;">Prince Kumar</div>
-  <p style="font-family:Georgia,serif; font-size:clamp(18px,5vw,24px); font-weight:400; color:#FAFAF8; line-height:1.55; text-align:center; letter-spacing:-0.01em; margin:0 0 2rem;">The work here is meant to be felt, not just seen.</p>
-  <div style="width:32px; height:1px; background:rgba(250,250,248,0.15); margin:0 auto 2rem;"></div>
-  <p style="font-family:'Satoshi',sans-serif; font-size:11px; color:rgba(250,250,248,0.28); letter-spacing:0.08em; text-align:center; text-transform:uppercase; margin:0;">Desktop gets you there.</p>
-</div>
-<script>
-  (function() {
-    var gate = document.getElementById('mobile-gate');
-    function check() {
-      if (window.innerWidth <= 1024) {
-        gate.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      } else {
-        gate.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    }
-    check();
-    window.addEventListener('resize', check);
-  })();
-</script>
-
   <div class="cursor" id="cursor"></div>
 
   <nav class="cs-page-nav" id="csPageNav" aria-label="Page sections" style="display:none;"></nav>
@@ -218,6 +194,8 @@
 
       <div class="cs-nda-metrics">
         <p class="cs-nda-label">Impact</p>
+
+        <!-- Desktop: plain grid, unchanged -->
         <div class="cs-nda-metrics-grid">
           <div class="cs-nda-metric-card">
             <div class="cs-nda-metric-num">20%</div>
@@ -228,15 +206,9 @@
             <div class="cs-nda-metric-label">Reduction in support tickets post investment maturity</div>
           </div>
         </div>
-      </div>
 
-      <div class="cs-nda-cta">
-        <div class="cs-nda-cta-left">
-          <p class="cs-nda-cta-eyebrow">Want to see the full case study?</p>
-          <h2 class="cs-nda-cta-title">Let's get on a call</h2>
-          <p class="cs-nda-cta-sub">I'm happy to walk you through the process, decisions and designs.</p>
-        </div>
-        <a href="https://www.linkedin.com/in/kprince838/" target="_blank" class="cs-nda-cta-btn">Let's connect</a>
+        <!-- Mobile: layered peek deck -->
+        <div class="cs-nda-peek-stage" id="ndaPeekStage"></div>
       </div>
 
     </div>
@@ -421,7 +393,7 @@
     <div class="container">
       <p class="cs-eyebrow" style="text-align: center; color: #E85D3A; margin-bottom: var(--space-6);">The Question That Drove Everything</p>
     </div>
-    <div style="padding: 0 var(--space-24);">
+    <div class="cs-hmw-ticker-outer" style="padding: 0 var(--space-24);">
       <div class="cs-hmw-ticker-wrap">
         <div class="cs-hmw-ticker-track" id="hmwTrack">
           <span class="cs-hmw-ticker-item">How might we redesign the Partner App so a cook who has never used a smartphone app can onboard and take their first booking — without any help? <span class="cs-hmw-diamond">✦</span></span>
@@ -616,27 +588,55 @@
   <!-- NEXT -->
   <section class="cs-next">
     <div class="container">
-      <a href="bharatpe.html" class="cs-next-link reveal" id="nextProjectLink">
-        <div style="display:flex; flex-direction:column; gap:4px;">
-          <p class="cs-next-label-sm">Next Case Study</p>
-          <span class="cs-next-label">BharatPe — Designer Tools</span>
+      <p class="cs-next-label-sm">Next Case Study</p>
+      <a href="bharatpe.html" class="case-card reveal" id="nextProjectLink">
+        <div class="case-img" style="background:#0d2137;">
+          <span class="case-nda">Under NDA</span>
+          <img src="../images/work/bharatpe-cover.png" alt="BharatPe" />
         </div>
-        <span class="cs-next-arrow">→</span>
+        <div class="case-body">
+          <div class="case-body-text">
+            <p class="case-title">How do you design for 100 million merchants who've never used a bank app?</p>
+            <span class="case-year">2024–2025</span>
+          </div>
+          <span class="case-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
+        </div>
       </a>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <p class="footer-left">Designed & built by Prince · Powered by Claude</p>
-        <div class="footer-links">
-          <a href="mailto:prince.design10@gmail.com">Email</a>
-          <a href="https://www.linkedin.com/in/kprince838/" target="_blank">LinkedIn</a>
+  <section class="about-cta-new">
+    <div class="about-cta-new-inner">
+      <h2 class="about-cta-new-title">Whenever, wherever.<br>We're meant to work together.</h2>
+      <div class="about-cta-new-bottom">
+        <div class="about-cta-new-left">
+          <p class="about-cta-new-label">Contact me for full-time jobs, freelance projects, design advice or just to say hello</p>
+        </div>
+        <div class="about-cta-new-right">
+          <p class="about-cta-new-desc">I have an inbox zero rule so I'll see your message for sure and I'll reply with at least one smiley. I promise.</p>
         </div>
       </div>
+      <div class="about-cta-new-links">
+        <a href="mailto:prince.design10@gmail.com" class="about-cta-new-icon" aria-label="Email">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/kprince838/" target="_blank" class="about-cta-new-icon" aria-label="LinkedIn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </a>
+        <a href="/Resume_Prince Kumar_2026.pdf" target="_blank" class="about-cta-new-icon" aria-label="Resume">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </a>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <div class="about-claude-sig">
+    <div class="about-claude-sig-inner">
+      <div class="about-claude-divider"></div>
+      <p class="about-claude-line">This portfolio was</p>
+      <p class="about-claude-statement">Designed, built & shipped entirely with <span>Claude.</span></p>
+    </div>
+  </div>
 
   </div><!-- /page-wrapper -->
 
@@ -651,9 +651,9 @@
       <div class="mobile-drawer-nav">
         <div class="mobile-drawer-section">
           <p class="mobile-drawer-label">Work</p>
-          <a href="../work/syfe.html" class="mobile-drawer-link">Product Case Studies</a>
+          <a href="/#work" class="mobile-drawer-link">Product Case Studies</a>
           <a href="../work/ai-explorations.html" class="mobile-drawer-link">AI Explorations</a>
-          <a href="../work/photography.html" class="mobile-drawer-link">Photography</a>
+          <a href="../work/photography.html" class="mobile-drawer-link">Photography - Through My Lens</a>
         </div>
         <div class="mobile-drawer-section">
           <p class="mobile-drawer-label">About</p>
@@ -963,6 +963,114 @@
         });
       });
     });
+  })();
+  </script>
+  <script>
+  (function() {
+    // --- Impact section: layered peek deck (mobile only — .cs-nda-peek-stage
+    // is display:none above 768px, see case-study.css). Same pattern as
+    // bharatpe.html, adapted to Syfe's 2 metrics and thumbnail color
+    // (#0f1a3d, ~226° hue) — base indigo + its true complement (amber).
+    var stage = document.getElementById('ndaPeekStage');
+    if (!stage) return;
+
+    var STATS = [
+      { num: '20%', lbl: 'Improvement in withdrawal funnel completion for Accredited Investors', color: '#1454C9' },
+      { num: '40%', lbl: 'Reduction in support tickets post investment maturity', color: '#15803D' }
+    ];
+
+    // Fan geometry per stack position (0 = front). Scale kept close to 1 —
+    // a heavily shrunk card mostly hides behind the full-size front one
+    // and only shows tiny corner slivers instead of reading as a fan.
+    // Kept roughly centered (small x) so 2 cards don't look lopsided.
+    // Cards have a generous 13%/14px margin within the stage
+    // (case-study.css) so this rotation has real room to swing without
+    // hitting the overflow:hidden clip.
+    var FAN = [
+      { x: 0, y: 0,  rot: 0,  scale: 1 },
+      { x: 8, y: 12, rot: 10, scale: 0.96 }
+    ];
+
+    var order = [0, 1];
+    var cards = [];
+
+    STATS.forEach(function(stat, i) {
+      var card = document.createElement('div');
+      card.className = 'cs-nda-peek-card';
+      card.style.background = stat.color;
+
+      var num = document.createElement('span');
+      num.className = 'cs-nda-peek-num';
+      num.textContent = stat.num;
+
+      var lbl = document.createElement('span');
+      lbl.className = 'cs-nda-peek-lbl';
+      lbl.textContent = stat.lbl;
+
+      card.appendChild(num);
+      card.appendChild(lbl);
+      cards.push(card);
+      stage.appendChild(card);
+    });
+
+    function layout() {
+      order.forEach(function(statIdx, pos) {
+        var card = cards[statIdx];
+        var f = FAN[pos];
+        card.style.zIndex = 10 - pos;
+        card.style.opacity = pos > 1 ? '0' : '1';
+        card.style.transform = 'translate(' + f.x + 'px,' + f.y + 'px) rotate(' + f.rot + 'deg) scale(' + f.scale + ')';
+      });
+    }
+
+    cards.forEach(function(card, i) {
+      var startX = 0, dragging = false;
+
+      function dismiss(dir) {
+        var frontStatIdx = order[0];
+        var front = cards[frontStatIdx];
+        front.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
+        front.style.transform = 'translate(' + (dir * 420) + 'px,-40px) rotate(' + (dir * 24) + 'deg)';
+        front.style.opacity = '0';
+        order.push(order.shift());
+        setTimeout(function() {
+          front.style.transition = 'none';
+          layout();
+          requestAnimationFrame(function() {
+            front.style.transition = 'transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease';
+          });
+        }, 400);
+      }
+
+      card.addEventListener('click', function() {
+        if (order[0] === i && !dragging) dismiss(1);
+      });
+      card.addEventListener('pointerdown', function(e) {
+        if (order[0] !== i) return;
+        dragging = true;
+        startX = e.clientX;
+        card.setPointerCapture(e.pointerId);
+      });
+      card.addEventListener('pointermove', function(e) {
+        if (!dragging || order[0] !== i) return;
+        var dx = e.clientX - startX;
+        card.style.transition = 'none';
+        card.style.transform = 'translate(' + dx + 'px,0) rotate(' + (dx / 18) + 'deg)';
+      });
+      card.addEventListener('pointerup', function(e) {
+        if (!dragging || order[0] !== i) return;
+        dragging = false;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > 60) {
+          dismiss(dx > 0 ? 1 : -1);
+        } else {
+          card.style.transition = 'transform 0.3s ease';
+          layout();
+        }
+      });
+    });
+
+    layout();
   })();
   </script>
 

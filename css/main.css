@@ -957,6 +957,13 @@ footer {
   color: #555;
 }
 
+/* Mobile-only duplicate of the arrow buttons, shown below the carousel
+   next to the dots. Hidden on desktop — the original .testimonials-nav
+   pair (top-right, next to the headline) stays exactly as it was there. */
+.testimonial-btn--mobile {
+  display: none;
+}
+
 .testimonials-progress {
   display: flex;
   gap: 6px;
@@ -986,12 +993,32 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .testimonials-section { padding: 4rem 0; }
+  .testimonials-section { padding: 2.5rem 0 4rem; }
   .testimonials-top { flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; }
-  .testimonial-card { width: calc(85vw); padding: 1.75rem; min-height: auto; gap: 1rem; }
+  .testimonial-card { flex: 0 0 calc(85vw - 1rem); width: auto; margin-right: 1rem; padding: 1.75rem; min-height: auto; gap: 1rem; }
   .testimonials-headline { font-size: 1.4rem; }
   .testimonial-headline { font-size: 1rem; }
   .testimonial-avatar { width: 44px; height: 44px; }
+
+  /* Arrows move below the carousel, next to the dots, instead of
+     top-right beside the headline. */
+  .testimonials-nav { display: none; }
+  .testimonial-btn--mobile {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  .testimonials-signifiers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 1.5rem;
+  }
+  .testimonials-progress { margin-top: 0; gap: 5px; }
+  .testimonials-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .testimonials-dot.active { width: 16px; border-radius: 3px; }
 }
 
 /* --- PHOTOGRAPHY --- */
@@ -1190,7 +1217,7 @@ footer {
   .photo-stage { height: 260px; margin-bottom: 2rem; }
   .photo-card.landscape { width: 290px; height: 195px; }
   .photo-card.portrait { width: 140px; height: 195px; }
-  .photo-headline { font-size: 1.25rem; white-space: normal; text-align: center; }
+  .photo-headline { font-size: 1.25rem; white-space: normal; text-align: center; margin-bottom: 1.5rem; }
   .photo-word-wrap { min-width: 120px; }
 }
 
@@ -1240,10 +1267,18 @@ footer {
     font-size: var(--text-base);
   }
 
+  .hero h1 {
+    font-size: clamp(24px, 7vw, 40px) !important;
+  }
+
   .work-grid {
     grid-template-columns: 1fr;
   }
 
+  footer {
+    padding: 32px 0;
+    border-top: none;
+  }
   .footer-inner {
     flex-direction: column;
     gap: var(--space-4);
@@ -1962,13 +1997,19 @@ footer {
   position: fixed;
   top: 0;
   right: 0;
-  width: 320px;
+  width: 100%;
   height: 100vh;
   background: var(--color-bg);
   border-left: 1px solid var(--color-border);
-  z-index: 9000;
+  /* Must sit above the nav bar (inline z-index:9999 in index.html) — otherwise
+     the fixed nav paints over the drawer's own header/close button when open. */
+  z-index: 10001;
   transform: translateX(100%);
-  transition: transform var(--duration-normal) var(--ease-out);
+  /* --ease-out (cubic-bezier(0.16,1,0.3,1)) front-loads almost all its motion
+     in the first frames then drifts for the rest — fine for small reveals, but
+     reads as an abrupt snap on a full-screen panel. This curve decelerates
+     more evenly across the whole 450ms for a smoother slide. */
+  transition: transform 450ms cubic-bezier(0.32, 0.72, 0, 1);
   display: flex;
   flex-direction: column;
 }
@@ -1979,11 +2020,11 @@ footer {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.3);
-  z-index: 8999;
+  z-index: 10000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--duration-normal) var(--ease-out),
-              visibility var(--duration-normal) var(--ease-out);
+  transition: opacity 450ms cubic-bezier(0.32, 0.72, 0, 1),
+              visibility 450ms cubic-bezier(0.32, 0.72, 0, 1);
   display: none;
 }
 .mobile-drawer-overlay.open {
@@ -2413,20 +2454,19 @@ body {
   font-weight: 400;
 }
 .about-hero-intro em {
-  font-style: italic;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 400;
 }
 .about-hero-dim {
-  color: var(--color-text-muted);
+  color: inherit;
 }
 @media (max-width: 768px) {
+  .about-hero-new {
+    padding: calc(var(--nav-height) + 24px) 24px 56px;
+  }
   .about-hero-new-inner {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-  .about-hero-photo {
-    width: 100%;
-    height: 360px;
   }
   .about-hero-new-text {
     padding-left: 0;
@@ -2497,8 +2537,10 @@ body {
 @media (max-width: 768px) {
   .about-values-grid {
     grid-template-columns: 1fr;
+    padding: 0 24px;
   }
   .about-values-item {
+    padding: 32px 0;
     border-right: none;
     border-bottom: 0.5px solid #e0ddd8;
   }
@@ -2514,6 +2556,21 @@ body {
   cursor: pointer;
   flex-shrink: 0;
 }
+@media (max-width: 768px) {
+  /* .about-hero-flip replaced the older .about-hero-photo markup, but this
+     rule was never updated — it's the fixed 420x560px flip card that
+     overflows any phone width until it's capped here. Placed after the
+     base rule on purpose: with equal specificity, source order decides
+     the winner regardless of the media query, so a copy placed earlier
+     in the file (as it originally was) gets silently overridden by this
+     unconditional rule below it. */
+  .about-hero-flip {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    aspect-ratio: 420 / 560;
+  }
+}
 .about-hero-flip-card {
   width: 100%;
   height: 100%;
@@ -2521,7 +2578,11 @@ body {
   transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.about-hero-flip:hover .about-hero-flip-card {
+/* Driven entirely by .is-flipped (via JS) rather than :hover — mobile
+   browsers simulate a persistent :hover after a tap until you tap
+   elsewhere, which would otherwise fight the class toggle and make a
+   second tap look like it does nothing. */
+.about-hero-flip-card.is-flipped {
   transform: rotateY(180deg);
 }
 .about-hero-flip-front,
@@ -2714,6 +2775,32 @@ body {
   .about-journey-heading {
     position: static;
   }
+  .about-journey {
+    padding: 56px 24px;
+  }
+  .about-personality {
+    padding: 56px 24px;
+  }
+  /* 120px was sized to align 3 columns on desktop — on a single stacked
+     column there's nothing to align, so it just leaves a dead gap under
+     shorter headings. */
+  .about-values-title {
+    min-height: auto;
+  }
+  /* The photo strip is 380px tall on desktop — almost half a phone
+     screen. Also: the JS force-enables native overflow-x:scroll for touch
+     dragging, which fights the CSS auto-scroll animation and turns the
+     full-bleed -100vw margin/padding into dead scrollable space once
+     overflow is no longer clipped. The animation itself stays on — it's
+     now paused/resumed on touchstart/touchend in about.html instead,
+     matching the same pattern already used for mouse drag + hover. */
+  .about-personality-photo {
+    height: 220px;
+  }
+  .about-personality-carousel {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .about-cta-new {
@@ -2801,6 +2888,21 @@ body {
 }
 .about-claude-statement span {
   color: rgba(255,255,255,0.6);
+}
+
+@media (max-width: 768px) {
+  /* Placed after the base rules on purpose — see the .about-hero-flip
+     comment above for why an earlier copy gets silently overridden. */
+  .about-cta-new {
+    padding: 56px 24px;
+  }
+  .about-cta-new-bottom {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-claude-sig {
+    padding: 0 24px 48px;
+  }
 }
 
 .coming-hero {

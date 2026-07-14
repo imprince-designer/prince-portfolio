@@ -682,8 +682,26 @@ function applyWidgetStyles() {
 
     /* === RESPONSIVE === */
     @media (max-width: 480px) {
-      #ai-widget { bottom: 20px; right: 16px; left: 16px; }
-      #ai-panel { width: 100%; border-radius: 16px; }
+      /* #ai-widget (position:fixed, z-index:9000) is #ai-panel's containing
+         stacking context — a z-index set on #ai-panel alone is scoped inside
+         that context and can never rise above the site's fixed nav bar
+         (inline z-index:9999 in index.html). #ai-widget itself has to go
+         above the nav, otherwise the whole subtree, panel included, paints
+         underneath it once the panel goes full-screen. */
+      #ai-widget { bottom: 20px; right: 16px; left: 16px; z-index: 10000; }
+      /* #ai-panel is position:fixed, so it positions against the
+         viewport, not #ai-widget — width:100% alone did nothing useful
+         while the base rule's right:32px was still active, leaving the
+         panel's right edge 32px from the screen edge and pushing the
+         rest of its full width off the left side. Explicit left/right
+         (matching #ai-widget's own margins) replaces width entirely.
+         max-height:520px (base rule) also doesn't fit shorter phones
+         once you add the 88px bottom offset — capped relative to the
+         actual viewport instead of a fixed guess. */
+      /* Full-screen takeover on mobile, edge to edge — the keyboard-aware
+         listener above still adjusts bottom live when the keyboard
+         opens, so this just changes the resting (keyboard-closed) size. */
+      #ai-panel { top: 0; left: 0; right: 0; bottom: 0; width: auto; max-height: none; height: 100%; border-radius: 0; }
       #ai-toggle-label { display: none; }
     }
   `;
@@ -780,6 +798,7 @@ function bindEvents() {
   });
 
   // Toggle panel open/close
+  const isMobile = window.matchMedia('(max-width: 480px)').matches;
   toggle.addEventListener('click', () => {
     const isOpen = panel.classList.contains('open');
     if (isOpen) {
@@ -788,7 +807,10 @@ function bindEvents() {
       panel.style.display = 'flex';
       requestAnimationFrame(() => {
         panel.classList.add('open');
-        input.focus();
+        // Auto-focusing on mobile pops the keyboard the instant the panel
+        // opens, before there's even been a chance to read the greeting —
+        // let the visitor tap the input themselves when they're ready.
+        if (!isMobile) input.focus();
       });
     }
   });
@@ -796,6 +818,20 @@ function bindEvents() {
   closeBtn.addEventListener('click', () => {
     panel.classList.remove('open');
   });
+
+  // Keep the panel above the on-screen keyboard on mobile. The panel is
+  // position:fixed with a bottom offset, which doesn't know about the
+  // keyboard — without this, the input row (and often the whole bottom
+  // half of the panel) ends up hidden behind it once the keyboard opens.
+  if (isMobile && window.visualViewport) {
+    const vv = window.visualViewport;
+    function adjustForKeyboard() {
+      const keyboardHeight = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+      panel.style.bottom = (keyboardHeight > 60 ? keyboardHeight + 8 : 20) + 'px';
+    }
+    vv.addEventListener('resize', adjustForKeyboard);
+    vv.addEventListener('scroll', adjustForKeyboard);
+  }
 
   // Send message
   function sendMessage(text) {

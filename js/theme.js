@@ -32,6 +32,13 @@ if (mobileClose) {
 if (mobileOverlay) {
   mobileOverlay.addEventListener('click', closeDrawer);
 }
+// Drawer links never closed the drawer themselves — for same-page anchor
+// links (e.g. /about.html#hire while already on about.html) this left
+// body's overflow:hidden in place, which silently blocked the browser's
+// native scroll-to-anchor.
+document.querySelectorAll('.mobile-drawer-link').forEach(link => {
+  link.addEventListener('click', closeDrawer);
+});
 function closeDrawer() {
   mobileDrawer.classList.remove('open');
   mobileOverlay.classList.remove('open');

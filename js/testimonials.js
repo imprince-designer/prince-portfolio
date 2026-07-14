@@ -1,6 +1,8 @@
 const viewport = document.querySelector('.testimonials-viewport');
 const prevBtn = document.getElementById('testimonialPrev');
 const nextBtn = document.getElementById('testimonialNext');
+const prevBtnMobile = document.getElementById('testimonialPrevMobile');
+const nextBtnMobile = document.getElementById('testimonialNextMobile');
 const dots = document.querySelectorAll('.testimonials-dot');
 
 if (viewport && typeof EmblaCarousel !== 'undefined') {
@@ -19,6 +21,8 @@ if (viewport && typeof EmblaCarousel !== 'undefined') {
 
   prevBtn.addEventListener('click', () => embla.scrollPrev());
   nextBtn.addEventListener('click', () => embla.scrollNext());
+  if (prevBtnMobile) prevBtnMobile.addEventListener('click', () => embla.scrollPrev());
+  if (nextBtnMobile) nextBtnMobile.addEventListener('click', () => embla.scrollNext());
   dots.forEach((d, i) => d.addEventListener('click', () => embla.scrollTo(i)));
 
   embla.on('select', updateDots);
